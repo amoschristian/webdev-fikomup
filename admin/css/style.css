@@ -1,0 +1,62 @@
+/* --------------------------- SIDEBAR ------------------------------ */
+.sidebar {
+	position: fixed;
+	top: 40px;
+	bottom: 0;
+	left: 0;
+	z-index: 1000;
+	display: block;
+	padding: 20px 2px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	background-color: #f5f5f5;
+	border-right: 1px solid #eee;
+	margin-bottom: 40px;
+}
+.sidebar li{
+	border-bottom: 1px dotted #eee;
+}
+.sidebar .dropdown-menu {
+	position: relative;
+	padding: 0;
+	margin-bottom: 10px;
+	background-color: #fdfdfd;
+	display: none;
+	border: none;
+	border-radius: none;
+	-webkit-box-shadow: none;
+          box-shadow: none;
+	width: 100%;
+}
+.sidebar .dropdown-menu > li > a {
+	padding: 10px 20px;
+	display: block;
+}
+.sidebar .caret{
+	float: right;
+	display: inline-block;
+	margin-top: 10px;
+}
+
+/* --------------------------- KONTENT ------------------------------ */
+.main{
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.footer{
+	background: #ccc;
+	padding: 10px;
+}
+
+
+/* --------------------------- DASHBOARD ------------------------------ */
+.dashboard-panel .panel-heading{
+	font-size: 70px;
+	line-height: 70px;
+}
+.dashboard-panel .panel-body{
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: bold;
+}

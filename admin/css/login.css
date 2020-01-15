@@ -1,0 +1,20 @@
+ body{
+	background: #000;
+}
+
+.form-login {
+	margin: 200px 0 70px 0;
+}
+.login-alert{
+	margin-top: -50px;
+}
+
+.panel, .panel-heading{
+	border-radius: 0;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+}
+
+.panel-body{
+	background: #74beff;
+}
