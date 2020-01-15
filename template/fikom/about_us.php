@@ -4,8 +4,8 @@ $folder_template = web_info('url') . '/' . folder_template();
 $css_array = [
 	"styles/bootstrap4/bootstrap.min.css",
 	"plugins/fontawesome-free-5.0.1/css/fontawesome-all.css",
-	"styles/news_post_styles.css",
-	"styles/news_post_responsive.css",
+	"styles/about_us_styles.css",
+	"styles/about_us_responsive.css",
 ];
 
 $js_array = [
@@ -26,6 +26,7 @@ $js_array = [
 
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -113,7 +114,7 @@ $js_array = [
 						</ul>
 					</div>
 
-					
+
 				</div>
 
 			</div>
@@ -139,7 +140,7 @@ $js_array = [
 
 			<div class="news_post_container">
 				<!-- News Post -->
-				<div class="konten" style="padding-left:35px; padding-right:35px;">
+				<div class="about-us-content">
 					<div class="news_post">
 						<div class="news_post_text">
 							<p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum. Etiam eu purus nec eros varius luctus. Praesent finibus risus facilisis ultricies. Etiam eu purus nec eros varius luctus. Praesent finibus risus facilisis ultricies venenatis. Suspendisse fermentum sodales lacus, lacinia gravida elit dapibus sed. Cras in lectus elit. Maecenas tempus nunc vitae mi egestas venenatis. Aliquam rhoncus, purus in vehicula porttitor, lacus ante consequat purus, id elementum enim purus nec enim. In sed odio rhoncus, tristique ipsum id, pharetra neque. </p>

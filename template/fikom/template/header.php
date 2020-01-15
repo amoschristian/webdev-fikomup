@@ -13,9 +13,9 @@
             <div class="main_nav">
                 <ul class="main_nav_list">
                     <li class="main_nav_item"><a href="/">Home</a></li>
-                    <li class="main_nav_item"><a href="/about-us">About Us</a></li>
                     <li class="main_nav_item"><a href="/event">Event</a></li>
                     <li class="main_nav_item"><a href="/news">News</a></li>
+                    <li class="main_nav_item"><a href="/about-us">About Us</a></li>
                     <li class="main_nav_item"><a href="/contact">Contact</a></li>
                 </ul>
             </div>
@@ -42,9 +42,9 @@
         <div class="menu menu_mm">
             <ul class="menu_list menu_mm">
                 <li class="menu_item menu_mm"><a href="/">Home</a></li>
-                <li class="menu_item menu_mm"><a href="/about-us">About Us</a></li>
                 <li class="menu_item menu_mm"><a href="/event">Event</a></li>
                 <li class="menu_item menu_mm"><a href="/news">News</a></li>
+                <li class="menu_item menu_mm"><a href="/about-us">About Us</a></li>
                 <li class="menu_item menu_mm"><a href="/contact">Contact</a></li>
             </ul>
 

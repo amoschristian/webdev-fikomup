@@ -53,9 +53,7 @@ include('template/meta_head.php');
 
 		<!-- Header -->
 
-		<?php 
-			include('template/header.php') 
-		?>
+		<?php include('template/header.php'); ?>
 
 		<!-- Home -->
 
@@ -145,46 +143,42 @@ include('template/meta_head.php');
 
 		<!-- Popular -->
 
-		
 
-			<div class="popular page_section">
-				<div class="container">
+
+		<div class="popular page_section">
+			<div class="container">
 
 				<!-- berita -->
-					<div class="row course_boxes">
+				<div class="row course_boxes">
 					<?php if ($detail_berita) : ?>
-								<?php foreach ($detail_berita as $berita) : ?>
-						<!-- news -->
-									<div class="col-lg-4 course_box">
-										<div class="card">
-											<img class="card-img-top" src="<?= "/media/source/" . $berita['gambar'] ?>" alt="#">
-											<div class="card-body text-center">
-												<div class="card-title"><a href="#"><?= $berita['judul']; ?></a></div>
-												<div class="card-text"><?= $berita['desc'] ?></div>
-											</div>
-											<div class="price_box d-flex flex-row align-items-center">
-												<div class="course_author_image">
-													<img src="<?= $folder_template . '/images/author.jpg' ?>" alt="#">
-												</div>
-												<div class="course_author_name">Michael Smith, <span>Author</span></div>
-												<div class="course_price d-flex flex-column align-items-center justify-content-center"><span><a href="<?= "/news/id/{$berita['id_artikel']}/{$berita['judul_seo']}"; ?>">Read More</a></span></div>
-											</div>
-										</div>
+						<?php foreach ($detail_berita as $berita) : ?>
+							<!-- news -->
+							<div class="col-lg-4 course_box">
+								<div class="card">
+									<img class="card-img-top" src="<?= "/media/source/" . $berita['gambar'] ?>" alt="#">
+									<div class="card-body text-center">
+										<div class="card-title"><a href="#"><?= $berita['judul']; ?></a></div>
+										<div class="card-text"><?= $berita['desc'] ?></div>
 									</div>
-									<?php endforeach; ?>
-									
-									<?php else : ?>
-								<h3>News not found</h3>
-							<?php endif; ?>
+									<div class="price_box d-flex flex-row align-items-center">
+										<div class="course_author_image">
+											<img src="<?= $folder_template . '/images/author.jpg' ?>" alt="#">
+										</div>
+										<div class="course_author_name">Michael Smith, <span>Author</span></div>
+										<div class="course_price d-flex flex-column align-items-center justify-content-center"><span><a href="<?= "/news/id/{$berita['id_artikel']}/{$berita['judul_seo']}"; ?>">Read More</a></span></div>
+									</div>
+								</div>
+							</div>
+						<?php endforeach; ?>
 
-							
-
-
-					</div>
+					<?php else : ?>
+						<h3>News not found</h3>
+					<?php endif; ?>
 				</div>
 			</div>
+		</div>
 
-	
+
 
 		<!-- Register -->
 
@@ -229,36 +223,32 @@ include('template/meta_head.php');
 			<div class="popular page_section">
 				<div class="container">
 
-				<!-- berita -->
+					<!-- berita -->
 					<div class="row course_boxes">
-					<?php if ($detail_berita) : ?>
-								<?php foreach ($detail_berita as $berita) : ?>
-						<!-- news -->
-									<div class="col-lg-4 course_box">
-										<div class="card">
-											<img class="card-img-top" src="<?= "/media/source/" . $berita['gambar'] ?>" alt="#">
-											<div class="card-body text-center">
-												<div class="card-title"><a href="#"><?= $berita['judul']; ?></a></div>
-												<div class="card-text"><?= $berita['desc'] ?></div>
+						<?php if ($detail_berita) : ?>
+							<?php foreach ($detail_berita as $berita) : ?>
+								<!-- news -->
+								<div class="col-lg-4 course_box">
+									<div class="card">
+										<img class="card-img-top" src="<?= "/media/source/" . $berita['gambar'] ?>" alt="#">
+										<div class="card-body text-center">
+											<div class="card-title"><a href="#"><?= $berita['judul']; ?></a></div>
+											<div class="card-text"><?= $berita['desc'] ?></div>
+										</div>
+										<div class="price_box d-flex flex-row align-items-center">
+											<div class="course_author_image">
+												<img src="<?= $folder_template . '/images/author.jpg' ?>" alt="#">
 											</div>
-											<div class="price_box d-flex flex-row align-items-center">
-												<div class="course_author_image">
-													<img src="<?= $folder_template . '/images/author.jpg' ?>" alt="#">
-												</div>
-												<div class="course_author_name">Michael Smith, <span>Author</span></div>
-												<div class="course_price d-flex flex-column align-items-center justify-content-center"><span><a href="<?= "/news/id/{$berita['id_artikel']}/{$berita['judul_seo']}"; ?>">Read More</a></span></div>
-											</div>
+											<div class="course_author_name">Michael Smith, <span>Author</span></div>
+											<div class="course_price d-flex flex-column align-items-center justify-content-center"><span><a href="<?= "/news/id/{$berita['id_artikel']}/{$berita['judul_seo']}"; ?>">Read More</a></span></div>
 										</div>
 									</div>
-									<?php endforeach; ?>
-									
-									<?php else : ?>
-								<h3>News not found</h3>
-							<?php endif; ?>
+								</div>
+							<?php endforeach; ?>
 
-							
-
-
+						<?php else : ?>
+							<h3>News not found</h3>
+						<?php endif; ?>
 					</div>
 				</div>
 			</div>
@@ -362,36 +352,36 @@ include('template/meta_head.php');
 					<!-- Event Item -->
 					<?php if ($detail_event) : ?>
 						<?php foreach ($detail_event as $event) : ?>
-					<div class="row event_item">
-						<div class="col">
-							<div class="row d-flex flex-row align-items-end">
+							<div class="row event_item">
+								<div class="col">
+									<div class="row d-flex flex-row align-items-end">
 
-								<div class="col-lg-2 order-lg-1 order-2">
-									<div class="event_date d-flex flex-column align-items-center justify-content-center">
-										<div class="event_day"><?= date('d', strtotime($event['tanggal'])) ?></div>
-										<div class="event_month"><?= print_tanggal($event['tanggal'], "%b") ?></div>
-										<div class="event_year"><?= date('Y', strtotime($event['tanggal'])) ?></div>
+										<div class="col-lg-2 order-lg-1 order-2">
+											<div class="event_date d-flex flex-column align-items-center justify-content-center">
+												<div class="event_day"><?= date('d', strtotime($event['tanggal'])) ?></div>
+												<div class="event_month"><?= print_tanggal($event['tanggal'], "%b") ?></div>
+												<div class="event_year"><?= date('Y', strtotime($event['tanggal'])) ?></div>
+											</div>
+										</div>
+
+										<div class="col-lg-6 order-lg-2 order-3">
+											<div class="event_content">
+												<div class="event_name"><a class="trans_200" href="<?= "/event/id/{$event['id_event']}/{$event['judul_seo']}"; ?>"><?= $event['judul'] ?></a></div>
+												<div class="event_location"><?= $event['lokasi'] ?></div>
+												<p><?= $event['isi'] ?></p>
+											</div>
+										</div>
+
+										<div class="col-lg-4 order-lg-3 order-1">
+											<div class="event_image">
+												<img src="<?= print_image($event['gambar']); ?>">
+											</div>
+										</div>
+
 									</div>
 								</div>
-
-								<div class="col-lg-6 order-lg-2 order-3">
-									<div class="event_content">
-										<div class="event_name"><a class="trans_200" href="<?= "/event/id/{$event['id_event']}/{$event['judul_seo']}"; ?>"><?= $event['judul'] ?></a></div>
-										<div class="event_location"><?= $event['lokasi'] ?></div>
-										<p><?= $event['isi'] ?></p>
-									</div>
-								</div>
-
-								<div class="col-lg-4 order-lg-3 order-1">
-									<div class="event_image">
-										<img src="<?= "/media/source/{$event['gambar']}" ?>" alt="#">
-									</div>
-								</div>
-
 							</div>
-						</div>
-					</div>
-					<?php endforeach; ?>
+						<?php endforeach; ?>
 					<?php else : ?>
 						<h3><?= $title_head ?> not found</h3>
 					<?php endif; ?>

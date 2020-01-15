@@ -37,11 +37,7 @@ $css_array = array_merge($css_array, $extra_css);
 ?>
 
 <head>
-    <title>Fikom UP</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Fikom UP">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?php meta_header(); ?>
     <?php
     foreach ($css_array as $css) {
         $css_link = $folder_template . '/' . $css;

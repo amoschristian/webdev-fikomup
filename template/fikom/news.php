@@ -61,9 +61,6 @@ while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
 								<?php foreach ($detail_berita as $berita) : ?>
 									<!-- News Post -->
 									<div class="news_post">
-										<div class="news_post_image">
-											<img src="<?= "/media/source/" . $berita['gambar'] ?>">
-										</div>
 										<div class="news_post_top d-flex flex-column flex-sm-row">
 											<div class="news_post_date_container">
 												<div class="news_post_date d-flex flex-column align-items-center justify-content-center">
@@ -81,6 +78,9 @@ while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
 												<span class="news_post_comments"><a href="#">2019-05-04</a></span>
 											</div> -->
 											</div>
+										</div>
+										<div class="news_post_image">
+											<img src="<?= "/media/source/" . $berita['gambar'] ?>">
 										</div>
 										<div class="news_post_text">
 											<p><?= $berita['desc'] ?></p>

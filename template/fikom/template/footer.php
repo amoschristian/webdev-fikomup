@@ -31,11 +31,11 @@ $folder_template = web_info('url') . '/' . folder_template();
                     <div class="footer_column_title">Menu</div>
                     <div class="footer_column_content">
                         <ul>
-                            <li class="footer_list_item"><a href="#">Home</a></li>
-                            <li class="footer_list_item"><a href="#">About Us</a></li>
-                            <li class="footer_list_item"><a href="#">Courses</a></li>
-                            <li class="footer_list_item"><a href="news.html">News</a></li>
-                            <li class="footer_list_item"><a href="contact.html">Contact</a></li>
+                            <li class="footer_list_item"><a href="/">Home</a></li>
+                            <li class="footer_list_item"><a href="/event">Event</a></li>
+                            <li class="footer_list_item"><a href="/news">News</a></li>
+                            <li class="footer_list_item"><a href="/about-us">About Us</a></li>
+                            <li class="footer_list_item"><a href="/contact">Contact</a></li>
                         </ul>
                     </div>
                 </div>
@@ -76,7 +76,8 @@ $folder_template = web_info('url') . '/' . folder_template();
                             <li class="footer_contact_item">
                                 <div class="footer_contact_icon">
                                     <img src="<?= $folder_template . '/images/envelope.svg' ?>" alt="https://www.flaticon.com/authors/lucy-g">
-                                </div>hello@company.com
+                                </div>
+                                hello@company.com
                             </li>
                         </ul>
                     </div>

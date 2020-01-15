@@ -6,6 +6,7 @@ include "library/config.php";
 include "library/function_date.php";
 include "library/function_antiinjection.php";
 include "library/function_template.php";
+include "library/function_image.php";
 
 GLOBAL $module;
 
