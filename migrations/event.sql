@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `event`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `event` (
-  `id_event` int(10) NOT NULL,
+  `id_event` int(10) NOT NULL AUTO_INCREMENT,
   `judul` varchar(255) COLLATE latin1_general_ci NOT NULL,
   `judul_seo` varchar(100) COLLATE latin1_general_ci NOT NULL,
   `isi` text COLLATE latin1_general_ci NOT NULL,
@@ -37,7 +37,7 @@ CREATE TABLE `event` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id_event`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -46,7 +46,7 @@ CREATE TABLE `event` (
 
 LOCK TABLES `event` WRITE;
 /*!40000 ALTER TABLE `event` DISABLE KEYS */;
-INSERT INTO `event` VALUES (0,'Test Event','test-event','<p>Test Event</p>','sapi.jpg','1991-02-13 13:00:00','Gelora Bung Karno',1,11,'entertainment',0,'2020-01-10 11:51:25','2020-01-13 21:48:31');
+INSERT INTO `event` VALUES (1,'Test Event','test-event','<p>Test Event</p>','sapi.jpg','1991-02-13 13:00:00','Gelora Bung Karno',1,11,'entertainment',0,'2020-01-10 11:51:25','2020-01-13 21:48:31'),(2,'Test Event 2','test-event-2','','','2020-01-16 21:40:00','Gelora Bung Karno',1,5,'',0,'2020-01-15 21:43:23',NULL);
 /*!40000 ALTER TABLE `event` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -59,4 +59,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-14 12:01:05
+-- Dump completed on 2020-01-15 21:48:43

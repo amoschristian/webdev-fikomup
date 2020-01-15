@@ -78,7 +78,7 @@ while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
 
 										<div class="col-lg-4 order-lg-3 order-1">
 											<div class="event_image">
-												<img src="<?= "/media/source/{$event['gambar']}" ?>" alt="#">
+												<img src="<?= print_image($event['gambar']); ?>">
 											</div>
 										</div>
 
