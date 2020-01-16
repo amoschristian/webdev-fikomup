@@ -1,21 +1,31 @@
 <header class="header d-flex flex-row">
     <div class="header_content d-flex flex-row align-items-center">
         <!-- Logo -->
-        <div class="logo_container">
-            <div class="logo">
-
-                <span style="color:orange;">Logo</span>
-            </div>
-        </div>
+       
 
         <!-- Main Navigation -->
-        <nav class="main_nav_container">
+        <nav class="main_nav_container2">
             <div class="main_nav">
                 <ul class="main_nav_list">
                     <li class="main_nav_item"><a href="/">Home</a></li>
                     <li class="main_nav_item"><a href="/event">Event</a></li>
                     <li class="main_nav_item"><a href="/news">News</a></li>
+               
+                </ul>
+            </div>
+        </nav>
+
+        <div class="logo_container">
+            <div class="logo">
+            <a href="http://localhost/webdev-fikomup"><img src="<?= $folder_template . '/images/logo_fikomup.png' ?>" alt="logo/brand"></a>
+            </div>
+        </div>
+
+        <nav class="main_nav_container">
+            <div class="main_nav">
+                <ul class="main_nav_list">
                     <li class="main_nav_item"><a href="/about-us">About Us</a></li>
+                    <li class="main_nav_item"><a href="/partners">Partners</a></li>
                     <li class="main_nav_item"><a href="/contact">Contact</a></li>
                 </ul>
             </div>
