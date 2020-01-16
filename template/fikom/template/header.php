@@ -25,7 +25,7 @@
             <div class="main_nav">
                 <ul class="main_nav_list">
                     <li class="main_nav_item"><a href="/about-us">About Us</a></li>
-                    <li class="main_nav_item"><a href="/partners">Partners</a></li>
+                    <li class="main_nav_item"><a href="#">Partners</a></li>
                     <li class="main_nav_item"><a href="/contact">Contact</a></li>
                 </ul>
             </div>

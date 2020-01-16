@@ -21,6 +21,20 @@ switch ($module) {
         ];
         break;
 
+    case 'about_us':
+        $extra_css = [
+            "styles/about_us_styles.css",
+            "styles/about_us_responsive.css"
+        ];
+        break;
+
+    case 'contact':
+        $extra_css = [
+            "styles/contact_styles.css",
+            "styles/contact_responsive.css"
+            ];
+        break;
+
     case 'event':
         $extra_css = [
             "styles/news_styles.css",

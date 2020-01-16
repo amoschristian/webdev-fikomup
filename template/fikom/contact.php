@@ -1,46 +1,14 @@
 <?php
 $folder_template = web_info('url') . '/' . folder_template();
 
-$css_array = [
-	"styles/bootstrap4/bootstrap.min.css",
-	"plugins/fontawesome-free-5.0.1/css/fontawesome-all.css",
-	"styles/contact_styles.css",
-	"styles/contact_responsive.css",
-];
-
-$js_array = [
-	"js/jquery-3.2.1.min.js",
-	"styles/bootstrap4/popper.js",
-	"styles/bootstrap4/bootstrap.min.js",
-	"plugins/greensock/TweenMax.min.js",
-	"plugins/greensock/TimelineMax.min.js",
-	"plugins/scrollmagic/ScrollMagic.min.js",
-	"plugins/greensock/animation.gsap.min.js",
-	"plugins/greensock/ScrollToPlugin.min.js",
-	"plugins/scrollTo/jquery.scrollTo.min.js",
-	"https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA",
-	"plugins/easing/easing.js",
-	"js/contact_custom.js",
-
-];
-
-
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-	<title>Course - Contact</title>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="description" content="Fikom UP">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<?php
-	foreach ($css_array as $css) {
-		$css_link = $folder_template . '/' . $css;
-		echo "<link rel='stylesheet' type='text/css' href='$css_link'>";
-	}
+<?php
+	include('template/meta_head.php');
 	?>
 </head>
 
