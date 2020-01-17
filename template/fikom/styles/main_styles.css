@@ -331,6 +331,11 @@ section {
   margin-left: auto;
   padding-right: 93px;
 }
+.main_nav_container2 {
+  display: inline-block;
+  margin-right: auto;
+  padding-left: 93px;
+}
 .main_nav {
   margin-top: 7px;
 }

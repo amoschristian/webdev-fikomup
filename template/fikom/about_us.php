@@ -1,30 +1,5 @@
 <?php
 $folder_template = web_info('url') . '/' . folder_template();
-
-$css_array = [
-	"styles/bootstrap4/bootstrap.min.css",
-	"plugins/fontawesome-free-5.0.1/css/fontawesome-all.css",
-	"styles/about_us_styles.css",
-	"styles/about_us_responsive.css",
-];
-
-$js_array = [
-	"js/jquery-3.2.1.min.js",
-	"styles/bootstrap4/popper.js",
-	"styles/bootstrap4/bootstrap.min.js",
-	"plugins/greensock/TweenMax.min.js",
-	"plugins/greensock/TimelineMax.min.js",
-	"plugins/scrollmagic/ScrollMagic.min.js",
-	"plugins/greensock/animation.gsap.min.js",
-	"plugins/greensock/ScrollToPlugin.min.js",
-	"plugins/scrollTo/jquery.scrollTo.min.js",
-	"plugins/easing/easing.js",
-	"js/news_post_custom.js",
-
-
-];
-
-
 ?>
 
 
@@ -32,16 +7,8 @@ $js_array = [
 <html lang="en">
 
 <head>
-	<title>Course - News Post</title>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="description" content="Fikom UP">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php
-	foreach ($css_array as $css) {
-		$css_link = $folder_template . '/' . $css;
-		echo "<link rel='stylesheet' type='text/css' href='$css_link'>";
-	}
+	include('template/meta_head.php');
 	?>
 </head>
 
@@ -50,38 +17,9 @@ $js_array = [
 	<div class="super_container">
 
 		<!-- Header -->
+		<?php include('template/header.php'); ?>
 
-		<header class="header d-flex flex-row">
-			<div class="header_content d-flex flex-row align-items-center">
-				<!-- Logo -->
-				<div class="logo_container">
-					<div class="logo">
-
-						<span style="color:orange;">Logo</span>
-					</div>
-				</div>
-
-				<!-- Main Navigation -->
-				<nav class="main_nav_container">
-					<div class="main_nav">
-						<ul class="main_nav_list">
-							<li class="main_nav_item"><a href="/">Home</a></li>
-							<li class="main_nav_item"><a href="/about-us">About Us</a></li>
-							<li class="main_nav_item"><a href="/event">Event</a></li>
-							<li class="main_nav_item"><a href="/news">News</a></li>
-							<li class="main_nav_item"><a href="/contact">Contact</a></li>
-						</ul>
-					</div>
-				</nav>
-			</div>
-
-
-			<!-- Hamburger -->
-			<div class="hamburger_container">
-				<i class="fas fa-bars trans_200"></i>
-			</div>
-
-		</header>
+		
 
 		<!-- Menu -->
 		<div class="menu_container menu_mm">

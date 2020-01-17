@@ -65,7 +65,7 @@ include('template/meta_head.php');
 
 					<!-- Hero Slide -->
 					<div class="hero_slide">
-						<div class="hero_slide_background" style="background-image:url(<?= $folder_template . '/images/slider_background.jpg' ?>)"></div>
+						<div class="hero_slide_background" style="background-image:url(<?= $folder_template . '/images/slider_1.jpg' ?>)"></div>
 						<div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
 							<div class="hero_slide_content text-center">
 								<h1 data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut">Welcome to <span>FikomUP</span> </h1>
@@ -75,7 +75,7 @@ include('template/meta_head.php');
 
 					<!-- Hero Slide -->
 					<div class="hero_slide">
-						<div class="hero_slide_background" style="background-image:url(<?= $folder_template . '/images/slider_background.jpg' ?>)"></div>
+						<div class="hero_slide_background" style="background-image:url(<?= $folder_template . '/images/slider_2.jpg' ?>)"></div>
 						<div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
 							<div class="hero_slide_content text-center">
 								<h1 data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut">Welcome to <span>FikomUP</h1>
@@ -85,7 +85,7 @@ include('template/meta_head.php');
 
 					<!-- Hero Slide -->
 					<div class="hero_slide">
-						<div class="hero_slide_background" style="background-image:url(<?= $folder_template . '/images/slider_background.jpg' ?>)"></div>
+						<div class="hero_slide_background" style="background-image:url(<?= $folder_template . '/images/slider_3.jpg' ?>)"></div>
 						<div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
 							<div class="hero_slide_content text-center">
 								<h1 data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut">Welcome to <span>FikomUP</h1>
