@@ -17,7 +17,7 @@
 
         <div class="logo_container">
             <div class="logo">
-            <a href="http://localhost/webdev-fikomup"><img src="<?= $folder_template . '/images/logo_fikomup.png' ?>" alt="logo/brand"></a>
+                <a href="/"><img src="<?= $folder_template . '/images/logo_fikomup.png' ?>" alt="logo/brand"></a>
             </div>
         </div>
 
