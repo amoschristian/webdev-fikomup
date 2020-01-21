@@ -310,7 +310,7 @@ section {
 
 .logo_container {
   display: inline-block;
-  padding-left: 76px;
+  padding-left: 16px;
 }
 .logo span {
   font-family: 'Open Sans', sans-serif;
@@ -1338,7 +1338,17 @@ input:last-of-type {
   margin-bottom: 20px;
 }
 
-.logo {
+.logo_partner {
   width: 10%;
   margin-left: 20px;
+}
+
+.des_container {
+  display: block;
+  font-weight: 600;
+  color: black;
+  font-size: 20px;
+  width: 24%;
+  padding-left: 20px;
+  font-family: 'Rubik';
 }

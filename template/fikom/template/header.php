@@ -1,32 +1,31 @@
+<link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
 <header class="header d-flex flex-row">
     <div class="header_content d-flex flex-row align-items-center">
         <!-- Logo -->
-       
-
-        <!-- Main Navigation -->
-        <nav class="main_nav_container2">
-            <div class="main_nav">
-                <ul class="main_nav_list">
-                    <li class="main_nav_item"><a href="/">Home</a></li>
-                    <li class="main_nav_item"><a href="/event">Event</a></li>
-                    <li class="main_nav_item"><a href="/news">News</a></li>
-               
-                </ul>
-            </div>
-        </nav>
-
         <div class="logo_container">
             <div class="logo">
                 <a href="/"><img src="<?= $folder_template . '/images/logo_fikomup.png' ?>" alt="logo/brand"></a>
+               
             </div>
+            
         </div>
 
+        <div class="des_container">
+        <span>Fakultas Komunikasi</span>
+        <span>Universitas Pancasila</span>
+        </div>
+
+        <!-- Main Navigation -->
         <nav class="main_nav_container">
             <div class="main_nav">
                 <ul class="main_nav_list">
+                    <li class="main_nav_item"><a href="/">Admissions</a></li>
+                    <li class="main_nav_item"><a href="/event">Event</a></li>
+                    <li class="main_nav_item"><a href="/news">Publications</a></li>
                     <li class="main_nav_item"><a href="/about-us">About Us</a></li>
                     <li class="main_nav_item"><a href="#">Partners</a></li>
                     <li class="main_nav_item"><a href="/contact">Contact</a></li>
+               
                 </ul>
             </div>
         </nav>
