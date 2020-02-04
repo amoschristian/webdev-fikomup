@@ -65,81 +65,23 @@ include('template/meta_head.php');
 
 					<!-- Hero Slide -->
 					<div class="hero_slide">
-						<div class="hero_slide_background" style="background-image:url(<?= $folder_template . '/images/slider_1.jpg' ?>)"></div>
-						<div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
-							<div class="hero_slide_content text-center">
-								<h1 data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut">Welcome to <span>FikomUP</span> </h1>
-							</div>
-						</div>
+						<canvas id="canvas"></canvas>
+						<div class="welcome">Welcome to <strong>FikomUP</strong></div>
+						<div class="learn">Get More Informations</div>
+						<div class="vd-yt">&#9664;video</div>
 					</div>
 
-					<!-- Hero Slide -->
-					<div class="hero_slide">
-						<div class="hero_slide_background" style="background-image:url(<?= $folder_template . '/images/slider_2.jpg' ?>)"></div>
-						<div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
-							<div class="hero_slide_content text-center">
-								<h1 data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut">Welcome to <span>FikomUP</h1>
-							</div>
-						</div>
-					</div>
-
-					<!-- Hero Slide -->
-					<div class="hero_slide">
-						<div class="hero_slide_background" style="background-image:url(<?= $folder_template . '/images/slider_3.jpg' ?>)"></div>
-						<div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
-							<div class="hero_slide_content text-center">
-								<h1 data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut">Welcome to <span>FikomUP</h1>
-							</div>
-						</div>
-					</div>
+					
+					
 
 				</div>
 
-				<div class="hero_slider_left hero_slider_nav trans_200"><span class="trans_200"><</span></div>
-				<div class="hero_slider_right hero_slider_nav trans_200"><span class="trans_200">></span></div>
+				
 			</div>
 
 		</div>
 
-		<div class="hero_boxes">
-			<div class="hero_boxes_inner">
-				<div class="container">
-					<div class="row">
-
-						<div class="col-lg-4 hero_box_col">
-							<div class="hero_box d-flex flex-row align-items-center justify-content-start">
-								<img src="<?= $folder_template . '/images/earth-globe.svg' ?>" class="svg" alt="">
-								<div class="hero_box_content">
-									<h2 class="hero_box_title">Site Map</h2>
-									<a href="#" class="hero_box_link">view more</a>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-4 hero_box_col">
-							<div class="hero_box d-flex flex-row align-items-center justify-content-start">
-								<img src="<?= $folder_template . '/images/books.svg' ?>" class="svg" alt="">
-								<div class="hero_box_content">
-									<h2 class="hero_box_title">Download</h2>
-									<a href="#" class="hero_box_link">view more</a>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-4 hero_box_col">
-							<div class="hero_box d-flex flex-row align-items-center justify-content-start">
-								<img src="<?= $folder_template . '/images/professor.svg' ?>" class="svg" alt="">
-								<div class="hero_box_content">
-									<h2 class="hero_box_title">Visi & Misi</h2>
-									<a href="#" class="hero_box_link">view more</a>
-								</div>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</div>
-		</div>
+		
 
 		<!-- Popular -->
 
@@ -403,6 +345,152 @@ include('template/meta_head.php');
 
 	<?php include('template/meta_footer.php'); ?>
 
+
+<script>
+	
+var canvas = document.querySelector("#canvas"),
+    ctx = canvas.getContext('2d');
+
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+
+var config = {
+  particleNumber: 800,
+  maxParticleSize: 10,
+  maxSpeed: 40,
+  colorVariation: 50
+};
+
+
+var colorPalette = {
+    bg: {r:255,g:255,b:255,a:1},
+    matter: [
+      {r:36,g:18,b:42}, 
+      {r:78,g:36,b:42}, 
+      {r:252,g:178,b:96}, 
+      {r:253,g:238,b:152} 
+    ]
+};
+
+
+var particles = [],
+    centerX = canvas.width / 2,
+    centerY = canvas.height / 2,
+    drawBg,
+
+
+drawBg = function (ctx, color) {
+    ctx.fillStyle = "rgb(" + color.r + "," + color.g + "," + color.b + ")";
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+};
+
+
+var Particle = function (x, y) {
+    
+    this.x = x || Math.round(Math.random() * canvas.width);
+    
+    this.y = y || Math.round(Math.random() * canvas.height);
+    
+    this.r = Math.ceil(Math.random() * config.maxParticleSize);
+    
+    this.c = colorVariation(colorPalette.matter[Math.floor(Math.random() * colorPalette.matter.length)],true );
+    
+    this.s = Math.pow(Math.ceil(Math.random() * config.maxSpeed), .7);
+    
+    this.d = Math.round(Math.random() * 360);
+};
+
+
+var colorVariation = function (color, returnString) {
+    var r,g,b,a, variation;
+    r = Math.round(((Math.random() * config.colorVariation) - (config.colorVariation/2)) + color.r);
+    g = Math.round(((Math.random() * config.colorVariation) - (config.colorVariation/2)) + color.g);
+    b = Math.round(((Math.random() * config.colorVariation) - (config.colorVariation/2)) + color.b);
+    a = Math.random() + .5;
+    if (returnString) {
+        return "rgba(" + r + "," + g + "," + b + "," + a + ")";
+    } else {
+        return {r,g,b,a};
+    }
+};
+
+
+var updateParticleModel = function (p) {
+    var a = 180 - (p.d + 90); // find the 3rd angle
+    p.d > 0 && p.d < 180 ? p.x += p.s * Math.sin(p.d) / Math.sin(p.s) : p.x -= p.s * Math.sin(p.d) / Math.sin(p.s);
+    p.d > 90 && p.d < 270 ? p.y += p.s * Math.sin(a) / Math.sin(p.s) : p.y -= p.s * Math.sin(a) / Math.sin(p.s);
+    return p;
+};
+
+
+var drawParticle = function (x, y, r, c) {
+    ctx.beginPath();
+    ctx.fillStyle = c;
+    ctx.arc(x, y, r, 0, 2*Math.PI, false);
+    ctx.fill();
+    ctx.closePath();
+};
+
+
+var cleanUpArray = function () {
+    particles = particles.filter((p) => { 
+      return (p.x > -100 && p.y > -100); 
+    });
+};
+
+
+var initParticles = function (numParticles, x, y) {
+    for (let i = 0; i < numParticles; i++) {
+        particles.push(new Particle(x, y));
+    }
+    particles.forEach((p) => {
+        drawParticle(p.x, p.y, p.r, p.c);
+    });
+};
+
+
+window.requestAnimFrame = (function() {
+  return window.requestAnimationFrame ||
+     window.webkitRequestAnimationFrame ||
+     window.mozRequestAnimationFrame ||
+     function(callback) {
+        window.setTimeout(callback, 1000 / 60);
+     };
+})();
+
+
+
+var frame = function () {
+  
+  drawBg(ctx, colorPalette.bg);
+ 
+  particles.map((p) => {
+    return updateParticleModel(p);
+  });
+  
+  particles.forEach((p) => {
+      drawParticle(p.x, p.y, p.r, p.c);
+  });
+  
+  window.requestAnimFrame(frame);
+};
+
+
+document.body.addEventListener("click", function (event) {
+    var x = event.clientX,
+        y = event.clientY;
+    cleanUpArray();
+    initParticles(config.particleNumber, x, y);
+});
+
+
+frame();
+
+
+initParticles(config.particleNumber);
+</script>
 </body>
 
 </html>

@@ -27,4 +27,5 @@ if (in_array($content, $page)) {
 }
 
 include $not_found_file;
+
 ?>

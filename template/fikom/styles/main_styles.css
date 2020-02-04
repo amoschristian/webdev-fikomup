@@ -1352,3 +1352,42 @@ input:last-of-type {
   padding-left: 20px;
   font-family: 'Rubik';
 }
+
+.welcome {
+  display: inline-block;
+  padding: 0.3em;
+  font-family: cursive;
+  font-size: 6rem;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  user-select: none;
+  transform: translate(-50%, -50%);
+  color: rgb(0, 0, 0);
+}
+
+.learn {
+  display: inline-block;
+  font-family: fantasy;
+  padding: 0.3em;
+  font-size: 3rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  user-select: none;
+  transform: translate(-50%, -50%);
+  color: rgb(0, 0, 0);
+}
+
+.vd-yt {
+  display: inline-block;
+  padding: 0.3em;
+  font-size: 2rem;
+  position: absolute;
+  top: 57%;
+  left: 50%;
+  user-select: none;
+  transform: translate(-50%, -50%);
+  color: rgb(0, 0, 0);
+  border: 0.075em solid rgba(223, 119, 50, 0.979);
+}
