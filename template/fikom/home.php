@@ -66,9 +66,15 @@ include('template/meta_head.php');
 					<!-- Hero Slide -->
 					<div class="hero_slide">
 						<canvas id="canvas"></canvas>
-						<div class="welcome">Welcome to <strong>FikomUP</strong></div>
+						<div class="welcome">Welcome to <strong style="color: orange;">FikomUP</strong></div>
 						<div class="learn">Get More Informations</div>
-						<div class="vd-yt">&#9664;video</div>
+						
+						<button class="vd-yt" id="show-video"><i class="fa fa-play-circle" area-hidden="true"> &nbsp</i>video </button>
+						<div class="mfp-hide mfp-hide-hidden" style="max-width: 75%; margin: 0 auto;">
+						<div class="closer-bar"><span>X</span> </div>
+						<iframe width="760" height="515" src="https://www.youtube.com/embed/39Ru65BLgP4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</div>
+
 					</div>
 
 					
@@ -78,6 +84,56 @@ include('template/meta_head.php');
 
 				
 			</div>
+
+			<div class="hero_boxes">
+			<div class="hero_boxes_inner">
+				<div class="container">
+					<div class="row">
+
+					<div class="col-lg-3 hero_box_col" style="text-align: -webkit-center;">
+							<div class="hero_box flex-row align-items-center justify-content-start" style="background: #841b24;">
+								<img src="<?= $folder_template . '/images/binoculars.svg' ?>" class="svg" alt="">
+								<div class="hero_box_content">
+									<h2 class="hero_box_title">Vision</h2>
+									
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-3 hero_box_col" style="text-align: -webkit-center;">
+							<div class="hero_box flex-row align-items-center justify-content-start" style="background: #8f9622;">
+								<img src="<?= $folder_template . '/images/earth-globe.svg' ?>" class="svg" alt="">
+								<div class="hero_box_content">
+									<h2 class="hero_box_title">Site Map</h2>
+								
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-3 hero_box_col" style="text-align: -webkit-center;">
+							<div class="hero_box flex-row align-items-center justify-content-start" style="background: #8c7022">
+								<img src="<?= $folder_template . '/images/books.svg' ?>" class="svg" alt="">
+								<div class="hero_box_content">
+									<h2 class="hero_box_title">Download</h2>
+									
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-3 hero_box_col" style="text-align: -webkit-center;">
+							<div class="hero_box flex-row align-items-center justify-content-start" style="background: #531263">
+								<img src="<?= $folder_template . '/images/professor.svg' ?>" class="svg" alt="">
+								<div class="hero_box_content">
+									<h2 class="hero_box_title">Course</h2>
+									
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
 
 		</div>
 
@@ -347,7 +403,7 @@ include('template/meta_head.php');
 
 
 <script>
-	
+
 var canvas = document.querySelector("#canvas"),
     ctx = canvas.getContext('2d');
 
@@ -490,6 +546,18 @@ frame();
 
 
 initParticles(config.particleNumber);
+</script>
+<script>
+
+const toggleVideo = () => {
+	document.querySelector('.mfp-hide')
+	.classList.toggle('mfp-hide-hidden');
+};
+
+document.querySelector('#show-video')
+	.addEventListener('click', toggleVideo);
+	
+
 </script>
 </body>
 

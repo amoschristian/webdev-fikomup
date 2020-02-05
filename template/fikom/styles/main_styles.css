@@ -718,11 +718,12 @@ section {
   width: 100%;
 }
 .hero_box {
-  width: 100%;
+  width: 65%;
   height: 161px;
   background: #1a1a1a;
-  padding-left: 50px;
+  padding-top: 24px;
   cursor: pointer;
+  border-radius: 50%;
 }
 .hero_box:hover {
   background: #ffb606;
@@ -743,7 +744,6 @@ section {
   fill: #ffffff;
 }
 .hero_box_content {
-  padding-left: 13px;
   padding-top: 11px;
   margin-top: -6px;
 }
@@ -1390,4 +1390,28 @@ input:last-of-type {
   transform: translate(-50%, -50%);
   color: rgb(0, 0, 0);
   border: 0.075em solid rgba(223, 119, 50, 0.979);
+}
+
+.mfp-hide {
+  display: inline-block;
+  padding: 0.3em;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  user-select: none;
+  transform: translate(-50%, -50%);
+  background-color: #000000;
+  padding: 4rem 4rem;
+}
+.mfp-hide-hidden {
+  display: none;
+}
+
+.closer-bar {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: -3rem;
+  margin-top: -3rem;
+  cursor: pointer;
+  color: #ffffff;
 }
