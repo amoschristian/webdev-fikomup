@@ -43,8 +43,8 @@
   font-weight: 600;
   color: black;
   font-size: 22px;
-  width: 24%;
-  font-family: 'Rubik';
+  width: 18%;
+  font-family: 'Archivo Narrow', sans-serif;
   padding-left: 0px;
 }
 .logo img {
@@ -115,8 +115,8 @@
     font-weight: 600;
     color: black;
     font-size: 22px;
-    width: 24%;
-    font-family: 'Rubik';
+    width: 18%;
+    font-family: 'Archivo Narrow', sans-serif;
     padding-left: 0px;
   }
   .logo img {
@@ -141,8 +141,8 @@
     font-weight: 600;
     color: black;
     font-size: 14px;
-    width: 22%;
-    font-family: 'Rubik';
+    width: 16%;
+    font-family: 'Archivo Narrow', sans-serif;
     padding-left: 0px;
   }
 
@@ -194,7 +194,7 @@
     color: black;
     font-size: 25px;
     width: 52%;
-    font-family: 'Rubik';
+    font-family: 'Archivo Narrow', sans-serif;
     padding-left: 0px;
   }
   .logo img {
@@ -329,7 +329,7 @@
     color: black;
     font-size: 13px;
     width: 52%;
-    font-family: 'Rubik';
+    font-family: 'Archivo Narrow', sans-serif;
     padding-left: 0px;
   }
   .logo img {
