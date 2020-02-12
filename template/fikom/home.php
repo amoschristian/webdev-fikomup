@@ -70,7 +70,7 @@ include('template/meta_head.php');
 					<!-- Hero Slide -->
 					<div class="hero_slide">
 					<div id="particles-js">
-</div> 
+</div>
 					
 						<div class="welcome">Welcome to <strong style="color: orange;">FikomUP</strong></div>
 						<div class="learn">Get More Informations</div>
@@ -415,7 +415,7 @@ function launchParticlesJS(a,e){var i=document.querySelector("#"+a+" > canvas");
 
 particlesJS('particles-js', {
   particles: {
-    color: '#fff',
+    color: '#ffb606',
     shape: 'circle',
     opacity: 1,
     size: 4,
@@ -424,8 +424,8 @@ particlesJS('particles-js', {
     line_linked: {
       enable_auto: true,
       distance: 100,
-      color: '#fff',
-      opacity: 1,
+      color: '#ffb606',
+      opacity: 1.3,
       width: 1,
       condensed_mode: {
         enable: false,
