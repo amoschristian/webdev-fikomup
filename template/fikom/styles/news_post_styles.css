@@ -254,7 +254,7 @@ section {
 
 .header {
   position: fixed;
-  top: 45px;
+  top: 15px;
   left: 50%;
   -webkit-transform: translateX(-50%);
   -moz-transform: translateX(-50%);

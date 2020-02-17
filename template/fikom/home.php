@@ -42,9 +42,6 @@ while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
 
 <!DOCTYPE html>
 <html lang="en">
-<link href="https://fonts.googleapis.com/css?family=Odibee+Sans&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Dancing+Script|Odibee+Sans&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Libre+Franklin&display=swap" rel="stylesheet">
 
 
 <?php
@@ -68,8 +65,8 @@ include('template/meta_head.php');
 				<!-- Hero Slide -->
 				<div class="hero_slide">
 				<div id="particles-js"></div>				
-					<div class="welcome">Welcome to <strong style="color: #FF4F00;">FIKom.UP</strong></div>
-					<div class="learn">Get More Informations</div>
+					<div class="welcome">Welcome to <strong style="color: #FF4F00;">FIKom UP</strong></div>
+					<!-- <div class="learn">Get More Informations</div> -->
 					
 					<!-- <button class="vd-yt" id="show-video"><i class="fa fa-play-circle" area-hidden="true"> &nbsp</i>video </button>
 					<div class="mfp-hide mfp-hide-hidden" style="max-width: 75%; margin: 0 auto;">
@@ -156,7 +153,7 @@ include('template/meta_head.php');
 					<?php endforeach; ?>
 					<?php else : ?>
 						<h3>News not found</h3>
-					<?php endif; ?>
+				<?php endif; ?>
 				</div>
 			</div>
 		</div>
@@ -233,7 +230,7 @@ include('template/meta_head.php');
 				<div class="row">
 					<div class="col">
 						<div class="section_title text-center">
-							<h1>FIKom.UP on Twitter</h1>
+							<h1>FIKom UP on Twitter</h1>
 						</div>
 					</div>
 				</div>
@@ -382,10 +379,10 @@ particlesJS('particles-js', {
     opacity: 1,
     size: 4,
     size_random: true,
-    nb: 150,
+    nb: 75,
     line_linked: {
       enable_auto: true,
-      distance: 250,
+      distance: 200,
       color: '#FF4F00',
       opacity: 1,
       width: 1,
@@ -397,11 +394,11 @@ particlesJS('particles-js', {
     },
     anim: {
       enable: true,
-      speed: 3
+      speed: 8
     }
   },
   interactivity: {
-    enable: true,
+    enable: false,
     mouse: {
       distance: 400
     },

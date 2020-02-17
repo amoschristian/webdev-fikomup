@@ -48,7 +48,7 @@
   text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
 }
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Libre Franklin', sans-serif;
   font-size: 14px;
   font-weight: 400;
   background: #ffffff;
@@ -66,7 +66,7 @@ ul {
   margin-bottom: 0px;
 }
 p {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Libre Franklin', sans-serif;
   font-size: 1.25rem !important;
   line-height: 2.29;
   font-weight: 400;
@@ -136,7 +136,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Libre Franklin', sans-serif;
   -webkit-font-smoothing: antialiased;
   -webkit-text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
   text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
@@ -254,7 +254,7 @@ section {
 
 .header {
   position: fixed;
-  top: 45px;
+  top: 15px;
   left: 50%;
   -webkit-transform: translateX(-50%);
   -moz-transform: translateX(-50%);
@@ -302,7 +302,7 @@ section {
   padding-left: 76px;
 }
 .logo span {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Libre Franklin', sans-serif;
   font-size: 30px;
   font-weight: 900;
   color: #3a3a3a;
@@ -331,7 +331,7 @@ section {
   margin-right: 0px;
 }
 .main_nav_item a {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Libre Franklin', sans-serif;
   font-size: 14px;
   text-transform: uppercase;
   font-weight: 700;
@@ -449,7 +449,7 @@ section {
   margin-bottom: 9px;
 }
 .menu_item a {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Libre Franklin', sans-serif;
   font-size: 36px;
   font-weight: 700;
   color: #3a3a3a;
@@ -1152,7 +1152,40 @@ section {
 /*********************************
 12. Custom
 *********************************/
+.about_menu_item a {
+  font-size: 16px;
+  font-weight: bold;
+  color: #1a1a1a;
+}
+
+.about_menu_item_sub {
+  margin-left: 10%;
+}
+
+.about_menu_item_sub a {
+  font-size: 16px;
+  color: #1a1a1a;
+}
+
+.about_menu_item_sub.active a{
+  color: #f44f00 !important;
+  font-weight: bold;
+}
+
 .about-us-content {
-  padding-left:30%; 
-  padding-right:30%;
+  color: #1a1a1a;
+}
+
+.about-us-content ul {
+  list-style: square;
+  color: #1a1a1a;
+}
+
+.about-us-content ul li{
+  margin-bottom: 20px;
+  color: #1a1a1a;
+}
+
+p.news_post_quote_text {
+  font-size: 2rem !important;
 }

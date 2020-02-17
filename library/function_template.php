@@ -52,7 +52,6 @@ function meta_header(){
 		
 		<link rel="shortcut icon" href="'.$icon.'" />		
 		<link rel="stylesheet" type="text/css" href="'.web_info('url').'/plugin/bootstrap/css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="'.web_info('url').'/'.folder_template().'/css/style.css">
 		
 		<script type="text/javascript" src="'.web_info('url').'/plugin/jquery/jquery-2.0.2.min.js"></script>
 		<script src="https://www.google.com/recaptcha/api.js"></script>';	

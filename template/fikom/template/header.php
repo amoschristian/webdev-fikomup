@@ -20,7 +20,7 @@
             <div class="main_nav">
                 <ul class="main_nav_list">
                     <li class="main_nav_item"><a href="/">Admissions</a></li>
-                    <li class="main_nav_item"><a href="#">Course</a></li>
+                    <li class="main_nav_item"><a href="#">Courses</a></li>
                     <li class="main_nav_item"><a href="/event">Events</a></li>
                     <li class="main_nav_item"><a href="/news">Publications</a></li>
                     <li class="main_nav_item"><a href="/about-us">About Us</a></li>
@@ -51,7 +51,7 @@
         <div class="menu menu_mm">
             <ul class="menu_list menu_mm">
                 <li class="menu_item menu_mm"><a href="/">Admissions</a></li>
-                <li class="menu_item menu_mm"><a href="#">Course</a></li>
+                <li class="menu_item menu_mm"><a href="#">Courses</a></li>
                 <li class="menu_item menu_mm"><a href="/event">Events</a></li>
                 <li class="menu_item menu_mm"><a href="/news">Publications</a></li>
                 <li class="menu_item menu_mm"><a href="/about-us">About Us</a></li>
@@ -71,7 +71,7 @@
                 </ul>
             </div>
 
-            <div class="menu_copyright menu_mm">FIKom.UP</div>
+            <div class="menu_copyright menu_mm">FIKom UP</div>
         </div>
 
     </div>

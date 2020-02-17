@@ -58,4 +58,8 @@ $css_array = array_merge($css_array, $extra_css);
         echo "<link rel='stylesheet' type='text/css' href='$css_link'>";
     }
     ?>
+
+    <link href="https://fonts.googleapis.com/css?family=Odibee+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Odibee+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Libre+Franklin&display=swap" rel="stylesheet">
 </head>

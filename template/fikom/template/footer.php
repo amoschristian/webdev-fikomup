@@ -32,7 +32,7 @@ $folder_template = web_info('url') . '/' . folder_template();
                     <div class="footer_column_content">
                         <ul>
                             <li class="footer_list_item"><a href="/">Admissions</a></li>
-                            <li class="footer_list_item"><a href="#">Course</a></li>
+                            <li class="footer_list_item"><a href="#">Courses</a></li>
                             <li class="footer_list_item"><a href="/event">Events</a></li>
                             <li class="footer_list_item"><a href="/news">Publications</a></li>
                             <li class="footer_list_item"><a href="/about-us">About Us</a></li>
@@ -70,7 +70,7 @@ $folder_template = web_info('url') . '/' . folder_template();
                                 <div class="footer_contact_icon">
                                     <i class="fab fa-instagram"></i>
                                 </div>
-                                Instagram
+                                @fikomup
                             </li>
                         </ul>
                     </div>
@@ -99,17 +99,17 @@ $folder_template = web_info('url') . '/' . folder_template();
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     Copyright &copy;<script>
                         document.write(new Date().getFullYear());
-                    </script> FIKom.UP</a>
+                    </script> FIKom UP</a>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></span>
             </div>
             <div class="footer_social ml-sm-auto">
-                <ul class="menu_social">
+                <!-- <ul class="menu_social">
                     <li class="menu_social_item"><a href="#"><i class="fab fa-pinterest"></i></a></li>
                     <li class="menu_social_item"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
                     <li class="menu_social_item"><a href="#"><i class="fab fa-instagram"></i></a></li>
                     <li class="menu_social_item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                     <li class="menu_social_item"><a href="#"><i class="fab fa-twitter"></i></a></li>
-                </ul>
+                </ul> -->
             </div>
         </div>
 

@@ -37,11 +37,9 @@ while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
 		<!-- Home -->
 
 		<div class="home">
-			<div class="home_background_container prlx_parent">
-				<div class="home_background prlx" style="background-image:url(<?= $folder_template . '/images/news_background.jpg' ?>)"></div>
-			</div>
+			<?php include('template/particle.php'); ?>
 			<div class="home_content">
-				<h1>News</h1>
+				<h1>Publications</h1>
 			</div>
 		</div>
 

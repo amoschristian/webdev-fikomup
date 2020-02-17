@@ -18,6 +18,12 @@ $page    = array('home', 'about_us', 'news', 'event', 'contact', 'event_detail',
 $module = $content;
 
 $not_found_file = folder_template() . '/404.php';
+
+if ($content == 'about_us') { //if about us, use special case
+    GLOBAL $sub_page;
+    $sub_page =  (isset($_GET['tag'])) ? str_replace('-', '_', $_GET['tag']) : "history";
+}
+
 if (in_array($content, $page)) {
     $template_file = folder_template() . '/' . $content . '.php';
     if (file_exists($template_file)) {
