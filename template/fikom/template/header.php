@@ -11,7 +11,7 @@
         </div>
 
         <div class="des_container">
-        <span>Fakultas Komunikasi</span>
+        <span>Faculty of Communication</span>
         <span>Universitas Pancasila</span>
         </div>
 
@@ -20,12 +20,12 @@
             <div class="main_nav">
                 <ul class="main_nav_list">
                     <li class="main_nav_item"><a href="/">Admissions</a></li>
-                    <li class="main_nav_item"><a href="/event">Event</a></li>
+                    <li class="main_nav_item"><a href="#">Course</a></li>
+                    <li class="main_nav_item"><a href="/event">Events</a></li>
                     <li class="main_nav_item"><a href="/news">Publications</a></li>
                     <li class="main_nav_item"><a href="/about-us">About Us</a></li>
                     <li class="main_nav_item"><a href="#">Partners</a></li>
                     <li class="main_nav_item"><a href="/contact">Contact</a></li>
-               
                 </ul>
             </div>
         </nav>
@@ -50,10 +50,12 @@
     <div class="menu_inner menu_mm">
         <div class="menu menu_mm">
             <ul class="menu_list menu_mm">
-                <li class="menu_item menu_mm"><a href="/">Home</a></li>
-                <li class="menu_item menu_mm"><a href="/event">Event</a></li>
-                <li class="menu_item menu_mm"><a href="/news">News</a></li>
+                <li class="menu_item menu_mm"><a href="/">Admissions</a></li>
+                <li class="menu_item menu_mm"><a href="#">Course</a></li>
+                <li class="menu_item menu_mm"><a href="/event">Events</a></li>
+                <li class="menu_item menu_mm"><a href="/news">Publications</a></li>
                 <li class="menu_item menu_mm"><a href="/about-us">About Us</a></li>
+                <li class="menu_item menu_mm"><a href="#">Partners</a></li>
                 <li class="menu_item menu_mm"><a href="/contact">Contact</a></li>
             </ul>
 
@@ -69,9 +71,8 @@
                 </ul>
             </div>
 
-            <div class="menu_copyright menu_mm">FikomUP</div>
+            <div class="menu_copyright menu_mm">FIKom.UP</div>
         </div>
 
     </div>
-
 </div>

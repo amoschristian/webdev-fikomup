@@ -44,7 +44,7 @@ while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
 <html lang="en">
 <link href="https://fonts.googleapis.com/css?family=Odibee+Sans&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Odibee+Sans&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css?family=Libre+Franklin&display=swap" rel="stylesheet">
 
 
 <?php
@@ -65,38 +65,25 @@ include('template/meta_head.php');
 
 			<!-- Hero Slider -->
 			<div class="hero_slider_container">
-				
-
-					<!-- Hero Slide -->
-					<div class="hero_slide">
-					<div id="particles-js">
-</div>
+				<!-- Hero Slide -->
+				<div class="hero_slide">
+				<div id="particles-js"></div>				
+					<div class="welcome">Welcome to <strong style="color: #FF4F00;">FIKom.UP</strong></div>
+					<div class="learn">Get More Informations</div>
 					
-						<div class="welcome">Welcome to <strong style="color: orange;">FikomUP</strong></div>
-						<div class="learn">Get More Informations</div>
-						
-						<button class="vd-yt" id="show-video"><i class="fa fa-play-circle" area-hidden="true"> &nbsp</i>video </button>
-						<div class="mfp-hide mfp-hide-hidden" style="max-width: 75%; margin: 0 auto;">
-						<div class="closer-bar"><span>X</span> </div>
-						<iframe width="760" height="515" src="https://www.youtube.com/embed/39Ru65BLgP4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						</div>
-
-					</div>
-
-					
-					
-
-				
-
-				
+					<!-- <button class="vd-yt" id="show-video"><i class="fa fa-play-circle" area-hidden="true"> &nbsp</i>video </button>
+					<div class="mfp-hide mfp-hide-hidden" style="max-width: 75%; margin: 0 auto;">
+					<div class="closer-bar"><span>X</span> </div>
+					<iframe width="760" height="515" src="https://www.youtube.com/embed/39Ru65BLgP4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div> -->
+				</div>
 			</div>
 
 			<div class="hero_boxes">
 			<div class="hero_boxes_inner">
 				<div class="container">
 					<div class="row">
-
-					<div class="col-lg-3 hero_box_col" style="text-align: -webkit-center;">
+						<!-- <div class="col-lg-3 hero_box_col" style="text-align: -webkit-center;">
 							<div class="hero_box flex-row align-items-center justify-content-start" style="background: #841b24;">
 								<img src="<?= $folder_template . '/images/binoculars.svg' ?>" class="svg" alt="">
 								<div class="hero_box_content">
@@ -134,47 +121,39 @@ include('template/meta_head.php');
 									
 								</div>
 							</div>
-						</div>
-
+						</div> -->
 					</div>
 				</div>
 			</div>
 		</div>
-
 		</div>
 
-		
-
 		<!-- Popular -->
-
-
-
 		<div class="popular page_section">
 			<div class="container">
 
-				<!-- berita -->
+			<!-- berita -->
 				<div class="row course_boxes">
-					<?php if ($detail_berita) : ?>
-						<?php foreach ($detail_berita as $berita) : ?>
-							<!-- news -->
-							<div class="col-lg-4 course_box">
-								<div class="card">
-									<img class="card-img-top" src="<?= "/media/source/" . $berita['gambar'] ?>" alt="#">
-									<div class="card-body text-center">
-										<div class="card-title"><a href="#"><?= $berita['judul']; ?></a></div>
-										<div class="card-text"><?= $berita['desc'] ?></div>
+				<?php if ($detail_berita) : ?>
+					<?php foreach ($detail_berita as $berita) : ?>
+						<!-- news -->
+						<div class="col-lg-4 course_box">
+							<div class="card">
+								<img class="card-img-top" src="<?= "/media/source/" . $berita['gambar'] ?>" alt="#">
+								<div class="card-body text-center">
+									<div class="card-title"><a href="#"><?= $berita['judul']; ?></a></div>
+									<div class="card-text"><?= $berita['desc'] ?></div>
+								</div>
+								<div class="price_box d-flex flex-row align-items-center">
+									<div class="course_author_image">
+										<img src="<?= $folder_template . '/images/author.jpg' ?>" alt="#">
 									</div>
-									<div class="price_box d-flex flex-row align-items-center">
-										<div class="course_author_image">
-											<img src="<?= $folder_template . '/images/author.jpg' ?>" alt="#">
-										</div>
-										<div class="course_author_name">Michael Smith, <span>Author</span></div>
-										<div class="course_price d-flex flex-column align-items-center justify-content-center"><span><a href="<?= "/news/id/{$berita['id_artikel']}/{$berita['judul_seo']}"; ?>">Read More</a></span></div>
-									</div>
+									<div class="course_author_name">Michael Smith, <span>Author</span></div>
+									<div class="course_price d-flex flex-column align-items-center justify-content-center"><span><a href="<?= "/news/id/{$berita['id_artikel']}/{$berita['judul_seo']}"; ?>">Read More</a></span></div>
 								</div>
 							</div>
-						<?php endforeach; ?>
-
+						</div>
+					<?php endforeach; ?>
 					<?php else : ?>
 						<h3>News not found</h3>
 					<?php endif; ?>
@@ -182,53 +161,38 @@ include('template/meta_head.php');
 			</div>
 		</div>
 
-
-
 		<!-- Register -->
 
-		<div class="register">
-
+		<div class="register page_section">
 			<div class="container-fluid">
-
 				<div class="row row-eq-height">
-
-
 					<!-- Register -->
 
 					<div class="register_section d-flex flex-column align-items-center justify-content-center">
 						<div class="register_content text-center">
-							<h1 class="register_title">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h1>
+							<h1 class="register_title">Faculty of Communication Universitas Pancasila</h1>
 
 							<div class="button button_1 register_button mx-auto trans_200"><a href="#">Learn More</a></div>
 						</div>
 					</div>
-
-
-
-
 				</div>
 			</div>
 		</div>
 
 		<!-- News -->
 
-		<div class="services page_section">
+		<div class="news page_section">
+				<div class="container">
 
-			<div class="container">
 				<div class="row">
 					<div class="col">
 						<div class="section_title text-center">
-							<h1>News</h1>
+							<h1>Publications</h1>
 						</div>
 					</div>
 				</div>
-			</div>
 
-			<div class="popular page_section">
-				<div class="container">
-
-					<!-- berita -->
-					<div class="row course_boxes">
+				<div class="event_items">
 						<?php if ($detail_berita) : ?>
 							<?php foreach ($detail_berita as $berita) : ?>
 								<!-- news -->
@@ -257,8 +221,6 @@ include('template/meta_head.php');
 				</div>
 			</div>
 
-		</div>
-
 		<!-- Testimonials -->
 
 		<div class="testimonials page_section">
@@ -271,7 +233,7 @@ include('template/meta_head.php');
 				<div class="row">
 					<div class="col">
 						<div class="section_title text-center">
-							<h1>FikomUP on Twitter</h1>
+							<h1>FIKom.UP on Twitter</h1>
 						</div>
 					</div>
 				</div>
@@ -415,7 +377,7 @@ function launchParticlesJS(a,e){var i=document.querySelector("#"+a+" > canvas");
 
 particlesJS('particles-js', {
   particles: {
-    color: '#ffb606',
+    color: '#FF4F00',
     shape: 'circle',
     opacity: 1,
     size: 4,
@@ -423,9 +385,9 @@ particlesJS('particles-js', {
     nb: 150,
     line_linked: {
       enable_auto: true,
-      distance: 100,
-      color: '#ffb606',
-      opacity: 1.3,
+      distance: 250,
+      color: '#FF4F00',
+      opacity: 1,
       width: 1,
       condensed_mode: {
         enable: false,
@@ -435,18 +397,18 @@ particlesJS('particles-js', {
     },
     anim: {
       enable: true,
-      speed: 1
+      speed: 3
     }
   },
   interactivity: {
     enable: true,
     mouse: {
-      distance: 250
+      distance: 400
     },
     detect_on: 'canvas', 
     mode: 'grab',
     line_linked: {
-      opacity: .5
+      opacity: .75
     },
     events: {
       onclick: {

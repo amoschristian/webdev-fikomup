@@ -371,7 +371,7 @@ section
 }
 .main_nav_item a:hover
 {
-	color: #ffb606;
+	color: #FF4F00;
 }
 
 /*********************************
@@ -382,7 +382,7 @@ section
 {
 	width: 279px;
 	height: 100%;
-	background: #ffb606;
+	background: #FF4F00;
 }
 .header_side img
 {
@@ -424,7 +424,7 @@ section
 }
 .hamburger_container:hover i
 {
-	color: #ffb606;
+	color: #FF4F00;
 }
 
 /*********************************
@@ -502,7 +502,7 @@ section
 }
 .menu_item a:hover
 {
-	color: #ffb606;
+	color: #FF4F00;
 }
 .menu_close_container
 {
@@ -549,7 +549,7 @@ section
 .menu_close_container:hover .menu_close,
 .menu_close_container:hover .menu_close::after
 {
-	background: #ffb606;
+	background: #FF4F00;
 }
 
 /*********************************
@@ -587,7 +587,7 @@ section
 }
 .menu_social_item a i:hover
 {
-	color: #ffb606;
+	color: #FF4F00;
 }
 .menu_container.active .menu_social_container
 {
@@ -664,7 +664,7 @@ section
 	-ms-transform: translateX(-50%);
 	-o-transform: translateX(-50%);
 	transform: translateX(-50%);
-	background: #ffb606;
+	background: #FF4F00;
 	padding-top: 24px;
 	padding-bottom: 18px;
 	padding-left: 39px;
@@ -713,7 +713,7 @@ section
 	width: 55px;
 	height: 4px;
 	content: '';
-	background: #ffb606;
+	background: #FF4F00;
 }
 
 /*********************************
@@ -763,7 +763,7 @@ section
 }
 .button_color_1
 {
-	background: #ffb606;
+	background: #FF4F00;
 }
 .button_color_1 a
 {
@@ -780,11 +780,11 @@ section
 .button_line_1
 {
 	background: transparent;
-	border: solid 2px #ffb606;
+	border: solid 2px #FF4F00;
 }
 .button_line_1 a
 {
-	color: #ffb606;
+	color: #FF4F00;
 }
 .button_line_2
 {
@@ -859,12 +859,12 @@ section
 }
 .accordion.active
 {
-	background: #ffb606;
+	background: #FF4F00;
 	color: #FFFFFF;
 }
 .accordion:active
 {
-	background: #ffb606 !important;
+	background: #FF4F00 !important;
 	color: #FFFFFF;
 }
 .accordion::after
@@ -883,7 +883,7 @@ section
 	width: 62px;
 	height: 100%;
 	content: '+';
-	background: #ffb606;
+	background: #FF4F00;
 	font-size: 14px;
 	color: #FFFFFF;
 	font-weight: 500;
@@ -1001,7 +1001,7 @@ section
 {
 	font-size: 36px;
 	font-weight: 500;
-	color: #ffb606;
+	color: #FF4F00;
 	line-height: 1;
 	margin-top: 41px;
 }
@@ -1085,7 +1085,7 @@ section
 }
 .footer_social .menu_social_item a i:hover
 {
-	color: #ffb606;
+	color: #FF4F00;
 }
 .footer_social .menu_social_item:last-child
 {

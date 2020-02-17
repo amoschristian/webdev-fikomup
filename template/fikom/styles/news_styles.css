@@ -347,7 +347,7 @@ section {
   transition: all 200ms ease;
 }
 .main_nav_item a:hover {
-  color: #ffb606;
+  color: #FF4F00;
 }
 
 /*********************************
@@ -357,7 +357,7 @@ section {
 .header_side {
   width: 279px;
   height: 100%;
-  background: #ffb606;
+  background: #FF4F00;
 }
 .header_side img {
   width: 29px;
@@ -394,7 +394,7 @@ section {
   color: #3a3a3a;
 }
 .hamburger_container:hover i {
-  color: #ffb606;
+  color: #FF4F00;
 }
 
 /*********************************
@@ -464,7 +464,7 @@ section {
   transition: all 200ms ease;
 }
 .menu_item a:hover {
-  color: #ffb606;
+  color: #FF4F00;
 }
 .menu_close_container {
   position: absolute;
@@ -507,7 +507,7 @@ section {
 }
 .menu_close_container:hover .menu_close,
 .menu_close_container:hover .menu_close::after {
-  background: #ffb606;
+  background: #FF4F00;
 }
 
 /*********************************
@@ -540,7 +540,7 @@ section {
   color: #3a3a3a;
 }
 .menu_social_item a i:hover {
-  color: #ffb606;
+  color: #FF4F00;
 }
 .menu_container.active .menu_social_container {
   -webkit-transform: translateY(0px);
@@ -610,7 +610,7 @@ section {
   -ms-transform: translateX(-50%);
   -o-transform: translateX(-50%);
   transform: translateX(-50%);
-  background: #ffb606;
+  background: #FF4F00;
   padding-top: 24px;
   padding-bottom: 18px;
   padding-left: 39px;
@@ -653,7 +653,7 @@ section {
   width: 55px;
   height: 4px;
   content: '';
-  background: #ffb606;
+  background: #FF4F00;
 }
 
 /*********************************
@@ -706,7 +706,7 @@ section {
 .news_post_date {
   width: 68px;
   height: 68px;
-  background: #ffb606;
+  background: #FF4F00;
 }
 .news_post_date div:first-child {
   font-size: 24px;
@@ -767,7 +767,7 @@ section {
 .news_post_button {
   width: 188px;
   height: 53px;
-  background: #ffb606;
+  background: #FF4F00;
   margin-top: 18px;
 }
 .news_post_button a {
@@ -793,10 +793,10 @@ section {
   margin-right: 3px;
 }
 .news_page_nav ul li.active {
-  background: #ffb606;
+  background: #FF4F00;
 }
 .news_page_nav ul li:hover {
-  background: #ffb606;
+  background: #FF4F00;
 }
 .news_page_nav ul li a {
   display: block;
@@ -841,7 +841,7 @@ section {
   color: #a5a5a5;
 }
 .sidebar_list_item a:hover {
-  color: #ffb606;
+  color: #FF4F00;
 }
 .latest_posts {
   margin-top: 50px;
@@ -900,7 +900,7 @@ section {
 }
 .tag {
   height: 40px;
-  background: #ffb606;
+  background: #FF4F00;
   margin-right: 12px;
   margin-bottom: 10px;
 }
@@ -948,13 +948,13 @@ section {
   color: #1a1a1a;
 }
 .newsletter_email:focus {
-  outline: solid 2px #ffb606;
+  outline: solid 2px #FF4F00;
 }
 .newsletter_submit_btn {
   width: 164px;
   height: 42px;
   border: none;
-  background: #ffb606;
+  background: #FF4F00;
   color: #ffffff;
   font-size: 14px;
   font-weight: 500;
@@ -1006,7 +1006,7 @@ section {
   transition: all 200ms ease;
 }
 .footer_list_item a:hover {
-  color: #ffb606;
+  color: #FF4F00;
 }
 .footer_contact_item {
   font-size: 14px;
@@ -1040,7 +1040,7 @@ section {
   color: #ffffff;
 }
 .footer_social .menu_social_item a i:hover {
-  color: #ffb606;
+  color: #FF4F00;
 }
 .footer_social .menu_social_item:last-child {
   margin-right: 0px;

@@ -17,11 +17,11 @@ $folder_template = web_info('url') . '/' . folder_template();
                     <div class="logo_container">
                         <div class="logo">
 
-                            <span>Logo</span>
+                            <span><img src="/media/source/fikomup_logo.png" style="width:150px; height:100px"></img></span>
                         </div>
                     </div>
 
-                    <p class="footer_about_text">In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum, tempor lacus.</p>
+                    <p class="footer_about_text">Faculty of Communication Universitas Pancasila</p>
 
                 </div>
 
@@ -31,26 +31,13 @@ $folder_template = web_info('url') . '/' . folder_template();
                     <div class="footer_column_title">Menu</div>
                     <div class="footer_column_content">
                         <ul>
-                            <li class="footer_list_item"><a href="/">Home</a></li>
-                            <li class="footer_list_item"><a href="/event">Event</a></li>
-                            <li class="footer_list_item"><a href="/news">News</a></li>
+                            <li class="footer_list_item"><a href="/">Admissions</a></li>
+                            <li class="footer_list_item"><a href="#">Course</a></li>
+                            <li class="footer_list_item"><a href="/event">Events</a></li>
+                            <li class="footer_list_item"><a href="/news">Publications</a></li>
                             <li class="footer_list_item"><a href="/about-us">About Us</a></li>
+                            <li class="footer_list_item"><a href="#">Partners</a></li>
                             <li class="footer_list_item"><a href="/contact">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Footer Column - Usefull Links -->
-
-                <div class="col-lg-3 footer_col">
-                    <div class="footer_column_title">Usefull Links</div>
-                    <div class="footer_column_content">
-                        <ul>
-                            <li class="footer_list_item"><a href="#">Testimonials</a></li>
-                            <li class="footer_list_item"><a href="#">FAQ</a></li>
-                            <li class="footer_list_item"><a href="#">Community</a></li>
-                            <li class="footer_list_item"><a href="#">Campus Pictures</a></li>
-                            <li class="footer_list_item"><a href="#">Tuitions</a></li>
                         </ul>
                     </div>
                 </div>
@@ -63,22 +50,40 @@ $folder_template = web_info('url') . '/' . folder_template();
                         <ul>
                             <li class="footer_contact_item">
                                 <div class="footer_contact_icon">
-                                    <img src="<?= $folder_template . '/images/placeholder.svg' ?>" alt="https://www.flaticon.com/authors/lucy-g">
+                                    <i class="fas fa-map-marker-alt"></i>
                                 </div>
-                                Jl.ignum lorem bla bla
+                                Jl. Srengseng Sawah, Jagakarsa, Jakarta Selatan, 12640
                             </li>
                             <li class="footer_contact_item">
                                 <div class="footer_contact_icon">
-                                    <img src="<?= $folder_template . '/images/smartphone.svg' ?>" alt="https://www.flaticon.com/authors/lucy-g">
+                                    <i class="fas fa-phone"></i>
                                 </div>
-                                0034 37483 2445 322
+                                021-7870451
                             </li>
                             <li class="footer_contact_item">
                                 <div class="footer_contact_icon">
-                                    <img src="<?= $folder_template . '/images/envelope.svg' ?>" alt="https://www.flaticon.com/authors/lucy-g">
+                                    <i class="far fa-envelope"></i>
                                 </div>
-                                hello@company.com
+                                univpancasila.ac.id
                             </li>
+                            <li class="footer_contact_item">
+                                <div class="footer_contact_icon">
+                                    <i class="fab fa-instagram"></i>
+                                </div>
+                                Instagram
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <!-- Footer Column - Language -->
+                <div class="col-lg-3 footer_col">
+                    <div class="footer_column_title">Language</div>
+                    <div class="footer_column_content">
+                        <ul>
+                            <li class="footer_list_item"><i class="fa fa-language" aria-hidden="true"></i> <a href="#">English</a></li>
+                            <li class="footer_list_item"><i class="fa fa-language" aria-hidden="true"></i> <a href="#">Bahasa Indonesia</a></li>
                         </ul>
                     </div>
                 </div>
@@ -94,7 +99,7 @@ $folder_template = web_info('url') . '/' . folder_template();
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     Copyright &copy;<script>
                         document.write(new Date().getFullYear());
-                    </script> FikomUp</a>
+                    </script> FIKom.UP</a>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></span>
             </div>
             <div class="footer_social ml-sm-auto">
