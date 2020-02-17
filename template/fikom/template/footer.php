@@ -58,13 +58,13 @@ $folder_template = web_info('url') . '/' . folder_template();
                                 <div class="footer_contact_icon">
                                     <i class="fas fa-phone"></i>
                                 </div>
-                                021-7870451
+                                021-787 0451
                             </li>
                             <li class="footer_contact_item">
                                 <div class="footer_contact_icon">
                                     <i class="far fa-envelope"></i>
                                 </div>
-                                univpancasila.ac.id
+                                fikomup@univpancasila.ac.id
                             </li>
                             <li class="footer_contact_item">
                                 <div class="footer_contact_icon">
