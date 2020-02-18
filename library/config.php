@@ -2,12 +2,11 @@
 /* Membuat variabel, ubah sesuai dengan nama host dan database pada hosting */
 $host	= "localhost";
 $user	= "root";
-$pass	= "root";
-$port   = "8889";
+$pass	= "";
 $db		= "db_fikomup";
 
 //Menggunakan objek mysqli untuk membuat koneksi dan menyimpanya dalam variabel $mysqli	//
-$mysqli = new mysqli($host, $user, $pass, $db, $port);
+$mysqli = new mysqli($host, $user, $pass, $db);
 
 //Menentukan timezone //
 date_default_timezone_set('Asia/Jakarta'); 

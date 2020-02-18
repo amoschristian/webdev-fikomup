@@ -34,7 +34,22 @@
 
 @media only screen and (max-width: 1440px) {
 }
-
+.logo_container {
+  padding-left: 9px;
+  width: 12%;
+}
+.des_container {
+  display: block;
+  font-weight: 600;
+  color: black;
+  font-size: 22px;
+  width: 18%;
+  font-family: 'Archivo Narrow', sans-serif;
+  padding-left: 0px;
+}
+.logo img {
+  width: 67%;
+}
 /************
 3. 1380px
 ************/
@@ -91,6 +106,22 @@
   .search_content {
     width: 442px;
   }
+  .logo_container {
+    padding-left: 9px;
+    width: 12%;
+  }
+  .des_container {
+    display: block;
+    font-weight: 600;
+    color: black;
+    font-size: 22px;
+    width: 18%;
+    font-family: 'Archivo Narrow', sans-serif;
+    padding-left: 0px;
+  }
+  .logo img {
+    width: 79%;
+  }
 }
 
 /************
@@ -100,6 +131,27 @@
 @media only screen and (max-width: 1199px) {
   .hero_box {
     padding-left: 20px;
+  }
+  .logo_container {
+    padding-left: 9px;
+    width: 14%;
+  }
+  .des_container {
+    display: block;
+    font-weight: 600;
+    color: black;
+    font-size: 14px;
+    width: 16%;
+    font-family: 'Archivo Narrow', sans-serif;
+    padding-left: 0px;
+  }
+
+  .main_nav_item a {
+    font-size: 11px;
+  }
+
+  .logo img {
+    width: 75%;
   }
 }
 
@@ -133,7 +185,20 @@
   }
 
   .logo_container {
+    padding-left: 9px;
+    width: 24%;
+  }
+  .des_container {
+    display: block;
+    font-weight: 600;
+    color: black;
+    font-size: 25px;
+    width: 52%;
+    font-family: 'Archivo Narrow', sans-serif;
     padding-left: 0px;
+  }
+  .logo img {
+    width: 66%;
   }
   .hamburger_container {
     display: block;
@@ -255,10 +320,20 @@
     display: none;
   }
   .logo_container {
+    padding-left: 9px;
+    width: 24%;
+  }
+  .des_container {
+    display: block;
+    font-weight: 600;
+    color: black;
+    font-size: 13px;
+    width: 52%;
+    font-family: 'Archivo Narrow', sans-serif;
     padding-left: 0px;
   }
   .logo img {
-    width: 82px;
+    width: 80%;
   }
   .logo span {
     font-size: 16px;

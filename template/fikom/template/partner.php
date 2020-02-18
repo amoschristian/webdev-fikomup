@@ -12,12 +12,12 @@ $folder_template = web_info('url') . '/' . folder_template();
             </div>
         </div>
         <div class="medpart">
-            <img class="logo" src="<?= $folder_template . '/images/logo1.png' ?>">
-            <img class="logo" src="<?= $folder_template . '/images/logo2.png' ?>">
-            <img class="logo" src="<?= $folder_template . '/images/logo3.png' ?>">
-            <img class="logo" src="<?= $folder_template . '/images/logo1.png' ?>">
-            <img class="logo" src="<?= $folder_template . '/images/logo2.png' ?>">
-            <img class="logo" src="<?= $folder_template . '/images/logo3.png' ?>">
+            <img class="logo_partner" src="<?= $folder_template . '/images/logo1.png' ?>">
+            <img class="logo_partner" src="<?= $folder_template . '/images/logo2.png' ?>">
+            <img class="logo_partner" src="<?= $folder_template . '/images/logo3.png' ?>">
+            <img class="logo_partner" src="<?= $folder_template . '/images/logo1.png' ?>">
+            <img class="logo_partner" src="<?= $folder_template . '/images/logo2.png' ?>">
+            <img class="logo_partner" src="<?= $folder_template . '/images/logo3.png' ?>">
         </div>
     </div>
 </div>

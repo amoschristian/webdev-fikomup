@@ -38,10 +38,13 @@ while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
 	$detail_event[$data['id_event']] = $data;
 	$detail_event[$data['id_event']]['desc'] = $text_pendek;
 }
+
+$json_config = $folder_template . "/plugins/particlesjs/assets/config.json";
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 
 <?php
 include('template/meta_head.php');
@@ -61,170 +64,134 @@ include('template/meta_head.php');
 
 			<!-- Hero Slider -->
 			<div class="hero_slider_container">
-				<div class="hero_slider owl-carousel">
-
-					<!-- Hero Slide -->
-					<div class="hero_slide">
-						<div class="hero_slide_background" style="background-image:url(<?= $folder_template . '/images/slider_1.jpg' ?>)"></div>
-						<div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
-							<div class="hero_slide_content text-center">
-								<h1 data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut">Welcome to <span>FikomUP</span> </h1>
-							</div>
-						</div>
-					</div>
-
-					<!-- Hero Slide -->
-					<div class="hero_slide">
-						<div class="hero_slide_background" style="background-image:url(<?= $folder_template . '/images/slider_2.jpg' ?>)"></div>
-						<div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
-							<div class="hero_slide_content text-center">
-								<h1 data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut">Welcome to <span>FikomUP</h1>
-							</div>
-						</div>
-					</div>
-
-					<!-- Hero Slide -->
-					<div class="hero_slide">
-						<div class="hero_slide_background" style="background-image:url(<?= $folder_template . '/images/slider_3.jpg' ?>)"></div>
-						<div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
-							<div class="hero_slide_content text-center">
-								<h1 data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut">Welcome to <span>FikomUP</h1>
-							</div>
-						</div>
-					</div>
-
+				<!-- Hero Slide -->
+				<div class="hero_slide">
+				<?php include('template/particle.php'); ?>			
+					<div class="welcome">Welcome to <strong style="color: #FF4F00;">FIKom UP</strong></div>
+					<!-- <div class="learn">Get More Informations</div> -->
+					
+					<!-- <button class="vd-yt" id="show-video"><i class="fa fa-play-circle" area-hidden="true"> &nbsp</i>video </button>
+					<div class="mfp-hide mfp-hide-hidden" style="max-width: 75%; margin: 0 auto;">
+					<div class="closer-bar"><span>X</span> </div>
+					<iframe width="760" height="515" src="https://www.youtube.com/embed/39Ru65BLgP4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div> -->
 				</div>
-
-				<div class="hero_slider_left hero_slider_nav trans_200"><span class="trans_200"><</span></div>
-				<div class="hero_slider_right hero_slider_nav trans_200"><span class="trans_200">></span></div>
 			</div>
 
-		</div>
-
-		<div class="hero_boxes">
+			<div class="hero_boxes">
 			<div class="hero_boxes_inner">
 				<div class="container">
 					<div class="row">
+						<!-- <div class="col-lg-3 hero_box_col" style="text-align: -webkit-center;">
+							<div class="hero_box flex-row align-items-center justify-content-start" style="background: #841b24;">
+								<img src="<?= $folder_template . '/images/binoculars.svg' ?>" class="svg" alt="">
+								<div class="hero_box_content">
+									<h2 class="hero_box_title">Vision</h2>
+									
+								</div>
+							</div>
+						</div>
 
-						<div class="col-lg-4 hero_box_col">
-							<div class="hero_box d-flex flex-row align-items-center justify-content-start">
+						<div class="col-lg-3 hero_box_col" style="text-align: -webkit-center;">
+							<div class="hero_box flex-row align-items-center justify-content-start" style="background: #8f9622;">
 								<img src="<?= $folder_template . '/images/earth-globe.svg' ?>" class="svg" alt="">
 								<div class="hero_box_content">
 									<h2 class="hero_box_title">Site Map</h2>
-									<a href="#" class="hero_box_link">view more</a>
+								
 								</div>
 							</div>
 						</div>
 
-						<div class="col-lg-4 hero_box_col">
-							<div class="hero_box d-flex flex-row align-items-center justify-content-start">
+						<div class="col-lg-3 hero_box_col" style="text-align: -webkit-center;">
+							<div class="hero_box flex-row align-items-center justify-content-start" style="background: #8c7022">
 								<img src="<?= $folder_template . '/images/books.svg' ?>" class="svg" alt="">
 								<div class="hero_box_content">
 									<h2 class="hero_box_title">Download</h2>
-									<a href="#" class="hero_box_link">view more</a>
+									
 								</div>
 							</div>
 						</div>
 
-						<div class="col-lg-4 hero_box_col">
-							<div class="hero_box d-flex flex-row align-items-center justify-content-start">
+						<div class="col-lg-3 hero_box_col" style="text-align: -webkit-center;">
+							<div class="hero_box flex-row align-items-center justify-content-start" style="background: #531263">
 								<img src="<?= $folder_template . '/images/professor.svg' ?>" class="svg" alt="">
 								<div class="hero_box_content">
-									<h2 class="hero_box_title">Visi & Misi</h2>
-									<a href="#" class="hero_box_link">view more</a>
+									<h2 class="hero_box_title">Course</h2>
+									
 								</div>
 							</div>
-						</div>
-
+						</div> -->
 					</div>
 				</div>
 			</div>
 		</div>
+		</div>
 
 		<!-- Popular -->
-
-
-
 		<div class="popular page_section">
 			<div class="container">
 
-				<!-- berita -->
+			<!-- berita -->
 				<div class="row course_boxes">
-					<?php if ($detail_berita) : ?>
-						<?php foreach ($detail_berita as $berita) : ?>
-							<!-- news -->
-							<div class="col-lg-4 course_box">
-								<div class="card">
-									<img class="card-img-top" src="<?= "/media/source/" . $berita['gambar'] ?>" alt="#">
-									<div class="card-body text-center">
-										<div class="card-title"><a href="#"><?= $berita['judul']; ?></a></div>
-										<div class="card-text"><?= $berita['desc'] ?></div>
+				<?php if ($detail_berita) : ?>
+					<?php foreach ($detail_berita as $berita) : ?>
+						<!-- news -->
+						<div class="col-lg-4 course_box">
+							<div class="card">
+								<img class="card-img-top" src="<?= "/media/source/" . $berita['gambar'] ?>" alt="#">
+								<div class="card-body text-center">
+									<div class="card-title"><a href="#"><?= $berita['judul']; ?></a></div>
+									<div class="card-text"><?= $berita['desc'] ?></div>
+								</div>
+								<div class="price_box d-flex flex-row align-items-center">
+									<div class="course_author_image">
+										<img src="<?= $folder_template . '/images/author.jpg' ?>" alt="#">
 									</div>
-									<div class="price_box d-flex flex-row align-items-center">
-										<div class="course_author_image">
-											<img src="<?= $folder_template . '/images/author.jpg' ?>" alt="#">
-										</div>
-										<div class="course_author_name">Michael Smith, <span>Author</span></div>
-										<div class="course_price d-flex flex-column align-items-center justify-content-center"><span><a href="<?= "/news/id/{$berita['id_artikel']}/{$berita['judul_seo']}"; ?>">Read More</a></span></div>
-									</div>
+									<div class="course_author_name">Michael Smith, <span>Author</span></div>
+									<div class="course_price d-flex flex-column align-items-center justify-content-center"><span><a href="<?= "/news/id/{$berita['id_artikel']}/{$berita['judul_seo']}"; ?>">Read More</a></span></div>
 								</div>
 							</div>
-						<?php endforeach; ?>
-
+						</div>
+					<?php endforeach; ?>
 					<?php else : ?>
 						<h3>News not found</h3>
-					<?php endif; ?>
+				<?php endif; ?>
 				</div>
 			</div>
 		</div>
 
-
-
 		<!-- Register -->
 
-		<div class="register">
-
+		<div class="register page_section">
 			<div class="container-fluid">
-
 				<div class="row row-eq-height">
-
-
 					<!-- Register -->
 
 					<div class="register_section d-flex flex-column align-items-center justify-content-center">
 						<div class="register_content text-center">
-							<h1 class="register_title">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h1>
+							<h1 class="register_title">Faculty of Communication Universitas Pancasila</h1>
 
-							<div class="button button_1 register_button mx-auto trans_200"><a href="#">Learn More</a></div>
+							<div class="button button_1 register_button mx-auto trans_200"><a href="/about-us">Learn More</a></div>
 						</div>
 					</div>
-
-
-
-
 				</div>
 			</div>
 		</div>
 
 		<!-- News -->
 
-		<div class="services page_section">
+		<div class="news page_section">
+				<div class="container">
 
-			<div class="container">
 				<div class="row">
 					<div class="col">
 						<div class="section_title text-center">
-							<h1>News</h1>
+							<h1>Publications</h1>
 						</div>
 					</div>
 				</div>
-			</div>
 
-			<div class="popular page_section">
-				<div class="container">
-
-					<!-- berita -->
-					<div class="row course_boxes">
+				<div class="event_items">
 						<?php if ($detail_berita) : ?>
 							<?php foreach ($detail_berita as $berita) : ?>
 								<!-- news -->
@@ -253,8 +220,6 @@ include('template/meta_head.php');
 				</div>
 			</div>
 
-		</div>
-
 		<!-- Testimonials -->
 
 		<div class="testimonials page_section">
@@ -267,7 +232,7 @@ include('template/meta_head.php');
 				<div class="row">
 					<div class="col">
 						<div class="section_title text-center">
-							<h1>FikomUP on Twitter</h1>
+							<h1>FIKom UP on Twitter</h1>
 						</div>
 					</div>
 				</div>
@@ -284,7 +249,7 @@ include('template/meta_head.php');
 								<div class="owl-item">
 									<div class="testimonials_item text-center">
 										<div class="quote">“</div>
-										<p class="testimonials_text">In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.</p>
+										<p class="testimonials_text">Visi kami: Pada tahun 2019, program studi ilmu komunikasi menjadi unggul dan kompetitif dalam bidang jurnalistik multimedia, komunikasi strategis, dan kajian media berdasarkan Pancasila.</p>
 										<div class="testimonial_user">
 											<div class="testimonial_image mx-auto">
 												<img src="<?= $folder_template . '/images/bl.JPG' ?>" alt="">
@@ -299,7 +264,7 @@ include('template/meta_head.php');
 								<div class="owl-item">
 									<div class="testimonials_item text-center">
 										<div class="quote">“</div>
-										<p class="testimonials_text">In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.</p>
+										<p class="testimonials_text">Hey guys yuk datang ke open house kita di Jl. Srengseng Sawah, Jagakarsa, Jakarta Selatan, 12640</p>
 										<div class="testimonial_user">
 											<div class="testimonial_image mx-auto">
 												<img src="<?= $folder_template . '/images/bl.JPG' ?>" alt="">
@@ -309,24 +274,7 @@ include('template/meta_head.php');
 										</div>
 									</div>
 								</div>
-
-								<!-- Testimonials Item -->
-								<div class="owl-item">
-									<div class="testimonials_item text-center">
-										<div class="quote">“</div>
-										<p class="testimonials_text">In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.</p>
-										<div class="testimonial_user">
-											<div class="testimonial_image mx-auto">
-												<img src="<?= $folder_template . '/images/bl.JPG' ?>" alt="">
-											</div>
-											<div class="testimonial_name">Admin</div>
-											<div class="testimonial_title">2019-8-5</div>
-										</div>
-									</div>
-								</div>
-
 							</div>
-
 						</div>
 					</div>
 				</div>
@@ -402,6 +350,19 @@ include('template/meta_head.php');
 	</div>
 
 	<?php include('template/meta_footer.php'); ?>
+
+<script>
+
+// const toggleVideo = () => {
+// 	document.querySelector('.mfp-hide')
+// 	.classList.toggle('mfp-hide-hidden');
+// };
+
+// document.querySelector('#show-video')
+// 	.addEventListener('click', toggleVideo);
+	
+
+</script>
 
 </body>
 

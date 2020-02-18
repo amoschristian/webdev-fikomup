@@ -29,9 +29,7 @@ $isi = $detail_berita['isi'];
 		<!-- Home -->
 
 		<div class="home">
-			<div class="home_background_container prlx_parent">
-				<div class="home_background prlx" style="background-image:url(<?= $folder_template . '/images/news_background.jpg' ?>)"></div>
-			</div>
+			<?php include('template/particle.php'); ?>	
 			<div class="home_content">
 				<h1>News</h1>
 			</div>
