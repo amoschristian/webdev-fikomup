@@ -13,8 +13,4 @@ RewriteRule ^([a-z-]+)/id/([0-9]+)/(.*)$ index.php?content=$1_detail&id=$2 [L]
 
 </IfModule>
 
-<IfModule mod_headers.c>
-  <FilesMatch "\.(ttf|ttc|otf|eot|woff|woff2|font.css|css|js)$">
-    Header set Access-Control-Allow-Origin "*"
-  </FilesMatch>
-</IfModule>
+Header set Access-Control-Allow-Origin '*'
