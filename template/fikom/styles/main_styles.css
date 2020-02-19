@@ -1366,7 +1366,7 @@ input:last-of-type {
   font-family: 'Libre Franklin', sans-serif;
   font-size: 6rem;
   position: absolute;
-  top: 40%;
+  top: 30%;
   left: 50%;
   user-select: none;
   transform: translate(-50%, -50%);

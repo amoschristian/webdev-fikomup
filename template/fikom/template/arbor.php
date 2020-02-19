@@ -14,7 +14,7 @@ foreach ($js_array as $js) {
 }
 ?>
 
-<canvas id="sitemap" width="1000" height="600"></canvas>
+<canvas id="sitemap"></canvas>
 
 <script>
 (function($){  
@@ -41,11 +41,13 @@ foreach ($js_array as $js) {
                 that.resize()
                 that._initMouseHandling()
                 
-                if (document.referrer.match(/echolalia|atlas|halfviz/)){
-                    // if we got here by hitting the back button in one of the demos, 
-                    // start with the demos section pre-selected
-                    that.switchSection('demos')
-                }
+                // Preload all images into the node object
+                sys.eachNode(function(node, pt) {
+                    if(node.data.image) {
+                        node.data.imageob = new Image()
+                        node.data.imageob.src = node.data.image
+                    }
+                })
             },
             resize:function(){
                 canvas.width = $(window).width()
@@ -61,12 +63,21 @@ foreach ($js_array as $js) {
                     gfx.line(p1, p2, {stroke:"#f44f00", width:1, alpha:edge.target.data.alpha})
                 })
                 sys.eachNode(function(node, pt){
+                    var imageob = node.data.imageob
+                    var imageH = node.data.image_h
+                    var imageW = node.data.image_w
+                    var radius = -110;
+
                     var w = Math.max(20, 20+gfx.textWidth(node.name) )
                     if (node.data.alpha===0) return
                     if (node.data.shape=='dot'){
-                        gfx.oval(pt.x-w/2, pt.y-w/2, w, w, {fill:node.data.color, alpha:node.data.alpha})
-                        gfx.text(node.name, pt.x, pt.y+7, {color:"white", align:"center", font:"Libre Franklin", size:12})
-                        gfx.text(node.name, pt.x, pt.y+7, {color:"white", align:"center", font:"Libre Franklin", size:12})
+                        gfx.oval(pt.x-w/2, pt.y-w/2, w, w, {fill:"#f44f00", alpha:node.data.alpha})
+                        gfx.text(node.name, pt.x, pt.y+7, {color:"white", align:"center", font:"Libre Franklin", size:13})
+                        gfx.text(node.name, pt.x, pt.y+7, {color:"white", align:"center", font:"Libre Franklin", size:13})
+                        if (imageob){
+                            // Images are drawn from cache
+                            ctx.drawImage(imageob, pt.x-(imageW/2) + 23, pt.y+radius/2, imageW, imageH)
+                        }
                     }else{
                         gfx.rect(pt.x-w/2, pt.y-8, w, 20, 4, {fill:node.data.color, alpha:node.data.alpha})
                         gfx.text(node.name, pt.x, pt.y+9, {color:"white", align:"center", font:"Libre Franklin", size:12})
@@ -186,7 +197,6 @@ foreach ($js_array as $js) {
                         
                         return false
                     },
-                    
                     dropped:function(e){
                         if (dragged===null || dragged.node===undefined) return
                         if (dragged.node !== null) dragged.node.fixed = false
@@ -198,14 +208,11 @@ foreach ($js_array as $js) {
                         $(canvas).bind('mousemove', handler.moved);
                         _mouseP = null
                         return false
-                    }
-                    
-                    
+                    }  
                 }
                 
                 $(canvas).mousedown(handler.clicked);
-                $(canvas).mousemove(handler.moved);
-                
+                $(canvas).mousemove(handler.moved);                
             }
         }
         
@@ -220,15 +227,15 @@ foreach ($js_array as $js) {
         
         var theUI = {
             nodes:{
-                "FIKom.UP":{color:CLR.home, shape:"dot", alpha:1, link:'#home'}, 
-                Sitemap:{color:CLR.branch, shape:"dot", alpha:1, link:'/#'}, 
-                Admission:{color:CLR.branch, shape:"dot", alpha:1, link:'/#'}, 
-                Course:{color:CLR.branch, shape:"dot", alpha:1, link:'/#'},
-                Headline:{color:CLR.branch, shape:"dot", alpha:1, link:'#headline'},
-                "About Us":{color:CLR.branch, shape:"dot", alpha:1, link:'#about_us'},
-                Publications:{color:CLR.branch, shape:"dot", alpha:1, link:'#publications'},
-                Events:{color:CLR.branch, shape:"dot", alpha:1, link:'#events'},
-                "Social Media":{color:CLR.branch, shape:"dot", alpha:1, link:'/social_media'},
+                "FIKom.UP":{color:CLR.home, shape:"dot", alpha:1, radius:30, mass: 0.8, link:'#home', 'image': '/media/source/fikomup_logo_white.png', 'image_w':150, 'image_h':150}, 
+                Sitemap:{color:CLR.branch, shape:"dot", alpha:1, mass: 0.8, link:'/#'}, 
+                Admission:{color:CLR.branch, shape:"dot", alpha:1, mass: 0.8, link:'/#'}, 
+                Course:{color:CLR.branch, shape:"dot", alpha:1, mass: 0.8, link:'/#'},
+                Headline:{color:CLR.branch, shape:"dot", alpha:1, mass: 0.8, link:'#headline'},
+                "About Us":{color:CLR.branch, shape:"dot", alpha:1, mass: 0.8, link:'#about_us'},
+                Publications:{color:CLR.branch, shape:"dot", alpha:1, mass: 0.8, link:'#publications'},
+                Events:{color:CLR.branch, shape:"dot", alpha:1, mass: 0.8, link:'#events'},
+                "Social Media":{color:CLR.branch, shape:"dot", alpha:1, mass: 0.8, link:'/social_media'},
             },
             edges:{
                 "FIKom.UP":{
@@ -246,7 +253,7 @@ foreach ($js_array as $js) {
         }
         
         var sys = arbor.ParticleSystem()
-        sys.parameters({stiffness:600, repulsion:200, gravity:false, dt:0.02, fps:60, friction: 0.5})
+        sys.parameters({stiffness:400, repulsion:100, gravity:true, fps:60, friction: 0.1})
         sys.renderer = Renderer("#sitemap")
         sys.graft(theUI)
     })
@@ -256,5 +263,19 @@ foreach ($js_array as $js) {
 <style>
 canvas.linkable{
     cursor: pointer;
+}
+
+.arbor.page_section {
+    padding: 0;
+    position: absolute;
+    top: 6%;
+}
+
+@media only screen and (max-width: 768px) {
+    .arbor.page_section {
+        padding: 0;
+        position: absolute;
+        top: 4%;
+    }
 }
 </style>

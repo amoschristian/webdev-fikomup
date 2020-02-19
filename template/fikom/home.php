@@ -73,13 +73,20 @@ include('template/meta_head.php');
 		</div>
 
 		<!-- ArborJS canvas -->
-		<div id="arbor-canvas" class="arbor page_section" style="padding-bottom: 0">
+		<div id="arbor-canvas" class="arbor page_section"">
 			<?php include('template/arbor.php'); ?>	
 		</div>
 
 		<!-- Headline -->
 		<div class="popular page_section" id="headline">
 			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="section_title text-center">
+							<h1>Headline</h1>
+						</div>
+					</div>
+				</div>
 				<!-- berita -->
 				<div class="row course_boxes">
 					<?php if ($detail_berita) : ?>
@@ -111,7 +118,7 @@ include('template/meta_head.php');
 
 		<!-- Register -->
 
-		<div class="register page_section" id="about_us">
+		<div class="register page_section" id="about_us" style="padding: 0">
 			<div class="container-fluid">
 				<div class="row row-eq-height">
 					<!-- Register -->
