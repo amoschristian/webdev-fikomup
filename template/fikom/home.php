@@ -60,8 +60,7 @@ include('template/meta_head.php');
 
 		<!-- Home -->
 
-		<div class="home">
-
+		<div class="home" id="home">
 			<!-- Hero Slider -->
 			<div class="hero_slider_container">
 				<!-- Hero Slide -->
@@ -69,100 +68,50 @@ include('template/meta_head.php');
 				<?php include('template/particle.php'); ?>			
 					<div class="welcome">Welcome to <strong style="color: #FF4F00;">FIKom UP</strong></div>
 					<!-- <div class="learn">Get More Informations</div> -->
-					
-					<!-- <button class="vd-yt" id="show-video"><i class="fa fa-play-circle" area-hidden="true"> &nbsp</i>video </button>
-					<div class="mfp-hide mfp-hide-hidden" style="max-width: 75%; margin: 0 auto;">
-					<div class="closer-bar"><span>X</span> </div>
-					<iframe width="760" height="515" src="https://www.youtube.com/embed/39Ru65BLgP4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-					</div> -->
-				</div>
-			</div>
-
-			<div class="hero_boxes">
-			<div class="hero_boxes_inner">
-				<div class="container">
-					<div class="row">
-						<!-- <div class="col-lg-3 hero_box_col" style="text-align: -webkit-center;">
-							<div class="hero_box flex-row align-items-center justify-content-start" style="background: #841b24;">
-								<img src="<?= $folder_template . '/images/binoculars.svg' ?>" class="svg" alt="">
-								<div class="hero_box_content">
-									<h2 class="hero_box_title">Vision</h2>
-									
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-3 hero_box_col" style="text-align: -webkit-center;">
-							<div class="hero_box flex-row align-items-center justify-content-start" style="background: #8f9622;">
-								<img src="<?= $folder_template . '/images/earth-globe.svg' ?>" class="svg" alt="">
-								<div class="hero_box_content">
-									<h2 class="hero_box_title">Site Map</h2>
-								
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-3 hero_box_col" style="text-align: -webkit-center;">
-							<div class="hero_box flex-row align-items-center justify-content-start" style="background: #8c7022">
-								<img src="<?= $folder_template . '/images/books.svg' ?>" class="svg" alt="">
-								<div class="hero_box_content">
-									<h2 class="hero_box_title">Download</h2>
-									
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-3 hero_box_col" style="text-align: -webkit-center;">
-							<div class="hero_box flex-row align-items-center justify-content-start" style="background: #531263">
-								<img src="<?= $folder_template . '/images/professor.svg' ?>" class="svg" alt="">
-								<div class="hero_box_content">
-									<h2 class="hero_box_title">Course</h2>
-									
-								</div>
-							</div>
-						</div> -->
-					</div>
 				</div>
 			</div>
 		</div>
+
+		<!-- ArborJS canvas -->
+		<div id="arbor-canvas" class="arbor page_section" style="padding-bottom: 0">
+			<?php include('template/arbor.php'); ?>	
 		</div>
 
-		<!-- Popular -->
-		<div class="popular page_section">
+		<!-- Headline -->
+		<div class="popular page_section" id="headline">
 			<div class="container">
-
-			<!-- berita -->
+				<!-- berita -->
 				<div class="row course_boxes">
-				<?php if ($detail_berita) : ?>
-					<?php foreach ($detail_berita as $berita) : ?>
-						<!-- news -->
-						<div class="col-lg-4 course_box">
-							<div class="card">
-								<img class="card-img-top" src="<?= "/media/source/" . $berita['gambar'] ?>" alt="#">
-								<div class="card-body text-center">
-									<div class="card-title"><a href="#"><?= $berita['judul']; ?></a></div>
-									<div class="card-text"><?= $berita['desc'] ?></div>
-								</div>
-								<div class="price_box d-flex flex-row align-items-center">
-									<div class="course_author_image">
-										<img src="<?= $folder_template . '/images/author.jpg' ?>" alt="#">
+					<?php if ($detail_berita) : ?>
+						<?php foreach ($detail_berita as $berita) : ?>
+							<!-- news -->
+							<div class="col-lg-4 course_box">
+								<div class="card">
+									<img class="card-img-top" src="<?= "/media/source/" . $berita['gambar'] ?>" alt="#">
+									<div class="card-body text-center">
+										<div class="card-title"><a href="#"><?= $berita['judul']; ?></a></div>
+										<div class="card-text"><?= $berita['desc'] ?></div>
 									</div>
-									<div class="course_author_name">Michael Smith, <span>Author</span></div>
-									<div class="course_price d-flex flex-column align-items-center justify-content-center"><span><a href="<?= "/news/id/{$berita['id_artikel']}/{$berita['judul_seo']}"; ?>">Read More</a></span></div>
+									<div class="price_box d-flex flex-row align-items-center">
+										<div class="course_author_image">
+											<img src="<?= $folder_template . '/images/author.jpg' ?>" alt="#">
+										</div>
+										<div class="course_author_name">Michael Smith, <span>Author</span></div>
+										<div class="course_price d-flex flex-column align-items-center justify-content-center"><span><a href="<?= "/news/id/{$berita['id_artikel']}/{$berita['judul_seo']}"; ?>">Read More</a></span></div>
+									</div>
 								</div>
 							</div>
-						</div>
-					<?php endforeach; ?>
+						<?php endforeach; ?>
 					<?php else : ?>
 						<h3>News not found</h3>
-				<?php endif; ?>
+					<?php endif; ?>
 				</div>
 			</div>
 		</div>
 
 		<!-- Register -->
 
-		<div class="register page_section">
+		<div class="register page_section" id="about_us">
 			<div class="container-fluid">
 				<div class="row row-eq-height">
 					<!-- Register -->
@@ -179,10 +128,8 @@ include('template/meta_head.php');
 		</div>
 
 		<!-- News -->
-
-		<div class="news page_section">
-				<div class="container">
-
+		<div class="news page_section" id="publications"> 
+			<div class="container">
 				<div class="row">
 					<div class="col">
 						<div class="section_title text-center">
@@ -190,39 +137,36 @@ include('template/meta_head.php');
 						</div>
 					</div>
 				</div>
-
-				<div class="event_items">
-						<?php if ($detail_berita) : ?>
-							<?php foreach ($detail_berita as $berita) : ?>
-								<!-- news -->
-								<div class="col-lg-4 course_box">
-									<div class="card">
-										<img class="card-img-top" src="<?= "/media/source/" . $berita['gambar'] ?>" alt="#">
-										<div class="card-body text-center">
-											<div class="card-title"><a href="#"><?= $berita['judul']; ?></a></div>
-											<div class="card-text"><?= $berita['desc'] ?></div>
+				<div class="row course_boxes">
+					<?php if ($detail_berita) : ?>
+						<?php foreach ($detail_berita as $berita) : ?>
+							<!-- news -->
+							<div class="col-lg-4 course_box">
+								<div class="card">
+									<img class="card-img-top" src="<?= "/media/source/" . $berita['gambar'] ?>" alt="#">
+									<div class="card-body text-center">
+										<div class="card-title"><a href="#"><?= $berita['judul']; ?></a></div>
+										<div class="card-text"><?= $berita['desc'] ?></div>
+									</div>
+									<div class="price_box d-flex flex-row align-items-center">
+										<div class="course_author_image">
+											<img src="<?= $folder_template . '/images/author.jpg' ?>" alt="#">
 										</div>
-										<div class="price_box d-flex flex-row align-items-center">
-											<div class="course_author_image">
-												<img src="<?= $folder_template . '/images/author.jpg' ?>" alt="#">
-											</div>
-											<div class="course_author_name">Michael Smith, <span>Author</span></div>
-											<div class="course_price d-flex flex-column align-items-center justify-content-center"><span><a href="<?= "/news/id/{$berita['id_artikel']}/{$berita['judul_seo']}"; ?>">Read More</a></span></div>
-										</div>
+										<div class="course_author_name">Michael Smith, <span>Author</span></div>
+										<div class="course_price d-flex flex-column align-items-center justify-content-center"><span><a href="<?= "/news/id/{$berita['id_artikel']}/{$berita['judul_seo']}"; ?>">Read More</a></span></div>
 									</div>
 								</div>
-							<?php endforeach; ?>
-
-						<?php else : ?>
-							<h3>News not found</h3>
-						<?php endif; ?>
-					</div>
+							</div>
+						<?php endforeach; ?>
+					<?php else : ?>
+						<h3>News not found</h3>
+					<?php endif; ?>
 				</div>
 			</div>
+		</div>
 
-		<!-- Testimonials -->
-
-		<div class="testimonials page_section">
+		<!-- Social Media -->
+		<div class="testimonials page_section" id="social_media">
 			<!-- <div class="testimonials_background" style="background-image:url(images/testimonials_background.jpg)"></div> -->
 			<div class="testimonials_background_container prlx_parent">
 				<div class="testimonials_background prlx" style="background-image:url(<?= $folder_template . '/images/fik.JPG' ?>)"></div>
@@ -278,13 +222,11 @@ include('template/meta_head.php');
 						</div>
 					</div>
 				</div>
-
 			</div>
 		</div>
 
 		<!-- Events -->
-
-		<div class="events page_section">
+		<div class="events page_section" id="events">
 			<div class="container">
 
 				<div class="row">
@@ -333,15 +275,9 @@ include('template/meta_head.php');
 					<?php else : ?>
 						<h3><?= $title_head ?> not found</h3>
 					<?php endif; ?>
-
 				</div>
-
 			</div>
 		</div>
-
-		<!-- Partner -->
-
-		<?php include('template/partner.php'); ?>
 
 		<!-- Footer -->
 
@@ -350,20 +286,29 @@ include('template/meta_head.php');
 	</div>
 
 	<?php include('template/meta_footer.php'); ?>
+</body>
 
 <script>
-
-// const toggleVideo = () => {
-// 	document.querySelector('.mfp-hide')
-// 	.classList.toggle('mfp-hide-hidden');
-// };
-
-// document.querySelector('#show-video')
-// 	.addEventListener('click', toggleVideo);
-	
-
+$(document).ready(function(){
+	// Add smooth scrolling to all links
+	$("a").on('click', function(event) {
+		// Make sure this.hash has a value before overriding default behavior
+		if (this.hash !== "") {
+			// Prevent default anchor click behavior
+			event.preventDefault();
+			// Store hash
+			var hash = this.hash;
+			// Using jQuery's animate() method to add smooth page scroll
+			// The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+			$('html, body').animate({
+				scrollTop: $(hash).offset().top
+			}, 800, function(){
+				// Add hash (#) to URL when done scrolling (default click behavior)
+				window.location.hash = hash;
+			});
+		} // End if
+	});
+});
 </script>
-
-</body>
 
 </html>
