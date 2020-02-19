@@ -196,7 +196,7 @@ include('template/meta_head.php');
 										<p class="testimonials_text">Visi kami: Pada tahun 2019, program studi ilmu komunikasi menjadi unggul dan kompetitif dalam bidang jurnalistik multimedia, komunikasi strategis, dan kajian media berdasarkan Pancasila.</p>
 										<div class="testimonial_user">
 											<div class="testimonial_image mx-auto">
-												<img src="<?= $folder_template . '/images/bl.JPG' ?>" alt="">
+												<img src="<?= $folder_template . '/images/bl.jpg' ?>" alt="">
 											</div>
 											<div class="testimonial_name">Admin</div>
 											<div class="testimonial_title">2019-8-12</div>
@@ -211,7 +211,7 @@ include('template/meta_head.php');
 										<p class="testimonials_text">Hey guys yuk datang ke open house kita di Jl. Srengseng Sawah, Jagakarsa, Jakarta Selatan, 12640</p>
 										<div class="testimonial_user">
 											<div class="testimonial_image mx-auto">
-												<img src="<?= $folder_template . '/images/bl.JPG' ?>" alt="">
+												<img src="<?= $folder_template . '/images/bl.jpg' ?>" alt="">
 											</div>
 											<div class="testimonial_name">Admin</div>
 											<div class="testimonial_title">2019-4-24</div>
