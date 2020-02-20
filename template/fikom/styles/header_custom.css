@@ -1,0 +1,11 @@
+.des_container {
+    font-size: 20px;
+}
+
+/* RESPONSIVE */
+
+@media only screen and (max-width: 1380px) {
+    .header_content {
+        width: 100%;
+    }
+}

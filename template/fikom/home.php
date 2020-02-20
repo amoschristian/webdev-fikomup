@@ -50,6 +50,10 @@ $json_config = $folder_template . "/plugins/particlesjs/assets/config.json";
 include('template/meta_head.php');
 ?>
 
+<link rel='stylesheet' type='text/css' href='<?= $folder_template . '/styles/home_custom.css' ?>'>
+
+</script
+
 <body>
 
 	<div class="super_container">
@@ -67,15 +71,11 @@ include('template/meta_head.php');
 				<div class="hero_slide">
 				<?php include('template/particle.php'); ?>			
 					<div class="welcome">Welcome to <strong style="color: #FF4F00;">FIKom UP</strong></div>
+					<?php include('template/arbor.php'); ?>	
 					<!-- <div class="learn">Get More Informations</div> -->
 				</div>
 			</div>
-		</div>
-
-		<!-- ArborJS canvas -->
-		<div id="arbor-canvas" class="arbor page_section"">
-			<?php include('template/arbor.php'); ?>	
-		</div>
+		</div>	
 
 		<!-- Headline -->
 		<div class="popular page_section" id="headline">
