@@ -297,10 +297,6 @@ section {
 3.1 Logo
 *********************************/
 
-.logo_container {
-  display: inline-block;
-  padding-left: 76px;
-}
 .logo span {
   font-family: 'Libre Franklin', sans-serif;
   font-size: 30px;

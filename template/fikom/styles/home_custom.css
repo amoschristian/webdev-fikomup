@@ -1,0 +1,32 @@
+/* Headline and Publications */
+.card-img-top {
+    height: 250px;
+    object-fit: cover;
+}
+
+.card-title a {
+    font-size: 22px;
+}
+
+.col-lg-4.course_box {
+    display: flex;
+    flex-direction: column;
+}
+
+.col-lg-4.course_box > .card {
+    height: 100%;
+    display: flex; 
+    align-items: flex-end;
+}
+
+.col-lg-4.course_box > .card > .card-body > .card-title{
+    margin-top: 40px;
+    margin-bottom: 2rem;
+}
+
+.col-lg-4.course_box > .card > .price_box {
+    padding-left: 25px;
+}
+
+
+/* RESPONSIVE */

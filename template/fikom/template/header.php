@@ -1,4 +1,10 @@
-<link href="https://fonts.googleapis.com/css?family=Archivo+Narrow&display=swap" rel="stylesheet">
+<?php
+$folder_template = web_info('url') . '/' . folder_template();
+?>
+
+<link rel='stylesheet' type='text/css' href='<?= $folder_template . '/styles/header_custom.css' ?>'>
+<link rel='stylesheet' type='text/css' href='<?= $folder_template . '/styles/responsive.css' ?>'>
+
 <header class="header d-flex flex-row">
     <div class="header_content d-flex flex-row align-items-center">
         <!-- Logo -->
@@ -58,18 +64,6 @@
                 <li class="menu_item menu_mm"><a href="#">Partners</a></li>
                 <li class="menu_item menu_mm"><a href="/contact">Contact</a></li>
             </ul>
-
-            <!-- Menu Social -->
-
-            <div class="menu_social_container menu_mm">
-                <ul class="menu_social menu_mm">
-                    <li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-pinterest"></i></a></li>
-                    <li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                    <li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-instagram"></i></a></li>
-                    <li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                    <li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-twitter"></i></a></li>
-                </ul>
-            </div>
 
             <div class="menu_copyright menu_mm">FIKom UP</div>
         </div>

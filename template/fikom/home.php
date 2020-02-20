@@ -50,6 +50,10 @@ $json_config = $folder_template . "/plugins/particlesjs/assets/config.json";
 include('template/meta_head.php');
 ?>
 
+<link rel='stylesheet' type='text/css' href='<?= $folder_template . '/styles/home_custom.css' ?>'>
+
+</script
+
 <body>
 
 	<div class="super_container">
