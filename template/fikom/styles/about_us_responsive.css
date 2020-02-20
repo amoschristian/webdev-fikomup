@@ -172,6 +172,16 @@
 /************
 7. 959px
 ************/
+@media only screen and (max-width: 991px)
+{
+	.about_nav {
+		text-align: center;
+	}
+	.about_menu_item_sub {
+		margin:0;
+	}
+}
+
 
 @media only screen and (max-width: 959px)
 {
