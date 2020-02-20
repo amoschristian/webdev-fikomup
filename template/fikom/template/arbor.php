@@ -1,268 +1,189 @@
-<?php
-
-$js_array = [
-    "js/jquery-3.2.1.min.js",
-    "plugins/arbor/arbor.js",
-    "plugins/arbor/arbor-tween.js",
-    "plugins/arbor/graphics.js",
-    "plugins/arbor/renderer.js"
-];
-
-foreach ($js_array as $js) {
-    $js_link = $folder_template . '/' . $js;
-    echo "<script src='$js_link'></script>";
-}
-?>
-
-<canvas id="sitemap"></canvas>
-
+<div id="chart">
+    <svg height="600"></svg>
+</div>
+<script src="https://d3js.org/d3.v5.min.js"></script>
 <script>
-(function($){  
-    var Renderer = function(elt){
-        var dom = $(elt)
-        var canvas = dom.get(0)
-        var ctx = canvas.getContext("2d");
-        var gfx = arbor.Graphics(canvas)
-        var sys = null
-        
-        var _vignette = null
-        var selected = null,
-        nearest = null,
-        _mouseP = null;
-        
-        
-        var that = {
-            init:function(pSystem){
-                sys = pSystem
-                sys.screen({size:{width:dom.width(), height:dom.height()},
-                padding:[36,60,36,60]})
-                
-                $(window).resize(that.resize)
-                that.resize()
-                that._initMouseHandling()
-                
-                // Preload all images into the node object
-                sys.eachNode(function(node, pt) {
-                    if(node.data.image) {
-                        node.data.imageob = new Image()
-                        node.data.imageob.src = node.data.image
-                    }
-                })
-            },
-            resize:function(){
-                canvas.width = $(window).width()
-                canvas.height = .75* $(window).height()
-                sys.screen({size:{width:canvas.width, height:canvas.height}})
-                _vignette = null
-                that.redraw()
-            },
-            redraw:function(){
-                gfx.clear()
-                sys.eachEdge(function(edge, p1, p2){
-                    if (edge.source.data.alpha * edge.target.data.alpha == 0) return
-                    gfx.line(p1, p2, {stroke:"#f44f00", width:1, alpha:edge.target.data.alpha})
-                })
-                sys.eachNode(function(node, pt){
-                    var imageob = node.data.imageob
-                    var imageH = node.data.image_h
-                    var imageW = node.data.image_w
-                    var radius = -110;
 
-                    var w = Math.max(20, 20+gfx.textWidth(node.name) )
-                    if (node.data.alpha===0) return
-                    if (node.data.shape=='dot'){
-                        gfx.oval(pt.x-w/2, pt.y-w/2, w, w, {fill:"#f44f00", alpha:node.data.alpha})
-                        gfx.text(node.name, pt.x, pt.y+7, {color:"white", align:"center", font:"Libre Franklin", size:13})
-                        gfx.text(node.name, pt.x, pt.y+7, {color:"white", align:"center", font:"Libre Franklin", size:13})
-                        if (imageob){
-                            // Images are drawn from cache
-                            ctx.drawImage(imageob, pt.x-(imageW/2) + 23, pt.y+radius/2, imageW, imageH)
-                        }
-                    }else{
-                        gfx.rect(pt.x-w/2, pt.y-8, w, 20, 4, {fill:node.data.color, alpha:node.data.alpha})
-                        gfx.text(node.name, pt.x, pt.y+9, {color:"white", align:"center", font:"Libre Franklin", size:12})
-                        gfx.text(node.name, pt.x, pt.y+9, {color:"white", align:"center", font:"Libre Franklin", size:12})
-                    }
-                })
-            },
-            
-            switchMode:function(e){
-                if (e.mode=='hidden'){
-                    dom.stop(true).fadeTo(e.dt,0, function(){
-                        if (sys) sys.stop()
-                        $(this).hide()
-                    })
-                }else if (e.mode=='visible'){
-                    dom.stop(true).css('opacity',0).show().fadeTo(e.dt,1,function(){
-                        that.resize()
-                    })
-                    if (sys) sys.start()
-                }
-            },
-            
-            switchSection:function(newSection){
-                var parent = sys.getEdgesFrom(newSection)[0].source
-                var children = $.map(sys.getEdgesFrom(newSection), function(edge){
-                    return edge.target
-                })
-                
-                sys.eachNode(function(node){
-                    if (node.data.shape=='dot') return // skip all but leafnodes
-                    
-                    var nowVisible = ($.inArray(node, children)>=0)
-                    var newAlpha = (nowVisible) ? 1 : 0
-                    var dt = (nowVisible) ? .5 : .5
-                    sys.tweenNode(node, dt, {alpha:newAlpha})
-                    
-                    if (newAlpha==1){
-                        node.p.x = parent.p.x + .05*Math.random() - .025
-                        node.p.y = parent.p.y + .05*Math.random() - .025
-                        node.tempMass = .001
-                    }
-                })
-            },
-            
-            _initMouseHandling:function(){
-                // no-nonsense drag and drop (thanks springy.js)
-                selected = null;
-                nearest = null;
-                var dragged = null;
-                var oldmass = 1
-                
-                var _section = null
-                
-                var handler = {
-                    moved:function(e){
-                        var pos = $(canvas).offset();
-                        _mouseP = arbor.Point(e.pageX-pos.left, e.pageY-pos.top)
-                        nearest = sys.nearest(_mouseP);
-                        
-                        if (!nearest.node) return false
-                        
-                        if (nearest.node.data.shape=='dot'){
-                            selected = (nearest.distance < 50) ? nearest : null
-                            if (selected){
-                                dom.addClass('linkable')
-                                window.status = selected.node.data.link.replace(/^\//,"http://"+window.location.host+"/").replace(/^#/,'')
-                            }
-                            else{
-                                dom.removeClass('linkable')
-                                window.status = ''
-                            }
-                        }else if ($.inArray(nearest.node.name, ['arbor.js','code','docs','demos']) >=0 ){
-                            if (nearest.node.name!=_section){
-                                _section = nearest.node.name
-                                that.switchSection(_section)
-                            }
-                            dom.removeClass('linkable')
-                            window.status = ''
-                        }
-                        
-                        return false
-                    },
-                    clicked:function(e){
-                        var pos = $(canvas).offset();
-                        _mouseP = arbor.Point(e.pageX-pos.left, e.pageY-pos.top)
-                        nearest = dragged = sys.nearest(_mouseP);
-                        
-                        if (nearest && selected && nearest.node===selected.node){
-                            var link = selected.node.data.link
+var chartDiv = document.getElementById("chart");
+var svg = d3.select("svg");
+width = chartDiv.clientWidth;
+height = chartDiv.clientHeight;
 
-                            $('html, body').animate({
-                                scrollTop: $(link).offset().top
-                            }, 800);
+const graph = {
+    "nodes": [
+        {"id": "FIKomUP", "group": 1, "image": "/media/source/fikomup_logo_white.png", "link": "#home"},
+        {"id": "Sitemap", "group": 1, "link": "#"},
+        {"id": "Admission", "group": 1, "link": "#"},
+        {"id": "Course", "group": 1, "link": "#"},
+        {"id": "Headline", "group": 1, "link": "#headline"},
+        {"id": "About us", "group": 1, "link": "#about_us"},
+        {"id": "Publications", "group": 1, "link": "#publications"},
+        {"id": "Social Media", "group": 1, "link": "#social_media"},
+        {"id": "Event", "group": 1, "link": "#event"},
+    ],
+    "links": [
+        {"source": "Sitemap", "target": "FIKomUP", "value": 1},
+        {"source": "Admission", "target": "FIKomUP", "value": 1},
+        {"source": "Course", "target": "FIKomUP", "value": 1},
+        {"source": "Headline", "target": "FIKomUP", "value": 1},
+        {"source": "Publications", "target": "FIKomUP", "value": 1},
+        {"source": "Event", "target": "FIKomUP", "value": 1},
+        {"source": "About us", "target": "FIKomUP", "value": 1},
+        {"source": "Social Media", "target": "FIKomUP", "value": 1},
+    ]
+}
 
-                            return false
-                        }
-                        
-                        
-                        if (dragged && dragged.node !== null) dragged.node.fixed = true
-                        
-                        $(canvas).unbind('mousemove', handler.moved);
-                        $(canvas).bind('mousemove', handler.dragged)
-                        $(window).bind('mouseup', handler.dropped)
-                        
-                        return false
-                    },
-                    dragged:function(e){
-                        var old_nearest = nearest && nearest.node._id
-                        var pos = $(canvas).offset();
-                        var s = arbor.Point(e.pageX-pos.left, e.pageY-pos.top)
-                        
-                        if (!nearest) return
-                        if (dragged !== null && dragged.node !== null){
-                            var p = sys.fromScreen(s)
-                            dragged.node.p = p
-                        }
-                        
-                        return false
-                    },
-                    dropped:function(e){
-                        if (dragged===null || dragged.node===undefined) return
-                        if (dragged.node !== null) dragged.node.fixed = false
-                        dragged.node.tempMass = 1000
-                        dragged = null;
-                        // selected = null
-                        $(canvas).unbind('mousemove', handler.dragged)
-                        $(window).unbind('mouseup', handler.dropped)
-                        $(canvas).bind('mousemove', handler.moved);
-                        _mouseP = null
-                        return false
-                    }  
-                }
-                
-                $(canvas).mousedown(handler.clicked);
-                $(canvas).mousemove(handler.moved);                
-            }
-        }
+var simulation = d3.forceSimulation()
+    .force("link", d3.forceLink().id(function(d) { return d.id; }))
+    .force('charge', d3.forceManyBody()
+      .strength(-10000)
+      .theta(0.8)
+      .distanceMax(500)
+    )
+    .force("center", d3.forceCenter(width / 2, height / 2));
+ 
+function run(graph, width, height) {
+    var link = svg.append("g")
+        .style("stroke", "#f44f00")
+        .style("stroke-width", "0.5px")
+        .selectAll("line")
+        .data(graph.links)
+        .enter().append("line");
+
+    var node = svg.append("g")
+        .attr("class", "nodes")
+        .selectAll("circle")
+        .data(graph.nodes)
+        .enter()
+        .append('circle')
+        .call(d3.drag()
+            .on("start", dragstarted)
+            .on("drag", dragged)
+            .on("end", dragended))
+        .on('click', scrollTo);        
+
+    var label = svg.append("g")
+        .attr("class", "labels")
+        .selectAll("text")
+        .data(graph.nodes)
+        .enter().append("text")
+        .attr("class", "label")
+        .text(function(d) { return d.id; })
+        .on('click', scrollTo); 
+
+    var images = svg.append("image")
+        .data(graph.nodes)
+        .attr("xlink:href",  function(d) {
+            if (d.hasOwnProperty("image")){
+                return d.image;
+            } 
+        })
+        .attr("height", 150)
+        .attr("width", 150)
+        .call(d3.drag()
+            .on("start", dragstarted)
+            .on("drag", dragged)
+            .on("end", dragended))
+        .on('click', scrollTo); 
+
+    simulation
+        .nodes(graph.nodes)
+        .on("tick", ticked);
+
+    simulation.force("link")
+        .links(graph.links)
+
+    function ticked() {
+        link
+        .attr("x1", function(d) { return d.source.x; })
+        .attr("y1", function(d) { return d.source.y; })
+        .attr("x2", function(d) { return d.target.x; })
+        .attr("y2", function(d) { return d.target.y; });
+
+        node
+            .attr("r", function (d) {
+                var len = d.id.length;
+                return len * 5.2; 
+            })
+            .style("fill", "#f44f00")
+            .style("stroke", "#f44f00")
+            .style("stroke-width", "1px")
+            .attr("cx", function (d) { return d.x+6; })
+            .attr("cy", function(d) { return d.y-3; });
         
-        return that
+        images
+            .attr("x", function(d) { 
+                var len = d.id.length;
+                return d.x + -(len * 10) ; 
+            })
+            .attr("y", function (d) { 
+                return d.y - 70; 
+            })
+            
+        label
+            .attr("x", function(d) { 
+                var len = d.id.length;
+                return d.x + -(len * 3.5) ; 
+            })
+            .attr("y", function (d) { 
+                return d.y + 2; 
+            })
+            .style("font-size", "16px").style("fill", "white");
     }
+}
+
+function dragstarted(d) {
+    if (!d3.event.active) simulation.alphaTarget(0.3).restart()
+    d.fx = d.x
+    d.fy = d.y
+    //  simulation.fix(d);
+}
+
+function dragged(d) {
+    d.fx = d3.event.x
+    d.fy = d3.event.y
+    //  simulation.fix(d, d3.event.x, d3.event.y);
+}
+
+function dragended(d) {
+    d.fx = d3.event.x
+    d.fy = d3.event.y
+    if (!d3.event.active) simulation.alphaTarget(0);
+    //simulation.unfix(d);
+}
+
+function redraw() {
+    // Extract the width and height that was computed by CSS.
+    width = chartDiv.clientWidth;
+    height = chartDiv.clientHeight;
     
-    $(document).ready(function(){
-        var CLR = {
-            home:"#f44f00",
-            branch:"#1a1a1a",
-        }
-        
-        var theUI = {
-            nodes:{
-                "FIKom.UP":{color:CLR.home, shape:"dot", alpha:1, radius:30, mass: 0.8, link:'#home', 'image': '/media/source/fikomup_logo_white.png', 'image_w':150, 'image_h':150}, 
-                Sitemap:{color:CLR.branch, shape:"dot", alpha:1, mass: 0.8, link:'/#'}, 
-                Admission:{color:CLR.branch, shape:"dot", alpha:1, mass: 0.8, link:'/#'}, 
-                Course:{color:CLR.branch, shape:"dot", alpha:1, mass: 0.8, link:'/#'},
-                Headline:{color:CLR.branch, shape:"dot", alpha:1, mass: 0.8, link:'#headline'},
-                "About Us":{color:CLR.branch, shape:"dot", alpha:1, mass: 0.8, link:'#about_us'},
-                Publications:{color:CLR.branch, shape:"dot", alpha:1, mass: 0.8, link:'#publications'},
-                Events:{color:CLR.branch, shape:"dot", alpha:1, mass: 0.8, link:'#events'},
-                "Social Media":{color:CLR.branch, shape:"dot", alpha:1, mass: 0.8, link:'/social_media'},
-            },
-            edges:{
-                "FIKom.UP":{
-                    Sitemap:{length:.3},
-                    Admission:{length:.3},
-                    Course:{length:.3},
-                    Course:{length:.3},
-                    Headline:{length:.3},
-                    Publications:{length:.3},
-                    Events:{length:.3},
-                    "About Us":{length:.3},
-                    "Social Media":{length:.3},
-                }
-            }
-        }
-        
-        var sys = arbor.ParticleSystem()
-        sys.parameters({stiffness:400, repulsion:100, gravity:true, fps:60, friction: 0.1})
-        sys.renderer = Renderer("#sitemap")
-        sys.graft(theUI)
-    })
-})(this.jQuery)
+    svg.selectAll("*").remove();
+    
+    // Use the extracted size to set the size of an SVG element.
+    svg
+    .attr("width", width)
+    .attr("height", 650);
+    
+    run(graph, width, height);
+}
+
+function scrollTo(d) {
+    var link = d.link;
+
+    $('html, body').animate({
+        scrollTop: $(link).offset().top
+    }, 800);
+}
+
+redraw();
+
+window.addEventListener("resize", redraw);
 </script>
 
 <style>
-canvas.linkable{
-    cursor: pointer;
+
+#chart {
+    height:auto;
 }
 
 .arbor.page_section {
@@ -275,7 +196,8 @@ canvas.linkable{
     .arbor.page_section {
         padding: 0;
         position: absolute;
-        top: 4%;
+        top: 3%;
     }
 }
+
 </style>
