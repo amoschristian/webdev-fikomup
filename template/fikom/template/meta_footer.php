@@ -35,3 +35,5 @@ foreach ($js_array as $js) {
     echo "<script src='$js_link'></script>";
 }
 ?>
+
+<?php include('back.php'); ?>

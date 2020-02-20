@@ -16,29 +16,29 @@ const graph = {
         {"id": "Admission", "group": 1, "link": "#"},
         {"id": "Course", "group": 1, "link": "#"},
         {"id": "Headline", "group": 1, "link": "#headline"},
-        {"id": "About us", "group": 1, "link": "#about_us"},
-        {"id": "Publications", "group": 1, "link": "#publications"},
+    //     {"id": "About us", "group": 1, "link": "#about_us"},
+    //     {"id": "Publications", "group": 1, "link": "#publications"},
         {"id": "Social Media", "group": 1, "link": "#social_media"},
-        {"id": "Event", "group": 1, "link": "#event"},
+    //     {"id": "Event", "group": 1, "link": "#event"},
     ],
     "links": [
         {"source": "Sitemap", "target": "FIKomUP", "value": 1},
         {"source": "Admission", "target": "FIKomUP", "value": 1},
-        {"source": "Course", "target": "FIKomUP", "value": 1},
+        {"source": "Course", "target": "Admission", "value": 1},
         {"source": "Headline", "target": "FIKomUP", "value": 1},
-        {"source": "Publications", "target": "FIKomUP", "value": 1},
-        {"source": "Event", "target": "FIKomUP", "value": 1},
-        {"source": "About us", "target": "FIKomUP", "value": 1},
-        {"source": "Social Media", "target": "FIKomUP", "value": 1},
+        // {"source": "Publications", "target": "Headline", "value": 1},
+        // {"source": "Event", "target": "FIKomUP", "value": 1},
+        // {"source": "About us", "target": "FIKomUP", "value": 1},
+        {"source": "Social Media", "target": "Headline", "value": 1},
     ]
 }
 
 var simulation = d3.forceSimulation()
     .force("link", d3.forceLink().id(function(d) { return d.id; }))
     .force('charge', d3.forceManyBody()
-      .strength(-10000)
+      .strength(-7000)
       .theta(0.8)
-      .distanceMax(500)
+      .distanceMax(400)
     )
     .force("center", d3.forceCenter(width / 2, height / 2));
  
