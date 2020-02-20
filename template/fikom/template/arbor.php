@@ -12,13 +12,13 @@ height = chartDiv.clientHeight;
 const graph = {
     "nodes": [
         {"id": "FIKomUP", "group": 1, "image": "/media/source/fikomup_logo_white.png", "link": "#home"},
-        {"id": "Sitemap", "group": 1, "link": "#"},
+        {"id": "Social Media", "group": 1, "link": "#social_media"},
         {"id": "Admission", "group": 1, "link": "#"},
+        {"id": "Sitemap", "group": 1, "link": "#"},
         {"id": "Course", "group": 1, "link": "#"},
         {"id": "Headline", "group": 1, "link": "#headline"},
     //     {"id": "About us", "group": 1, "link": "#about_us"},
     //     {"id": "Publications", "group": 1, "link": "#publications"},
-        {"id": "Social Media", "group": 1, "link": "#social_media"},
     //     {"id": "Event", "group": 1, "link": "#event"},
     ],
     "links": [
