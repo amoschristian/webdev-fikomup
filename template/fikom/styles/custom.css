@@ -1,0 +1,25 @@
+.lecturer-img {
+  width: 100%;
+  padding-top: 10px;
+  height: 170px;
+  object-fit: cover;
+  transition: 0.5s ease;
+  backface-visibility: hidden;
+  display: block;
+  cursor: pointer;
+}
+
+.cont {
+  position: relative;
+}
+.text {
+  text-align: center;
+}
+
+.img-modal {
+  height: 150px;
+  width: auto;
+}
+.modal-header {
+  justify-content: center;
+}

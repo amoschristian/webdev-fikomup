@@ -37,7 +37,7 @@ $folder_template = web_info('url') . '/' . folder_template();
 								<li class="about_menu_item_sub <?= ($sub_page == 'vision') ? 'active' : '' ?>"><a href="/about-us/vision">Vision</a></li>
 								<li class="about_menu_item_sub <?= ($sub_page == 'mission') ? 'active' : '' ?>"><a href="/about-us/mission">Mission</a></li>
 							<li class="about_menu_item"><a href="/about-us/lecturer">Resources</a></li>
-								<li class="about_menu_item_sub"><a href="/about-us/lecturer">Lecturer</a></li>
+								<li class="about_menu_item_sub <?= ($sub_page == 'lecturer') ? 'active' : '' ?>"><a href="/about-us/lecturer">Lecturer</a></li>
 								<li class="about_menu_item_sub"><a href="/about-us/facility">Facility</a></li>
 								<li class="about_menu_item_sub"><a href="/about-us/alumni">Alumni</a></li>
 							<li class="about_menu_item"><a href="/about-us/activity">Resources</a></li>
