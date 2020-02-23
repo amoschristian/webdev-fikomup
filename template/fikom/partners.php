@@ -126,11 +126,7 @@ $folder_template = web_info('url') . '/' . folder_template();
                 <img class="img-part" src="<?= $folder_template . '/images/orbicom.png' ?>" alt="">
             </div>
             <div class="col-md-8 col-bg21">
-                <div class="">
-                    <a href = "<?= $folder_template . '/images/img-part/Backgrund.JPG' ?>" data-toggle = "lightbox" data-gallery="gallery">
-                    <img class="img-media imggallery" src="<?= $folder_template . '/images/img-part/Backgrund.JPG' ?>" alt="">
-				    </a>
-                    
+                <div class="">                   
                     <img class="img-media" src="<?= $folder_template . '/images/img-part/Inagurasi Pendirian COSDEV-ORBICOM  (Unesco Chair on Communication).JPG' ?>" alt="">
                     <img class="img-media" src="<?= $folder_template . '/images/img-part/Ketua Pembina YPPUP memberikan Cenderamata kepada Frank La Rue (Assistent Director, UNESCO).JPG' ?>" alt="">
                     <img class="img-media" src="<?= $folder_template . '/images/img-part/Ketua Pembina YPPUP menyambut Tun Mahathir Mohamad (Mantan PM Malaysia).JPG' ?>" alt="">
