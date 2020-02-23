@@ -31,8 +31,8 @@ $folder_template = web_info('url') . '/' . folder_template();
                     <div class="footer_column_title">Menu</div>
                     <div class="footer_column_content">
                         <ul>
-                            <li class="footer_list_item"><a href="/">Admissions</a></li>
-                            <li class="footer_list_item"><a href="#">Courses</a></li>
+                            <li class="footer_list_item"><a href="/admission">Admissions</a></li>
+                            <li class="footer_list_item"><a href="/course">Courses</a></li>
                             <li class="footer_list_item"><a href="/event">Events</a></li>
                             <li class="footer_list_item"><a href="/news">Publications</a></li>
                             <li class="footer_list_item"><a href="/about-us">About Us</a></li>

@@ -25,8 +25,8 @@ $folder_template = web_info('url') . '/' . folder_template();
         <nav class="main_nav_container">
             <div class="main_nav">
                 <ul class="main_nav_list">
-                    <li class="main_nav_item"><a href="/">Admissions</a></li>
-                    <li class="main_nav_item"><a href="#">Courses</a></li>
+                    <li class="main_nav_item"><a href="/admission">Admissions</a></li>
+                    <li class="main_nav_item"><a href="/course">Courses</a></li>
                     <li class="main_nav_item"><a href="/event">Events</a></li>
                     <li class="main_nav_item"><a href="/news">Publications</a></li>
                     <li class="main_nav_item"><a href="/about-us">About Us</a></li>
@@ -56,8 +56,8 @@ $folder_template = web_info('url') . '/' . folder_template();
     <div class="menu_inner menu_mm">
         <div class="menu menu_mm">
             <ul class="menu_list menu_mm">
-                <li class="menu_item menu_mm"><a href="/">Admissions</a></li>
-                <li class="menu_item menu_mm"><a href="#">Courses</a></li>
+                <li class="menu_item menu_mm"><a href="/admission">Admissions</a></li>
+                <li class="menu_item menu_mm"><a href="/course">Courses</a></li>
                 <li class="menu_item menu_mm"><a href="/event">Events</a></li>
                 <li class="menu_item menu_mm"><a href="/news">Publications</a></li>
                 <li class="menu_item menu_mm"><a href="/about-us">About Us</a></li>
