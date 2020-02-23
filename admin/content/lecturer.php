@@ -15,7 +15,7 @@ switch ($show) {
 
         //Menampilkan data
     default:
-        echo '<h3 class="page-header"><b>Daftar Event</b>
+        echo '<h3 class="page-header"><b>Daftar Lecturer</b>
 				<a href="' . $link . '&show=form" class="btn btn-primary btn-sm pull-right top-button">
 					<i class="glyphicon glyphicon-plus-sign"></i> Tambah
 				</a>
@@ -66,7 +66,7 @@ switch ($show) {
             buat_textbox("Perguruan Tinggi Terakhir *", "peguruan_tinggi", $data['perguruan_tinggi'], 10);
             buat_textbox("Jabatan *", "jabatan", $data['jabatan'], 10);
             buat_textbox("Email *", "email", $data['email'], 10);
-            buat_imagepicker("Foto", "foto", $data['foto']);
+            buat_imagepicker("Foto", "gambar", $data['gambar']);
 
             
             tutup_form($link);
@@ -75,7 +75,18 @@ switch ($show) {
 
         // Menyisipkan atau mengedit data di database
     case "action":
-        $user       = $_SESSION['iduser'];
+        $npd                    = addslashes($_POST['npd']);
+        $nidn                   = addslashes($_POST['nidn']);
+        $nama_dosen             = addslashes($_POST['nama_dosen']);
+        $gelar                  = addslashes($_POST['gelar']);
+        $jenis_kelamin          = addslashes($_POST['jenis_kelamin']);
+        $agama                  = addslashes($_POST['agama']);
+        $kepangkatan            = addslashes($_POST['kepangkatan']);
+        $pendidikan             = addslashes($_POST['pendidikan']);
+        $peguruan_tinggi        = addslashes($_POST['peguruan_tinggi']);
+        $jabatan                = addslashes($_POST['jabatan']);
+        $email                  = addslashes($_POST['email']);
+        $user                   = $_SESSION['iduser'];
         if ($_POST['aksi'] == "tambah") {
             $mysqli->query("INSERT INTO lecturer SET
 				npd 		    = '$npd',
@@ -107,13 +118,14 @@ switch ($show) {
                 jabatan         = '$jabatan',
                 email           = '$email',
 				foto		    = '$_POST[gambar]',
-                updated_at  = now()		
+                updated_at  = now()	
                 WHERE id_lecturer='$_POST[id]'
             ";
-
+            
             $mysqli->query($query);
         }
         header('location:' . $link);
+       
         break;
 
         // Menghapus data di database
