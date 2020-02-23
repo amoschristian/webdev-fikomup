@@ -143,9 +143,7 @@ switch ($show) {
     $(document).ready(function() {
         $('.js-example-basic-multiple').select2();
 
-        $('[name="tanggal"]').datetimepicker({
-            inline: true,
-        });
+        $('[name="tanggal"]').datetimepicker({});
 
     });
 </script>
