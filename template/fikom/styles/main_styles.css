@@ -885,10 +885,10 @@ section {
   color: #a5a5a5;
 }
 .course_price {
-  width: 100px;
+  width: 100%;
   height: 67px;
   background: #FF4F00;
-  margin-left: auto;
+  /* margin-left: auto; */
 }
 .course_price span {
   color: #ffffff;

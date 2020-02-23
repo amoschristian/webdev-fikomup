@@ -13,22 +13,16 @@ const graph = {
     "nodes": [
         {"id": "FIKomUP", "group": 1, "image": "/media/source/fikomup_logo_white.png", "link": "#home"},
         {"id": "Social Media", "group": 1, "link": "#social_media"},
-        {"id": "Admission", "group": 1, "link": "#"},
-        {"id": "Sitemap", "group": 1, "link": "#"},
-        {"id": "Course", "group": 1, "link": "#"},
+        {"id": "Admission", "group": 1, "link": "admission"},
+        {"id": "Sitemap", "group": 1, "link": "sitemap"},
+        {"id": "Course", "group": 1, "link": "course"},
         {"id": "Headline", "group": 1, "link": "#headline"},
-    //     {"id": "About us", "group": 1, "link": "#about_us"},
-    //     {"id": "Publications", "group": 1, "link": "#publications"},
-    //     {"id": "Event", "group": 1, "link": "#event"},
     ],
     "links": [
         {"source": "Sitemap", "target": "FIKomUP", "value": 1},
         {"source": "Admission", "target": "FIKomUP", "value": 1},
         {"source": "Course", "target": "Admission", "value": 1},
         {"source": "Headline", "target": "FIKomUP", "value": 1},
-        // {"source": "Publications", "target": "Headline", "value": 1},
-        // {"source": "Event", "target": "FIKomUP", "value": 1},
-        // {"source": "About us", "target": "FIKomUP", "value": 1},
         {"source": "Social Media", "target": "Headline", "value": 1},
     ]
 }
@@ -106,7 +100,10 @@ function run(graph, width, height) {
         var strength = -1300;
         var distance = 300;
     }
-    var simulation = d3.forceSimulation()
+    
+    simulation.stop()
+
+    simulation = d3.forceSimulation()
         .force("link", d3.forceLink().id(function(d) { return d.id; }))
         .force('charge', d3.forceManyBody()
           .strength(strength)
@@ -114,7 +111,7 @@ function run(graph, width, height) {
           .distanceMax(distance)
         )
         .force("center", d3.forceCenter(width / 2, height / 2));
-
+    
     simulation
         .nodes(graph.nodes)
         .on("tick", ticked);
@@ -213,12 +210,12 @@ function redraw() {
 function scrollTo(d) {
     var link = d.link;
 
-    if (link == "#") {
-        window.location.hash = link;
-    } else {
+    if (link.indexOf("#") > 0) {
         $('html, body').animate({
             scrollTop: $(link).offset().top
         }, 800);
+    } else {
+        window.location.href = link;
     }
     
 }

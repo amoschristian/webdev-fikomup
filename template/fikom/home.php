@@ -100,10 +100,6 @@ include('template/meta_head.php');
 										<div class="card-text"><?= $berita['desc'] ?></div>
 									</div>
 									<div class="price_box d-flex flex-row align-items-center">
-										<div class="course_author_image">
-											<img src="<?= $folder_template . '/images/author.jpg' ?>" alt="#">
-										</div>
-										<div class="course_author_name">Michael Smith, <span>Author</span></div>
 										<div class="course_price d-flex flex-column align-items-center justify-content-center"><span><a href="<?= "/news/id/{$berita['id_artikel']}/{$berita['judul_seo']}"; ?>">Read More</a></span></div>
 									</div>
 								</div>
@@ -156,10 +152,6 @@ include('template/meta_head.php');
 										<div class="card-text"><?= $berita['desc'] ?></div>
 									</div>
 									<div class="price_box d-flex flex-row align-items-center">
-										<div class="course_author_image">
-											<img src="<?= $folder_template . '/images/author.jpg' ?>" alt="#">
-										</div>
-										<div class="course_author_name">Michael Smith, <span>Author</span></div>
 										<div class="course_price d-flex flex-column align-items-center justify-content-center"><span><a href="<?= "/news/id/{$berita['id_artikel']}/{$berita['judul_seo']}"; ?>">Read More</a></span></div>
 									</div>
 								</div>

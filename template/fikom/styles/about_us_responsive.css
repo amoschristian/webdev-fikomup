@@ -178,7 +178,10 @@
 		text-align: center;
 	}
 	.about_menu_item_sub {
-		margin:0;
+		margin:0 !important;
+	}
+	.about_menu_item_sub_2 {
+		margin:0 !important;
 	}
 }
 
@@ -209,12 +212,6 @@
 	}
 	p {
 		font-size: 1rem !important;
-	}
-	.about_nav {
-		text-align: center;
-	}
-	.about_menu_item_sub {
-		margin:0;
 	}
 }
 
@@ -377,12 +374,6 @@
 	{
 		font-size: 13px;
 	}
-	.about_nav {
-		text-align: center;
-	}
-	.about_menu_item_sub {
-		margin:0;
-	}
 }
 
 /************
@@ -398,12 +389,6 @@
 	p {
 		font-size: 1rem !important;
 	}
-	.about_nav {
-		text-align: center;
-	}
-	.about_menu_item_sub {
-		margin:0;
-	}
 }
 
 /************
@@ -412,12 +397,6 @@
 
 @media only screen and (max-width: 480px)
 {
-	.about_nav {
-		text-align: center;
-	}
-	.about_menu_item_sub {
-		margin:0;
-	}
 }
 
 /************
@@ -440,12 +419,6 @@
 	{
 		padding-left: 19px;
 	}
-	.about_nav {
-		text-align: center;
-	}
-	.about_menu_item_sub {
-		margin:0;
-	}
 }
 
 /************
@@ -454,10 +427,4 @@
 
 @media only screen and (max-width: 400px)
 {
-	.about_nav {
-		text-align: center;
-	}
-	.about_menu_item_sub {
-		margin:0;
-	}
 }
