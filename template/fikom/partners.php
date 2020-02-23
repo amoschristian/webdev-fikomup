@@ -5,7 +5,6 @@ $folder_template = web_info('url') . '/' . folder_template();
 
 <!DOCTYPE html>
 <html lang="en">
-<link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -49,14 +48,14 @@ $folder_template = web_info('url') . '/' . folder_template();
 
 .text-p {
     font-size: 4rem;
-    font-family: 'Alfa Slab One', cursive;
+    font-family: 'Libre Franklin', sans-serif;
     color: white; 
     text-align:center;   
 }
 
 .text-p2 {
     font-size: 4rem;
-    font-family: 'Alfa Slab One', cursive;
+    font-family: 'Libre Franklin', sans-serif;
     color: #ff4e00;
     text-align:center;
 }
@@ -102,7 +101,7 @@ $folder_template = web_info('url') . '/' . folder_template();
 		<div class="home">
 			<?php include('template/particle.php'); ?>
 			<div class="home_content">
-				<h1>Partner</h1>
+				<h1>Partners</h1>
 			</div>
 		</div>
 

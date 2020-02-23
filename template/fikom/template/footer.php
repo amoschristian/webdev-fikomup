@@ -36,7 +36,7 @@ $folder_template = web_info('url') . '/' . folder_template();
                             <li class="footer_list_item"><a href="/event">Events</a></li>
                             <li class="footer_list_item"><a href="/news">Publications</a></li>
                             <li class="footer_list_item"><a href="/about-us">About Us</a></li>
-                            <li class="footer_list_item"><a href="#">Partners</a></li>
+                            <li class="footer_list_item"><a href="/partners">Partners</a></li>
                             <li class="footer_list_item"><a href="/contact">Contact</a></li>
                         </ul>
                     </div>
