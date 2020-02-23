@@ -30,19 +30,7 @@ $folder_template = web_info('url') . '/' . folder_template();
 					<!-- Menu -->
 			 		<div class="about_nav">
                 		<ul class="about_menu">
-                		    <li class="about_menu_item"><a href="/about-us/history">Organizations</a></li>
-								<li class="about_menu_item_sub <?= ($sub_page == 'history') ? 'active' : '' ?>"><a href="/about-us/history">History</a></li>
-								<li class="about_menu_item_sub <?= ($sub_page == 'organization') ? 'active' : '' ?>"><a href="/about-us/organization">Organizations Structure</a></li>
-							<li class="about_menu_item"><a href="/about-us/vision">Vision & Mission</a></li>
-								<li class="about_menu_item_sub <?= ($sub_page == 'vision') ? 'active' : '' ?>"><a href="/about-us/vision">Vision</a></li>
-								<li class="about_menu_item_sub <?= ($sub_page == 'mission') ? 'active' : '' ?>"><a href="/about-us/mission">Mission</a></li>
-							<li class="about_menu_item"><a href="/about-us/lecturer">Resources</a></li>
-								<li class="about_menu_item_sub"><a href="/about-us/lecturer">Lecturer</a></li>
-								<li class="about_menu_item_sub"><a href="/about-us/facility">Facility</a></li>
-								<li class="about_menu_item_sub"><a href="/about-us/alumni">Alumni</a></li>
-							<li class="about_menu_item"><a href="/about-us/activity">Resources</a></li>
-								<li class="about_menu_item_sub"><a href="/about-us/activity">Activity</a></li>
-								<li class="about_menu_item_sub"><a href="/about-us/ukm">UKM</a></li>
+                		    <li class="about_menu_item <?= ($sub_page == 'elearning') ? 'active' : '' ?>"><a href="/course/elearning">E-Learning</a></li>
                 		</ul>
             		</div>
 				</div>
@@ -52,7 +40,7 @@ $folder_template = web_info('url') . '/' . folder_template();
 						<div class="about-us-content">
 							<div class="news_post">
 								<?php 
-								$sub_file = dirname(__FILE__)."/about_us/$sub_page.php";
+								$sub_file = dirname(__FILE__)."/course/$sub_page.php";
 
 								if (file_exists($sub_file)) {
 									include($sub_file);

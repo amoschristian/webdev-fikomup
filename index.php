@@ -21,12 +21,14 @@ $not_found_file = folder_template() . '/404.php';
 
 GLOBAL $sub_page;
 
-if ($content == 'about_us') { //if about us, use special case
-    $sub_page =  (isset($_GET['tag'])) ? str_replace('-', '_', $_GET['tag']) : "history";
-}
+$default_page = [
+    'about_us' => 'history',
+    'admission' => 'information',
+    'course' => 'elearning'
+];
 
-if ($content == 'admission') { //if admission, use special case
-    $sub_page =  (isset($_GET['tag'])) ? str_replace('-', '_', $_GET['tag']) : "pmb";
+if (in_array($content, ['about_us', 'admission', 'course'])) { //if about us, use special case
+    $sub_page =  (isset($_GET['tag'])) ? str_replace('-', '_', $_GET['tag']) : $default_page[$content];
 }
 
 if (in_array($content, $page)) {
