@@ -15,6 +15,7 @@ $extra_css = [];
 switch ($module) {
     case 'news':
     case 'news_detail':
+    case 'event_detail':
         $extra_css = [
             "styles/news_styles.css",
             "styles/news_responsive.css"
@@ -24,6 +25,7 @@ switch ($module) {
     case 'about_us':
     case 'admission':
     case 'course':
+    case 'sitemap':
         $extra_css = [
             "styles/about_us_styles.css",
             "styles/about_us_responsive.css"

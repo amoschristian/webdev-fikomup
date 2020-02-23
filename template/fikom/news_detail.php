@@ -31,7 +31,7 @@ $isi = $detail_berita['isi'];
 		<div class="home">
 			<?php include('template/particle.php'); ?>	
 			<div class="home_content">
-				<h1>News</h1>
+				<h1>Publications</h1>
 			</div>
 		</div>
 
@@ -91,10 +91,6 @@ $isi = $detail_berita['isi'];
 
 					<div class="col-lg-4">
 						<div class="sidebar">
-
-							<!-- Tags -->
-
-							<?php include("template/tags.php"); ?>
 
 							<!-- Latest Posts -->
 

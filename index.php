@@ -13,7 +13,7 @@ GLOBAL $module;
 setlocale(LC_TIME, 'ID'); //set tanggal ke Indonesia
 
 $content = (isset($_GET['content'])) ? str_replace('-', '_', $_GET['content']) : "home";
-$page    = array('home', 'about_us', 'news', 'event', 'contact', 'event_detail', 'news_detail', 'admission', 'course');
+$page    = array('home', 'about_us', 'news', 'event', 'contact', 'event_detail', 'news_detail', 'admission', 'course', 'sitemap');
 
 $module = $content;
 
