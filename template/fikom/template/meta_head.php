@@ -22,6 +22,8 @@ switch ($module) {
         break;
 
     case 'about_us':
+    case 'admission':
+    case 'course':
         $extra_css = [
             "styles/about_us_styles.css",
             "styles/about_us_responsive.css"

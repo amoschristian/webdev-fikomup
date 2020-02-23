@@ -13,15 +13,20 @@ GLOBAL $module;
 setlocale(LC_TIME, 'ID'); //set tanggal ke Indonesia
 
 $content = (isset($_GET['content'])) ? str_replace('-', '_', $_GET['content']) : "home";
-$page    = array('home', 'about_us', 'news', 'event', 'contact', 'event_detail', 'news_detail');
+$page    = array('home', 'about_us', 'news', 'event', 'contact', 'event_detail', 'news_detail', 'admission', 'course');
 
 $module = $content;
 
 $not_found_file = folder_template() . '/404.php';
 
+GLOBAL $sub_page;
+
 if ($content == 'about_us') { //if about us, use special case
-    GLOBAL $sub_page;
     $sub_page =  (isset($_GET['tag'])) ? str_replace('-', '_', $_GET['tag']) : "history";
+}
+
+if ($content == 'admission') { //if admission, use special case
+    $sub_page =  (isset($_GET['tag'])) ? str_replace('-', '_', $_GET['tag']) : "pmb";
 }
 
 if (in_array($content, $page)) {

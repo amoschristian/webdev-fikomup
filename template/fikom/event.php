@@ -39,7 +39,7 @@ while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
 		<div class="home">
 			<?php include('template/particle.php'); ?>	
 			<div class="home_content">
-				<h1>Event</h1>
+				<h1>Events</h1>
 			</div>
 		</div>
 

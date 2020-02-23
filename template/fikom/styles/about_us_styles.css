@@ -1163,6 +1163,12 @@ section {
   color: #1a1a1a;
 }
 
+.about_menu_item.active a{
+  color: #f44f00 !important;
+  font-weight: bold;
+}
+
+
 .about_menu_item_sub.active a{
   color: #f44f00 !important;
   font-weight: bold;
