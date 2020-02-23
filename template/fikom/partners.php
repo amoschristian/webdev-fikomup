@@ -50,7 +50,9 @@ $folder_template = web_info('url') . '/' . folder_template();
     font-size: 4rem;
     font-family: 'Libre Franklin', sans-serif;
     color: white; 
-    text-align:center;   
+    text-align:center;
+    background-color:#ff4e00;
+    border-radius: 5px;   
 }
 
 .text-p2 {
@@ -58,14 +60,19 @@ $folder_template = web_info('url') . '/' . folder_template();
     font-family: 'Libre Franklin', sans-serif;
     color: #ff4e00;
     text-align:center;
+    border-radius: 5px;
+    
 }
 
 .col-bg {
-    background-color:#ff4e00;
+    background-color:white;
+    margin-bottom:10px;
+
 }
 
 .col-bg2 {
     background-color:white;
+    margin-bottom:10px;
 }
 
 .col-bg21 {
@@ -86,6 +93,24 @@ $folder_template = web_info('url') . '/' . folder_template();
 
 .gall{
     text-align:center;
+    padding-top: 10px;
+    height: 100vh;
+    background-color:#f1f1f1;
+    padding-bottom:10px;
+    border-radius: 5px;
+}
+
+.carous{
+    padding-top:10px;
+    height: 450px;
+    width: auto;
+    padding-bottom:10px;
+}
+.desc-part{
+    height:35vh;
+    padding-left:10px;
+    padding-right:10px;
+    
 }
 
 
@@ -111,36 +136,72 @@ $folder_template = web_info('url') . '/' . folder_template();
                 <div class="col-md-4 col-bg">
                     <div class="text-p">
                         Our Partners
-                    </div>      
+                    </div>  
+                    <div class=" gall">
+                <img class="img-part" src="<?= $folder_template . '/images/orbicom.png' ?>" alt="">
+            </div>    
                 </div>
                 <div class="col-md-8 col-bg2">
+                    <div class="text-p2 bor">
+                        Description
+                    </div>
+                    <div class="desc-part">
+                       <p>kunjungan delegasi The International Network of UNESCO Chairs in Communication (ORBICOM) dalam Welcome Dinner di Ruang Roeslan Abdul Gani Kemkominfo, Kamis malam (04/05/2017). Dihadiri oleh sekitar 21 delegasi dari berbagai negara, Welcome Dinner ini merupakan salah satu rangkaian kegiatan Simposium Internasional dan Annual Meeting ke-6 ORBICOM yang dilaksanakan pada 04-07 Mei 2017.</p>
+                    </div>
+
                     <div class="text-p2 bor ">
                         Gallery
-                    </div>      
+                    </div>
+                    
+                <div class="hero_slider_container carous">
+				<div class="hero_slider owl-carousel">
+
+					<!-- Hero Slide -->
+					<div class="hero_slide">
+						<div class="hero_slide_background" style="background-image:url(<?= $folder_template . '/images/img-part/1.jpg' ?>)"></div>
+						<div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
+						</div>
+					</div>
+
+					<!-- Hero Slide -->
+					<div class="hero_slide">
+						<div class="hero_slide_background" style="background-image:url(<?= $folder_template . '/images/img-part/3.JPG' ?>)"></div>
+						<div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
+						</div>
+					</div>
+
+					<!-- Hero Slide -->
+					<div class="hero_slide">
+						<div class="hero_slide_background" style="background-image:url(<?= $folder_template . '/images/img-part/4.JPG' ?>)"></div>
+						<div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
+						</div>
+                    </div>
+                    
+                    <div class="hero_slide">
+						<div class="hero_slide_background" style="background-image:url(<?= $folder_template . '/images/img-part/5.JPG' ?>)"></div>
+						<div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
+						</div>
+                    </div>
+                    
+                    <div class="hero_slide">
+						<div class="hero_slide_background" style="background-image:url(<?= $folder_template . '/images/img-part/7.JPG' ?>)"></div>
+						<div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
+						</div>
+					</div>
+
+				</div>
+
+				<div class="hero_slider_left hero_slider_nav trans_200"><span class="trans_200"><</span></div>
+				<div class="hero_slider_right hero_slider_nav trans_200"><span class="trans_200">></span></div>
+			</div>
+
+		</div>
+      
                 </div>
            
         </div>
         
-        <div class="container part2">
-            <div class="col-md-4 gall">
-                <img class="img-part" src="<?= $folder_template . '/images/orbicom.png' ?>" alt="">
-            </div>
-            <div class="col-md-8 col-bg21">
-                <div class="">                   
-                    <img class="img-media" src="<?= $folder_template . '/images/img-part/Inagurasi Pendirian COSDEV-ORBICOM  (Unesco Chair on Communication).JPG' ?>" alt="">
-                    <img class="img-media" src="<?= $folder_template . '/images/img-part/Ketua Pembina YPPUP memberikan Cenderamata kepada Frank La Rue (Assistent Director, UNESCO).JPG' ?>" alt="">
-                    <img class="img-media" src="<?= $folder_template . '/images/img-part/Ketua Pembina YPPUP menyambut Tun Mahathir Mohamad (Mantan PM Malaysia).JPG' ?>" alt="">
-                    <img class="img-media" src="<?= $folder_template . '/images/img-part/Pimpinan Fikom UP (COSDEV) dengan Presiden dan Secretary General ORBICOM di University of Lima, Peru (Mei 2018)..jpeg' ?>" alt="">
-                    <img class="img-media" src="<?= $folder_template . '/images/img-part/Prof. Dr. Wahono Sumaryono, Apr (Rektor Universitas Pancasila) mendampingi Prof. Dr. Betrand Cabodace (Director, ORBICOM), berdiskusi dengan Menteri Komunikasi dan Informasi RI (Rudiantara)..JPG' ?>" alt="">
-                    <img class="img-media" src="<?= $folder_template . '/images/img-part/Welcome Dinner bersama Menteri Komunikasi dan Informatika RI.JPG' ?>" alt="">
-                    <img class="img-media" src="<?= $folder_template . '/images/img-part/0dc86984-5708-45e0-acb2-2271c10a5231.jpg' ?>" alt="">
-                </div>      
-             </div>
-        </div>
-        
-           
-
-		<!-- Footer -->
+        	<!-- Footer -->
 		<?php include('template/footer.php'); ?>
 
 	</div>
