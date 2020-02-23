@@ -1,7 +1,6 @@
 <?php
 
-$query = "SELECT * FROM lecturer ";
-
+$query = "SELECT * FROM lecturer ORDER BY nama_dosen ASC";
 
 $result = $mysqli->query($query);
 $detail_lecturer = [];
@@ -19,7 +18,7 @@ while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
             <?php foreach ($detail_lecturer  as $lecturer) : ?>
                 <div class="col-lg-3 col-md-4 col-6">
                     <div class="cont">
-                        <img data-toggle="modal" data-target="#<?= $lecturer['id_lecturer'] ?>" class="lecturer-img" alt="" id="" src="<?= "../media/source/" . $lecturer['gambar'] ?>">
+                        <img data-toggle="modal" data-target="#<?= $lecturer['id_lecturer'] ?>" class="lecturer-img" alt="" id="" src="<?= print_image($lecturer['gambar']); ?>">
                             <div class="overlay">
                                 <div class="text"><?= $lecturer['nama_dosen'] ?></div>
                             </div>
@@ -32,7 +31,7 @@ while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
             <div class="modal-content">
             
                 <div class="modal-header">
-                    <img  class="img-modal" alt="" id="" src="<?= "../media/source/" . $lecturer['gambar'] ?>">
+                    <img  class="img-modal" alt="" id="" src="<?= print_image($lecturer['gambar']); ?>">
                 </div>
                     <div class="modal-body">
                         <table class="table table-striped">

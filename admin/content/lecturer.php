@@ -9,6 +9,8 @@
 <?php
 if (!defined("INDEX")) header('location: ../index.php');
 
+include "../library/function_image.php";
+
 $show = isset($_GET['show']) ? $_GET['show'] : "";
 $link = "?content=lecturer";
 switch ($show) {
@@ -25,12 +27,12 @@ switch ($show) {
         $no = 1;
         $id_user = $_SESSION['iduser'];
 
-        if ($_SESSION['leveluser'] == "admin") $query = $mysqli->query("SELECT * FROM lecturer ORDER BY id_lecturer DESC");
-        else $query = $mysqli->query("SELECT * FROM lecturer WHERE id_user='$id_user' ORDER BY id_lecturer");
+        if ($_SESSION['leveluser'] == "admin") $query = $mysqli->query("SELECT * FROM lecturer ORDER BY nama_dosen ASC");
+        else $query = $mysqli->query("SELECT * FROM lecturer WHERE id_user='$id_user' ORDER BY nama_dosen ASC");
         while ($data = $query->fetch_array()) {
             $user = $mysqli->query("SELECT nama_lengkap FROM user where id_user='$data[id_user]'");
             $us = $user->fetch_array();
-            $foto 	= '<img src="../media/source/'.$data['gambar'].'" width="100">';
+            $foto 	= '<img src="'.print_image($data['gambar']).'" width="100">';
             isi_tabel($no, array($foto, $data['nama_dosen'], $data['email']), $link, $data['id_lecturer']);
             $no++;
         }
