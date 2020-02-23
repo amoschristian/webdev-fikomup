@@ -75,6 +75,7 @@ switch ($show) {
 
         // Menyisipkan atau mengedit data di database
     case "action":
+        $user       = $_SESSION['iduser'];
         if ($_POST['aksi'] == "tambah") {
             $mysqli->query("INSERT INTO lecturer SET
 				npd 		    = '$npd',
