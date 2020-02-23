@@ -91,15 +91,13 @@ $folder_template = web_info('url') . '/' . folder_template();
 $('#contact_send_btn').off().on('click', function(e){
 	var form = $('#form').serializeArray();
 
-	console.log(form);
-
 	if (form.length == 4) {
 		if (form[0].value && form[1].value && form[2].value && form[3].value) {
 			e.preventDefault();
 
 			$.ajax({
 				type: "POST",
-				url: "send.php",
+				url: "email.php",
 				data: form, 
 				success: function(data){
 					console.log(data); 
