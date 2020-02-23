@@ -45,7 +45,7 @@ switch ($show) {
             $data    = $query->fetch_array();
             $aksi     = "Edit";
         } else {
-            $data = array("id_lecturer" => "", "npd" => "", "nidn" => "", "foto" => "", "nama_dosen" => "", "gelar" => "", "jenis_kelamin" => "", "agama" => "", "kepangkatan" => "", "pendidikan" => "", "peguruan_tinggi" => "", "jabatan" => "", "email" => "");
+            $data = array("id_lecturer" => "", "npd" => "", "nidn" => "", "gambar" => "", "nama_dosen" => "", "gelar" => "", "jenis_kelamin" => "", "agama" => "", "kepangkatan" => "", "pendidikan" => "", "peguruan_tinggi" => "", "jabatan" => "", "email" => "");
             $aksi     = "Tambah";
             
         }
@@ -63,7 +63,7 @@ switch ($show) {
             buat_textbox("Agama *", "agama", $data['agama'], 10);
             buat_textbox("Kepangkatan Akademik *", "kepangkatan", $data['kepangkatan'], 10);
             buat_textbox("Pendidikan Terakhir *", "pendidikan", $data['pendidikan'], 10);
-            buat_textbox("Perguruan Tinggi Terakhir *", "peguruan_tinggi", $data['perguruan_tinggi'], 10);
+            buat_textbox("Perguruan Tinggi Terakhir *", "peguruan_tinggi", $data['peguruan_tinggi'], 10);
             buat_textbox("Jabatan *", "jabatan", $data['jabatan'], 10);
             buat_textbox("Email *", "email", $data['email'], 10);
             buat_imagepicker("Foto", "gambar", $data['gambar']);
@@ -100,7 +100,7 @@ switch ($show) {
                 peguruan_tinggi = '$peguruan_tinggi',
                 jabatan         = '$jabatan',
                 email           = '$email',
-				foto		    = '$_POST[gambar]',
+				gambar		    = '$_POST[gambar]',
                 created_at  = now()				
 			");
         } elseif ($_POST['aksi'] == "edit") {
@@ -117,8 +117,8 @@ switch ($show) {
                 peguruan_tinggi = '$peguruan_tinggi',
                 jabatan         = '$jabatan',
                 email           = '$email',
-				foto		    = '$_POST[gambar]',
-                updated_at  = now()	
+				gambar		    = '$_POST[gambar]',
+                updated_at       = now()	
                 WHERE id_lecturer='$_POST[id]'
             ";
             

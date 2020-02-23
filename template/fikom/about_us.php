@@ -53,7 +53,6 @@ $folder_template = web_info('url') . '/' . folder_template();
 							<div class="news_post">
 								<?php 
 								$sub_file = dirname(__FILE__)."/about_us/$sub_page.php";
-
 								if (file_exists($sub_file)) {
 									include($sub_file);
 								}
