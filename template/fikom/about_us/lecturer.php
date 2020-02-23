@@ -1,0 +1,85 @@
+<?php
+
+$query = "SELECT * FROM lecturer ";
+
+
+$result = $mysqli->query($query);
+$detail_lecturer = [];
+
+while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
+	$detail_lecturer[$data['id_lecturer']] = $data;
+}
+?>
+<link rel="stylesheet" href="../template/fikom/styles/custom.css">
+<script src="../template/fikom/js/modal.js"></script>
+
+
+    <div class="news_post">
+        <div class="row ">
+            <?php foreach ($detail_lecturer  as $lecturer) : ?>
+                <div class="col-lg-3 col-md-4 col-6">
+                    <div class="cont">
+                        <img data-toggle="modal" data-target="#<?= $lecturer['id_lecturer'] ?>" class="lecturer-img" alt="" id="" src="<?= "../media/source/" . $lecturer['gambar'] ?>">
+                            <div class="overlay">
+                                <div class="text"><?= $lecturer['nama_dosen'] ?></div>
+                            </div>
+                    </div>
+                </div>
+        <div class="modal fade" id="<?= $lecturer['id_lecturer'] ?>" role="dialog">
+            <div class="modal-dialog">
+        
+        <!-- Modal content-->
+            <div class="modal-content">
+            
+                <div class="modal-header">
+                    <img  class="img-modal" alt="" id="" src="<?= "../media/source/" . $lecturer['gambar'] ?>">
+                </div>
+                    <div class="modal-body">
+                        <table class="table table-striped">
+                            <tbody>
+                                <tr>
+                                    <td> Nomor Pokok Dosen : <?= $lecturer['npd'] ?> </td>
+                                </tr>
+                                <tr>
+                                    <td> N I D N : <?= $lecturer['nidn'] ?></td>
+                                </tr>
+                                <tr>
+                                    <td> Gelar : <?= $lecturer['gelar'] ?></td>
+                                </tr>
+                                <tr>
+                                    <td> Jenis Kelamin : <?= $lecturer['jenis_kelamin'] ?></td>
+                                </tr>
+                                <tr>
+                                    <td> Agama : <?= $lecturer['agama'] ?></td>
+                                </tr>
+                                <tr>
+                                    <td> Kepangkatan Terakhir : <?= $lecturer['kepangkatan'] ?></td>
+                                </tr>
+                                <tr>
+                                    <td> Pendidikan Terakhir : <?= $lecturer['pendidikan'] ?></td>
+                                </tr>
+                                <tr>
+                                    <td> Nama Perguruan Tinggi Terakhir : <?= $lecturer['peguruan_tinggi'] ?></td>
+                                </tr>
+                                <tr>
+                                    <td> Jabatan : <?= $lecturer['jabatan'] ?></td>
+                                </tr>
+                                <tr>
+                                    <td> Email : <?= $lecturer['email'] ?></td>
+                                </tr>      
+                            </tbody>
+                        </table>
+                    </div>
+            
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <?php endforeach; ?> 
+    </div>
+</div>
+
+    
+  

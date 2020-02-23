@@ -26,6 +26,7 @@ switch ($module) {
     case 'admission':
     case 'course':
     case 'sitemap':
+    case 'partners':
         $extra_css = [
             "styles/about_us_styles.css",
             "styles/about_us_responsive.css"

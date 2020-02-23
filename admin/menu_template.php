@@ -13,6 +13,8 @@ tutup_dropdown();
 buat_menu("berita", "list-alt", "Berita", $admin_author);
 buat_menu("event", "list-alt", "Event", $admin_author);
 
+buat_menu("lecturer", "picture", "Lecturer", $admin_author);
+
 // buat_menu("halaman", "file", "Halaman", $admin_author);
 
 // buat_menu("komentar", "comment", "Komentar", $admin_author);
