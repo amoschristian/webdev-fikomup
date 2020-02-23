@@ -16,7 +16,7 @@
 .col-lg-4.course_box > .card {
     height: 100%;
     display: flex; 
-    align-items: flex-end;
+    /* align-items: flex-end; */
 }
 
 .col-lg-4.course_box > .card > .card-body > .card-title{
