@@ -47,7 +47,7 @@ switch ($show) {
             $data    = $query->fetch_array();
             $aksi     = "Edit";
         } else {
-            $data = array("id_lecturer" => "", "npd" => "", "nidn" => "", "gambar" => "", "nama_dosen" => "", "gelar" => "", "jenis_kelamin" => "", "agama" => "", "kepangkatan" => "", "pendidikan" => "", "peguruan_tinggi" => "", "jabatan" => "", "email" => "");
+            $data = array("id_lecturer" => "", "npd" => "", "nidn" => "", "gambar" => "", "nama_dosen" => "", "gelar" => "", "jenis_kelamin" => "", "bidang_kajian" => "", "kepangkatan" => "", "pendidikan" => "", "peguruan_tinggi" => "", "jabatan" => "", "email" => "");
             $aksi     = "Tambah";
             
         }
@@ -62,7 +62,7 @@ switch ($show) {
             buat_textbox("Nama Dosen *", "nama_dosen", $data['nama_dosen'], 10);
             buat_textbox("Gelar *", "gelar", $data['gelar'], 10);
             buat_textbox("Jenis Kelamin *", "jenis_kelamin", $data['jenis_kelamin'], 10);
-            buat_textbox("Agama *", "agama", $data['agama'], 10);
+            buat_textbox("Bidang Kajian *", "bidang_kajian", $data['bidang_kajian'], 10);
             buat_textbox("Kepangkatan Akademik *", "kepangkatan", $data['kepangkatan'], 10);
             buat_textbox("Pendidikan Terakhir *", "pendidikan", $data['pendidikan'], 10);
             buat_textbox("Perguruan Tinggi Terakhir *", "peguruan_tinggi", $data['peguruan_tinggi'], 10);
@@ -82,7 +82,7 @@ switch ($show) {
         $nama_dosen             = addslashes($_POST['nama_dosen']);
         $gelar                  = addslashes($_POST['gelar']);
         $jenis_kelamin          = addslashes($_POST['jenis_kelamin']);
-        $agama                  = addslashes($_POST['agama']);
+        $bidang_kajian                  = addslashes($_POST['bidang_kajian']);
         $kepangkatan            = addslashes($_POST['kepangkatan']);
         $pendidikan             = addslashes($_POST['pendidikan']);
         $peguruan_tinggi        = addslashes($_POST['peguruan_tinggi']);
@@ -96,7 +96,7 @@ switch ($show) {
 				nama_dosen      = '$nama_dosen',
                 gelar           = '$gelar',
                 jenis_kelamin   = '$jenis_kelamin',
-				agama   		= '$agama',
+				bidang_kajian   		= '$bidang_kajian',
 				kepangkatan		= '$kepangkatan',
 				pendidikan  	= '$pendidikan',
                 peguruan_tinggi = '$peguruan_tinggi',
@@ -113,7 +113,7 @@ switch ($show) {
 				nama_dosen      = '$nama_dosen',
                 gelar           = '$gelar',
                 jenis_kelamin   = '$jenis_kelamin',
-				agama   		= '$agama',
+				bidang_kajian   		= '$bidang_kajian',
 				kepangkatan		= '$kepangkatan',
 				pendidikan  	= '$pendidikan',
                 peguruan_tinggi = '$peguruan_tinggi',
