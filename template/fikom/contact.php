@@ -12,6 +12,17 @@ $folder_template = web_info('url') . '/' . folder_template();
 	?>
 </head>
 
+<style>
+.wa-button {
+	width: 400px;
+}
+@media only screen and (max-width: 417px){
+	.wa-button {
+		width: 300px;
+	}
+}
+</style>
+
 <body>
 
 	<div class="super_container">
@@ -36,9 +47,22 @@ $folder_template = web_info('url') . '/' . folder_template();
 				<div class="row">
 					<div class="col-lg-12">
 
-						<!-- Contact Form -->
+						<!-- Email Form -->
 						<div class="contact_form">
-							<div class="contact_title">Get in touch</div>
+							<div class="contact_title">Get in Touch with Us on Whatsapp</div>
+
+							<div class="contact_form_container">
+								<a href="https://wa.me/62217870451" target="_blank">
+									<img class="wa-button" src="<?= $folder_template ?>/images/whatsapp_button.png">
+										<!-- <span style="font-size:30px; color:#1a1a1a">Click here to Send Us Message</span> -->
+									</img>
+								</a>
+							</div>
+						</div>
+
+						<!-- Email Form -->
+						<div class="contact_form" style="margin-top: 100px">
+							<div class="contact_title">Get in Touch with Us on Email</div>
 
 							<div class="contact_form_container">
 								<form action="post" id="form">

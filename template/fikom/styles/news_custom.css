@@ -1,0 +1,21 @@
+.read-more-btn a {
+    color: #1a1a1a;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.read-more-btn:hover a {
+   color: #f44f00;
+   transition: all .5s ease;
+}
+
+.read-more-btn:hover .fa-arrow-right {
+   color: #f44f00 !important;
+   transition: all .5s ease;
+}
+
+.event_date {
+    margin-bottom: 0px;
+    width: 68px;
+    height: 68px;
+}

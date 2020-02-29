@@ -4,8 +4,23 @@
     object-fit: cover;
 }
 
-.card-title a {
-    font-size: 22px;
+.col-lg-6.course_box {
+    display: flex;
+    flex-direction: column;
+}
+
+.col-lg-6.course_box .card {
+    height: 100%;
+    display: flex; 
+}
+
+.col-lg-6.course_box .card-title{
+    margin-top: 40px;
+    margin-bottom: 2rem;
+}
+
+.col-lg-6.course_box .price_box {
+    padding-left: 0px;
 }
 
 .col-lg-4.course_box {
@@ -16,17 +31,174 @@
 .col-lg-4.course_box > .card {
     height: 100%;
     display: flex; 
-    /* align-items: flex-end; */
 }
 
-.col-lg-4.course_box > .card > .card-body > .card-title{
+.col-lg-4.course_box .card-title{
     margin-top: 40px;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
 }
 
-.col-lg-4.course_box > .card > .price_box {
+.col-lg-4.course_box .price_box {
     padding-left: 0px;
 }
 
+.fb-link {
+    margin-top: 60px;
+}
+
+#headline .col-lg-6.course_box.main {
+    display: flex;
+    flex-direction: column;
+}
+
+#headline .course_boxes {
+    margin-top: 30px;   
+}
+
+.headline .col-md-6 {
+    height: 500px;
+    margin-left: auto;
+    order: 2;
+    background: rgba(0,0,0,0.625);
+}
+
+.headline .card-title {
+    margin-bottom: 50px;
+}
+
+.headline .card-title a {
+    font-size: 40px;
+    font-weight: 500;
+    color: white !important;
+}
+
+.headline .read-more-btn a {
+    color: white;
+}
+
+.read-more-btn a {
+    color: #1a1a1a;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.card {
+    display: inline-block;
+    box-shadow: 0 0 12px 0 rgba(40,40,40,0.1);
+}
+
+.card:hover a {
+   color: #f44f00;
+   transition: all .5s ease;
+}
+
+.card:hover .fa-arrow-right {
+   color: #f44f00 !important;
+   transition: all .5s ease;
+}
+
+.card-title a {
+    font-weight: 600;
+}
+
+.price_box {
+    background: none;
+}
+
+.register_section {
+    background: url(/template/fikom/images/background/1-min.jpg) no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.register_section.custom {
+    background: url(/template/fikom/images/background/5-min.jpg) no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.fb-button {
+	width: 350px;
+}
+
+.fb-button:hover {
+	cursor: pointer;
+}
+
+.ig-link {
+    color: #1a1a1a !important;
+}
+
+.ig-link:hover {
+    color: #2962a0 !important;
+    transition: 0.3s;
+}
+
+.register_button {
+    margin-top:0;
+    background-color: transparent !important;
+    border: #f44f00 2px solid;
+}
+
+.page_section {
+    padding-top: 68px;
+}
 
 /* RESPONSIVE */
+@media only screen and (max-width: 1199px){
+    .ig-feed-box img {
+        width: 135px;
+        height: 135px;
+    }
+
+    #headline .col-sm-8  {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    #headline .col-sm-4  {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .ig-feed {
+        margin-top: 40px;
+    }
+
+    .ig-feed-box {
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 992px){
+    .ig-feed {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .fb-button {
+        width: 250px;
+    }
+}
+
+
+@media only screen and (max-width: 771px){
+    .fb-button {
+        width: 250px;
+    }
+}
+
+@media only screen and (max-width: 767px){
+    .fb-button {
+        width: 300px;
+    }
+
+    .fb-button-box {
+        text-align: center;
+    }
+    
+    #headline .col-sm-8  {
+        width: 100%;
+        max-width: 100%;
+    }
+}
