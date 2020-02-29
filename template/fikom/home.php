@@ -20,6 +20,10 @@ while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
 	$detail_berita[$data['id_artikel']]['desc'] = $text_pendek;
 }
 
+$berita_pertama = reset($detail_berita); //use for headline
+$detail_berita_headline = $detail_berita;
+unset($detail_berita_headline[$berita_pertama['id_artikel']]);
+
 //prepare the data to be display event
 $query = "SELECT * FROM event ";
 if (isset($_GET['tag'])) {
@@ -52,6 +56,15 @@ include('template/meta_head.php');
 
 <link rel='stylesheet' type='text/css' href='<?= $folder_template . '/styles/home_custom.css' ?>'>
 
+<style>
+	.headline {
+		background: url(<?= "/media/source/" . $berita_pertama['gambar'] ?>);
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+</style>
+
 </script
 
 <body>
@@ -80,34 +93,78 @@ include('template/meta_head.php');
 		<!-- Headline -->
 		<div class="popular page_section" id="headline">
 			<div class="container">
-				<div class="row">
+				<!-- <div class="row">
 					<div class="col">
 						<div class="section_title text-center">
 							<h1>Headline</h1>
 						</div>
 					</div>
-				</div>
-				<!-- berita -->
-				<div class="row course_boxes">
-					<?php if ($detail_berita) : ?>
-						<?php foreach ($detail_berita as $berita) : ?>
-							<!-- news -->
-							<div class="col-lg-4 course_box">
-								<div class="card">
-									<img class="card-img-top" src="<?= "/media/source/" . $berita['gambar'] ?>" alt="#">
-									<div class="card-body text-center">
-										<div class="card-title"><a href="#"><?= $berita['judul']; ?></a></div>
-										<div class="card-text"><?= $berita['desc'] ?></div>
-									</div>
-									<div class="price_box d-flex flex-row align-items-center">
-										<div class="course_price d-flex flex-column align-items-center justify-content-center"><span><a href="<?= "/news/id/{$berita['id_artikel']}/{$berita['judul_seo']}"; ?>">Read More</a></span></div>
+				</div> -->
+				<!-- Headling -->
+				<div class="col-sm-12" style="margin-top:20px">
+					<div class="col-sm-8" style="padding:0">
+						<div class="card mb-3">
+							<div class="row no-gutters headline">
+								<div class="col-md-6">
+									<div class="card-body">
+										<div class="card-title"><a href="<?= "/news/id/{$berita_pertama['id_artikel']}/{$berita_pertama['judul_seo']}"; ?>"><?= $berita_pertama['judul']; ?></a></div>
+										<p class="card-text"><?= $berita_pertama['desc'] ?></p>
+										<div class="read-more-btn"><span><a href="<?= "/news/id/{$berita_pertama['id_artikel']}/{$berita_pertama['judul_seo']}"; ?>">Read More<i class="fas fa-arrow-right" style="margin-left:10px; color: transparent"></i></a></span></div>
 									</div>
 								</div>
 							</div>
-						<?php endforeach; ?>
-					<?php else : ?>
-						<h3>News not found</h3>
-					<?php endif; ?>
+						</div>
+					</div>
+
+					<!-- Social Media Feed -->
+					<div class="col-sm-4 text-left" style="padding-left: 20px">
+						<div class="ig-feed">
+							<h1><img src="https://cdn.discordapp.com/attachments/658904235609686033/682249668998070365/PngItem_323894.png" width="30px"></img><a href="https://www.instagram.com/fikomup" target="_blank" class="ig-link"> fikomup</a></h1>
+							<div class="ig-feed-box" id="instafeed">
+								<script src="https://cdnjs.cloudflare.com/ajax/libs/instafeed.js/1.4.1/instafeed.min.js"></script>
+								<script src="https://matthewelsom.com/assets/js/libs/instafeed.min.js"></script>
+								<script>
+									var userFeed = new Instafeed({
+										target: 'instafeed',
+										get: 'user',
+										userId: '8987997106',
+										clientId: '924f677fa3854436947ab4372ffa688d',
+										accessToken: '8987997106.924f677.8555ecbd52584f41b9b22ec1a16dafb9',
+										resolution: 'thumbnail',
+										template: '<a href="{{link}}" target="_blank" id="{{id}}"><img src="{{image}}" /></a>',
+										sortBy: 'most-recent',
+										limit: 8,
+										links: false
+									});
+									userFeed.run();
+								</script>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-12">
+					<div class="row course_boxes">
+						<?php if ($detail_berita) : ?>
+							<?php foreach ($detail_berita as $idx => $berita) : ?>
+								<!-- news -->
+								<div class="col-lg-4 course_box">
+									<div class="card">
+										<img class="card-img-top" src="<?= "/media/source/" . $berita['gambar'] ?>" alt="#">
+										<div class="card-body">
+											<div class="card-title"><a href="<?= "/news/id/{$berita['id_artikel']}/{$berita['judul_seo']}"; ?>"><?= $berita['judul']; ?></a></div>
+											<div class="card-text"><?= $berita['desc'] ?></div>
+											<div class="price_box d-flex flex-row">
+												<div class="read-more-btn"><span><a href="<?= "/news/id/{$berita['id_artikel']}/{$berita['judul_seo']}"; ?>">Read More<i class="fas fa-arrow-right" style="margin-left:10px; color: transparent""></i></a></span></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							<?php endforeach; ?>
+						<?php else : ?>
+							<h3>News not found</h3>
+						<?php endif; ?>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -121,9 +178,9 @@ include('template/meta_head.php');
 
 					<div class="register_section d-flex flex-column align-items-center justify-content-center">
 						<div class="register_content text-center">
-							<h1 class="register_title">Faculty of Communication Universitas Pancasila</h1>
-
-							<div class="button button_1 register_button mx-auto trans_200"><a href="/about-us">Learn More</a></div>
+							<a href="#" target="_blank">
+								<img class="fb-button" src="<?= $folder_template . "/images/find-us-on-facebook-logo-png-4.png" ?>"></img>
+							</a>
 						</div>
 					</div>
 				</div>
@@ -147,12 +204,12 @@ include('template/meta_head.php');
 							<div class="col-lg-4 course_box">
 								<div class="card">
 									<img class="card-img-top" src="<?= "/media/source/" . $berita['gambar'] ?>" alt="#">
-									<div class="card-body text-center">
+									<div class="card-body">
 										<div class="card-title"><a href="#"><?= $berita['judul']; ?></a></div>
 										<div class="card-text"><?= $berita['desc'] ?></div>
-									</div>
-									<div class="price_box d-flex flex-row align-items-center">
-										<div class="course_price d-flex flex-column align-items-center justify-content-center"><span><a href="<?= "/news/id/{$berita['id_artikel']}/{$berita['judul_seo']}"; ?>">Read More</a></span></div>
+										<div class="price_box d-flex flex-row">
+											<div class="read-more-btn"><span><a href="<?= "/news/id/{$berita['id_artikel']}/{$berita['judul_seo']}"; ?>">Read More<i class="fas fa-arrow-right" style="margin-left:10px; color: transparent""></i></a></span></div>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -164,60 +221,18 @@ include('template/meta_head.php');
 			</div>
 		</div>
 
-		<!-- Social Media -->
-		<div class="testimonials page_section" id="social_media">
-			<!-- <div class="testimonials_background" style="background-image:url(images/testimonials_background.jpg)"></div> -->
-			<div class="testimonials_background_container prlx_parent">
-				<div class="testimonials_background prlx" style="background-image:url(<?= $folder_template . '/images/fik.JPG' ?>)"></div>
-			</div>
-			<div class="container">
+		<!-- Register -->
 
-				<div class="row">
-					<div class="col">
-						<div class="section_title text-center">
-							<h1>FIKom UP on Twitter</h1>
-						</div>
-					</div>
-				</div>
+		<div class="register page_section" id="about_us" style="padding: 0">
+			<div class="container-fluid">
+				<div class="row row-eq-height">
+					<!-- Register -->
 
-				<div class="row">
-					<div class="col-lg-10 offset-lg-1">
+					<div class="register_section custom d-flex flex-column align-items-center justify-content-center">
+						<div class="register_content text-center">
+							<h1 class="register_title">Faculty of Communication Universitas Pancasila</h1>
 
-						<div class="testimonials_slider_container">
-
-							<!-- Testimonials Slider -->
-							<div class="owl-carousel owl-theme testimonials_slider">
-
-								<!-- Testimonials Item -->
-								<div class="owl-item">
-									<div class="testimonials_item text-center">
-										<div class="quote">“</div>
-										<p class="testimonials_text">Visi kami: Pada tahun 2019, program studi ilmu komunikasi menjadi unggul dan kompetitif dalam bidang jurnalistik multimedia, komunikasi strategis, dan kajian media berdasarkan Pancasila.</p>
-										<div class="testimonial_user">
-											<div class="testimonial_image mx-auto">
-												<img src="<?= $folder_template . '/images/bl.jpg' ?>" alt="">
-											</div>
-											<div class="testimonial_name">Admin</div>
-											<div class="testimonial_title">2019-8-12</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- Testimonials Item -->
-								<div class="owl-item">
-									<div class="testimonials_item text-center">
-										<div class="quote">“</div>
-										<p class="testimonials_text">Hey guys yuk datang ke open house kita di Jl. Srengseng Sawah, Jagakarsa, Jakarta Selatan, 12640</p>
-										<div class="testimonial_user">
-											<div class="testimonial_image mx-auto">
-												<img src="<?= $folder_template . '/images/bl.jpg' ?>" alt="">
-											</div>
-											<div class="testimonial_name">Admin</div>
-											<div class="testimonial_title">2019-4-24</div>
-										</div>
-									</div>
-								</div>
-							</div>
+							<div class="button button_1 register_button mx-auto trans_200"><a href="/about-us">Learn More</a></div>
 						</div>
 					</div>
 				</div>

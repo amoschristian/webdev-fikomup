@@ -2,12 +2,24 @@
     <svg height=500></svg>
 </div>
 <script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script>
 
 var chartDiv = document.getElementById("chart");
 var svg = d3.select("svg");
 width = chartDiv.clientWidth;
 height = chartDiv.clientHeight;
+
+var standardWidth = 768;
+var ratio = (width / standardWidth);
+
+var strength = -6000;
+var distance = 400;
+
+if (ratio < 0.60) {
+    var strength = -1300;
+    var distance = 250;
+}
 
 const graph = {
     "nodes": [
@@ -30,9 +42,9 @@ const graph = {
 var simulation = d3.forceSimulation()
     .force("link", d3.forceLink().id(function(d) { return d.id; }))
     .force('charge', d3.forceManyBody()
-      .strength(-7000)
+      .strength(strength)
       .theta(0.8)
-      .distanceMax(400)
+      .distanceMax(distance)
     )
     .force("center", d3.forceCenter(width / 2, height / 2));
  
@@ -93,12 +105,12 @@ function run(graph, width, height) {
             .on("end", dragended))
         .on('click', scrollTo); 
 
-    var strength = -7000;
+    var strength = -6000;
     var distance = 400;
 
     if (ratio < 0.60) {
         var strength = -1300;
-        var distance = 300;
+        var distance = 250;
     }
     
     simulation.stop()
@@ -187,7 +199,7 @@ function dragended(d) {
     d.fx = d3.event.x
     d.fy = d3.event.y
     if (!d3.event.active) simulation.alphaTarget(0);
-    //simulation.unfix(d);
+    // simulation.unfix(d);
 }
 
 function redraw() {
@@ -222,6 +234,20 @@ function scrollTo(d) {
 
 redraw();
 window.addEventListener("resize", redraw);
+
+var timer = null;
+function startSetInterval() {
+    timer = setInterval( redraw, 2500);
+}
+startSetInterval();
+
+// hover behaviour
+$('#chart').hover(function() {
+  clearInterval(timer);
+}, function() {
+  startSetInterval();
+});
+
 </script>
 
 <style>

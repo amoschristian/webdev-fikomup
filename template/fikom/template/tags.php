@@ -24,3 +24,14 @@ $page = str_replace('_', '-', $module);
         <?php endforeach; ?>
     </div>
 </div>
+
+<style>
+    .tags .tag {
+        background: none;
+        border: #f44f00 2px solid;
+    }
+
+    .tags .tag a {
+        color: #1a1a1a;
+    }
+</style>
