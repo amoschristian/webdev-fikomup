@@ -101,6 +101,10 @@
     font-weight: 600;
 }
 
+.card.mb-3 {
+    width: 100%;
+}
+
 .price_box {
     background: none;
 }
