@@ -106,7 +106,7 @@ include('template/meta_head.php');
 						<div class="card mb-3">
 							<div class="row no-gutters headline">
 								<div class="col-md-6">
-									<div class="card-body">
+									<div class="card-body-hd">
 										<div class="card-title"><a href="<?= "/news/id/{$berita_pertama['id_artikel']}/{$berita_pertama['judul_seo']}"; ?>"><?= $berita_pertama['judul']; ?></a></div>
 										<p class="card-text"><?= $berita_pertama['desc'] ?></p>
 										<div class="read-more-btn"><span><a href="<?= "/news/id/{$berita_pertama['id_artikel']}/{$berita_pertama['judul_seo']}"; ?>">Read More<i class="fas fa-arrow-right" style="margin-left:10px; color: transparent"></i></a></span></div>
@@ -155,7 +155,7 @@ include('template/meta_head.php');
 											<div class="card-title"><a href="<?= "/news/id/{$berita['id_artikel']}/{$berita['judul_seo']}"; ?>"><?= $berita['judul']; ?></a></div>
 											<div class="card-text"><?= $berita['desc'] ?></div>
 											<div class="price_box d-flex flex-row">
-												<div class="read-more-btn"><span><a href="<?= "/news/id/{$berita['id_artikel']}/{$berita['judul_seo']}"; ?>">Read More<i class="fas fa-arrow-right" style="margin-left:10px; color: transparent""></i></a></span></div>
+												<div class="read-more-btn"><span><a href="<?= "/news/id/{$berita['id_artikel']}/{$berita['judul_seo']}"; ?>">Read More<i class="fas fa-arrow-right" style="margin-left:10px; "></i></a></span></div>
 											</div>
 										</div>
 									</div>
@@ -188,12 +188,12 @@ include('template/meta_head.php');
 		</div>
 
 		<!-- News -->
-		<div class="news page_section" id="publications"> 
+		<div class="news page_section pub-back" id="publications"> 
 			<div class="container">
 				<div class="row">
 					<div class="col">
-						<div class="section_title text-center">
-							<h1>Publications</h1>
+						<div class="section_title text-center" >
+							<h1 style="color:white;">Publications</h1>
 						</div>
 					</div>
 				</div>
@@ -208,7 +208,7 @@ include('template/meta_head.php');
 										<div class="card-title"><a href="#"><?= $berita['judul']; ?></a></div>
 										<div class="card-text"><?= $berita['desc'] ?></div>
 										<div class="price_box d-flex flex-row">
-											<div class="read-more-btn"><span><a href="<?= "/news/id/{$berita['id_artikel']}/{$berita['judul_seo']}"; ?>">Read More<i class="fas fa-arrow-right" style="margin-left:10px; color: transparent""></i></a></span></div>
+											<div class="read-more-btn"><span><a href="<?= "/news/id/{$berita['id_artikel']}/{$berita['judul_seo']}"; ?>">Read More<i class="fas fa-arrow-right" style="margin-left:10px; "></i></a></span></div>
 										</div>
 									</div>
 								</div>
