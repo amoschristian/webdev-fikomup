@@ -137,7 +137,7 @@
 }
 
 #home {
-  background: linear-gradient( rgba(0, 0, 0, 0.719), rgba(0, 0, 0, 0.699) ), url(https://cdn.discordapp.com/attachments/658904235609686033/684051667871858690/113095-OOR202-344.png);
+  background: linear-gradient( rgba(0, 0, 0, 0.719), rgba(0, 0, 0, 0.699) ), url(/template/fikom/images/background/world_map.png);
   background-size: cover;
 }
 
