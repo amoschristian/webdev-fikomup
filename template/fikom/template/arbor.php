@@ -207,7 +207,7 @@ function redraw() {
     var currentChartDiv = document.getElementById("chart");
     var svg = d3.select("svg");
     var width = screen.width;
-    var height = screen.height / 1.7;
+    var height = screen.height / 2;
 
     // Use the extracted size to set the size of an SVG element.
     svg

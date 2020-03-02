@@ -301,7 +301,7 @@ section {
   width: 100%;
   height: 100%;
   content: '';
-  box-shadow: 0px 20px 49px rgba(0, 0, 0, 0.67);
+  box-shadow: 0px 20px 49px rgba(0, 0, 0, 0.17);
   z-index: -1;
 }
 
@@ -360,7 +360,7 @@ section {
   transition: all 200ms ease;
 }
 .main_nav_item a:hover {
-  color: #FF4F00;
+  color: #ff4f00;
 }
 
 /*********************************
@@ -370,7 +370,7 @@ section {
 .header_side {
   width: 279px;
   height: 100%;
-  background: #FF4F00;
+  background: #ff4f00;
 }
 .header_side img {
   width: 29px;
@@ -407,7 +407,7 @@ section {
   color: #3a3a3a;
 }
 .hamburger_container:hover i {
-  color: #FF4F00;
+  color: #ff4f00;
 }
 
 /*********************************
@@ -477,7 +477,7 @@ section {
   transition: all 200ms ease;
 }
 .menu_item a:hover {
-  color: #FF4F00;
+  color: #ff4f00;
 }
 .menu_close_container {
   position: absolute;
@@ -520,7 +520,7 @@ section {
 }
 .menu_close_container:hover .menu_close,
 .menu_close_container:hover .menu_close::after {
-  background: #FF4F00;
+  background: #ff4f00;
 }
 
 /*********************************
@@ -550,7 +550,7 @@ section {
   color: #3a3a3a;
 }
 .menu_social_item a i:hover {
-  color: #FF4F00;
+  color: #ff4f00;
 }
 .menu_container.active .menu_social_container {
   -webkit-transform: translateY(0px);
@@ -638,7 +638,7 @@ section {
   color: #ffffff;
 }
 .hero_slide_content h1 span {
-  background: #FF4F00;
+  background: #ff4f00;
   padding-left: 13px;
   padding-right: 13px;
   margin-left: -12px;
@@ -682,7 +682,7 @@ section {
   cursor: pointer;
 }
 .hero_slider_nav:hover {
-  background: #FF4F00;
+  background: #ff4f00;
 }
 .hero_slider_nav:hover span {
   color: #ffffff;
@@ -727,7 +727,7 @@ section {
   border-radius: 50%;
 }
 .hero_box:hover {
-  background: #FF4F00;
+  background: #ff4f00;
 }
 .hero_box img {
   width: 62px;
@@ -735,7 +735,7 @@ section {
   margin-top: -6px;
 }
 .svg path {
-  fill: #FF4F00;
+  fill: #ff4f00;
 }
 .hero_box svg {
   width: 62px;
@@ -795,7 +795,7 @@ section {
   width: 55px;
   height: 4px;
   content: '';
-  background: #FF4F00;
+  background: #ff4f00;
 }
 
 /*********************************
@@ -838,6 +838,13 @@ section {
   border-top-right-radius: 0px;
 }
 .card-body {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-top: 4px solid #ff4f00;
+}
+.card-body-hd {
   padding-top: 0px;
   padding-bottom: 0px;
   padding-left: 15px;
@@ -887,7 +894,7 @@ section {
 .course_price {
   width: 100%;
   height: 67px;
-  background: #FF4F00;
+  background: #ff4f00;
   /* margin-left: auto; */
 }
 .course_price span {
@@ -906,7 +913,7 @@ section {
 }
 .register_section {
   width: 100%;
-  background: #FF4F00;
+  background: #ff4f00;
   padding-top: 156px;
   padding-bottom: 161px;
   height: 100px;
@@ -989,12 +996,12 @@ input:last-of-type {
 }
 .input_field:focus {
   outline: none !important;
-  border: solid 2px #FF4F00;
+  border: solid 2px #ff4f00;
 }
 .search_submit_button {
   width: 100%;
   height: 48px;
-  background: #FF4F00;
+  background: #ff4f00;
   color: #ffffff;
   font-size: 14px;
   text-transform: uppercase;
@@ -1083,7 +1090,7 @@ input:last-of-type {
 }
 .quote {
   font-size: 36px;
-  color: #FF4F00;
+  color: #ff4f00;
 }
 .testimonials_text {
   color: #ffffff;
@@ -1135,7 +1142,7 @@ input:last-of-type {
   width: 16px !important;
   height: 16px !important;
   border: none;
-  background: #FF4F00 !important;
+  background: #ff4f00 !important;
 }
 
 /*********************************
@@ -1154,25 +1161,25 @@ input:last-of-type {
 .event_date {
   width: 131px;
   height: 131px;
-  border: solid 2px #FF4F00;
+  border: solid 2px #ff4f00;
   margin-bottom: 18px;
 }
 .event_day {
   font-size: 48px;
   font-weight: 700;
-  color: #FF4F00;
+  color: #ff4f00;
   margin-bottom: 1px;
   line-height: 1;
 }
 .event_month {
   font-size: 19px;
   font-weight: 700;
-  color: #FF4F00;
+  color: #ff4f00;
 }
 .event_year {
   font-size: 15px;
   font-weight: 600;
-  color: #FF4F00;
+  color: #ff4f00;
 }
 .event_name a {
   font-size: 22px;
@@ -1180,7 +1187,7 @@ input:last-of-type {
   color: #1a1a1a;
 }
 .event_name a:hover {
-  color: #FF4F00;
+  color: #ff4f00;
 }
 .event_location {
   font-size: 14px;
@@ -1234,13 +1241,13 @@ input:last-of-type {
   color: #1a1a1a;
 }
 .newsletter_email:focus {
-  outline: solid 2px #FF4F00;
+  outline: solid 2px #ff4f00;
 }
 .newsletter_submit_btn {
   width: 164px;
   height: 42px;
   border: none;
-  background: #FF4F00;
+  background: #ff4f00;
   color: #ffffff;
   font-size: 14px;
   font-weight: 500;
@@ -1292,7 +1299,7 @@ input:last-of-type {
   transition: all 200ms ease;
 }
 .footer_list_item a:hover {
-  color: #FF4F00;
+  color: #ff4f00;
 }
 .footer_contact_item {
   font-size: 14px;
@@ -1315,7 +1322,7 @@ input:last-of-type {
 }
 .footer_contact_icon i {
   width: 100%;
-  color: #FF4F00;
+  color: #ff4f00;
   font-size: 1.5em;
 }
 
@@ -1331,7 +1338,7 @@ input:last-of-type {
   color: #ffffff;
 }
 .footer_social .menu_social_item a i:hover {
-  color: #FF4F00;
+  color: #ff4f00;
 }
 .footer_social .menu_social_item:last-child {
   margin-right: 0px;
@@ -1371,6 +1378,7 @@ input:last-of-type {
   user-select: none;
   transform: translate(-50%, -50%);
   color: #000;
+  font-weight: 900;
 }
 
 .learn {
