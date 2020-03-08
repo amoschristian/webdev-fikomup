@@ -74,12 +74,12 @@ a:hover{
   width: 30%;
   margin: 0 auto;
 }
-.alert{
+/* .alert{
   text-align: center;
   margin: 0 auto;
   color: red;
   font-weight: bold;
-}
+} */
 .header-main .logo{
  display: block;
     margin-left: auto;

@@ -19,7 +19,7 @@ $folder_template = web_info('url') . '/' . folder_template();
 		<div class="home">
 			<?php include('template/particle.php'); ?>
 			<div class="home_content">
-				<h1>Courses</h1>
+				<h1><?= $lang->t('Courses') ?></h1>
 			</div>
 		</div>
 

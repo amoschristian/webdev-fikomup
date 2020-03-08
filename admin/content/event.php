@@ -50,7 +50,7 @@ switch ($show) {
             $data    = $query->fetch_array();
             $aksi     = "Edit";
         } else {
-            $data = array("id_event" => "", "judul" => "", "isi" => "", "gambar" => "", "tanggal" => "", "lokasi" => "", "kategori" => "", "tag" => "");
+            $data = array("id_event" => "", "judul" => "", "judul_terjemahan" => "", "isi" => "", "isi_terjemahan" => "", "gambar" => "", "tanggal" => "", "lokasi" => "", "kategori" => "", "tag" => "");
             $aksi     = "Tambah";
         }
 
@@ -60,9 +60,11 @@ switch ($show) {
             echo '<h3 class="page-header"><b>' . $aksi . ' Event</b> </h3>';
             buka_form($link, $data['id_event'], strtolower($aksi));
             buat_textbox("Judul Event *", "judul", $data['judul'], 10);
+            buat_textbox("Judul Event (Terjemahan) *", "judul_terjemahan", $data['judul_terjemahan'], 10);
             buat_textbox("Tanggal Event *", "tanggal", $data['tanggal'], 10);
             buat_textbox("Lokasi *", "lokasi", $data['lokasi'], 10);
             buat_textarea("Deskripsi Event *", "isi", $data['isi'], "richtext");
+            buat_textarea("Deskripsi Event (Terjemahan) *", "isi_terjemahan", $data['isi_terjemahan'], "richtext");
             buat_imagepicker("Gambar", "gambar", $data['gambar']);
 
             $kategori = $mysqli->query("SELECT * FROM kategori");
@@ -86,39 +88,45 @@ switch ($show) {
 
         //Menyisipkan atau mengedit data di database
     case "action":
-        $judul      = addslashes($_POST['judul']);
-        $judul_seo  = convert_seo($_POST['judul']);
-        $isi        = addslashes($_POST['isi']);
-        $lokasi     = addslashes($_POST['lokasi']);
-        $tanggal    = date('Y-m-d H:i:s', strtotime($_POST['tanggal']));
-        $tag        = (isset($_POST['tag']) && $_POST['tag']) ? implode(",", $_POST['tag']) : '';
-        $user       = $_SESSION['iduser'];
+        $judul              = addslashes($_POST['judul']);
+        $judul_terjemahan   = addslashes($_POST['judul_terjemahan']);
+        $judul_seo          = convert_seo($_POST['judul']);
+        $isi                = addslashes($_POST['isi']);
+        $isi_terjemahan     = addslashes($_POST['isi_terjemahan']);
+        $lokasi             = addslashes($_POST['lokasi']);
+        $tanggal            = date('Y-m-d H:i:s', strtotime($_POST['tanggal']));
+        $tag                = (isset($_POST['tag']) && $_POST['tag']) ? implode(",", $_POST['tag']) : '';
+        $user               = $_SESSION['iduser'];
         if ($_POST['aksi'] == "tambah") {
             $mysqli->query("INSERT INTO event SET
-				judul 		= '$judul',
-				judul_seo 	= '$judul_seo',
-				isi			= '$isi',
-                tanggal     = '$tanggal',
-                lokasi      = '$lokasi',
-				id_user		= '$user',
-				tag			= '$tag',
-				kategori	= '$_POST[kategori]',
-				gambar 		= '$_POST[gambar]',
-                created_at  = now()				
+				judul 		     = '$judul',
+				judul_terjemahan = '$judul_terjemahan',
+				judul_seo 	     = '$judul_seo',
+				isi			     = '$isi',
+				isi_terjemahan	 = '$isi_terjemahan',
+                tanggal          = '$tanggal',
+                lokasi           = '$lokasi',
+				id_user		     = '$user',
+				tag			     = '$tag',
+				kategori	     = '$_POST[kategori]',
+				gambar 		     = '$_POST[gambar]',
+                created_at       = now()				
 			");
         } elseif ($_POST['aksi'] == "edit") {
             $query = "
                 UPDATE event SET
-					judul 		= '$judul',
-					judul_seo 	= '$judul_seo',
-					isi			= '$isi',
-                    tanggal     = '$tanggal',
-                    lokasi      = '$lokasi',
-					id_user		= '$user',
-					tag			= '$tag',
-					kategori	= '$_POST[kategori]',
-					gambar 		= '$_POST[gambar]',
-                    updated_at  = now()		
+					judul 		     = '$judul',
+				    judul_terjemahan = '$judul_terjemahan',
+				    judul_seo 	     = '$judul_seo',
+				    isi			     = '$isi',
+				    isi_terjemahan	 = '$isi_terjemahan',
+                    tanggal          = '$tanggal',
+                    lokasi           = '$lokasi',
+					id_user		     = '$user',
+					tag			     = '$tag',
+					kategori	     = '$_POST[kategori]',
+					gambar 		     = '$_POST[gambar]',
+                    updated_at       = now()		
                 WHERE id_event='$_POST[id]'
             ";
 

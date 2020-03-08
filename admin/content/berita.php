@@ -44,12 +44,12 @@ switch ($show) {
         //Menampilkan form input dan edit data
     case "form":
         if (isset($_GET['id'])) {
-            $query     = $mysqli->query("SELECT * FROM artikel WHERE id_artikel='$_GET[id]'");
-            $data    = $query->fetch_array();
-            $aksi     = "Edit";
+            $query = $mysqli->query("SELECT * FROM artikel WHERE id_artikel='$_GET[id]'");
+            $data = $query->fetch_array();
+            $aksi = "Edit";
         } else {
-            $data = array("id_artikel" => "", "judul" => "", "isi" => "", "gambar" => "", "kategori" => "", "tag" => "");
-            $aksi     = "Tambah";
+            $data = array("id_artikel" => "", "judul" => "", "judul_terjemahan" => "", "isi" => "", "isi_terjemahan" => "", "gambar" => "", "kategori" => "", "tag" => "");
+            $aksi = "Tambah";
         }
 
         if ($aksi == "Edit" and $_SESSION['leveluser'] != "admin" and $data['id_user'] != $_SESSION['iduser']) {
@@ -58,7 +58,9 @@ switch ($show) {
             echo '<h3 class="page-header"><b>' . $aksi . ' Berita</b> </h3>';
             buka_form($link, $data['id_artikel'], strtolower($aksi));
             buat_textbox("Judul Berita", "judul", $data['judul'], 10);
+            buat_textbox("Judul Berita (Terjemahan)", "judul_terjemahan", $data['judul_terjemahan'], 10);
             buat_textarea("Isi Berita", "isi", $data['isi'], "richtext");
+            buat_textarea("Isi Berita (Terjemahan)", "isi_terjemahan", $data['isi_terjemahan'], "richtext");
             buat_imagepicker("Gambar", "gambar", $data['gambar']);
 
             $kategori = $mysqli->query("SELECT * FROM kategori");
@@ -82,36 +84,42 @@ switch ($show) {
 
         //Menyisipkan atau mengedit data di database
     case "action":
-        $judul        = addslashes($_POST['judul']);
-        $judul_seo     = convert_seo($_POST['judul']);
-        $isi        = addslashes($_POST['isi']);
-        $tag        = implode(",", $_POST['tag']);
-        $user        = $_SESSION['iduser'];
+        $judul = addslashes($_POST['judul']);
+        $judul_seo = convert_seo($_POST['judul']);
+        $judul_terjemahan = addslashes($_POST['judul_terjemahan']);
+        $isi = addslashes($_POST['isi']);
+        $isi_terjemahan = addslashes($_POST['isi_terjemahan']);
+        $tag = implode(",", $_POST['tag']);
+        $user = $_SESSION['iduser'];
         if ($_POST['aksi'] == "tambah") {
             $mysqli->query("INSERT INTO artikel SET
-				judul 		= '$judul',
-				judul_seo 	= '$judul_seo',
-				isi			= '$isi',
-				hari		= '$hari_ini',
-				tanggal		= '$tanggal',
-				jam			= '$jam',
-				id_user		= '$user',
-				tag			= '$tag',
-				kategori	= '$_POST[kategori]',
-				gambar 		= '$_POST[gambar]'				
+				judul 		    = '$judul',
+				judul_seo 	    = '$judul_seo',
+				judul_terjemahan= '$judul_terjemahan',
+				isi			    = '$isi',
+				isi_terjemahan  = '$isi_terjemahan',
+				hari		    = '$hari_ini',
+				tanggal		    = '$tanggal',
+				jam			    = '$jam',
+				id_user		    = '$user',
+				tag			    = '$tag',
+				kategori	    = '$_POST[kategori]',
+				gambar 		    = '$_POST[gambar]'				
 			");
         } elseif ($_POST['aksi'] == "edit") {
             $mysqli->query("UPDATE artikel SET
-					judul 		= '$judul',
-					judul_seo 	= '$judul_seo',
-					isi			= '$isi',
-					hari		= '$hari_ini',
-					tanggal		= '$tanggal',
-					jam			= '$jam',
-					id_user		= '$user',
-					tag			= '$tag',
-					kategori	= '$_POST[kategori]',
-					gambar 		= '$_POST[gambar]'
+					judul 		    = '$judul',
+					judul_seo 	    = '$judul_seo',
+                    judul_terjemahan= '$judul_terjemahan',
+					isi			    = '$isi',
+                    isi_terjemahan  = '$isi_terjemahan',
+					hari		    = '$hari_ini',
+					tanggal		    = '$tanggal',
+					jam			    = '$jam',
+					id_user		    = '$user',
+					tag			    = '$tag',
+					kategori	    = '$_POST[kategori]',
+					gambar 		    = '$_POST[gambar]'
 				WHERE id_artikel='$_POST[id]'");
         }
         header('location:' . $link);

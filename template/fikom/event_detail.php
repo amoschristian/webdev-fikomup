@@ -12,6 +12,11 @@ $gambar = $detail_event['gambar'];
 $tanggal = $detail_event['tanggal'];
 $isi = $detail_event['isi'];
 $lokasi = $detail_event['lokasi'];
+
+if ($lang->language != $default_language) {
+	$judul = ($detail_event['judul_terjemahan'] ?: $judul);
+	$isi = ($detail_event['isi_terjemahan'] ?: $isi);
+}
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +58,7 @@ $lokasi = $detail_event['lokasi'];
 		<div class="home">
 			<?php include('template/particle.php'); ?>	
 			<div class="home_content">
-				<h1>Events</h1>
+				<h1><?= $lang->t('Events') ?></h1>
 			</div>
 		</div>
 
@@ -86,7 +91,7 @@ $lokasi = $detail_event['lokasi'];
 											<a href="#"><?= $judul ?></a>
 										</div>
 										<div class="news_post_meta">
-											<i>Located at <?= $lokasi ?></i>
+											<i><?= $lang->t('Located At')?> <?= $lokasi ?></i>
 										</div>
 									</div>
 								</div>

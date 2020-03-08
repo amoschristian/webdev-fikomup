@@ -17,21 +17,21 @@ $folder_template = web_info('url') . '/' . folder_template();
         </div>
 
         <div class="des_container">
-        <span>Faculty of Communication</span>
-        <span>Universitas Pancasila</span>
+        <span><?= $lang->t('Faculty of Communication') ?></span>
+        <span><?= $lang->t('Universitas Pancasila') ?></span>
         </div>
 
         <!-- Main Navigation -->
         <nav class="main_nav_container">
             <div class="main_nav">
                 <ul class="main_nav_list">
-                    <li class="main_nav_item <?= ($module == 'admission' ? "active" : "") ?>" ><a href="/admission">Admissions</a></li>
-                    <li class="main_nav_item <?= ($module == 'course' ? "active" : "") ?>" ><a href="/course">Courses</a></li>
-                    <li class="main_nav_item <?= ($module == 'event' ? "active" : "") ?>" ><a href="/event">Events</a></li>
-                    <li class="main_nav_item <?= ($module == 'news' ? "active" : "") ?>" ><a href="/news">Publications</a></li>
-                    <li class="main_nav_item <?= ($module == 'about_us' ? "active" : "") ?>" ><a href="/about-us">About Us</a></li>
-                    <li class="main_nav_item <?= ($module == 'partners' ? "active" : "") ?>" ><a href="/partners">Partners</a></li>
-                    <li class="main_nav_item <?= ($module == 'contact' ? "active" : "") ?>" ><a href="/contact">Contact</a></li>
+                    <li class="main_nav_item <?= ($module == 'admission' ? "active" : "") ?>" ><a href="/admission"><?= $lang->t('Admissions') ?></a></li>
+                    <li class="main_nav_item <?= ($module == 'course' ? "active" : "") ?>" ><a href="/course"><?= $lang->t('Courses') ?></a></li>
+                    <li class="main_nav_item <?= ($module == 'event' ? "active" : "") ?>" ><a href="/event"><?= $lang->t('Events') ?></a></li>
+                    <li class="main_nav_item <?= ($module == 'news' ? "active" : "") ?>" ><a href="/news"><?= $lang->t('Publications') ?></a></li>
+                    <li class="main_nav_item <?= ($module == 'about_us' ? "active" : "") ?>" ><a href="/about-us"><?= $lang->t('About Us') ?></a></li>
+                    <li class="main_nav_item <?= ($module == 'partners' ? "active" : "") ?>" ><a href="/partners"><?= $lang->t('Partners') ?></a></li>
+                    <li class="main_nav_item <?= ($module == 'contact' ? "active" : "") ?>" ><a href="/contact"><?= $lang->t('Contact') ?></a></li>
                 </ul>
             </div>
         </nav>
@@ -56,13 +56,13 @@ $folder_template = web_info('url') . '/' . folder_template();
     <div class="menu_inner menu_mm">
         <div class="menu menu_mm">
             <ul class="menu_list menu_mm">
-                <li class="menu_item menu_mm"><a href="/admission">Admissions</a></li>
-                <li class="menu_item menu_mm"><a href="/course">Courses</a></li>
-                <li class="menu_item menu_mm"><a href="/event">Events</a></li>
-                <li class="menu_item menu_mm"><a href="/news">Publications</a></li>
-                <li class="menu_item menu_mm"><a href="/about-us">About Us</a></li>
-                <li class="menu_item menu_mm"><a href="/partners">Partners</a></li>
-                <li class="menu_item menu_mm"><a href="/contact">Contact</a></li>
+                <li class="menu_item menu_mm"><a href="/admission"><?= $lang->t('Admissions') ?></a></li>
+                <li class="menu_item menu_mm"><a href="/course"><?= $lang->t('Courses') ?></a></li>
+                <li class="menu_item menu_mm"><a href="/event"><?= $lang->t('Events') ?></a></li>
+                <li class="menu_item menu_mm"><a href="/news"><?= $lang->t('Publications') ?></a></li>
+                <li class="menu_item menu_mm"><a href="/about-us"><?= $lang->t('About Us') ?></a></li>
+                <li class="menu_item menu_mm"><a href="/partners"><?= $lang->t('Partners') ?></a></li>
+                <li class="menu_item menu_mm"><a href="/contact"><?= $lang->t('Contact') ?></a></li>
             </ul>
 
             <div class="menu_copyright menu_mm">FIKom UP</div>
