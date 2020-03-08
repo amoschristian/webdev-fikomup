@@ -19,7 +19,7 @@ $folder_template = web_info('url') . '/' . folder_template();
 		<div class="home">
 			<?php include('template/particle.php'); ?>
 			<div class="home_content">
-				<h1>Admission</h1>
+				<h1><?= $lang->t('Admissions') ?></h1>
 			</div>
 		</div>
 
@@ -30,8 +30,8 @@ $folder_template = web_info('url') . '/' . folder_template();
 					<!-- Menu -->
 			 		<div class="about_nav">
                 		<ul class="about_menu">
-                		    <li class="about_menu_item <?= ($sub_page == 'information') ? 'active' : '' ?>"><a href="/admission/information">Information</a></li>
-                		    <li class="about_menu_item <?= ($sub_page == 'pmb') ? 'active' : '' ?>"><a href="/admission/pmb">PMB Online</a></li>
+                		    <li class="about_menu_item <?= ($sub_page == 'information') ? 'active' : '' ?>"><a href="/admission/information"><?= $lang->t('Information') ?></a></li>
+                		    <li class="about_menu_item <?= ($sub_page == 'pmb') ? 'active' : '' ?>"><a href="/admission/pmb"><?= $lang->t('PMB Online') ?></a></li>
                 		</ul>
             		</div>
 				</div>

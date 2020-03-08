@@ -7,10 +7,16 @@ $query = "SELECT * FROM artikel WHERE id_artikel = $id";
 $result = $mysqli->query($query);
 
 $detail_berita = $result->fetch_array(MYSQLI_ASSOC); //return array of data
-$judul = $detail_berita['judul'];
 $gambar = $detail_berita['gambar'];
 $tanggal = $detail_berita['tanggal'];
+
+$judul = $detail_berita['judul'];
 $isi = $detail_berita['isi'];
+
+if ($lang->language != $default_language) {
+	$judul = ($detail_berita['judul_terjemahan'] ?: $judul);
+	$isi = ($detail_berita['isi_terjemahan'] ?: $isi);
+}
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +37,7 @@ $isi = $detail_berita['isi'];
 		<div class="home">
 			<?php include('template/particle.php'); ?>	
 			<div class="home_content">
-				<h1>Publications</h1>
+				<h1><?= $lang->t('Publications') ?></h1>
 			</div>
 		</div>
 

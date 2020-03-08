@@ -21,23 +21,23 @@ $folder_template = web_info('url') . '/' . folder_template();
                         </div>
                     </div>
 
-                    <p class="footer_about_text">Faculty of Communication Universitas Pancasila</p>
+                    <p class="footer_about_text"><?= $lang->t('Faculty of Communication') ?> <?= $lang->t('Universitas Pancasila') ?></p>
 
                 </div>
 
                 <!-- Footer Column - Menu -->
 
                 <div class="col-lg-3 footer_col">
-                    <div class="footer_column_title">Menu</div>
+                    <div class="footer_column_title"><?= $lang->t('Menu') ?></div>
                     <div class="footer_column_content">
                         <ul>
-                            <li class="footer_list_item"><a href="/admission">Admissions</a></li>
-                            <li class="footer_list_item"><a href="/course">Courses</a></li>
-                            <li class="footer_list_item"><a href="/event">Events</a></li>
-                            <li class="footer_list_item"><a href="/news">Publications</a></li>
-                            <li class="footer_list_item"><a href="/about-us">About Us</a></li>
-                            <li class="footer_list_item"><a href="/partners">Partners</a></li>
-                            <li class="footer_list_item"><a href="/contact">Contact</a></li>
+                            <li class="footer_list_item"><a href="/admission"><?= $lang->t('Admissions') ?></a></li>
+                            <li class="footer_list_item"><a href="/course"><?= $lang->t('Courses') ?></a></li>
+                            <li class="footer_list_item"><a href="/event"><?= $lang->t('Events') ?></a></li>
+                            <li class="footer_list_item"><a href="/news"><?= $lang->t('Publications') ?></a></li>
+                            <li class="footer_list_item"><a href="/about-us"><?= $lang->t('About Us') ?></a></li>
+                            <li class="footer_list_item"><a href="/partners"><?= $lang->t('Partners') ?></a></li>
+                            <li class="footer_list_item"><a href="/contact"><?= $lang->t('Contact') ?></a></li>
                         </ul>
                     </div>
                 </div>
@@ -45,7 +45,7 @@ $folder_template = web_info('url') . '/' . folder_template();
                 <!-- Footer Column - Contact -->
 
                 <div class="col-lg-3 footer_col">
-                    <div class="footer_column_title">Contact</div>
+                    <div class="footer_column_title"><?= $lang->t('Contact') ?></div>
                     <div class="footer_column_content">
                         <ul>
                             <li class="footer_contact_item">
@@ -76,14 +76,14 @@ $folder_template = web_info('url') . '/' . folder_template();
                     </div>
                 </div>
 
+                <!-- Footer Column - Usefull Links -->
 
-                <!-- Footer Column - Language -->
                 <div class="col-lg-3 footer_col">
-                    <div class="footer_column_title">Language</div>
+                    <div class="footer_column_title"><?= $lang->t('Language') ?></div>
                     <div class="footer_column_content">
                         <ul>
-                            <li class="footer_list_item"><i class="fa fa-language" aria-hidden="true"></i> <a href="#">English</a></li>
-                            <li class="footer_list_item"><i class="fa fa-language" aria-hidden="true"></i> <a href="#">Bahasa Indonesia</a></li>
+                            <li class="footer_list_item"><i class="fa fa-language" aria-hidden="true"></i> <a href="/lang/en">English</a></li>
+                            <li class="footer_list_item"><i class="fa fa-language" aria-hidden="true"></i> <a href="/lang/id">Bahasa Indonesia</a></li>
                         </ul>
                     </div>
                 </div>
@@ -97,9 +97,7 @@ $folder_template = web_info('url') . '/' . folder_template();
             <div class="footer_copyright">
                 <span>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    Copyright &copy;<script>
-                        document.write(new Date().getFullYear());
-                    </script> FIKom UP</a>
+                    Copyright &copy; <?= date('Y'); ?> FikomUp
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></span>
             </div>
             <div class="footer_social ml-sm-auto">

@@ -8,29 +8,31 @@ $result = $mysqli->query($query);
 $detail_berita = [];
 
 while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
-    $sentences = 2;
-    $text_pendek =  implode('. ', array_slice(explode('.', strip_tags($data['isi'])), 0, $sentences)) . '.';
-
     $detail_berita[$data['id_artikel']] = $data;
-    $detail_berita[$data['id_artikel']]['desc'] = $text_pendek;
 }
 ?>
 
 <div class="sidebar_section">
     <div class="sidebar_section_title">
-        <h3>Latest posts</h3>
+        <h3><?= $lang->t('Latest Posts') ?></h3>
     </div>
 
     <div class="latest_posts">
 
         <!-- Latest Post -->
         <?php foreach ($detail_berita as $berita) : ?>
+            <?php 
+                $judul = $berita['judul'];
+                if ($lang->language != $default_language) {
+                    $judul = ($berita['judul_terjemahan'] ?: $judul);
+                }    
+            ?>
             <div class="latest_post">
                 <div class="latest_post_image">
                     <img src="<?= "/media/source/" . $berita['gambar'] ?>">
                 </div>
                 <div class="latest_post_title">
-                    <a href="<?= "/news/id/{$berita['id_artikel']}/{$berita['judul_seo']}"; ?>"><?= $berita['judul'] ?></a>
+                    <a href="<?= "/news/id/{$berita['id_artikel']}/{$berita['judul_seo']}"; ?>"><?= $judul ?></a>
                 </div>
                 <div class="latest_post_meta">
                     <!-- <span class="latest_post_author"><a href="#">Admin</a></span>

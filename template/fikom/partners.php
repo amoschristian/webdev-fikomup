@@ -89,8 +89,6 @@ $folder_template = web_info('url') . '/' . folder_template();
    
 }
 
-
-
 .gall{
     text-align:center;
     padding-top: 10px;
@@ -126,7 +124,7 @@ $folder_template = web_info('url') . '/' . folder_template();
 		<div class="home">
 			<?php include('template/particle.php'); ?>
 			<div class="home_content">
-				<h1>Partners</h1>
+				<h1><?= $lang->t('Partners') ?></h1>
 			</div>
 		</div>
 
@@ -135,7 +133,7 @@ $folder_template = web_info('url') . '/' . folder_template();
 			
                 <div class="col-md-4 col-bg">
                     <div class="text-p">
-                        Our Partners
+                        <?= $lang->t('Our Partners') ?>
                     </div>  
                     <div class=" gall">
                 <img class="img-part" src="<?= $folder_template . '/images/orbicom.png' ?>" alt="">
@@ -143,14 +141,14 @@ $folder_template = web_info('url') . '/' . folder_template();
                 </div>
                 <div class="col-md-8 col-bg2">
                     <div class="text-p2 bor">
-                        Description
+                        <?= $lang->t('Description') ?>
                     </div>
                     <div class="desc-part">
                        <p>kunjungan delegasi The International Network of UNESCO Chairs in Communication (ORBICOM) dalam Welcome Dinner di Ruang Roeslan Abdul Gani Kemkominfo, Kamis malam (04/05/2017). Dihadiri oleh sekitar 21 delegasi dari berbagai negara, Welcome Dinner ini merupakan salah satu rangkaian kegiatan Simposium Internasional dan Annual Meeting ke-6 ORBICOM yang dilaksanakan pada 04-07 Mei 2017.</p>
                     </div>
 
                     <div class="text-p2 bor ">
-                        Gallery
+                        <?= $lang->t('Gallery') ?>
                     </div>
                     
                 <div class="hero_slider_container carous">
