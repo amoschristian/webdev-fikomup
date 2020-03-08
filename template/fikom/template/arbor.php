@@ -23,19 +23,19 @@ if (ratio < 0.60) {
 
 const graph = {
     "nodes": [
-        {"id": "FIKomUP", "group": 1, "image": "/media/source/fikomup_logo_white.png", "link": "#home"},
-        {"id": "Social Media", "group": 1, "link": "#social_media"},
-        {"id": "Admission", "group": 1, "link": "admission"},
-        {"id": "Sitemap", "group": 1, "link": "sitemap"},
-        {"id": "Course", "group": 1, "link": "course"},
-        {"id": "Headline", "group": 1, "link": "#headline"},
+        {"id": "<?= $lang->t('FIKomUP') ?>", "group": 1, "image": "/media/source/fikomup_logo_white.png", "link": "#home"},
+        {"id": "<?= $lang->t('Social Media') ?>", "group": 1, "link": "#social_media"},
+        {"id": "<?= $lang->t('Admissions') ?>", "group": 1, "link": "admission"},
+        {"id": "<?= $lang->t('Sitemap') ?>", "group": 1, "link": "sitemap"},
+        {"id": "<?= $lang->t('Courses') ?>", "group": 1, "link": "course"},
+        {"id": "<?= $lang->t('Headline') ?>", "group": 1, "link": "#headline"},
     ],
     "links": [
-        {"source": "Sitemap", "target": "FIKomUP", "value": 1},
-        {"source": "Admission", "target": "FIKomUP", "value": 1},
-        {"source": "Course", "target": "Admission", "value": 1},
-        {"source": "Headline", "target": "FIKomUP", "value": 1},
-        {"source": "Social Media", "target": "Headline", "value": 1},
+        {"source": "<?= $lang->t('Sitemap') ?>", "target": "<?= $lang->t('FIKomUP') ?>", "value": 1},
+        {"source": "<?= $lang->t('Admissions') ?>", "target": "<?= $lang->t('FIKomUP') ?>", "value": 1},
+        {"source": "<?= $lang->t('Courses') ?>", "target": "<?= $lang->t('Admissions') ?>", "value": 1},
+        {"source": "<?= $lang->t('Headline') ?>", "target": "<?= $lang->t('FIKomUP') ?>", "value": 1},
+        {"source": "<?= $lang->t('Social Media') ?>", "target": "<?= $lang->t('Headline') ?>", "value": 1},
     ]
 }
 

@@ -14,9 +14,16 @@ $detail_event = [];
 
 while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
 	$sentences = 2;
-	$text_pendek =  implode('. ', array_slice(explode('.', strip_tags($data['isi'])), 0, $sentences)) . '.';
+	$isi = $data['isi'];
+	$judul = $data['judul'];
+	if ($lang->language != $default_language) {
+		$isi = ($data['isi_terjemahan'] ?: $isi);
+		$judul = ($data['judul_terjemahan'] ?: $judul);
+	}
+	$text_pendek =  implode('. ', array_slice(explode('.', strip_tags($isi)), 0, $sentences)) . '.';
 
 	$detail_event[$data['id_event']] = $data;
+	$detail_event[$data['id_event']]['judul'] = $judul;
 	$detail_event[$data['id_event']]['desc'] = $text_pendek;
 }
 ?>
@@ -39,7 +46,7 @@ while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
 		<div class="home">
 			<?php include('template/particle.php'); ?>	
 			<div class="home_content">
-				<h1>Events</h1>
+				<h1><?= $lang->t('Events') ?></h1>
 			</div>
 		</div>
 
@@ -70,7 +77,7 @@ while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
 											<div class="event_content">
 												<div class="event_name"><a class="trans_200" href="<?= "/event/id/{$event['id_event']}/{$event['judul_seo']}"; ?>"><?= $event['judul'] ?></a></div>
 												<div class="event_location"><?= $event['lokasi'] ?></div>
-												<p><?= $event['isi'] ?></p>
+												<p><?= $event['desc'] ?></p>
 											</div>
 										</div>
 
@@ -96,7 +103,7 @@ while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
 						</div>
 
 					<?php else : ?>
-						<h3><?= $title_head ?> not found</h3>
+						<h3>Event not found</h3>
 					<?php endif; ?>
 
 				</div>

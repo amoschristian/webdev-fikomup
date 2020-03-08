@@ -19,7 +19,7 @@ $folder_template = web_info('url') . '/' . folder_template();
 		<div class="home">
 			<?php include('template/particle.php'); ?>
 			<div class="home_content">
-				<h1>About Us</h1>
+				<h1><?= $lang->t('About Us') ?></h1>
 			</div>
 		</div>
 
@@ -30,19 +30,19 @@ $folder_template = web_info('url') . '/' . folder_template();
 					<!-- Menu -->
 			 		<div class="about_nav">
                 		<ul class="about_menu">
-                		    <li class="about_menu_item"><a href="/about-us/history">Organizations</a></li>
-								<li class="about_menu_item_sub <?= ($sub_page == 'history') ? 'active' : '' ?>"><a href="/about-us/history">History</a></li>
-								<li class="about_menu_item_sub <?= ($sub_page == 'organization') ? 'active' : '' ?>"><a href="/about-us/organization">Organizations Structure</a></li>
-							<li class="about_menu_item"><a href="/about-us/vision">Vision & Mission</a></li>
-								<li class="about_menu_item_sub <?= ($sub_page == 'vision') ? 'active' : '' ?>"><a href="/about-us/vision">Vision</a></li>
-								<li class="about_menu_item_sub <?= ($sub_page == 'mission') ? 'active' : '' ?>"><a href="/about-us/mission">Mission</a></li>
-							<li class="about_menu_item"><a href="/about-us/lecturer">Resources</a></li>
-								<li class="about_menu_item_sub <?= ($sub_page == 'lecturer') ? 'active' : '' ?>"><a href="/about-us/lecturer">Lecturer</a></li>
-								<li class="about_menu_item_sub"><a href="/about-us/facility">Facility</a></li>
-								<li class="about_menu_item_sub"><a href="/about-us/alumni">Alumni</a></li>
-							<li class="about_menu_item"><a href="/about-us/activity">Resources</a></li>
-								<li class="about_menu_item_sub"><a href="/about-us/activity">Activity</a></li>
-								<li class="about_menu_item_sub"><a href="/about-us/ukm">UKM</a></li>
+                		    <li class="about_menu_item"><a href="/about-us/history"><?= $lang->t('Organizations') ?></a></li>
+								<li class="about_menu_item_sub <?= ($sub_page == 'history') ? 'active' : '' ?>"><a href="/about-us/history"><?= $lang->t('History') ?></a></li>
+								<li class="about_menu_item_sub <?= ($sub_page == 'organization') ? 'active' : '' ?>"><a href="/about-us/organization"><?= $lang->t('Organizations Structure') ?></a></li>
+							<li class="about_menu_item"><a href="/about-us/vision"><?= $lang->t('Vision & Mission') ?></a></li>
+								<li class="about_menu_item_sub <?= ($sub_page == 'vision') ? 'active' : '' ?>"><a href="/about-us/vision"><?= $lang->t('Vision') ?></a></li>
+								<li class="about_menu_item_sub <?= ($sub_page == 'mission') ? 'active' : '' ?>"><a href="/about-us/mission"><?= $lang->t('Mission') ?></a></li>
+							<li class="about_menu_item"><a href="/about-us/lecturer"><?= $lang->t('Resources') ?></a></li>
+								<li class="about_menu_item_sub <?= ($sub_page == 'lecturer') ? 'active' : '' ?>"><a href="/about-us/lecturer"><?= $lang->t('Lecturer') ?></a></li>
+								<li class="about_menu_item_sub"><a href="/about-us/facility"><?= $lang->t('Facility') ?></a></li>
+								<li class="about_menu_item_sub"><a href="/about-us/alumni"><?= $lang->t('Alumni') ?></a></li>
+							<li class="about_menu_item"><a href="/about-us/activity"><?= $lang->t('Resources') ?></a></li>
+								<li class="about_menu_item_sub"><a href="/about-us/activity"><?= $lang->t('Activity') ?></a></li>
+								<li class="about_menu_item_sub"><a href="/about-us/ukm"><?= $lang->t('UKM') ?></a></li>
                 		</ul>
             		</div>
 				</div>

@@ -16,7 +16,7 @@ $page = str_replace('_', '-', $module);
 
 <div class="sidebar_section">
     <div class="sidebar_section_title">
-        <h3>Tags</h3>
+        <h3><?= $lang->t('Tags') ?></h3>
     </div>
     <div class="tags d-flex flex-row flex-wrap">
         <?php foreach ($tags as $tag) : ?>

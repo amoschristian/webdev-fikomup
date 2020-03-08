@@ -3,6 +3,8 @@ RewriteEngine on
 
 RewriteRule ^$ index.php [L]
 
+RewriteRule ^lang/([a-z-]+)$ index.php?content=lang&lang=$1 [L]
+
 RewriteRule ^([a-z-]+)$ index.php?content=$1 [L]
 RewriteRule ^([a-z-]+)/([a-z-]+)$ index.php?content=$1&tag=$2 [L]
 RewriteRule ^([a-z-]+)/([0-9]+)$ index.php?content=$1&hal=$2 [L]

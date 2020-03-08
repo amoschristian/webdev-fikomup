@@ -18,19 +18,24 @@ while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
 
 <div class="sidebar_section">
     <div class="sidebar_section_title">
-        <h3>Latest posts</h3>
+        <h3><?= $lang->t('Latest Events') ?></h3>
     </div>
 
     <div class="latest_posts">
-
         <!-- Latest Post -->
         <?php foreach ($detail_event as $event) : ?>
+            <?php 
+                $judul = $event['judul'];
+                if ($lang->language != $default_language) {
+                    $judul = ($event['judul_terjemahan'] ?: $judul);
+                }    
+            ?>
             <div class="latest_post">
                 <div class="latest_post_image">
                     <img src="<?= "/media/source/" . $event['gambar'] ?>">
                 </div>
                 <div class="latest_post_title">
-                    <a href="<?= "/news/id/{$event['id_artikel']}/{$event['judul_seo']}"; ?>"><?= $event['judul'] ?></a>
+                    <a href="<?= "/news/id/{$event['id_artikel']}/{$event['judul_seo']}"; ?>"><?= $judul ?></a>
                 </div>
                 <div class="latest_post_meta">
                     <!-- <span class="latest_post_author"><a href="#">Admin</a></span>

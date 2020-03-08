@@ -14,9 +14,16 @@ $detail_berita = [];
 
 while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
 	$sentences = 2;
-	$text_pendek =  implode('. ', array_slice(explode('.', strip_tags($data['isi'])), 0, $sentences)) . '.';
+	$isi = $data['isi'];
+	$judul = $data['judul'];
+	if ($lang->language != $default_language) {
+		$isi = ($data['isi_terjemahan'] ?: $isi);
+		$judul = ($data['judul_terjemahan'] ?: $judul);
+	}
+	$text_pendek =  implode('. ', array_slice(explode('.', strip_tags($isi)), 0, $sentences)) . '.';
 
 	$detail_berita[$data['id_artikel']] = $data;
+	$detail_berita[$data['id_artikel']]['judul'] = $judul;
 	$detail_berita[$data['id_artikel']]['desc'] = $text_pendek;
 }
 ?>
@@ -41,7 +48,7 @@ while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
 		<div class="home">
 			<?php include('template/particle.php'); ?>
 			<div class="home_content">
-				<h1>Publications</h1>
+				<h1><?= $lang->t('Publications') ?></h1>
 			</div>
 		</div>
 
@@ -83,11 +90,7 @@ while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
 										<div class="news_post_text">
 											<p><?= $berita['desc'] ?></p>
 										</div>
-										<div class="read-more-btn"><span><a href="<?= "/news/id/{$berita['id_artikel']}/{$berita['judul_seo']}"; ?>">Read More<i class="fas fa-arrow-right" style="margin-left:10px; color: transparent""></i></a></span></div>
-
-										<!-- <div class="news_post_button text-center trans_200">
-											<a href="<?= "/news/id/{$berita['id_artikel']}/{$berita['judul_seo']}"; ?>">Read More</a>
-										</div> -->
+										<div class="read-more-btn"><span><a href="<?= "/news/id/{$berita['id_artikel']}/{$berita['judul_seo']}"; ?>"><?= $lang->t('Read More') ?><i class="fas fa-arrow-right" style="margin-left:10px; color: transparent""></i></a></span></div>
 									</div>
 								<?php endforeach; ?>
 

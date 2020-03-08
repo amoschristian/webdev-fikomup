@@ -7,10 +7,32 @@ include "library/function_date.php";
 include "library/function_antiinjection.php";
 include "library/function_template.php";
 include "library/function_image.php";
+include "library/translate/Lang.php";
+
+session_start();
 
 GLOBAL $module;
+GLOBAL $default_language;
+GLOBAL $language;
 
-setlocale(LC_TIME, 'ID'); //set tanggal ke Indonesia
+if (!isset($_SESSION['translate'])) {
+    $_SESSION['translate'] = new Lang;
+}
+
+$lang = $_SESSION['translate'];
+$default_language = $lang::DEFAULT_LANGUAGE;
+
+$new_language = (isset($_GET['lang'])) ? $_GET['lang']: "";
+
+$_SESSION['language'] = $lang->language;
+setlocale(LC_TIME, strtoupper($lang->language));
+
+if ($new_language) {
+    $_SESSION['translate'] = new Lang($new_language); //when switch language init it again
+    $_SESSION['language'] = $lang->language;
+    setlocale(LC_TIME, strtoupper($lang->language));
+    header("Location: /"); 
+}
 
 $content = (isset($_GET['content'])) ? str_replace('-', '_', $_GET['content']) : "home";
 $page    = array('home', 'about_us', 'news', 'event', 'contact', 'event_detail', 'news_detail', 'admission', 'course', 'sitemap', 'partners');

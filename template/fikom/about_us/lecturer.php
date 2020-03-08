@@ -37,34 +37,34 @@ while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
                         <table class="table table-striped">
                             <tbody>
                                 <tr>
-                                    <td> Nomor Pokok Dosen : <?= $lecturer['npd'] ?> </td>
+                                    <td> <?= $lang->t('Lecturer Registration Number') ?> : <?= $lecturer['npd'] ?> </td>
                                 </tr>
                                 <tr>
-                                    <td> N I D N : <?= $lecturer['nidn'] ?></td>
+                                    <td> <?= $lang->t('N I D N') ?> : <?= $lecturer['nidn'] ?></td>
                                 </tr>
                                 <tr>
-                                    <td> Gelar : <?= $lecturer['gelar'] ?></td>
+                                    <td> <?= $lang->t('Title') ?> : <?= $lecturer['gelar'] ?></td>
                                 </tr>
                                 <tr>
-                                    <td> Jenis Kelamin : <?= $lecturer['jenis_kelamin'] ?></td>
+                                    <td> <?= $lang->t('Gender') ?> : <?= $lecturer['jenis_kelamin'] ?></td>
                                 </tr>
                                 <tr>
-                                    <td> Bidang Kajian : <?= $lecturer['bidang_kajian'] ?></td>
+                                    <td> <?= $lang->t('Field of Study') ?> : <?= $lecturer['bidang_kajian'] ?></td>
                                 </tr>
                                 <tr>
-                                    <td> Kepangkatan Terakhir : <?= $lecturer['kepangkatan'] ?></td>
+                                    <td> <?= $lang->t('Last Position') ?> : <?= $lecturer['kepangkatan'] ?></td>
                                 </tr>
                                 <tr>
-                                    <td> Pendidikan Terakhir : <?= $lecturer['pendidikan'] ?></td>
+                                    <td> <?= $lang->t('Last Education') ?> : <?= $lecturer['pendidikan'] ?></td>
                                 </tr>
                                 <tr>
-                                    <td> Nama Perguruan Tinggi Terakhir : <?= $lecturer['peguruan_tinggi'] ?></td>
+                                    <td> <?= $lang->t('Last University') ?> : <?= $lecturer['peguruan_tinggi'] ?></td>
                                 </tr>
                                 <tr>
-                                    <td> Jabatan : <?= $lecturer['jabatan'] ?></td>
+                                    <td> <?= $lang->t('Position') ?> : <?= $lecturer['jabatan'] ?></td>
                                 </tr>
                                 <tr>
-                                    <td> Email : <?= $lecturer['email'] ?></td>
+                                    <td> <?= $lang->t('Email') ?> : <?= $lecturer['email'] ?></td>
                                 </tr>      
                             </tbody>
                         </table>
