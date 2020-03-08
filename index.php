@@ -42,6 +42,9 @@ $module = $content;
 $not_found_file = folder_template() . '/404.php';
 
 GLOBAL $sub_page;
+GLOBAL $halaman;
+
+$halaman = (isset($_GET['hal'])) ? $_GET['hal'] : "1";
 
 $default_page = [
     'about_us' => 'history',

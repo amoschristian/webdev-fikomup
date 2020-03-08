@@ -1,5 +1,6 @@
 <?php
 $folder_template = web_info('url') . '/' . folder_template();
+$limit = 10;
 
 //prepare the data to be displayed
 $query = "SELECT * FROM artikel ";
@@ -7,7 +8,15 @@ if (isset($_GET['tag'])) {
 	$tag = $_GET['tag'];
 	$query .= "WHERE tag LIKE '%$tag%' ";
 }
-$query .= "ORDER BY tanggal DESC LIMIT 10"; //show 10 per page
+$query .= "ORDER BY tanggal DESC";
+
+$countResult = $mysqli->query($query);
+$countPage = mysqli_num_rows($countResult);
+$countPage = ceil($countPage / $limit);
+
+$startOffset = ($halaman - 1) * $limit;
+
+$query .= " LIMIT $startOffset,$limit";  //show 10 per page
 
 $result = $mysqli->query($query);
 $detail_berita = [];
@@ -95,12 +104,11 @@ while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
 								<?php endforeach; ?>
 
 								<!-- Page Nav -->
-
 								<div class="news_page_nav">
 									<ul>
-										<li class="active text-center trans_200"><a href="#">01</a></li>
-										<li class="text-center trans_200"><a href="#">02</a></li>
-										<li class="text-center trans_200"><a href="#">03</a></li>
+								<?php for ($i = 0; $i < $countPage; $i++) : ?>
+										<li class="<?= ($i+1 == $halaman ? "active" : ""); ?> text-center trans_200"><a href="/news/<?= $i+1; ?>"><?=  sprintf("%02d", $i+1); ?></a></li>
+								<?php endfor; ?>
 									</ul>
 								</div>
 							<?php else : ?>
@@ -112,7 +120,7 @@ while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
 					</div>
 
 					<!-- Sidebar Column -->
-
+								
 					<div class="col-lg-4">
 						<div class="sidebar">
 
