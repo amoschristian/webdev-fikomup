@@ -20,6 +20,12 @@ $folder_template = web_info('url') . '/' . folder_template();
 		width: 300px;
 	}
 }
+
+.map_container {
+	width: 100%;
+	height: 50rem;
+	overflow: hidden;
+}
 </style>
 
 <body>

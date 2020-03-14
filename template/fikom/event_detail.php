@@ -114,6 +114,7 @@ if ($lang->language != $default_language) {
 							</div>
 						</div>
 
+						<?php if ($map) : ?>
 						<!-- Google Map -->
 						<script src='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.js'></script>
 						<link href='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.css' rel='stylesheet' />
@@ -139,7 +140,7 @@ if ($lang->language != $default_language) {
 								map.addControl(new mapboxgl.FullscreenControl());
 							</script>
 						</div>
-
+						<?php endif; ?>
 						
 					</div>
 
