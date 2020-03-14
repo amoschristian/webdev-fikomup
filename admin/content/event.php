@@ -4,7 +4,23 @@
 <script type="text/javascript" src="js/jquery.datetimepicker.full.min.js"></script>
 <link href="css/select2.min.css" rel="stylesheet" />
 <link href="css/jquery.datetimepicker.min.css" rel="stylesheet" />
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.css' rel='stylesheet' />
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js"></script>
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css" type="text/css"/>
 
+<style>
+#map {
+    width: 100%;
+    height: calc(100% + 30px);
+}
+
+.map_container {
+    width: 100%;
+    height: 50%;
+    overflow: hidden;
+}
+</style>
 
 <?php
 if (!defined("INDEX")) header('location: ../index.php');
@@ -50,7 +66,7 @@ switch ($show) {
             $data    = $query->fetch_array();
             $aksi     = "Edit";
         } else {
-            $data = array("id_event" => "", "judul" => "", "judul_terjemahan" => "", "isi" => "", "isi_terjemahan" => "", "gambar" => "", "tanggal" => "", "lokasi" => "", "kategori" => "", "tag" => "");
+            $data = array("id_event" => "", "judul" => "", "judul_terjemahan" => "", "isi" => "", "isi_terjemahan" => "", "gambar" => "", "map" => "", "tanggal" => "", "lokasi" => "", "kategori" => "", "tag" => "");
             $aksi     = "Tambah";
         }
 
@@ -63,6 +79,7 @@ switch ($show) {
             buat_textbox("Judul Event (Terjemahan) *", "judul_terjemahan", $data['judul_terjemahan'], 10);
             buat_textbox("Tanggal Event *", "tanggal", $data['tanggal'], 10);
             buat_textbox("Lokasi *", "lokasi", $data['lokasi'], 10);
+            buat_map("Peta", "peta", $data['map'], $mapBoxToken);
             buat_textarea("Deskripsi Event *", "isi", $data['isi'], "richtext");
             buat_textarea("Deskripsi Event (Terjemahan) *", "isi_terjemahan", $data['isi_terjemahan'], "richtext");
             buat_imagepicker("Gambar", "gambar", $data['gambar']);
@@ -108,6 +125,7 @@ switch ($show) {
                 lokasi           = '$lokasi',
 				id_user		     = '$user',
 				tag			     = '$tag',
+                map              = '$_POST[peta]',
 				kategori	     = '$_POST[kategori]',
 				gambar 		     = '$_POST[gambar]',
                 created_at       = now()				
@@ -123,7 +141,8 @@ switch ($show) {
                     tanggal          = '$tanggal',
                     lokasi           = '$lokasi',
 					id_user		     = '$user',
-					tag			     = '$tag',
+                    tag			     = '$tag',
+                    map              = '$_POST[peta]',
 					kategori	     = '$_POST[kategori]',
 					gambar 		     = '$_POST[gambar]',
                     updated_at       = now()		

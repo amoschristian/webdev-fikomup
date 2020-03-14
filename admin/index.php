@@ -13,6 +13,9 @@ include "../library/function_date.php";
 
 setlocale(LC_TIME, 'ID'); //set tanggal ke Indonesia
 
+global $mapBoxToken;
+$mapBoxToken = 'pk.eyJ1IjoiYW1vc2NocmlzdGlhbiIsImEiOiJjazdvN2t1MGswNm13M3RwMHU4Y245M2IwIn0.CCTCS5dyJEhkFcz5dE4G1A';
+
 //Mengatur batas timeout
 $timeout = $_SESSION['timeout'];
 if(time()<$timeout){

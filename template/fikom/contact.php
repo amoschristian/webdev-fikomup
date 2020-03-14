@@ -1,6 +1,5 @@
 <?php
 $folder_template = web_info('url') . '/' . folder_template();
-
 ?>
 
 <!DOCTYPE html>
@@ -83,15 +82,33 @@ $folder_template = web_info('url') . '/' . folder_template();
 				</div>
 
 				<!-- Google Map -->
+				<script src='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.js'></script>
+				<link href='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.css' rel='stylesheet' />
 
 				<div class="row" style="margin-top: 100px">
 					<div class="col">
 						<div class="contact_title"><?= $lang->t('Find Us On') ?></div>
 
-						<div id="google_map" style="margin-top: 20px">
-							<div class="map_container">
-								<div id="map"> <img style="width:100%;" src="<?= $folder_template . '/images/maps.jpg' ?>" /> </div>
-							</div>
+						<div class="map_container">
+							<div id='map'></div>
+							<script>
+								mapboxgl.accessToken = '<?= $mapBoxToken ?>';
+								var map = new mapboxgl.Map({
+									container: 'map',
+									style: 'mapbox://styles/mapbox/streets-v11',
+									center: [106.833144, -6.339445],
+									zoom: 16
+								});
+
+								var marker = new mapboxgl.Marker({
+									color: '#f44f00'
+								})
+								.setLngLat([106.833144, -6.339445])
+								.addTo(map);
+
+								map.addControl(new mapboxgl.NavigationControl());
+								map.addControl(new mapboxgl.FullscreenControl());
+							</script>
 						</div>
 					</div>
 				</div>

@@ -5,7 +5,7 @@ function buat_tombol($name, $icon, $link, $warna){
 	global $mysqli;
 	$query = $mysqli->query("select * from $name");
 	$jml_data = $query->num_rows;
-	echo'<div class="col-md-3 col-xs-6"><a href="'.$link.'">
+	echo'<div class="col-md-4 col-xs-6"><a href="'.$link.'">
 			<div class="panel panel-'.$warna.' dashboard-panel">
 				<div class="panel-heading">
 					<i class="glyphicon glyphicon-'.$icon.'"></i>
@@ -22,15 +22,14 @@ function buat_tombol($name, $icon, $link, $warna){
 <?php
 	//Memanggil fungsi buat_tombol untuk membuat 4 tombol
 	buat_tombol("artikel", "list-alt", "?content=artikel", "danger");
-	buat_tombol("menu", "list", "?content=menu", "success");
-	buat_tombol("halaman", "file", "?content=halaman", "info");
-	buat_tombol("modul", "tasks", "?content=modul", "warning");
+	buat_tombol("event", "list-alt", "?content=event", "success");
+	buat_tombol("lecturer", "list-alt", "?content=lecturer", "info");
 ?>
 </div>
 
 
 <div class="row">
-	<div class="col-md-6">
+	<div class="col-md-12">
 <?php
 	//Membuat fungsi dapatkan_nilai untuk membaca pengaturan website
 	function dapatkan_nilai($parameter){
@@ -64,32 +63,5 @@ function buat_tombol($name, $icon, $link, $warna){
 		</tbody>
 	</table>
 
-	</div>
-	<div class="col-md-6">
-		
-	<table class="table table-striped">
-		<thead><tr><th colspan="2"><h3><b>Komentar Terbaru</b></h3></th></tr></thead>
-		<tbody>
-<?php
-	//Menampilkan data komentar terbaru
-	$querykomen = $mysqli->query("SELECT * FROM komentar ORDER BY id_komentar desc limit 4");
-	while($datakomen = $querykomen->fetch_array()){
-		$tanggal = print_tanggal($datakomen['tanggal']);
-		if($datakomen['dibaca'] == 'N'){
-			$nama = '<b>'.$datakomen['nama'].'</b>';
-			$komentar = '<b>'.$datakomen['komentar'].'</b>';
-		}else{
-			$nama = $datakomen['nama'];
-			$komentar = $datakomen['komentar'];
-		}
-		echo'<tr>
-				<td valign="top">'.$nama.'</td>
-				<td><small class="text-muted">'.$tanggal.'</small><br>'.$komentar.'</td>
-			</tr>';
-	} 
-?>
-		</tbody>
-	</table>
-	
 	</div>
 </div>

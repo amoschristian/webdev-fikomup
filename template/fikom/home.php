@@ -47,7 +47,7 @@ include('template/meta_head.php');
 				<div class="row row-eq-height">
 					<!-- Register -->
 
-					<div class="register_section d-flex flex-column align-items-center justify-content-center">
+					<div class="register_section parallax-window custom d-flex flex-column align-items-center justify-content-center" data-natural-height="900" data-bleed="10" data-parallax="scroll" data-src="/template/fikom/images/background/1-min.jpg">
 						<div class="register_content text-center">
 							<a href="#" target="_blank">
 								<img class="fb-button" src="<?= $folder_template . "/images/find-us-on-facebook-logo-png-4.png" ?>"></img>
@@ -66,8 +66,7 @@ include('template/meta_head.php');
 			<div class="container-fluid">
 				<div class="row row-eq-height">
 					<!-- Register -->
-
-					<div class="register_section custom d-flex flex-column align-items-center justify-content-center">
+					<div class="register_section parallax-window custom d-flex flex-column align-items-center justify-content-center" data-natural-height="900" data-bleed="10" data-parallax="scroll" data-src="/template/fikom/images/background/5-min.jpg">
 						<div class="register_content text-center">
 							<h1 class="register_title"><?= $lang->t('Faculty of Communication') ?> <?= $lang->t('Universitas Pancasila') ?></h1>
 
