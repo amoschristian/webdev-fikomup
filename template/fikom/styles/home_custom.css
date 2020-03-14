@@ -124,16 +124,9 @@
   background: none;
 }
 
-.register_section {
-  background: url(/template/fikom/images/background/1-min.jpg) no-repeat center;
-  background-size: cover;
-  background-attachment: fixed;
-}
-
-.register_section.custom {
-  background: url(/template/fikom/images/background/5-min.jpg) no-repeat center;
-  background-size: cover;
-  background-attachment: fixed;
+.parallax-window {
+    min-height: 100px;
+    background: transparent;
 }
 
 #home {

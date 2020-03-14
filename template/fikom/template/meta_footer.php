@@ -18,8 +18,14 @@ $js_array = [
 $extra_js = [];
 switch ($module) {
     case 'news':
-        $extra_css = [
+        $extra_js = [
             "js/news_custom.js"
+        ];
+        break;
+
+    case 'home':
+        $extra_js = [
+            "plugins/parallax.js-2.0.0/jquery.parallax.min.js",
         ];
         break;
 

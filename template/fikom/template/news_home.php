@@ -30,15 +30,6 @@ $detail_berita_headline = $detail_berita;
 unset($detail_berita_headline[$berita_pertama['id_artikel']]);
 ?>
 
-<style>
-	.headline {
-		background: url(<?= "/media/source/" . $berita_pertama['gambar'] ?>);
-		background-position: center center;
-		background-repeat: no-repeat;
-		background-size: cover;
-	}
-</style>
-
 <div class="news page_section pub-back" id="publications"> 
     <div class="container">
         <div class="row">

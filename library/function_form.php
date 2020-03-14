@@ -51,9 +51,9 @@ function buat_checkbox($label, $nama, $list){
 function buat_radio($label, $nama, $list){
 	echo'<div class="form-group" id="'.$nama.'">
 			<label class="col-sm-2 control-label">'.$label.'</label>
-			<div class="col-sm-10">';
+			<div class="col-sm-10" style="padding-top:7px">';
 		foreach($list as $ls){
-			echo'<label  for="'.$nama.$ls['val'].'" id="label_'.$nama.$ls['val'].'"> 
+			echo'<label  for="'.$nama.$ls['val'].'" id="label_'.$nama.$ls['val'].'" style="margin-right:10px"> 
 					<input type="radio" name="'.$nama.'" id="'.$nama.$ls['val'].'" value="'.$ls['val'].'" '.$ls['check'].'> '.$ls['cap'].' 
 				</label>';
 		}
@@ -131,4 +131,85 @@ function buat_select2($label, $nama, $list){
 			</div>
 		</div>';
 }
+
+function buat_map($label, $nama, $nilai, $token, $lebar='6', $tipe="text"){
+	$coordinate = '106.833144, -6.339445'; //Universitas Pancasila
+
+	if ($nilai) {
+		$coordinate = $nilai;
+	}
+	echo'<div class="form-group" id="'.$nama.'">
+			<label for="'.$nama.'" class="col-sm-2 control-label">'.$label.'</label>
+			<div class="col-sm-'.$lebar.'">
+			  <input id="mapbox_input_'.$nama.'" type="'.$tipe.'" class="form-control" name="'.$nama.'" value="'.$nilai.'" readonly style="margin-bottom:10px">
+	';
+
+	echo "
+	<div class='map_container'>
+		<div id='map'></div>
+		<script>
+			mapboxgl.accessToken = '$token';
+			var map = new mapboxgl.Map({
+				container: 'map',
+				style: 'mapbox://styles/mapbox/streets-v11',
+				center: [$coordinate],
+				zoom: 16
+			});
+
+			var marker = new mapboxgl.Marker({
+				draggable: true,
+				color: '#f44f00',
+			})
+			.setLngLat([$coordinate])
+			.addTo(map);
+
+			marker.on('dragend', onDragEnd);
+
+			var geoCoder = new MapboxGeocoder({
+				accessToken: mapboxgl.accessToken,
+				countries: 'id',
+				marker: {
+					color: '#f44f00',
+					draggable: true
+				},
+				mapboxgl: mapboxgl
+			})
+
+			map.addControl(geoCoder);
+
+			geoCoder.on('result', function(e) {
+				marker.remove();
+				var lang = e.result.center[0];
+				var lat = e.result.center[1];
+				var coordinate = lang + ', ' + lat;
+				editCoordinate(coordinate);
+				
+				geoCoder.mapMarker.on('dragend', onDragEndGeoCoder);
+			})
+			
+			function onDragEnd() {
+				var lngLat = marker.getLngLat();
+				var coordinate = lngLat.lng + ', ' + lngLat.lat;
+				editCoordinate(coordinate);
+			}
+
+			function onDragEndGeoCoder() {
+				var lngLat = geoCoder.mapMarker.getLngLat();
+				var coordinate = lngLat.lng + ', ' + lngLat.lat;
+				editCoordinate(coordinate);
+			}
+
+			function editCoordinate(val) {
+				var selector = '#mapbox_input_$nama';
+				$(selector).val(val);
+			}
+
+		</script>
+	</div>
+	";
+
+	echo '</div>
+		</div>';
+}
+
 ?>

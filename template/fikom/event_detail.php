@@ -12,6 +12,7 @@ $gambar = $detail_event['gambar'];
 $tanggal = $detail_event['tanggal'];
 $isi = $detail_event['isi'];
 $lokasi = $detail_event['lokasi'];
+$map = $detail_event['map'];
 
 if ($lang->language != $default_language) {
 	$judul = ($detail_event['judul_terjemahan'] ?: $judul);
@@ -42,6 +43,17 @@ if ($lang->language != $default_language) {
 
 	.news_post_top {
 		padding-bottom: 50px;
+	}
+
+	.map_container {
+		width: 100%;
+		height: 50rem;
+		overflow: hidden;
+	}
+
+	#map {
+		width: 100%;
+		height: calc(100% + 30px);
 	}
 </style>
 
@@ -100,8 +112,35 @@ if ($lang->language != $default_language) {
 									<?= $isi ?>
 								</div>						
 							</div>
-
 						</div>
+
+						<!-- Google Map -->
+						<script src='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.js'></script>
+						<link href='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.css' rel='stylesheet' />
+
+						<div class="map_container">
+							<div id='map'></div>
+							<script>
+								mapboxgl.accessToken = '<?= $mapBoxToken ?>';
+								var map = new mapboxgl.Map({
+									container: 'map',
+									style: 'mapbox://styles/mapbox/streets-v11',
+									center: [<?= $map ?>],
+									zoom: 16
+								});
+
+								var marker = new mapboxgl.Marker({
+									color: '#f44f00'
+								})
+								.setLngLat([<?= $map ?>])
+								.addTo(map);
+
+								map.addControl(new mapboxgl.NavigationControl());
+								map.addControl(new mapboxgl.FullscreenControl());
+							</script>
+						</div>
+
+						
 					</div>
 
 					<!-- Sidebar Column -->

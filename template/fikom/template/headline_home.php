@@ -1,16 +1,22 @@
 <?php 
 //prepare the data to be display news
-$query = "SELECT * FROM artikel ";
-if (isset($_GET['tag'])) {
-	$tag = $_GET['tag'];
-	$query .= "WHERE tag LIKE '%$tag%' ";
-}
-$query .= "ORDER BY tanggal DESC LIMIT 4"; //show 10 per page
+$sentences = 1;
 
-$result = $mysqli->query($query);
-$detail_berita = [];
+$headline_query = $mysqli->query("SELECT * FROM artikel WHERE headline = 1 LIMIT 1");
+$headline_news = $headline_query->fetch_array();
 
-while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
+$headline_isi = $headline_news['isi'];
+$headline_judul = $headline_news['judul'];
+
+$text_pendek =  implode('. ', array_slice(explode('.', strip_tags($headline_isi)), 0, $sentences)) . '.';
+
+$headline_news['judul'] = $headline_judul;
+$headline_news['desc'] = $text_pendek;
+
+$sub_news = [];
+$sub_news_query = $mysqli->query("SELECT * FROM artikel WHERE headline = 2  ORDER BY tanggal DESC LIMIT 3");
+
+while ($data = $sub_news_query->fetch_array(MYSQLI_ASSOC)) {
     $sentences = 1;
     $isi = $data['isi'];
     $judul = $data['judul'];
@@ -20,14 +26,21 @@ while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
     }
 	$text_pendek =  implode('. ', array_slice(explode('.', strip_tags($isi)), 0, $sentences)) . '.';
 
-    $detail_berita[$data['id_artikel']] = $data;
-    $detail_berita[$data['id_artikel']]['judul'] = $judul;
-	$detail_berita[$data['id_artikel']]['desc'] = $text_pendek;
+    $sub_news[$data['id_artikel']] = $data;
+    $sub_news[$data['id_artikel']]['judul'] = $judul;
+	$sub_news[$data['id_artikel']]['desc'] = $text_pendek;
 }
 
-$berita_pertama = reset($detail_berita); //use for headline
-unset($detail_berita[$berita_pertama['id_artikel']]);
 ?>
+
+<style>
+	.headline {
+		background: url(<?= "/media/source/" . $headline_news['gambar'] ?>);
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+</style>
 
 <div class="popular page_section" id="headline">
     <div class="container">
@@ -38,9 +51,9 @@ unset($detail_berita[$berita_pertama['id_artikel']]);
                     <div class="row no-gutters headline">
                         <div class="col-md-6">
                             <div class="card-body-hd">
-                                <div class="card-title"><a href="<?= "/news/id/{$berita_pertama['id_artikel']}/{$berita_pertama['judul_seo']}"; ?>"><?= $berita_pertama['judul']; ?></a></div>
-                                <p class="card-text"><?= $berita_pertama['desc'] ?></p>
-                                <div class="read-more-btn"><span><a href="<?= "/news/id/{$berita_pertama['id_artikel']}/{$berita_pertama['judul_seo']}"; ?>"><?= $lang->t('Read More') ?><i class="fas fa-arrow-right" style="margin-left:10px; color: transparent"></i></a></span></div>
+                                <div class="card-title"><a href="<?= "/news/id/{$headline_news['id_artikel']}/{$headline_news['judul_seo']}"; ?>"><?= $headline_news['judul']; ?></a></div>
+                                <p class="card-text"><?= $headline_news['desc'] ?></p>
+                                <div class="read-more-btn"><span><a href="<?= "/news/id/{$headline_news['id_artikel']}/{$headline_news['judul_seo']}"; ?>"><?= $lang->t('Read More') ?><i class="fas fa-arrow-right" style="margin-left:10px; color: transparent"></i></a></span></div>
                             </div>
                         </div>
                     </div>
@@ -76,8 +89,8 @@ unset($detail_berita[$berita_pertama['id_artikel']]);
 
         <div class="col-sm-12">
             <div class="row course_boxes">
-                <?php if ($detail_berita) : ?>
-                    <?php foreach ($detail_berita as $idx => $berita) : ?>
+                <?php if ($sub_news) : ?>
+                    <?php foreach ($sub_news as $idx => $berita) : ?>
                         <!-- news -->
                         <div class="col-lg-4 course_box">
                             <div class="card">
@@ -92,8 +105,6 @@ unset($detail_berita[$berita_pertama['id_artikel']]);
                             </div>
                         </div>
                     <?php endforeach; ?>
-                <?php else : ?>
-                    <h3>News not found</h3>
                 <?php endif; ?>
             </div>
         </div>
