@@ -97,7 +97,7 @@
 }
 
 .headline:hover .fa-arrow-right {
-  color:#f44f00 !important;
+  color: #f44f00 !important;
   transition: all 0.5s ease;
 }
 
@@ -130,7 +130,8 @@
 }
 
 #home {
-  background: linear-gradient( rgba(0, 0, 0, 0.719), rgba(0, 0, 0, 0.699) ), url(/template/fikom/images/background/world_map.png);
+  background: linear-gradient(rgba(0, 0, 0, 0.719), rgba(0, 0, 0, 0.699)),
+    url(/template/fikom/images/background/world_map.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: right;
@@ -229,5 +230,12 @@
   #headline .col-sm-8 {
     width: 100%;
     max-width: 100%;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .col-lg-4 {
+    -ms-flex: 0 0 33.333333%;
+    flex: 0 0 33.333333%;
+    max-width: 33.1%;
   }
 }

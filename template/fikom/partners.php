@@ -92,7 +92,7 @@ $folder_template = web_info('url') . '/' . folder_template();
 .gall{
     text-align:center;
     padding-top: 10px;
-    height: 100vh;
+    height: 142vh;
     background-color:#f1f1f1;
     padding-bottom:10px;
     border-radius: 5px;
@@ -100,7 +100,7 @@ $folder_template = web_info('url') . '/' . folder_template();
 
 .carous{
     padding-top:10px;
-    height: 450px;
+    height: 100vh;
     width: auto;
     padding-bottom:10px;
 }
@@ -108,8 +108,31 @@ $folder_template = web_info('url') . '/' . folder_template();
     height:35vh;
     padding-left:10px;
     padding-right:10px;
+    overflow: scroll;
     
 }
+.text-desc{
+    font-size:2.05rem;
+    color: black;
+}
+@media only screen and (max-width: 992px) {
+  .text-p {
+   width:100vw;
+  }
+  .gall{
+      width:100vw;
+  }
+  .bor{
+      width:100vw;
+  }
+  .desc-part{
+      width:100vw;
+  }
+  .carous{
+      width:100vw;
+  }
+}
+
 
 
 </style>
@@ -144,7 +167,7 @@ $folder_template = web_info('url') . '/' . folder_template();
                         <?= $lang->t('Description') ?>
                     </div>
                     <div class="desc-part">
-                       <p>kunjungan delegasi The International Network of UNESCO Chairs in Communication (ORBICOM) dalam Welcome Dinner di Ruang Roeslan Abdul Gani Kemkominfo, Kamis malam (04/05/2017). Dihadiri oleh sekitar 21 delegasi dari berbagai negara, Welcome Dinner ini merupakan salah satu rangkaian kegiatan Simposium Internasional dan Annual Meeting ke-6 ORBICOM yang dilaksanakan pada 04-07 Mei 2017.</p>
+                       <div class="text-desc">kunjungan delegasi The International Network of UNESCO Chairs in Communication (ORBICOM) dalam Welcome Dinner di unjungan delegasi The International Network of UNESCO Chairs in Communication (ORBICOM) dalam Welcome Dinner di Ruang Roeslan Abdul Gani Kemkominfo, Kamis malam (04/05/2017). Dihadiri oleh sekitar 21 delegasi dari berbagai negara, Welcome Dinner ini merupakan salah satu rangkaian kegiatan Simposium Internasional dan Annual Meeting ke-6 ORBICOM yang dilaksanakan pada 04-07 Mei 2017.</div>
                     </div>
 
                     <div class="text-p2 bor ">
