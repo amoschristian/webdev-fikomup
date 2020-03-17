@@ -1,15 +1,15 @@
 .des_container {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .logo {
-    text-align: center;
+  text-align: center;
 }
 
 /* RESPONSIVE */
 
 @media only screen and (max-width: 1380px) {
-    .header_content {
-        width: 100%;
-    }
+  .header_content {
+    width: 100%;
+  }
 }
