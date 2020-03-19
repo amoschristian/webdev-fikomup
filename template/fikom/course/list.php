@@ -4,8 +4,6 @@ include('ListHelper.php');
 
 $counter = 1;
 
-$semester4 = initSemester1();
-
 $mataKuliah = [
   'Semester 1' => initSemester1(),
   'Semester 2' => initSemester2(),
@@ -16,10 +14,10 @@ $mataKuliah = [
 ?>
 
 <div class="news_post">
-    <div class="news_post_text">
-        <?php foreach($mataKuliah  as $label => $semester) : ?>
+    <?php foreach($mataKuliah  as $label => $semester) : ?>
+        <div class="news_post_text">
             <?php $counter = 1; ?>
-            <table class="table" style="margin-bottom:50px">
+            <table class="table table-responsive-sm">
             <h1><?= $label ?></h1>
             <?php foreach($semester as $section => $details): ?>
                 <?php if($section == 'general'): ?>
@@ -31,6 +29,7 @@ $mataKuliah = [
                         <th scope="col"><?= $lang->t('SKS'); ?></th>
                       </tr>
                     </thead>
+                    <tbody>
                     <?php foreach($details as $id => $detail) : ?>
                         <tr>
                           <th scope="row"><?= $counter++ ?></th>
@@ -39,12 +38,14 @@ $mataKuliah = [
                           <td><?= $detail[1] ?></td>
                         </tr>
                     <?php endforeach; ?>
+                    </tbody>
                 <?php elseif ($section == 'peminatan' && !empty($details)): ?>
                     <thead class="thead-dark">
                       <tr>
                         <th scope="col" colspan=4 align="center"><?= $lang->t('Mata Kuliah Peminatan *'); ?></th>
                       </tr>
                     </thead>
+                    <tbody>
                     <?php foreach($details as $id => $detail) : ?>
                         <tr>
                           <th scope="row"><?= $counter++ ?></th>
@@ -53,12 +54,14 @@ $mataKuliah = [
                           <td><?= $detail[1] ?></td>
                         </tr>
                     <?php endforeach; ?>
+                    </tbody>
                 <?php elseif ($section == 'minor' && !empty($details)): ?>
                     <thead class="thead-dark">
                       <tr>
                         <th scope="col" colspan=4 align="center"><?= $lang->t('Mata Kuliah Minor **'); ?></th>
                       </tr>
                     </thead>
+                    <tbody>
                     <?php foreach($details as $id => $detail) : ?>
                         <tr>
                           <th scope="row"><?= $counter++ ?></th>
@@ -67,9 +70,10 @@ $mataKuliah = [
                           <td><?= $detail[1] ?></td>
                         </tr>
                     <?php endforeach; ?>
+                    </tbody>
                 <?php endif; ?>
             <?php endforeach; ?>
             </table>
-        <?php endforeach; ?>
-    </div>
+        </div>
+    <?php endforeach; ?>
 </div>

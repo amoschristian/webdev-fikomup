@@ -100,6 +100,7 @@ function buildTranslateAboutUs() {
         'Alumni' => 'Alumni',
         'Activity' => 'Aktifitas',
         'UKM' => 'UKM',
+        'Mobility' => 'Mobilitas'
     ];
 }
 
