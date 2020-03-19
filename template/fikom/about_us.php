@@ -42,7 +42,7 @@ $folder_template = web_info('url') . '/' . folder_template();
 								<li class="about_menu_item_sub"><a href="/about-us/alumni"><?= $lang->t('Alumni') ?></a></li>
 							<li class="about_menu_item"><a href="/about-us/activity"><?= $lang->t('Mobility') ?></a></li>
 								<li class="about_menu_item_sub"><a href="/about-us/activity"><?= $lang->t('Activity') ?></a></li>
-								<li class="about_menu_item_sub"><a href="/about-us/ukm"><?= $lang->t('UKM') ?></a></li>
+								<li class="about_menu_item_sub <?= ($sub_page == 'ukm') ? 'active' : '' ?>""><a href="/about-us/ukm"><?= $lang->t('UKM') ?></a></li>
                 		</ul>
             		</div>
 				</div>
