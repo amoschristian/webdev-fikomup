@@ -38,7 +38,7 @@ $folder_template = web_info('url') . '/' . folder_template();
 
 		<!-- Home -->
 
-		<div class="home">
+		<div class="home" id="home">
 			<?php include('template/particle.php'); ?>
 			<div class="home_content">
 				<h1><?= $lang->t('Contact') ?></h1>
