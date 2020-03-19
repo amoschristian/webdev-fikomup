@@ -67,7 +67,7 @@ if ($lang->language != $default_language) {
 
 		<!-- Home -->
 
-		<div class="home">
+		<div class="home" id="home">
 			<?php include('template/particle.php'); ?>	
 			<div class="home_content">
 				<h1><?= $lang->t('Events') ?></h1>
