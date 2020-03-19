@@ -221,8 +221,8 @@ function redraw() {
 
 function scrollTo(d) {
     var link = d.link;
-
-    if (link.indexOf("#") > 0) {
+    
+    if (link.indexOf("#") == 0) {
         $('html, body').animate({
             scrollTop: $(link).offset().top
         }, 800);

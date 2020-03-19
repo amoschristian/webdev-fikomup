@@ -31,6 +31,7 @@ $folder_template = web_info('url') . '/' . folder_template();
 			 		<div class="about_nav">
                 		<ul class="about_menu">
                 		    <li class="about_menu_item <?= ($sub_page == 'elearning') ? 'active' : '' ?>"><a href="/course/elearning">E-Learning</a></li>
+                		    <li class="about_menu_item <?= ($sub_page == 'list') ? 'active' : '' ?>"><a href="/course/list"><?= $lang->t('Courses List') ?></a></li>
                 		</ul>
             		</div>
 				</div>
