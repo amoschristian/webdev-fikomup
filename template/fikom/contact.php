@@ -26,6 +26,14 @@ $folder_template = web_info('url') . '/' . folder_template();
 	height: 50rem;
 	overflow: hidden;
 }
+
+#home{
+	background: linear-gradient(rgba(0, 0, 0, 0.719), rgba(0, 0, 0, 0.699)),
+	url(/template/fikom/images/background/contact.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
 </style>
 
 <body>

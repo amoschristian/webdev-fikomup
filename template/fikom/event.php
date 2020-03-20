@@ -42,6 +42,15 @@ while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
 
 <?php include('template/meta_head.php'); ?>
 
+<style>
+	#home{
+		background: linear-gradient(rgba(0, 0, 0, 0.719), rgba(0, 0, 0, 0.699)),
+		url(/template/fikom/images/background/event.png);
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: right;
+	}
+</style>
 <body>
 
 	<div class="super_container">

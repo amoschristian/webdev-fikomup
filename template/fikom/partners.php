@@ -133,8 +133,13 @@ $folder_template = web_info('url') . '/' . folder_template();
   }
 }
 
-
-
+#home{
+    background: linear-gradient(rgba(0, 0, 0, 0.719), rgba(0, 0, 0, 0.699)),
+    url(/template/fikom/images/background/partners.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right;
+}
 </style>
 <body>
 

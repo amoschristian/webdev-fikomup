@@ -44,6 +44,16 @@ while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
 
 <link rel='stylesheet' type='text/css' href='<?= $folder_template . '/styles/news_custom.css' ?>'>
 
+<style>
+	#home{
+		background: linear-gradient(rgba(0, 0, 0, 0.719), rgba(0, 0, 0, 0.699)),
+		url(/template/fikom/images/background/news.jpg);
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: right;
+	}
+</style>
+
 <body>
 
 	<div class="super_container">
