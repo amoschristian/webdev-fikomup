@@ -65,23 +65,9 @@ while ($data = $sub_news_query->fetch_array(MYSQLI_ASSOC)) {
                 <div class="ig-feed">
                     <h1><img src="https://cdn.discordapp.com/attachments/658904235609686033/682249668998070365/PngItem_323894.png" width="30px"></img><a href="https://www.instagram.com/fikomup" target="_blank" class="ig-link"> fikomup</a></h1>
                     <div class="ig-feed-box" id="instafeed">
-                        <script src="https://cdnjs.cloudflare.com/ajax/libs/instafeed.js/1.4.1/instafeed.min.js"></script>
-                        <script src="https://matthewelsom.com/assets/js/libs/instafeed.min.js"></script>
-                        <script>
-                            var userFeed = new Instafeed({
-                                target: 'instafeed',
-                                get: 'user',
-                                userId: '8987997106',
-                                clientId: '924f677fa3854436947ab4372ffa688d',
-                                accessToken: '8987997106.924f677.8555ecbd52584f41b9b22ec1a16dafb9',
-                                resolution: 'thumbnail',
-                                template: '<a href="{{link}}" target="_blank" id="{{id}}"><img src="{{image}}" /></a>',
-                                sortBy: 'most-recent',
-                                limit: 8,
-                                links: false
-                            });
-                            userFeed.run();
-                        </script>
+                        <!-- SnapWidget -->
+                        <script src="https://snapwidget.com/js/snapwidget.js"></script>
+                        <iframe src="https://snapwidget.com/embed/805258" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden;  width:100%; "></iframe>
                     </div>
                 </div>
             </div>
