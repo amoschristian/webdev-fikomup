@@ -49,7 +49,7 @@ include('template/meta_head.php');
 
 					<div id="social_media" class="register_section parallax-window custom d-flex flex-column align-items-center justify-content-center" data-natural-height="900" data-bleed="10" data-parallax="scroll" data-src="/template/fikom/images/background/1-min.jpg">
 						<div class="register_content text-center">
-							<a href="#" target="_blank">
+							<a href="https://www.facebook.com/fikom.up.5" target="_blank">
 								<img class="fb-button" src="<?= $folder_template . "/images/find-us-on-facebook-logo-png-4.png" ?>"></img>
 							</a>
 						</div>
