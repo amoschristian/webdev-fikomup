@@ -810,13 +810,13 @@ section {
 }
 .button a {
   font-size: 14px;
-  line-height: 48px;
+  line-height: 38px;
   font-weight: 700;
   text-transform: uppercase;
 }
 .button_1 {
-  width: 202px;
-  height: 48px;
+  width: 169px;
+  height: 36px;
 }
 
 /*********************************
