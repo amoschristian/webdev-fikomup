@@ -4,12 +4,20 @@ if(!defined("INDEX")) header('location: index.php');
 $content = isset($_GET['content']) ? $_GET['content'] : 'dashboard';
 $kosong = true;
 
+//IG API AUTH
+$code = isset($_GET['code']) ? $_GET['code'] : '';
+
+if ($code && $content == 'dashboard') {
+	header("Location: /admin/?content=instagram&ig_code=".$code); 
+}
+
 //Menampilkan file sesuai nilai $content
-$page = array('dashboard', 'artikel', 'berita', 'event', 'kategori', 'tag', 'halaman', 'komentar', 'media', 'modul', 'template', 'menu', 'widget', 'layout', 'user', 'setting', 'backuprestore', 'lecturer','partner');
+$page = array('dashboard', 'artikel', 'berita', 'event', 'kategori', 'tag', 'halaman', 'komentar', 'media', 'modul', 'template', 'menu', 'widget', 'layout', 'user', 'setting', 'backuprestore', 'lecturer', 'partner', 'instagram');
 foreach($page as $pg){
 	if($content == $pg and $kosong){
 		include 'content/'.$pg.'.php';
 		$kosong = false;
+		break;
 	}
 }
 

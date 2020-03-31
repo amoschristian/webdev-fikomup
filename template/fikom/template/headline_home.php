@@ -1,4 +1,6 @@
 <?php 
+include "library/instagram/Instagram.php";
+
 //prepare the data to be display news
 $sentences = 1;
 
@@ -31,6 +33,9 @@ while ($data = $sub_news_query->fetch_array(MYSQLI_ASSOC)) {
 	$sub_news[$data['id_artikel']]['desc'] = $text_pendek;
 }
 
+$instagram = new Instagram;
+
+$instagramImages = $instagram->getUserMedia(6);
 ?>
 
 <style>
@@ -40,6 +45,13 @@ while ($data = $sub_news_query->fetch_array(MYSQLI_ASSOC)) {
 		background-repeat: no-repeat;
 		background-size: cover;
 	}
+
+    .ig-items {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        margin-bottom: 5px;
+    }
 </style>
 
 <div class="popular page_section" id="headline">
@@ -63,11 +75,11 @@ while ($data = $sub_news_query->fetch_array(MYSQLI_ASSOC)) {
             <!-- Social Media Feed -->
             <div class="col-sm-4 text-left" style="padding-left: 20px">
                 <div class="ig-feed">
-                    <h1><img src="https://cdn.discordapp.com/attachments/658904235609686033/682249668998070365/PngItem_323894.png" width="30px"></img><a href="https://www.instagram.com/fikomup" target="_blank" class="ig-link"> fikomup</a></h1>
+                    <h1><img src="<?= $folder_template ?>/images/ig_logo.png"" width="30px"></img><a href="https://www.instagram.com/fikomup" target="_blank" class="ig-link"> fikomup</a></h1>
                     <div class="ig-feed-box" id="instafeed">
-                        <!-- SnapWidget -->
-                        <script src="https://snapwidget.com/js/snapwidget.js"></script>
-                        <iframe src="https://snapwidget.com/embed/805258" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden;  width:95%; "></iframe>
+                        <?php foreach($instagramImages->data as $media) : ?>
+                            <a href="<?= $media->permalink ?>" target="_blank"><img class="ig-items" src="<?= $media->media_url ?>"></a>
+                        <?php endforeach ?>
                     </div>
                 </div>
             </div>
