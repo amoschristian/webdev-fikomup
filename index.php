@@ -52,10 +52,11 @@ $halaman = (isset($_GET['hal'])) ? $_GET['hal'] : "1";
 $default_page = [
     'about_us' => 'history',
     'admission' => 'information',
-    'course' => 'elearning'
+    'course' => 'elearning',
+    'partners' => ''
 ];
 
-if (in_array($content, ['about_us', 'admission', 'course'])) { //if about us, use special case
+if (in_array($content, ['about_us', 'admission', 'course', 'partners'])) { //if about us, use special case
     $sub_page =  (isset($_GET['tag'])) ? str_replace('-', '_', $_GET['tag']) : $default_page[$content];
 }
 

@@ -1,18 +1,34 @@
 <?php
 $folder_template = web_info('url') . '/' . folder_template();
-?>
 
+$query = "SELECT * FROM partner ORDER BY nama_partner ASC";
+$detail_query = "SELECT * FROM partner WHERE id_partner = $halaman";
+
+$result = $mysqli->query($detail_query);
+$detail_partner = [];
+$list_result = $mysqli->query($query);
+$list_partner = [];
+
+if ($result) {
+    $partner_detail = $result->fetch_array(MYSQLI_ASSOC);
+    $isi = $partner_detail['gallery_partner'];
+    $multi_gambar = explode(",", $isi);
+}
+
+if ($list_result) {
+    while ($list_data = $list_result->fetch_array(MYSQLI_ASSOC)){
+        $list_partner[] = $list_data;
+    }
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-
 <link href ="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" rel = "stylesheet" crossorigin="anonymous">
 <script src = "https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.js" crossorigin="anonymous"></script>
-
-
 
 <?php include('template/meta_head.php'); ?>
 
@@ -35,8 +51,7 @@ $folder_template = web_info('url') . '/' . folder_template();
 }
 
 .img-part {
-    height:50px;
-    width:200px;
+    width:150px;
 }
 
 .img-media{
@@ -83,10 +98,8 @@ $folder_template = web_info('url') . '/' . folder_template();
 }
 
 .bor {
-    
     border-width: 1px;
     border-style: solid;
-   
 }
 
 .gall{
@@ -108,12 +121,15 @@ $folder_template = web_info('url') . '/' . folder_template();
     height:35vh;
     padding-left:10px;
     padding-right:10px;
-    overflow: scroll;
-    
+    overflow: scroll;   
 }
-.text-desc{
-    font-size:2.05rem;
+.text-desc p{
+    font-size:2.05rem !important;
     color: black;
+}
+
+.partner-items {
+    margin-bottom: 10px;
 }
 @media only screen and (max-width: 992px) {
   .text-p {
@@ -133,13 +149,11 @@ $folder_template = web_info('url') . '/' . folder_template();
   }
 }
 
-#home{
-    background: linear-gradient(rgba(0, 0, 0, 0.719), rgba(0, 0, 0, 0.699)),
-    url(/template/fikom/images/background/partners.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: right;
+
+.img-slide {
+    object-fit: cover;
 }
+
 </style>
 <body>
 
@@ -158,78 +172,49 @@ $folder_template = web_info('url') . '/' . folder_template();
 
 		<!-- News -->
 		<div class="container part">
-			
-                <div class="col-md-4 col-bg">
-                    <div class="text-p">
-                        <?= $lang->t('Our Partners') ?>
-                    </div>  
-                    <div class=" gall">
-                <img class="img-part" src="<?= $folder_template . '/images/orbicom.png' ?>" alt="">
-            </div>    
+            <div class="col-md-4 col-bg">
+            
+                <div class="text-p">
+                    <?= $lang->t('Our Partners') ?>
+                </div>  
+                <div class=" gall">
+                <?php foreach ($list_partner as $partner) : ?>
+                    <div class="partner-items">
+                        <a href="/partners/<?= $partner['id_partner'] ?>"><img class="img-part"  src="<?= print_image($partner['logo_partner']);?>" alt=""></a>
+                    </div>
+                <?php endforeach; ?>
+                </div> 
+               
+            </div>
+        
+            <div class="col-md-8 col-bg2">
+                <div class="text-p2 bor">
+                    <?= $lang->t('Description') ?>
                 </div>
-                <div class="col-md-8 col-bg2">
-                    <div class="text-p2 bor">
-                        <?= $lang->t('Description') ?>
-                    </div>
-                    <div class="desc-part">
-                       <div class="text-desc">kunjungan delegasi The International Network of UNESCO Chairs in Communication (ORBICOM) dalam Welcome Dinner di unjungan delegasi The International Network of UNESCO Chairs in Communication (ORBICOM) dalam Welcome Dinner di Ruang Roeslan Abdul Gani Kemkominfo, Kamis malam (04/05/2017). Dihadiri oleh sekitar 21 delegasi dari berbagai negara, Welcome Dinner ini merupakan salah satu rangkaian kegiatan Simposium Internasional dan Annual Meeting ke-6 ORBICOM yang dilaksanakan pada 04-07 Mei 2017.</div>
-                    </div>
+                <div class="desc-part">
+                    <div class="text-desc"><?= $partner_detail['deskripsi'] ?></div>
+                </div>
 
-                    <div class="text-p2 bor ">
-                        <?= $lang->t('Gallery') ?>
-                    </div>
+                <div class="text-p2 bor ">
+                    <?= $lang->t('Gallery') ?>
+                </div>
                     
                 <div class="hero_slider_container carous">
-				<div class="hero_slider owl-carousel">
+				    <div class="hero_slider owl-carousel">
 
 					<!-- Hero Slide -->
-					<div class="hero_slide">
-						<div class="hero_slide_background" style="background-image:url(<?= $folder_template . '/images/img-part/1.jpg' ?>)"></div>
-						<div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
-						</div>
-					</div>
-
-					<!-- Hero Slide -->
-					<div class="hero_slide">
-						<div class="hero_slide_background" style="background-image:url(<?= $folder_template . '/images/img-part/3.JPG' ?>)"></div>
-						<div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
-						</div>
-					</div>
-
-					<!-- Hero Slide -->
-					<div class="hero_slide">
-						<div class="hero_slide_background" style="background-image:url(<?= $folder_template . '/images/img-part/4.JPG' ?>)"></div>
-						<div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
-						</div>
-                    </div>
-                    
-                    <div class="hero_slide">
-						<div class="hero_slide_background" style="background-image:url(<?= $folder_template . '/images/img-part/5.JPG' ?>)"></div>
-						<div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
-						</div>
-                    </div>
-                    
-                    <div class="hero_slide">
-						<div class="hero_slide_background" style="background-image:url(<?= $folder_template . '/images/img-part/7.JPG' ?>)"></div>
-						<div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
-						</div>
-					</div>
-
-				</div>
-
-				<div class="hero_slider_left hero_slider_nav trans_200"><span class="trans_200"><</span></div>
-				<div class="hero_slider_right hero_slider_nav trans_200"><span class="trans_200">></span></div>
-			</div>
-
-		</div>
-      
-                </div>
-           
+                    <?php foreach ($multi_gambar as $gambar) : ?>
+					    <div class="hero_slide">
+						    <div class="hero_slide_background img-slide" style="background-image:url(<?= print_image($gambar); ?>)"></div>
+					    </div>
+                    <?php endforeach; ?>
+				    </div>
+			    </div>
+		    </div>
         </div>
-        
+    </div>
         	<!-- Footer -->
-		<?php include('template/footer.php'); ?>
-
+		<?php include('template/footer.php'); ?>   
 	</div>
 	<?php include('template/meta_footer.php'); ?>
     <script>

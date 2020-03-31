@@ -15,6 +15,8 @@ buat_menu("event", "list-alt", "Event", $admin_author);
 
 buat_menu("lecturer", "picture", "Lecturer", $admin_author);
 
+buat_menu("partner", "picture", "Partner", $admin_author);
+
 // buat_menu("halaman", "file", "Halaman", $admin_author);
 
 // buat_menu("komentar", "comment", "Komentar", $admin_author);
