@@ -34,6 +34,8 @@ tutup_dropdown();
 
 buat_menu("setting", "wrench", "Setting");
 
+buat_menu("instagram", "wrench", "Instagram");
+
 buat_menu("backuprestore", "floppy-save", "Backup dan Restore");
 
 $query = $mysqli->query("SELECT * FROM modul WHERE menu='Y' AND aktif='Y'");
