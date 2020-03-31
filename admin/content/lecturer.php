@@ -62,7 +62,7 @@ switch ($show) {
             buat_textbox("Nama Dosen *", "nama_dosen", $data['nama_dosen'], 10);
             buat_textbox("Gelar *", "gelar", $data['gelar'], 10);
             buat_textbox("Jenis Kelamin *", "jenis_kelamin", $data['jenis_kelamin'], 10);
-            buat_textbox("Bidang Kajian *", "agama", $data['agama'], 10);
+            buat_textbox("Bidang Kajian *", "bidang_kajian", $data['bidang_kajian'], 10);
             buat_textbox("Kepangkatan Akademik *", "kepangkatan", $data['kepangkatan'], 10);
             buat_textbox("Pendidikan Terakhir *", "pendidikan", $data['pendidikan'], 10);
             buat_textbox("Perguruan Tinggi Terakhir *", "peguruan_tinggi", $data['peguruan_tinggi'], 10);

@@ -49,7 +49,7 @@ while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
                                     <td> <?= $lang->t('Gender') ?> : <?= $lecturer['jenis_kelamin'] ?></td>
                                 </tr>
                                 <tr>
-                                    <td> Bidang Kajian : <?= $lecturer['agama'] ?></td>
+                                    <td> <?= $lang->t('Field of Study') ?> : <?= $lecturer['bidang_kajian'] ?></td>
                                 </tr>
                                 <tr>
                                     <td> <?= $lang->t('Last Position') ?> : <?= $lecturer['kepangkatan'] ?></td>
