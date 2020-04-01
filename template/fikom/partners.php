@@ -1,7 +1,7 @@
 <?php
 $folder_template = web_info('url') . '/' . folder_template();
 
-$query = "SELECT * FROM partner ORDER BY nama_partner ASC";
+$query = "SELECT * FROM partner ORDER BY id_partner ASC";
 $detail_query = "SELECT * FROM partner WHERE id_partner = $halaman";
 
 $result = $mysqli->query($detail_query);
@@ -9,10 +9,18 @@ $detail_partner = [];
 $list_result = $mysqli->query($query);
 $list_partner = [];
 
+$multi_gambar = [];
+$isi = '';
+
 if ($result) {
     $partner_detail = $result->fetch_array(MYSQLI_ASSOC);
     $isi = $partner_detail['gallery_partner'];
     $multi_gambar = explode(",", $isi);
+    $deskripsi = $partner_detail['deskripsi'];
+
+    if ($lang->language != $default_language) {
+        $deskripsi = ($partner_detail['deskripsi_terjemahan'] ?: $deskripsi);
+    }
 }
 
 if ($list_result) {
@@ -200,7 +208,7 @@ if ($list_result) {
                     <?= $lang->t('Description') ?>
                 </div>
                 <div class="desc-part">
-                    <div class="text-desc"><?= $partner_detail['deskripsi'] ?></div>
+                    <div class="text-desc"><?= $deskripsi ?></div>
                 </div>
 
                 <div class="text-p2 bor ">

@@ -47,7 +47,7 @@ switch ($show) {
             $data    = $query->fetch_array();
             $aksi     = "Edit";
         } else {
-            $data = array("id_partner" => "", "nama_partner" => "", "deskripsi" => "", "logo_partner" => "", "gallery_partner" => "");
+            $data = array("id_partner" => "", "nama_partner" => "", "deskripsi" => "", "deskripsi_terjemahan" => "", "logo_partner" => "", "gallery_partner" => "");
             $aksi     = "Tambah";
             
         }
@@ -59,6 +59,7 @@ switch ($show) {
             buka_form($link, $data['id_partner'], strtolower($aksi));
             buat_textbox("Nama Partner *", "nama_partner", $data['nama_partner'], 10);
             buat_textarea("Deskripsi *", "deskripsi", $data['deskripsi'], "richtext");
+            buat_textarea("Deskripsi (Terjemahan) *", "deskripsi_terjemahan", $data['deskripsi_terjemahan'], "richtext");
             buat_imagepicker("Logo Partner *", "logo_partner", $data['logo_partner'], 10);
             buat_imagepicker_multiple("Gallery Partner *", "gallery_partner", $data['gallery_partner'], 10);
             tutup_form($link);
@@ -70,27 +71,30 @@ switch ($show) {
         $gallery_partner        = $_POST['gallery_partner'];
         $nama_partner           = addslashes($_POST['nama_partner']);
         $deskripsi              = addslashes($_POST['deskripsi']);
+        $deskripsi_terjemahan   = addslashes($_POST['deskripsi_terjemahan']);
         $user                   = $_SESSION['iduser'];
         $isi                    = str_replace(['[' , ']' ,'"'], '', $gallery_partner);
         if ($_POST['aksi'] == "tambah") {
             $query="INSERT INTO partner SET
-				nama_partner    = '$nama_partner',
-                deskripsi       = '$deskripsi',
-				logo_partner    = '$_POST[logo_partner]',
-                gallery_partner = '$isi',
-                id_user		    = '$user',
-                created_at  = now()			
+				nama_partner            = '$nama_partner',
+                deskripsi               = '$deskripsi',
+                deskripsi_terjemahan    = '$deskripsi_terjemahan',
+				logo_partner            = '$_POST[logo_partner]',
+                gallery_partner         = '$isi',
+                id_user		            = '$user',
+                created_at              = now()			
             ";
             $mysqli->query($query);
         } elseif ($_POST['aksi'] == "edit") {
             $query = "
                 UPDATE partner SET
-                nama_partner    = '$nama_partner',
-                deskripsi       = '$deskripsi',
-                logo_partner 	= '$_POST[logo_partner]',
-                gallery_partner = '$isi',
-                id_user		    = '$user',
-                updated_at       = now()	
+                nama_partner            = '$nama_partner',
+                deskripsi               = '$deskripsi',
+                deskripsi_terjemahan    = '$deskripsi_terjemahan',
+                logo_partner 	        = '$_POST[logo_partner]',
+                gallery_partner         = '$isi',
+                id_user		            = '$user',
+                updated_at              = now()	
                 WHERE id_partner='$_POST[id]'
             ";
             $mysqli->query($query);
