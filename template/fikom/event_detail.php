@@ -55,6 +55,14 @@ if ($lang->language != $default_language) {
 		width: 100%;
 		height: calc(100% + 30px);
 	}
+
+	#home{
+		background: linear-gradient(rgba(0, 0, 0, 0.719), rgba(0, 0, 0, 0.699)),
+		url(/template/fikom/images/background/event.png);
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: right;
+	}
 </style>
 
 <body>
