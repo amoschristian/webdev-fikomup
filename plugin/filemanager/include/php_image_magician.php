@@ -2723,6 +2723,7 @@ class imageLib {
 		$extension = mime_content_type($file);
 		$extension = fix_strtolower($extension);
 		$extension = str_replace('image/', '', $extension);
+		ini_set("memory_limit","500M");
 		switch ($extension)
 		{
 			case 'jpg':
