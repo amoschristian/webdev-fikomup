@@ -1,7 +1,7 @@
 <?php
 if(!defined("INDEX")) header('location: index.php');
 //Membuat fungsi buat_tombol
-function buat_tombol($name, $icon, $link, $warna){
+function buat_tombol($name, $icon, $link, $warna, $label){
 	global $mysqli;
 	$query = $mysqli->query("select * from $name");
 	$jml_data = $query->num_rows;
@@ -11,7 +11,7 @@ function buat_tombol($name, $icon, $link, $warna){
 					<i class="glyphicon glyphicon-'.$icon.'"></i>
 					<span class="pull-right">'.$jml_data.'</span>					
 				</div>
-				<div class="panel-body">'.$name.'</div>
+				<div class="panel-body">'.$label.'</div>
 			</div>
 		</a></div>';
 }
@@ -21,9 +21,9 @@ function buat_tombol($name, $icon, $link, $warna){
 <div class="row">
 <?php
 	//Memanggil fungsi buat_tombol untuk membuat 4 tombol
-	buat_tombol("artikel", "list-alt", "?content=artikel", "danger");
-	buat_tombol("event", "list-alt", "?content=event", "success");
-	buat_tombol("lecturer", "list-alt", "?content=lecturer", "info");
+	buat_tombol("artikel", "list-alt", "?content=artikel", "danger", "publikasi");
+	buat_tombol("event", "list-alt", "?content=event", "success", "acara");
+	buat_tombol("lecturer", "list-alt", "?content=lecturer", "info", "dosen");
 ?>
 </div>
 

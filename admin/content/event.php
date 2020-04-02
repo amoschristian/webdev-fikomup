@@ -31,18 +31,18 @@ switch ($show) {
 
         //Menampilkan data
     default:
-        echo '<h3 class="page-header"><b>Daftar Event</b>
+        echo '<h3 class="page-header"><b>Daftar Acara</b>
 				<a href="' . $link . '&show=form" class="btn btn-primary btn-sm pull-right top-button">
 					<i class="glyphicon glyphicon-plus-sign"></i> Tambah
 				</a>
 			</h3>';
 
-        buka_tabel(array("Judul Event", "Kategori", "User", "Tanggal Posting"));
+        buka_tabel(array("Judul Acara", "Kategori", "User", "Tanggal Posting"));
         $no = 1;
         $id_user = $_SESSION['iduser'];
 
-        if ($_SESSION['leveluser'] == "admin") $query = $mysqli->query("SELECT * FROM event ORDER BY id_event DESC");
-        else $query = $mysqli->query("SELECT * FROM event WHERE id_user='$id_user' ORDER BY id_event");
+        if ($_SESSION['leveluser'] == "admin") $query = $mysqli->query("SELECT * FROM event ORDER BY tanggal DESC");
+        else $query = $mysqli->query("SELECT * FROM event WHERE id_user='$id_user' ORDER BY tanggal");
         while ($data = $query->fetch_array()) {
             $user = $mysqli->query("SELECT nama_lengkap FROM user where id_user='$data[id_user]'");
             $us = $user->fetch_array();
@@ -73,15 +73,15 @@ switch ($show) {
         if ($aksi == "Edit" and $_SESSION['leveluser'] != "admin" and $data['id_user'] != $_SESSION['iduser']) {
             header('location:' . $link);
         } else {
-            echo '<h3 class="page-header"><b>' . $aksi . ' Event</b> </h3>';
+            echo '<h3 class="page-header"><b>' . $aksi . ' Acara</b> </h3>';
             buka_form($link, $data['id_event'], strtolower($aksi));
-            buat_textbox("Judul Event *", "judul", $data['judul'], 10);
-            buat_textbox("Judul Event (Terjemahan) *", "judul_terjemahan", $data['judul_terjemahan'], 10);
-            buat_textbox("Tanggal Event *", "tanggal", $data['tanggal'], 10);
+            buat_textbox("Judul Acara (English) *", "judul", $data['judul'], 10);
+            buat_textbox("Judul Acara (Bahasa Indonesia) *", "judul_terjemahan", $data['judul_terjemahan'], 10);
+            buat_textbox("Tanggal Acara *", "tanggal", $data['tanggal'], 10);
             buat_textbox("Lokasi *", "lokasi", $data['lokasi'], 10);
             buat_map("Peta", "peta", $data['map'], $mapBoxToken);
-            buat_textarea("Deskripsi Event *", "isi", $data['isi'], "richtext");
-            buat_textarea("Deskripsi Event (Terjemahan) *", "isi_terjemahan", $data['isi_terjemahan'], "richtext");
+            buat_textarea("Deskripsi Acara (English)*", "isi", $data['isi'], "richtext");
+            buat_textarea("Deskripsi Acara (Bahasa Indonesia) *", "isi_terjemahan", $data['isi_terjemahan'], "richtext");
             buat_imagepicker("Gambar", "gambar", $data['gambar']);
 
             $kategori = $mysqli->query("SELECT * FROM kategori");

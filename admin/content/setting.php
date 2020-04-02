@@ -29,7 +29,7 @@ switch($show){
 			while($data=$query->fetch_array()){
 				$list[] = array("val"=>$data['id_halaman'], "cap"=>$data['judul']);
 			}
-			buat_combobox("Homepage", "homepage", $list, dapatkan_nilai("homepage"));
+			// buat_combobox("Homepage", "homepage", $list, dapatkan_nilai("homepage"));
 		tutup_form($link);	
 		
 	break;

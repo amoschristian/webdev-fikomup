@@ -10,37 +10,33 @@ buka_dropdown("list-alt", "Kategori & Tag");
 	buat_submenu("tag", "Tag");
 tutup_dropdown();
 
-buat_menu("berita", "list-alt", "Berita", $admin_author);
-buat_menu("event", "list-alt", "Event", $admin_author);
+buat_menu("berita", "list-alt", "Publikasi", $admin_author);
+buat_menu("event", "list-alt", "Acara", $admin_author);
 
-buat_menu("lecturer", "picture", "Lecturer", $admin_author);
+buat_menu("lecturer", "picture", "Dosen", $admin_author);
 
-buat_menu("partner", "picture", "Partner", $admin_author);
-
-// buat_menu("halaman", "file", "Halaman", $admin_author);
-
-// buat_menu("komentar", "comment", "Komentar", $admin_author);
+buat_menu("partner", "picture", "Mitra", $admin_author);
 
 buat_menu("media", "picture", "Media", $admin);
 
 // buat_menu("user", "user", "User", $admin_author);
 
 // buat_menu("modul", "tasks", "Modul");
-buka_dropdown("th-list", "Tampilan");
-	buat_submenu("template", "Template");
+// buka_dropdown("th-list", "Tampilan");
+	// buat_submenu("template", "Template");
 	// buat_submenu("menu", "Menu");
 	// buat_submenu("widget", "Widget");
-tutup_dropdown();
+// tutup_dropdown();
 
-buat_menu("setting", "wrench", "Setting");
+// buat_menu("setting", "wrench", "Pengaturan");
 
 buat_menu("instagram", "wrench", "Instagram");
 
-buat_menu("backuprestore", "floppy-save", "Backup dan Restore");
+// buat_menu("backuprestore", "floppy-save", "Backup dan Restore");
 
-$query = $mysqli->query("SELECT * FROM modul WHERE menu='Y' AND aktif='Y'");
-while($data = $query->fetch_array()){
-	if(file_exists("../module/$data[folder]/menu.php")){
-		include "../module/$data[folder]/menu.php";
-	}
-}
+// $query = $mysqli->query("SELECT * FROM modul WHERE menu='Y' AND aktif='Y'");
+// while($data = $query->fetch_array()){
+// 	if(file_exists("../module/$data[folder]/menu.php")){
+// 		include "../module/$data[folder]/menu.php";
+// 	}
+// }
