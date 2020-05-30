@@ -24,7 +24,7 @@
 .AppleDouble
 .LSOverride
 .config.php
-
+./library/config.php
 # Icon must end with two \r
 Icon
 
