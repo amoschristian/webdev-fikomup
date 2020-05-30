@@ -1,10 +1,10 @@
 <?php
 /* Membuat variabel, ubah sesuai dengan nama host dan database pada hosting */
-$host	= "localhost";
-$user	= "root";
-$pass	= "";
+$host	= "db.adebmbng.com";
+$user	= "debam";
+$pass	= "debamP455w0rd";
 $port   = "";
-$db		= "db_fikomup";
+$db		= "fikomup";
 
 //Menggunakan objek mysqli untuk membuat koneksi dan menyimpanya dalam variabel $mysqli	//
 $mysqli = new mysqli($host, $user, $pass, $db);
