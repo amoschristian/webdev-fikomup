@@ -12,3 +12,10 @@ RewriteRule ^([a-z-]+)/([0-9]+)$ index.php?content=$1&hal=$2 [L]
 RewriteRule ^([a-z-]+)/id/([0-9]+)/(.*)$ index.php?content=$1_detail&id=$2 [L]
 </IfModule>
 
+<IfModule mod_php5.c>
+    php_value memory_limit 500M
+</IfModule>
+php_value upload_max_filesize 200M
+php_value post_max_size 200M
+php_value max_execution_time 2000
+php_value max_input_time 2000
