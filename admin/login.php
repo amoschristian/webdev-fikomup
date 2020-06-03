@@ -49,7 +49,7 @@ include "../library/function_antiinjection.php";
 				$_SESSION['timeout'] = time() + 1000;
 				$_SESSION['login'] = 1;
 
-				header('location: index.php');
+				echo("<script>location.href = 'https://fikomup.subagamilenia.com/admin/index.php';</script>");
 			} else {
 				$error = '<div class="alert alert-danger" role="alert">Sorry! Username atau password salah.</div>';
 			}

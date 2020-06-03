@@ -35,11 +35,9 @@ while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
                     <img src="<?= "/media/source/" . $event['gambar'] ?>">
                 </div>
                 <div class="latest_post_title">
-                    <a href="<?= "/news/id/{$event['id_artikel']}/{$event['judul_seo']}"; ?>"><?= $judul ?></a>
+                    <a href="<?= "/event/id/{$event['id_event']}/{$event['judul_seo']}"; ?>"><?= $judul ?></a>
                 </div>
                 <div class="latest_post_meta">
-                    <!-- <span class="latest_post_author"><a href="#">Admin</a></span>
-                    <span>|</span> -->
                     <span class="latest_post_comments"><a href="#"><?= print_tanggal($event['tanggal']) ?></a></span>
                 </div>
             </div>
