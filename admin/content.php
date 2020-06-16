@@ -12,7 +12,32 @@ if ($code && $content == 'dashboard') {
 }
 
 //Menampilkan file sesuai nilai $content
-$page = array('dashboard', 'artikel', 'berita', 'event', 'kategori', 'tag', 'halaman', 'komentar', 'media', 'modul', 'template', 'menu', 'widget', 'layout', 'user', 'setting', 'backuprestore', 'lecturer', 'partner', 'instagram');
+$page = [
+	'dashboard', 
+	'artikel', 
+	'berita', 
+	'event', 
+	'kategori', 
+	'tag', 
+	'halaman', 
+	'komentar', 
+	'media', 
+	'modul', 
+	'template', 
+	'menu', 
+	'widget', 
+	'layout', 
+	'user', 
+	'setting', 
+	'backuprestore', 
+	'lecturer', 
+	'partner', 
+	'instagram',
+	'organization',
+	'student',
+	'alumni',
+	'ukm'
+];
 foreach($page as $pg){
 	if($content == $pg and $kosong){
 		include 'content/'.$pg.'.php';

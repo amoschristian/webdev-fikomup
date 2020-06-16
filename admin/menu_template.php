@@ -10,10 +10,16 @@ buka_dropdown("list-alt", "Kategori & Tag");
 	buat_submenu("tag", "Tag");
 tutup_dropdown();
 
+buka_dropdown("th-list", "Tentang");
+	buat_submenu("organization", "Struktur Organisasi");
+	buat_submenu("lecturer", "Dosen");
+	buat_submenu("alumni", "Alumni");
+	buat_submenu("student", "Mahasiswa");
+	buat_submenu("ukm", "UKM");
+tutup_dropdown();
+
 buat_menu("berita", "list-alt", "Publikasi", $admin_author);
 buat_menu("event", "list-alt", "Acara", $admin_author);
-
-buat_menu("lecturer", "picture", "Dosen", $admin_author);
 
 buat_menu("partner", "picture", "Mitra", $admin_author);
 

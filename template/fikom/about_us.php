@@ -1,7 +1,38 @@
 <?php
 $folder_template = web_info('url') . '/' . folder_template();
-?>
 
+$menuArray = [
+	'organization' => ['Organizations', 'history'],
+	'vision_mission' => ['Vision & Mission', 'vision'],
+	'resources' => ['Resources', 'lecturer'],
+	'mobility' => ['Mobility', 'activity']
+];
+
+$subMenuArray = [
+	'organization' => [
+		['History', 'history'],
+		['Organizations Structure', 'organization']
+	],
+	'vision_mission' => [
+		['Vision', 'vision'],
+		['Mission', 'mission']
+	],
+	'resources' => [
+		['Lecturer', 'lecturer'],
+		['Facility', 'facility'],
+		['Alumni', 'alumni'],
+		['Penelitian & Pengabdian kepada Masyarakat (PPM)', 'ppm'],
+		['Laboratorium', 'laboratorium'],
+		['Journal Coverage', 'coverage']
+	],
+	'mobility' => [
+		['Activity', 'activity'],
+		['UKM', 'ukm'],
+		['Student', 'student']
+	]
+];
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -40,19 +71,12 @@ $folder_template = web_info('url') . '/' . folder_template();
 					<!-- Menu -->
 			 		<div class="about_nav">
                 		<ul class="about_menu">
-                		    <li class="about_menu_item"><a href="/about-us/history"><?= $lang->t('Organizations') ?></a></li>
-								<li class="about_menu_item_sub <?= ($sub_page == 'history') ? 'active' : '' ?>"><a href="/about-us/history"><?= $lang->t('History') ?></a></li>
-								<li class="about_menu_item_sub <?= ($sub_page == 'organization') ? 'active' : '' ?>"><a href="/about-us/organization"><?= $lang->t('Organizations Structure') ?></a></li>
-							<li class="about_menu_item"><a href="/about-us/vision"><?= $lang->t('Vision & Mission') ?></a></li>
-								<li class="about_menu_item_sub <?= ($sub_page == 'vision') ? 'active' : '' ?>"><a href="/about-us/vision"><?= $lang->t('Vision') ?></a></li>
-								<li class="about_menu_item_sub <?= ($sub_page == 'mission') ? 'active' : '' ?>"><a href="/about-us/mission"><?= $lang->t('Mission') ?></a></li>
-							<li class="about_menu_item"><a href="/about-us/lecturer"><?= $lang->t('Resources') ?></a></li>
-								<li class="about_menu_item_sub <?= ($sub_page == 'lecturer') ? 'active' : '' ?>"><a href="/about-us/lecturer"><?= $lang->t('Lecturer') ?></a></li>
-								<li class="about_menu_item_sub"><a href="/about-us/facility"><?= $lang->t('Facility') ?></a></li>
-								<li class="about_menu_item_sub"><a href="/about-us/alumni"><?= $lang->t('Alumni') ?></a></li>
-							<li class="about_menu_item"><a href="/about-us/activity"><?= $lang->t('Mobility') ?></a></li>
-								<li class="about_menu_item_sub"><a href="/about-us/activity"><?= $lang->t('Activity') ?></a></li>
-								<li class="about_menu_item_sub <?= ($sub_page == 'ukm') ? 'active' : '' ?>""><a href="/about-us/ukm"><?= $lang->t('UKM') ?></a></li>
+							<?php foreach ($menuArray as $index => $menu): ?>
+								<li class="about_menu_item"><a href="/about-us/<?= $menu[1] ?>"><?= $lang->t($menu[0]) ?></a></li>
+								<?php foreach ($subMenuArray[$index] as $subMenu): ?>
+									<li class="about_menu_item_sub <?= ($sub_page == $subMenu[1]) ? 'active' : '' ?>"><a href="/about-us/<?= $subMenu[1] ?>"><?= $lang->t($subMenu[0]) ?></a></li>
+								<?php endforeach; ?>
+							<?php endforeach; ?>
                 		</ul>
             		</div>
 				</div>

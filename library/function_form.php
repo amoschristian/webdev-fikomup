@@ -5,11 +5,11 @@ function buka_form($link, $id, $aksi){
 			<input type="hidden" name="aksi" value="'.$aksi.'">';
 }
 
-function buat_textbox($label, $nama, $nilai, $lebar='4', $tipe="text"){
+function buat_textbox($label, $nama, $nilai, $lebar='4', $tipe="text", $placeholder = ''){
 	echo'<div class="form-group" id="'.$nama.'">
 			<label for="'.$nama.'" class="col-sm-2 control-label">'.$label.'</label>
 			<div class="col-sm-'.$lebar.'">
-			  <input type="'.$tipe.'" class="form-control" name="'.$nama.'" value="'.$nilai.'">
+			  <input type="'.$tipe.'" class="form-control" name="'.$nama.'" value="'.$nilai.'" placeholder="'.$placeholder.'">
 			</div>
 		 </div>';
 }
