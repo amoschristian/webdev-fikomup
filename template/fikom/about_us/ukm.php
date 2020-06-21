@@ -11,7 +11,6 @@ while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
 
 ?>
 <link rel="stylesheet" href="../template/fikom/styles/custom.css">
-<script src="../template/fikom/js/modal.js"></script>
 
 <style>
 .card {
