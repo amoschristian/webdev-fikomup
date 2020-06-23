@@ -1,27 +1,16 @@
 <?php
 
-$query = "SELECT * FROM lecturer ORDER BY nama_dosen ASC";
+$query = "SELECT * FROM ukm ORDER BY nama ASC";
 
 $result = $mysqli->query($query);
-$detail_lecturer = [];
+$detail_ukm = [];
 
 while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
-	$detail_lecturer[$data['id_lecturer']] = $data;
+	$detail_ukm[$data['id']] = $data;
 }
-
-$ukmArray = [
-    ['CEC FIKOM Pancasila', 'cec_fikomup.jpeg'],
-    ['KKM Futsal FIKom UP', 'futsal_fikomup.jpeg'],
-    ['FikomUP Basketball', 'basket_fikomup.png'],
-    ['Muaythai Komunikasi', 'muaythai_fikomup.jpeg'],
-    ['Rohis Fikom UP', 'rohis_fikomup.jpg'],
-    ['SERUNI FIKOM UP', 'seruni_fikomup.jpg'],
-    ['Cinema.Kom Fikom UP', 'cinemakom_fikomup.jpg']
-];
 
 ?>
 <link rel="stylesheet" href="../template/fikom/styles/custom.css">
-<script src="../template/fikom/js/modal.js"></script>
 
 <style>
 .card {
@@ -49,16 +38,16 @@ $ukmArray = [
 
 <div class="news_post">
     <div class="row ">
-        <?php foreach ($ukmArray  as $ukm) : ?>
+        <?php foreach ($detail_ukm as $ukm) : ?>
             <div class="col-lg-4 col-md-4 col-6">
                 <div class="card" style="
-                    background:url(<?= "/template/fikom/images/ukm/" . $ukm['1'] ?>);
+                    background:url(<?= print_image($ukm['gambar'])?>);
                     background-position: center center;
                     background-repeat: no-repeat;
                     background-size: cover;
                 ">
                   <div class="card-body">
-                    <div class="card-text"><?= strtoupper($ukm[0]) ?></div>
+                    <div class="card-text"><?= strtoupper($ukm['nama']) ?></div>
                   </div>
                 </div>
             </div>

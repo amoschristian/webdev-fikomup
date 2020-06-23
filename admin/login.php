@@ -48,8 +48,9 @@ include "../library/function_antiinjection.php";
 
 				$_SESSION['timeout'] = time() + 1000;
 				$_SESSION['login'] = 1;
+				
 
-				echo("<script>location.href = 'https://fikomup.subagamilenia.com/admin/index.php';</script>");
+				echo("<script>location.href = '{$_SERVER['REQUEST_SCHEME']}://{$_SERVER['SERVER_NAME']}/admin/index.php';</script>");
 			} else {
 				$error = '<div class="alert alert-danger" role="alert">Sorry! Username atau password salah.</div>';
 			}

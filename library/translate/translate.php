@@ -100,7 +100,8 @@ function buildTranslateAboutUs() {
         'Alumni' => 'Alumni',
         'Activity' => 'Aktifitas',
         'UKM' => 'UKM',
-        'Mobility' => 'Mobilitas'
+        'Mobility' => 'Mobilitas',
+        'Student' => 'Mahasiswa'
     ];
 }
 
@@ -119,7 +120,14 @@ function buildTranslateLecturer() {
     ];
 }
 
-
+function buildTranslateTables() {
+    return [
+        'Photo' => 'Foto',
+        'Student ID' => 'NIM',
+        'Major' => 'Jurusan',
+        'Graduated Year' => 'Tahun Kelulusan'
+    ];
+}
 
 function buildTranslateArray() {
     return array_merge(
@@ -133,7 +141,8 @@ function buildTranslateArray() {
         buildTranslateContact(),
         buildTranslatePartners(),
         buildTranslateAboutUs(),
-        buildTranslateLecturer()
+        buildTranslateLecturer(),
+        buildTranslateTables()
     );
 }
 
