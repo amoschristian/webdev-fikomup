@@ -25,25 +25,25 @@ $folder_template = web_info('url') . '/' . folder_template();
         <nav class="main_nav_container nav_menus">
             <div class="main_nav">
             <ul class="main_nav_list list_menu">
-                    <li class="main_nav_item <?= ($module == 'admission' ? "active" : "") ?>" ><a href="/admission"><?= $lang->t('Admissions') ?></a></li>
-                    <li class="main_nav_item dropdown <?= ($module == 'course' ? "active" : "") ?>" ><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?= $lang->t('Courses') ?></a>
-                        <ul class="dropdown-menu">
-                            <li> <a href="/course/elearning"><?= $lang->t('E-Learning') ?></a></li>
-                            <li> <a href="/course/list"><?= $lang->t('Courses List') ?></a></li>      
-                        </ul>
-                    </li>
-                    <li class="main_nav_item <?= ($module == 'event' ? "active" : "") ?>" ><a href="/event"><?= $lang->t('Events') ?></a></li>
-                    <li class="main_nav_item <?= ($module == 'news' ? "active" : "") ?>" ><a href="/news"><?= $lang->t('Publications') ?></a></li>
-                    <li class="main_nav_item dropdown <?= ($module == 'about_us' ? "active" : "") ?>" ><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?= $lang->t('About Us') ?></a>
-                        <ul class="dropdown-menu">
-                            <li> <a href="/about-us/history"><?= $lang->t('Organization') ?></a></li>
-                            <li> <a href="/about-us/vision"><?= $lang->t('Vision & Mission') ?></a></li>
-                            <li> <a href="/about-us/lecturer"><?= $lang->t('Resources') ?></a></li>
-                            <li> <a href="/about-us/ukm"><?= $lang->t('Mobility') ?></a></li> 
-                        </ul>
-                    </li>
-                    <li class="main_nav_item <?= ($module == 'partners' ? "active" : "") ?>" ><a href="/partners"><?= $lang->t('Partners') ?></a></li>
-                    <li class="main_nav_item <?= ($module == 'contact' ? "active" : "") ?>" ><a href="/contact"><?= $lang->t('Contact') ?></a></li>
+                <li class="main_nav_item <?= ($module == 'admission' ? "active" : "") ?>" ><a href="/admission"><?= $lang->t('Admissions') ?></a></li>
+                <li class="main_nav_item dropdown <?= ($module == 'course' ? "active" : "") ?>" ><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?= $lang->t('Courses') ?></a>
+                    <ul class="dropdown-menu">
+                        <li> <a href="/course/elearning"><?= $lang->t('E-Learning') ?></a></li>
+                        <li> <a href="/course/list"><?= $lang->t('Courses List') ?></a></li>      
+                    </ul>
+                </li>
+                <li class="main_nav_item <?= ($module == 'event' ? "active" : "") ?>" ><a href="/event"><?= $lang->t('Events') ?></a></li>
+                <li class="main_nav_item <?= ($module == 'news' ? "active" : "") ?>" ><a href="/news"><?= $lang->t('Publications') ?></a></li>
+                <li class="main_nav_item dropdown <?= ($module == 'about_us' ? "active" : "") ?>" ><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?= $lang->t('About Us') ?></a>
+                    <ul class="dropdown-menu">
+                        <li> <a href="/about-us/history"><?= $lang->t('Organization') ?></a></li>
+                        <li> <a href="/about-us/vision"><?= $lang->t('Vision & Mission') ?></a></li>
+                        <li> <a href="/about-us/lecturer"><?= $lang->t('Resources') ?></a></li>
+                        <li> <a href="/about-us/ukm"><?= $lang->t('Mobility') ?></a></li> 
+                    </ul>
+                </li>
+                <li class="main_nav_item <?= ($module == 'partners' ? "active" : "") ?>" ><a href="/partners"><?= $lang->t('Partners') ?></a></li>
+                <li class="main_nav_item <?= ($module == 'contact' ? "active" : "") ?>" ><a href="/contact"><?= $lang->t('Contact') ?></a></li>
             </ul>
             </div>
         </nav>
@@ -71,20 +71,20 @@ $folder_template = web_info('url') . '/' . folder_template();
             <ul class="menu_list menu_mm">
                 <li class="menu_item menu_mm"><a href="/admission"><?= $lang->t('Admissions') ?></a></li>
                 <li class="menu_item menu_mm dropdown <?= ($module == 'course' ? "active" : "") ?>" ><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?= $lang->t('Courses') ?></a>
-                        <ul class="dropdown-menu">
-                            <li> <a href="/course/elearning"><?= $lang->t('E-Learning') ?></a></li>
-                            <li> <a href="/course/list"><?= $lang->t('Courses List') ?></a></li>      
-                        </ul>
+                    <ul class="dropdown-menu">
+                        <li> <a href="/course/elearning"><?= $lang->t('E-Learning') ?></a></li>
+                        <li> <a href="/course/list"><?= $lang->t('Courses List') ?></a></li>      
+                    </ul>
                 </li>
                 <li class="menu_item menu_mm"><a href="/event"><?= $lang->t('Events') ?></a></li>
                 <li class="menu_item menu_mm"><a href="/news"><?= $lang->t('Publications') ?></a></li>
                 <li class="menu_item menu_mm dropdown <?= ($module == 'about_us' ? "active" : "") ?>" ><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?= $lang->t('About Us') ?></a>
-                        <ul class="dropdown-menu">
-                            <li> <a href="/about-us/history"><?= $lang->t('Organization') ?></a></li>
-                            <li> <a href="/about-us/vision"><?= $lang->t('Vision & Mission') ?></a></li>
-                            <li> <a href="/about-us/lecturer"><?= $lang->t('Resources') ?></a></li>                           
-                            <li> <a href="/about-us/ukm"><?= $lang->t('Mobility') ?></a></li>       
-                        </ul>
+                    <ul class="dropdown-menu">
+                        <li> <a href="/about-us/history"><?= $lang->t('Organization') ?></a></li>
+                        <li> <a href="/about-us/vision"><?= $lang->t('Vision & Mission') ?></a></li>
+                        <li> <a href="/about-us/lecturer"><?= $lang->t('Resources') ?></a></li>                           
+                        <li> <a href="/about-us/ukm"><?= $lang->t('Mobility') ?></a></li>       
+                    </ul>
                 </li>
                 <li class="menu_item menu_mm"><a href="/partners"><?= $lang->t('Partners') ?></a></li>
                 <li class="menu_item menu_mm"><a href="/contact"><?= $lang->t('Contact') ?></a></li>
@@ -97,7 +97,7 @@ $folder_template = web_info('url') . '/' . folder_template();
 </div>
 
 <style>
-    .main_nav_list .active a{
+    .main_nav_list > .active > a{
         color: #f44f00
     }
 </style>
