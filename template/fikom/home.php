@@ -14,8 +14,6 @@ include('template/meta_head.php');
 
 <link rel='stylesheet' type='text/css' href='<?= $folder_template . '/styles/home_custom.css' ?>'>
 
-</script
-
 <body>
 
 	<div class="super_container">
