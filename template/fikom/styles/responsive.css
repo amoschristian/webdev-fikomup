@@ -28,6 +28,14 @@
 @media only screen and (max-width: 1600px) {
 }
 
+.logo img {
+  width: 68%;
+}
+.nav_menus {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
 /************
 2. 1440px
 ************/
@@ -42,21 +50,31 @@
   display: block;
   font-weight: 600;
   color: black;
-  font-size: 20px;
+  font-size: 15px;
   width: 18%;
   font-family: 'Libre Franklin', sans-serif;
-  padding-left: 0px;
+  padding-left: 10px;
+  padding-top: 20px;
 }
 .logo img {
-  width: 67%;
+  width: 68%;
 }
+.header {
+  width: 100vw !important;
+}
+.nav_menus {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
 /************
 3. 1380px
 ************/
 
 @media only screen and (max-width: 1380px) {
   .header {
-    width: 1200px;
+    width: 100vw;
   }
   .header_content {
     width: 100%;
@@ -85,6 +103,14 @@
     font-family: 'Libre Franklin', sans-serif;
     padding-left: 0px;
   }
+  .logo img {
+    width: 68%;
+  }
+  .nav_menus {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
 }
 
 /************
@@ -93,7 +119,7 @@
 
 @media only screen and (max-width: 1280px) {
   .header {
-    width: 90%;
+    width: 100vw;
   }
   .header_content {
     width: 100%;
@@ -103,6 +129,11 @@
   }
   .main_nav_container {
     padding-right: 53px;
+  }
+  .nav_menus {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
   }
   .main_nav_container2 {
     padding-left: 53px;
@@ -128,10 +159,8 @@
     font-size: 15px;
     width: 18%;
     font-family: 'Libre Franklin', sans-serif;
-    padding-left: 0px;
-  }
-  .logo img {
-    width: 79%;
+    padding-left: 10px;
+    padding-top: 20px;
   }
 }
 
@@ -152,9 +181,9 @@
     font-weight: 600;
     color: black;
     font-size: 14px;
-    width: 16%;
+    width: 21%;
     font-family: 'Libre Franklin', sans-serif;
-    padding-left: 0px;
+    padding-left: 10px;
   }
 
   .main_nav_item a {
@@ -162,7 +191,7 @@
   }
 
   .logo img {
-    width: 75%;
+    width: 68%;
   }
 }
 
@@ -212,8 +241,9 @@
     padding-left: 0px;
   }
   .logo img {
-    width: 66%;
+    width: 68%;
   }
+
   .hamburger_container {
     display: block;
   }
@@ -317,6 +347,24 @@
   .welcome {
     font-size: 4rem;
   }
+  .des_container {
+    display: block;
+    font-weight: 600;
+    color: black;
+    font-size: 25px;
+    width: 83%;
+    font-family: 'Libre Franklin', sans-serif;
+    padding-left: 0px;
+  }
+  .des_container_scroll {
+    font-weight: 600;
+    color: black;
+    font-size: 21px;
+    width: 55%;
+    font-family: 'Libre Franklin', sans-serif;
+    padding-left: 10px;
+    padding-top: 0px;
+  }
 }
 
 /************
@@ -345,9 +393,10 @@
     font-weight: 600;
     color: black;
     font-size: 13px;
-    width: 52%;
+    width: 70%;
     font-family: 'Libre Franklin', sans-serif;
     padding-left: 0px;
+    padding-top: 0px;
   }
   .logo img {
     width: 80%;
@@ -504,4 +553,13 @@
 ************/
 
 @media only screen and (max-width: 400px) {
+  .des_container_scroll {
+    font-weight: 600;
+    color: black;
+    font-size: 14px;
+    width: 58%;
+    font-family: 'Libre Franklin', sans-serif;
+    padding-left: 10px;
+    padding-top: 0px;
+  }
 }
