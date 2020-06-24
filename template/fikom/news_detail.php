@@ -13,7 +13,7 @@ $tanggal = $detail_berita['tanggal'];
 $judul = $detail_berita['judul'];
 $isi = $detail_berita['isi'];
 
-if ($lang->language != $default_language) {
+if ($lang->language == $default_language) {
 	$judul = ($detail_berita['judul_terjemahan'] ?: $judul);
 	$isi = ($detail_berita['isi_terjemahan'] ?: $isi);
 }

@@ -26,7 +26,7 @@ while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
         <?php foreach ($detail_event as $event) : ?>
             <?php 
                 $judul = $event['judul'];
-                if ($lang->language != $default_language) {
+                if ($lang->language == $default_language) {
                     $judul = ($event['judul_terjemahan'] ?: $judul);
                 }    
             ?>

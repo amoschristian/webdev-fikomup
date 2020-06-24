@@ -18,7 +18,7 @@ if ($result) {
     $multi_gambar = explode(",", $isi);
     $deskripsi = $partner_detail['deskripsi'];
 
-    if ($lang->language != $default_language) {
+    if ($lang->language == $default_language) {
         $deskripsi = ($partner_detail['deskripsi_terjemahan'] ?: $deskripsi);
     }
 }

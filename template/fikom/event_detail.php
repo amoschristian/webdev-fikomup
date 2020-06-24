@@ -14,7 +14,7 @@ $isi = $detail_event['isi'];
 $lokasi = $detail_event['lokasi'];
 $map = $detail_event['map'];
 
-if ($lang->language != $default_language) {
+if ($lang->language == $default_language) {
 	$judul = ($detail_event['judul_terjemahan'] ?: $judul);
 	$isi = ($detail_event['isi_terjemahan'] ?: $isi);
 }

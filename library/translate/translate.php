@@ -129,6 +129,12 @@ function buildTranslateTables() {
     ];
 }
 
+function buildTranslateCourses() {
+    return [
+        'Courses List' => 'Mata Kuliah'
+    ];
+}
+
 function buildTranslateArray() {
     return array_merge(
         buildTranslateGlobal(),
@@ -142,7 +148,8 @@ function buildTranslateArray() {
         buildTranslatePartners(),
         buildTranslateAboutUs(),
         buildTranslateLecturer(),
-        buildTranslateTables()
+        buildTranslateTables(),
+        buildTranslateCourses()
     );
 }
 

@@ -23,7 +23,7 @@ while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
         <?php foreach ($detail_berita as $berita) : ?>
             <?php 
                 $judul = $berita['judul'];
-                if ($lang->language != $default_language) {
+                if ($lang->language == $default_language) {
                     $judul = ($berita['judul_terjemahan'] ?: $judul);
                 }    
             ?>

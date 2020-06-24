@@ -2,7 +2,7 @@
 
 class Lang
 {
-    const DEFAULT_LANGUAGE = 'en';
+    const DEFAULT_LANGUAGE = 'id';
 
     public $language;
     public $language_source;
@@ -15,7 +15,7 @@ class Lang
 
     public function t($string) {
         $source = $this->language_source;
-        if ($this->language != self::DEFAULT_LANGUAGE) {
+        if ($this->language == self::DEFAULT_LANGUAGE) {
             if (isset($source[$string])) {
                 return $source[$string];
             }

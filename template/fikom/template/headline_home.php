@@ -22,7 +22,7 @@ while ($data = $sub_news_query->fetch_array(MYSQLI_ASSOC)) {
     $sentences = 1;
     $isi = $data['isi'];
     $judul = $data['judul'];
-    if ($lang->language != $default_language) {
+    if ($lang->language == $default_language) {
         $isi = ($data['isi_terjemahan'] ?: $isi);
         $judul = ($data['judul_terjemahan'] ?: $judul);
     }

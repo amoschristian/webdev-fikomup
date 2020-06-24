@@ -5,7 +5,7 @@ $menuArray = [
 	'organization' => ['Organizations', 'history'],
 	'vision_mission' => ['Vision & Mission', 'vision'],
 	'resources' => ['Resources', 'lecturer'],
-	'mobility' => ['Mobility', 'activity']
+	'mobility' => ['Mobility', 'ukm']
 ];
 
 $subMenuArray = [
@@ -21,13 +21,12 @@ $subMenuArray = [
 		['Lecturer', 'lecturer'],
 		['Facility', 'facility'],
 		['Alumni', 'alumni'],
-		['Penelitian & Pengabdian kepada Masyarakat (PPM)', 'ppm'],
 		['Laboratorium', 'laboratorium'],
 		['Journal Coverage', 'coverage']
 	],
 	'mobility' => [
-		['Activity', 'activity'],
 		['UKM', 'ukm'],
+		['Activity', 'activity'],
 		['Student', 'student']
 	]
 ];
