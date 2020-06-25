@@ -25,7 +25,12 @@ $folder_template = web_info('url') . '/' . folder_template();
         <nav class="main_nav_container nav_menus">
             <div class="main_nav">
             <ul class="main_nav_list list_menu">
-                <li class="main_nav_item <?= ($module == 'admission' ? "active" : "") ?>" ><a href="/admission"><?= $lang->t('Admissions') ?></a></li>
+                <li class="main_nav_item dropdown <?= ($module == 'admission' ? "active" : "") ?>" ><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?= $lang->t('Admissions') ?></a>
+                    <ul class="dropdown-menu">
+                        <li> <a href="/admission/information"><?= $lang->t('Information') ?></a></li>
+                        <li> <a href="/admission/pmb"><?= $lang->t('PMB Online') ?></a></li>      
+                    </ul>
+                </li>
                 <li class="main_nav_item dropdown <?= ($module == 'course' ? "active" : "") ?>" ><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?= $lang->t('Courses') ?></a>
                     <ul class="dropdown-menu">
                         <li> <a href="/course/elearning"><?= $lang->t('E-Learning') ?></a></li>
@@ -36,7 +41,7 @@ $folder_template = web_info('url') . '/' . folder_template();
                 <li class="main_nav_item <?= ($module == 'news' ? "active" : "") ?>" ><a href="/news"><?= $lang->t('Publications') ?></a></li>
                 <li class="main_nav_item dropdown <?= ($module == 'about_us' ? "active" : "") ?>" ><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?= $lang->t('About Us') ?></a>
                     <ul class="dropdown-menu">
-                        <li> <a href="/about-us/history"><?= $lang->t('Organization') ?></a></li>
+                        <li> <a href="/about-us/history"><?= $lang->t('Organizations') ?></a></li>
                         <li> <a href="/about-us/vision"><?= $lang->t('Vision & Mission') ?></a></li>
                         <li> <a href="/about-us/lecturer"><?= $lang->t('Resources') ?></a></li>
                         <li> <a href="/about-us/ukm"><?= $lang->t('Mobility') ?></a></li> 
@@ -70,7 +75,7 @@ $folder_template = web_info('url') . '/' . folder_template();
         <div class="menu menu_mm">
             <ul class="menu_list menu_mm">
                 <li class="menu_item menu_mm"><a href="/admission"><?= $lang->t('Admissions') ?></a></li>
-                <li class="menu_item menu_mm dropdown <?= ($module == 'course' ? "active" : "") ?>" ><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?= $lang->t('Courses') ?></a>
+                <li class="menu_item menu_mm dropdown" ><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?= $lang->t('Courses') ?></a>
                     <ul class="dropdown-menu">
                         <li> <a href="/course/elearning"><?= $lang->t('E-Learning') ?></a></li>
                         <li> <a href="/course/list"><?= $lang->t('Courses List') ?></a></li>      
