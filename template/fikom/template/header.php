@@ -80,7 +80,7 @@ $folder_template = web_info('url') . '/' . folder_template();
                 <li class="menu_item menu_mm"><a href="/news"><?= $lang->t('Publications') ?></a></li>
                 <li class="menu_item menu_mm dropdown <?= ($module == 'about_us' ? "active" : "") ?>" ><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?= $lang->t('About Us') ?></a>
                     <ul class="dropdown-menu">
-                        <li> <a href="/about-us/history"><?= $lang->t('Organization') ?></a></li>
+                        <li> <a href="/about-us/history"><?= $lang->t('Organizations') ?></a></li>
                         <li> <a href="/about-us/vision"><?= $lang->t('Vision & Mission') ?></a></li>
                         <li> <a href="/about-us/lecturer"><?= $lang->t('Resources') ?></a></li>                           
                         <li> <a href="/about-us/ukm"><?= $lang->t('Mobility') ?></a></li>       
