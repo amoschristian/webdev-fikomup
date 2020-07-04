@@ -74,14 +74,14 @@ switch ($show) {
             header('location:' . $link);
         } else {
             echo '<h3 class="page-header"><b>' . $aksi . ' Acara</b> </h3>';
-            buka_form($link, $data['id_event'], strtolower($aksi));
+			buka_form($link, $data['id_event'], strtolower($aksi));
+			buat_textbox("Judul Acara (Bahasa Indonesia) *", "judul_terjemahan", $data['judul_terjemahan'], 10);
             buat_textbox("Judul Acara (English) *", "judul", $data['judul'], 10);
-            buat_textbox("Judul Acara (Bahasa Indonesia) *", "judul_terjemahan", $data['judul_terjemahan'], 10);
             buat_textbox("Tanggal Acara *", "tanggal", $data['tanggal'], 10);
             buat_textbox("Lokasi *", "lokasi", $data['lokasi'], 10);
-            buat_map("Peta", "peta", $data['map'], $mapBoxToken);
+			buat_map("Peta", "peta", $data['map'], $mapBoxToken);
+			buat_textarea("Deskripsi Acara (Bahasa Indonesia) *", "isi_terjemahan", $data['isi_terjemahan'], "richtext");
             buat_textarea("Deskripsi Acara (English)*", "isi", $data['isi'], "richtext");
-            buat_textarea("Deskripsi Acara (Bahasa Indonesia) *", "isi_terjemahan", $data['isi_terjemahan'], "richtext");
             buat_imagepicker("Gambar", "gambar", $data['gambar']);
 
             $kategori = $mysqli->query("SELECT * FROM kategori");

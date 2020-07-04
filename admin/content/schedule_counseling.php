@@ -21,16 +21,16 @@ switch ($show) {
 				</a>
 			</h3>';
 
-        buka_tabel(array("Nama", "Hari", "Jam Mulai", "Jam Selesai"));
+        buka_tabel(array("Judul", "Tanggal"));
         $no = 1;
         $id_user = $_SESSION['iduser'];
 
-        if ($_SESSION['leveluser'] == "admin") $query = $mysqli->query("SELECT * FROM schedule ORDER BY hari DESC");
-        else $query = $mysqli->query("SELECT * FROM schedule WHERE id_user='$id_user' ORDER BY hari DESC");
+        if ($_SESSION['leveluser'] == "admin") $query = $mysqli->query("SELECT * FROM schedule ORDER BY tanggal DESC");
+        else $query = $mysqli->query("SELECT * FROM schedule WHERE id_user='$id_user' ORDER BY tanggal DESC");
         while ($data = $query->fetch_array()) {
-            $hari = print_tanggal($data['hari']);
+            $tanggal = print_tanggal($data['tanggal']);
 
-            isi_tabel($no, array($data['nama'], $hari, $data['jam_mulai'], $data['jam_selesai']), $link, $data['id']);
+            isi_tabel($no, array($data['judul'], $tanggal), $link, $data['id']);
             $no++;
         }
         tutup_tabel();
@@ -44,7 +44,7 @@ switch ($show) {
             $data = $query->fetch_array();
             $aksi = "Edit";
         } else {
-            $data = array("id" => "", "nama" => "", "hari" => "", "jam_mulai" => "", "jam_selesai" => "");
+            $data = array("id" => "", "judul" => "", "tanggal" => "", "judul" => "", "judul_terjemahan" => "", "isi" => "", "isi_terjemahan" => "", "gambar" => "", "attachment" => "");
             $aksi = "Tambah";
         }
 
@@ -53,10 +53,13 @@ switch ($show) {
         } else {
             echo '<h3 class="page-header"><b>' . $aksi . ' Pengumuman</b> </h3>';
             buka_form($link, $data['id'], strtolower($aksi));
-            buat_textbox("Nama", "nama", $data['nama'], 6);
-            buat_textbox("Hari *", "hari", $data['hari'], 2);
-            buat_textbox("Jam Mulai *", "jam_mulai", $data['jam_mulai'], 2);
-            buat_textbox("Jam Selesai *", "jam_selesai", $data['jam_selesai'], 2);
+			buat_textbox("Judul (Bahasa Indonesia)", "judul_terjemahan", $data['judul_terjemahan'], 10);
+			buat_textbox("Judul (English)", "judul", $data['judul'], 10);
+			buat_textarea("Isi (Bahasa Indonesia)", "isi_terjemahan", $data['isi_terjemahan'], "richtext");
+            buat_textarea("Isi (English)", "isi", $data['isi'], "richtext");
+			buat_textbox("Tanggal *", "tanggal", $data['tanggal'], 2, 'text', '', 'off');
+			buat_imagepicker("Gambar Jadwal *", "gambar", $data['gambar'], 6);
+            buat_imagepicker_multiple("Attachment", "attachment", $data['attachment'], 6);
 
             tutup_form($link);
         }
@@ -64,25 +67,35 @@ switch ($show) {
 
         //Menyisipkan atau mengedit data di database
     case "action":
-        $nama = addslashes($_POST['nama']);
-        $hari = date('Y-m-d', strtotime($_POST['hari']));
-        $jam_mulai = $_POST['jam_mulai'];
-        $jam_selesai = $_POST['jam_selesai'];
-        $user = $_SESSION['iduser'];
+        $judul = addslashes($_POST['judul']);
+        $judul_terjemahan = addslashes($_POST['judul_terjemahan']);
+        $isi = addslashes($_POST['isi']);
+        $isi_terjemahan = addslashes($_POST['isi_terjemahan']);
+		$tanggal = date('Y-m-d', strtotime($_POST['tanggal']));
+		$attachment  = str_replace(['[' , ']' ,'"'], '', $_POST['attachment']);
+		$user = $_SESSION['iduser'];
         
         if ($_POST['aksi'] == "tambah") {
             $mysqli->query("INSERT INTO schedule SET
-				nama 		    = '$nama',
-				hari 		    = '$hari',
-				jam_mulai 	    = '$jam_mulai',
-				jam_selesai     = '$jam_selesai'
+				judul 		    = '$judul',
+				judul_terjemahan= '$judul_terjemahan',
+				isi			    = '$isi',
+				isi_terjemahan  = '$isi_terjemahan',
+				tanggal 		= '$tanggal',
+				gambar 			= '$_POST[gambar]',
+				attachment      = '$attachment',
+				created_at      = now()
 			");
         } elseif ($_POST['aksi'] == "edit") {
             $mysqli->query("UPDATE schedule SET
-                    nama 		    = '$nama',
-					hari 		    = '$hari',
-				    jam_mulai 	    = '$jam_mulai',
-				    jam_selesai     = '$jam_selesai'
+                    judul 		    = '$judul',
+					judul_terjemahan= '$judul_terjemahan',
+					isi			    = '$isi',
+					isi_terjemahan  = '$isi_terjemahan',
+					tanggal 		= '$tanggal',
+					gambar 			= '$_POST[gambar]',
+					attachment      = '$attachment',
+					updated_at      = now()
 				WHERE id='$_POST[id]'");
         }
         header('location:' . $link);
@@ -102,19 +115,9 @@ switch ($show) {
 
 <script>
     $(document).ready(function() {
-        $('[name="hari"]').datetimepicker({
-            format:'d-m-Y',
-            timepicker: false
-        });
-
-        $('[name="jam_mulai"]').datetimepicker({
-	        datepicker: false,
-            format:'H:i'
-        });
-
-        $('[name="jam_selesai"]').datetimepicker({
-	        datepicker:false,
-            format:'H:i'
+        $('[name="tanggal"]').datetimepicker({
+            format:'d-M-Y',
+			timepicker: false
         });
     });
 </script>

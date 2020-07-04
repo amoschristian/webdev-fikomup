@@ -57,9 +57,9 @@ switch ($show) {
         } else {
             echo '<h3 class="page-header"><b>' . $aksi . ' Mitra</b> </h3>';
             buka_form($link, $data['id_partner'], strtolower($aksi));
-            buat_textbox("Nama Mitra *", "nama_partner", $data['nama_partner'], 10);
+			buat_textbox("Nama Mitra *", "nama_partner", $data['nama_partner'], 10);
+			buat_textarea("Deskripsi (Bahasa Indonesia) *", "deskripsi_terjemahan", $data['deskripsi_terjemahan'], "richtext");
             buat_textarea("Deskripsi (English)*", "deskripsi", $data['deskripsi'], "richtext");
-            buat_textarea("Deskripsi (Bahasa Indonesia) *", "deskripsi_terjemahan", $data['deskripsi_terjemahan'], "richtext");
             buat_imagepicker("Logo Mitra *", "logo_partner", $data['logo_partner'], 10);
             buat_imagepicker_multiple("Gallery Mitra *", "gallery_partner", $data['gallery_partner'], 10);
             tutup_form($link);

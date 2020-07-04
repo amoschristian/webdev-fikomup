@@ -33,7 +33,7 @@ $folder_template = web_info('url') . '/' . folder_template();
 						<li class="main_nav_item dropdown <?= ($module == 'course' ? "active" : "") ?>"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?= $lang->t('Courses') ?></a>
 							<ul class="dropdown-menu">
 								<li> <a href="/course/elearning"><?= $lang->t('E-Learning') ?></a></li>
-								<li> <a href="/course/list"><?= $lang->t('Courses List') ?></a></li>
+								<li> <a href="/course/announcement"><?= $lang->t('Courses List') ?></a></li>
 							</ul>
 						</li>
 						<li class="main_nav_item <?= ($module == 'event' ? "active" : "") ?>"><a href="/event"><?= $lang->t('Events') ?></a></li>

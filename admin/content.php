@@ -38,7 +38,9 @@ $page = [
 	'alumni',
 	'ukm',
 	'announcement_counseling',
-	'schedule_counseling'
+	'schedule_counseling',
+	'announcement_course',
+	'schedule_course'
 ];
 foreach($page as $pg){
 	if($content == $pg and $kosong){

@@ -6,14 +6,14 @@
 
 <?php
 if (!defined("INDEX")) header('location: ../index.php');
-$tipeCounseling = 0;
+$tipeCourse = 1;
 
 $show = isset($_GET['show']) ? $_GET['show'] : "";
-$link = "?content=announcement_counseling";
+$link = "?content=announcement_course";
 
 switch ($show) {
 
-        //Menampilkan data
+    //Menampilkan data
     default:
         echo '<h3 class="page-header"><b>Daftar Pengumuman</b>
 				<a href="' . $link . '&show=form" class="btn btn-primary btn-sm pull-right top-button">
@@ -25,11 +25,11 @@ switch ($show) {
         $no = 1;
         $id_user = $_SESSION['iduser'];
 
-        if ($_SESSION['leveluser'] == "admin") $query = $mysqli->query("SELECT * FROM announcement WHERE tipe = $tipeCounseling ORDER BY tanggal DESC");
-        else $query = $mysqli->query("SELECT * FROM announcement WHERE id_user='$id_user' AND tipe = $tipeCounseling ORDER BY tanggal DESC");
+        if ($_SESSION['leveluser'] == "admin") $query = $mysqli->query("SELECT * FROM announcement WHERE tipe = $tipeCourse ORDER BY tanggal DESC");
+        else $query = $mysqli->query("SELECT * FROM announcement WHERE id_user='$id_user' AND tipe = $tipeCourse ORDER BY tanggal DESC");
         while ($data = $query->fetch_array()) {
-            $tanggal = print_tanggal($data['tanggal']);
-
+			$tanggal = print_tanggal($data['tanggal']);
+			
             isi_tabel($no, array($data['judul'], $tanggal), $link, $data['id']);
             $no++;
         }
@@ -44,7 +44,7 @@ switch ($show) {
             $data = $query->fetch_array();
             $aksi = "Edit";
         } else {
-            $data = array("id" => "", "judul" => "", "judul_terjemahan" => "", "isi" => "", "isi_terjemahan" => "", "gambar" => "", "kategori" => "", "tag" => "");
+            $data = array("id" => "", "judul" => "", "judul_terjemahan" => "", "isi" => "", "isi_terjemahan" => "", "gambar" => "");
             $aksi = "Tambah";
         }
 
@@ -52,11 +52,11 @@ switch ($show) {
             header('location:' . $link);
         } else {
             echo '<h3 class="page-header"><b>' . $aksi . ' Pengumuman</b> </h3>';
-			buka_form($link, $data['id'], strtolower($aksi));
-			buat_textbox("Judul Pengumuman (Bahasa Indonesia)", "judul_terjemahan", $data['judul_terjemahan'], 10);
-			buat_textbox("Judul Pengumuman (English)", "judul", $data['judul'], 10);
-			buat_textarea("Isi Pengumuman (Bahasa Indonesia)", "isi_terjemahan", $data['isi_terjemahan'], "richtext");
+            buka_form($link, $data['id'], strtolower($aksi));
+            buat_textbox("Judul Pengumuman (English)", "judul", $data['judul'], 10);
+            buat_textbox("Judul Pengumuman (Bahasa Indonesia)", "judul_terjemahan", $data['judul_terjemahan'], 10);
             buat_textarea("Isi Pengumuman (English)", "isi", $data['isi'], "richtext");
+            buat_textarea("Isi Pengumuman (Bahasa Indonesia)", "isi_terjemahan", $data['isi_terjemahan'], "richtext");
             buat_imagepicker("Gambar", "gambar", $data['gambar']);
 
             tutup_form($link);
@@ -75,7 +75,7 @@ switch ($show) {
         
         if ($_POST['aksi'] == "tambah") {
             $mysqli->query("INSERT INTO announcement SET
-				tipe 			= $tipeCounseling,
+				tipe			= $tipeCourse,
 				judul 		    = '$judul',
 				judul_seo 	    = '$judul_seo',
 				judul_terjemahan= '$judul_terjemahan',

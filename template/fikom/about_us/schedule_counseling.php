@@ -4,10 +4,10 @@ $id = isset($_GET['id']) ? $_GET['id'] : 'latest';
 
 $data = $judul = $isi = null;
 $tipeCounseling = 0;
-$currentRecordQuery = "SELECT * FROM announcement WHERE id = $id AND tipe = $tipeCounseling LIMIT 1;";
+$currentRecordQuery = "SELECT * FROM schedule WHERE id = $id LIMIT 1;";
 
 if ($id == 'latest') {
-    $currentRecordQuery = "SELECT * FROM announcement WHERE tipe = $tipeCounseling ORDER BY created_at LIMIT 1;";
+    $currentRecordQuery = "SELECT * FROM schedule ORDER BY created_at LIMIT 1;";
 }
 
 $result = $mysqli->query($currentRecordQuery);
@@ -21,10 +21,21 @@ if ($result) {
 	
 	$judul = $data['judul'];
 	$isi = $data['isi'];
-	
+
 	if ($lang->language == $default_language) {
 		$judul = ($data['judul_terjemahan'] ?: $judul);
 		$isi = ($data['isi_terjemahan'] ?: $isi);
+	}
+
+	$attachmentList = [];
+	if ($data['attachment'] != "") {
+		$attachmentRaw = explode(",", $data['attachment']);
+		if ($attachmentRaw) {
+			foreach($attachmentRaw as $attachment) {
+				$filePathInfo = pathinfo($attachment);
+				$attachmentList[$attachment] = $filePathInfo['filename'].'.'.$filePathInfo['extension'];
+			}
+		}
 	}
 	
 	$id = $data['id'];
@@ -34,13 +45,13 @@ $nextRecord = null;
 $prevRecord = null;
 
 //prepare the data to be displayed
-$nextRecordQuery = "SELECT * FROM announcement WHERE id > $id AND tipe = $tipeCounseling ORDER BY id ASC LIMIT 1;";
+$nextRecordQuery = "SELECT * FROM schedule WHERE id > $id ORDER BY id ASC LIMIT 1;";
 $nextRecordResult = $mysqli->query($nextRecordQuery);
 if ($nextRecordResult) {
 	$nextRecord = $nextRecordResult->fetch_array(MYSQLI_ASSOC);
 }
 
-$prevRecordQuery = "SELECT * FROM announcement WHERE id < $id AND tipe = $tipeCounseling ORDER BY id DESC LIMIT 1;";
+$prevRecordQuery = "SELECT * FROM schedule WHERE id < $id ORDER BY id DESC LIMIT 1;";
 $prevRecordResult = $mysqli->query($prevRecordQuery);
 if ($prevRecordResult) {
 	$prevRecord = $prevRecordResult->fetch_array(MYSQLI_ASSOC);
@@ -50,19 +61,28 @@ if ($prevRecordResult) {
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
 <style>
-    .announcement_post {
+    .schedule_post {
         text-align: center;
     }
 
-    .announcement_post_title {
+    .schedule_post_title {
         margin-top: 20px;
         font-size: 30px;
     }
 
-    .announcement_post_text p {
+    .schedule_post_text p {
         text-align: left;
         font-size: 20px !important;
     }
+
+	.schedule_attachment {
+		margin-top: 20px;
+		text-align: left;
+	}
+
+	.schedule_attachment a{
+		color: red;
+	}
 
     .pager {
         margin-top: 100px;
@@ -88,27 +108,38 @@ if ($prevRecordResult) {
     <div class="container" style="margin-top:20px">
 		<div class="row"
 			<div class="col-lg-8"
-				<div class="announcement_post_container">
-					<div class="announcement_post" style="width: 100%">
-						<div class="announcement_post_image">
+				<div class="schedule_post_container">
+					<div class="schedule_post" style="width: 100%">
+						<div class="schedule_post_image">
 							<img src="<?= print_image($gambar) ?>" style="width:100%">
 						</div>
-						<div class="announcement_post_top d-flex flex-column flex-sm-row">
+						<div class="schedule_post_top d-flex flex-column flex-sm-row">
 							<div>
-								<div class="announcement_post_title">
+								<div class="schedule_post_title">
                                     <?= $judul ?>
 								</div>
 							</div>
                         </div>
-						<div class="announcement_post_text">
+						<div class="schedule_post_text">
 							<?= $isi ?>
+                        </div>
+						<div class="schedule_attachment">
+							<?php if ($attachmentList) : ?>
+								<?= $lang->t('Attachment') ?>
+								<br>
+								<ul>
+									<?php foreach($attachmentList as $path => $fileName) : ?>
+										<li><a target="_blank" href="/media/source/<?= $path; ?>"><?= $fileName; ?></a></li>
+									<?php endforeach; ?>
+								</ul>
+							<?php endif; ?>
                         </div>
                         <ul class="pager">
 							<?php if ($prevRecord) : ?>
-								<li class="previous"><a href="<?="/about-us/announcement-counseling/id/{$prevRecord['id']}"; ?>"><i class="fas fa-arrow-left"></i> Prev</a></i></li>
+								<li class="previous"><a href="<?="/about-us/schedule-counseling/id/{$prevRecord['id']}"; ?>"><i class="fas fa-arrow-left"></i> Prev</a></i></li>
 							<?php endif; ?>
 							<?php if ($nextRecord) : ?>
-								<li class="next"><a href="<?="/about-us/announcement-counseling/id/{$nextRecord['id']}"; ?>">Next <i class="fas fa-arrow-right"></i></a></li>
+								<li class="next"><a href="<?="/about-us/schedule-counseling/id/{$nextRecord['id']}"; ?>">Next <i class="fas fa-arrow-right"></i></a></li>
 							<?php endif; ?>
                         </ul>
                     </div

@@ -3,11 +3,11 @@
 $id = isset($_GET['id']) ? $_GET['id'] : 'latest';
 
 $data = $judul = $isi = null;
-$tipeCounseling = 0;
-$currentRecordQuery = "SELECT * FROM announcement WHERE id = $id AND tipe = $tipeCounseling LIMIT 1;";
+$tipeCourse = 1;
+$currentRecordQuery = "SELECT * FROM announcement WHERE id = $id AND tipe = $tipeCourse LIMIT 1;";
 
 if ($id == 'latest') {
-    $currentRecordQuery = "SELECT * FROM announcement WHERE tipe = $tipeCounseling ORDER BY created_at LIMIT 1;";
+    $currentRecordQuery = "SELECT * FROM announcement WHERE tipe = $tipeCourse ORDER BY created_at LIMIT 1;";
 }
 
 $result = $mysqli->query($currentRecordQuery);
@@ -34,13 +34,13 @@ $nextRecord = null;
 $prevRecord = null;
 
 //prepare the data to be displayed
-$nextRecordQuery = "SELECT * FROM announcement WHERE id > $id AND tipe = $tipeCounseling ORDER BY id ASC LIMIT 1;";
+$nextRecordQuery = "SELECT * FROM announcement WHERE id > $id AND tipe = $tipeCourse ORDER BY id ASC LIMIT 1;";
 $nextRecordResult = $mysqli->query($nextRecordQuery);
 if ($nextRecordResult) {
 	$nextRecord = $nextRecordResult->fetch_array(MYSQLI_ASSOC);
 }
 
-$prevRecordQuery = "SELECT * FROM announcement WHERE id < $id AND tipe = $tipeCounseling ORDER BY id DESC LIMIT 1;";
+$prevRecordQuery = "SELECT * FROM announcement WHERE id < $id AND tipe = $tipeCourse ORDER BY id DESC LIMIT 1;";
 $prevRecordResult = $mysqli->query($prevRecordQuery);
 if ($prevRecordResult) {
 	$prevRecord = $prevRecordResult->fetch_array(MYSQLI_ASSOC);
@@ -87,6 +87,7 @@ if ($prevRecordResult) {
 
     <div class="container" style="margin-top:20px">
 		<div class="row"
+			<!-- announcement Post Column --
 			<div class="col-lg-8"
 				<div class="announcement_post_container">
 					<div class="announcement_post" style="width: 100%">
@@ -105,10 +106,10 @@ if ($prevRecordResult) {
                         </div>
                         <ul class="pager">
 							<?php if ($prevRecord) : ?>
-								<li class="previous"><a href="<?="/about-us/announcement-counseling/id/{$prevRecord['id']}"; ?>"><i class="fas fa-arrow-left"></i> Prev</a></i></li>
+								<li class="previous"><a href="<?="/course/announcement/id/{$prevRecord['id']}"; ?>"><i class="fas fa-arrow-left"></i> Prev</a></i></li>
 							<?php endif; ?>
 							<?php if ($nextRecord) : ?>
-								<li class="next"><a href="<?="/about-us/announcement-counseling/id/{$nextRecord['id']}"; ?>">Next <i class="fas fa-arrow-right"></i></a></li>
+								<li class="next"><a href="<?="/course/announcement/id/{$nextRecord['id']}"; ?>">Next <i class="fas fa-arrow-right"></i></a></li>
 							<?php endif; ?>
                         </ul>
                     </div

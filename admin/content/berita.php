@@ -84,11 +84,11 @@ switch ($show) {
             header('location:' . $link);
         } else {
             echo '<h3 class="page-header"><b>' . $aksi . ' Publikasi</b> </h3>';
-            buka_form($link, $data['id_artikel'], strtolower($aksi));
-            buat_textbox("Judul Publikasi (English)", "judul", $data['judul'], 10);
-            buat_textbox("Judul Publikasi (Bahasa Indonesia)", "judul_terjemahan", $data['judul_terjemahan'], 10);
+			buka_form($link, $data['id_artikel'], strtolower($aksi));
+			buat_textbox("Judul Publikasi (Bahasa Indonesia)", "judul_terjemahan", $data['judul_terjemahan'], 10);
+			buat_textbox("Judul Publikasi (English)", "judul", $data['judul'], 10);
+			buat_textarea("Isi Publikasi (Bahasa Indonesia)", "isi_terjemahan", $data['isi_terjemahan'], "richtext");
             buat_textarea("Isi Publikasi (English)", "isi", $data['isi'], "richtext");
-            buat_textarea("Isi Publikasi (Bahasa Indonesia)", "isi_terjemahan", $data['isi_terjemahan'], "richtext");
             buat_radio("Tampilkan di Headline", "headline", $headline_list);
             buat_imagepicker("Gambar", "gambar", $data['gambar']);
 
