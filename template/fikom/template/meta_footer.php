@@ -1,7 +1,6 @@
 <?php
 $js_array = [
     "styles/bootstrap4/popper.js",
-    "js/jquery-3.2.1.min.js",
     "styles/bootstrap4/bootstrap.min.js",
     "plugins/greensock/TweenMax.min.js",
     "plugins/greensock/TimelineMax.min.js",
@@ -11,8 +10,7 @@ $js_array = [
     "plugins/OwlCarousel2-2.2.1/owl.carousel.js",
     "plugins/scrollTo/jquery.scrollTo.min.js",
     "plugins/easing/easing.js",
-    "js/custom.js",
-    
+    "js/custom.js"
 ];
 
 $extra_js = [];

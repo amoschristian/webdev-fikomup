@@ -5,11 +5,11 @@ function buka_form($link, $id, $aksi){
 			<input type="hidden" name="aksi" value="'.$aksi.'">';
 }
 
-function buat_textbox($label, $nama, $nilai, $lebar='4', $tipe="text", $placeholder = ''){
+function buat_textbox($label, $nama, $nilai, $lebar='4', $tipe="text", $placeholder = '', $autocomplete = 'on'){
 	echo'<div class="form-group" id="'.$nama.'">
 			<label for="'.$nama.'" class="col-sm-2 control-label">'.$label.'</label>
 			<div class="col-sm-'.$lebar.'">
-			  <input type="'.$tipe.'" class="form-control" name="'.$nama.'" value="'.$nilai.'" placeholder="'.$placeholder.'">
+			  <input autocomplete="'.$autocomplete.'" type="'.$tipe.'" class="form-control" name="'.$nama.'" value="'.$nilai.'" placeholder="'.$placeholder.'">
 			</div>
 		 </div>';
 }
@@ -91,7 +91,7 @@ function buat_imagepicker($label, $nama, $nilai, $lebar='4'){
 							<h4 class="modal-title" id="myModalLabel">File Manager</h4>
 						</div>
 						<div class="modal-body">
-							<iframe src="../plugin/filemanager/dialog.php?type=1&field_id='.$nama.'&relative_url=1" width="100%" height="400" style="border: 0"></iframe>
+							<iframe src="../plugin/filemanager/dialog.php?type=2&field_id='.$nama.'&relative_url=1" width="100%" height="400" style="border: 0"></iframe>
 						</div>
 					</div>
 				</div>
@@ -126,7 +126,7 @@ function buat_imagepicker_multiple($label, $nama, $nilai, $lebar='4'){
 							<h4 class="modal-title" id="myModalLabel">File Manager</h4>
 						</div>
 						<div class="modal-body">
-							<iframe src="../plugin/filemanager/dialog.php?type=1&field_id='.$nama.'&relative_url=1" width="100%" height="400" style="border: 0"></iframe>
+							<iframe src="../plugin/filemanager/dialog.php?type=2&field_id='.$nama.'&relative_url=1" width="100%" height="400" style="border: 0"></iframe>
 						</div>
 					</div>
 				</div>

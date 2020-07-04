@@ -61,7 +61,10 @@ $css_array = array_merge($css_array, $extra_css);
     foreach ($css_array as $css) {
         $css_link = $folder_template . '/' . $css;
         echo "<link rel='stylesheet' type='text/css' href='$css_link'>";
-    }
+	}
+	
+	$js_link = $folder_template . '/js/jquery-3.2.1.min.js';
+    echo "<script src='$js_link'></script>";
     ?>
 
     <link href="https://fonts.googleapis.com/css?family=Odibee+Sans&display=swap" rel="stylesheet">

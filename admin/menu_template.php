@@ -18,6 +18,16 @@ buka_dropdown("th-list", "Tentang");
 	buat_submenu("ukm", "UKM");
 tutup_dropdown();
 
+buka_dropdown("th-list", "Konseling Mahasiswa");
+	buat_submenu("announcement_counseling", "Pengumuman");
+	buat_submenu("schedule_counseling", "Jadwal");
+tutup_dropdown();
+
+buka_dropdown("th-list", "Informasi Akademik");
+	buat_submenu("announcement_course", "Pengumuman");
+	buat_submenu("schedule_course", "Jadwal");
+tutup_dropdown();
+
 buat_menu("berita", "list-alt", "Publikasi", $admin_author);
 buat_menu("event", "list-alt", "Acara", $admin_author);
 

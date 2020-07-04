@@ -1,7 +1,18 @@
 <?php
 $folder_template = web_info('url') . '/' . folder_template();
-?>
 
+$menuArray = [
+	'elearning' => ['E-Learning', 'elearning'],
+	'courses' => ['Courses', 'announcement']
+];
+
+$subMenuArray = [
+	'courses' => [
+		['Announcement', 'announcement'],
+		['Schedule', 'schedule']
+	]
+];
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -38,10 +49,16 @@ $folder_template = web_info('url') . '/' . folder_template();
 			<div class="row">
 				<div class="col-lg-4">
 					<!-- Menu -->
-			 		<div class="about_nav">
+					<div class="about_nav">
                 		<ul class="about_menu">
-                		    <li class="about_menu_item <?= ($sub_page == 'elearning') ? 'active' : '' ?>"><a href="/course/elearning">E-Learning</a></li>
-                		    <li class="about_menu_item <?= ($sub_page == 'list') ? 'active' : '' ?>"><a href="/course/list"><?= $lang->t('Courses List') ?></a></li>
+							<?php foreach ($menuArray as $index => $menu): ?>
+								<li class="about_menu_item"><a href="/course/<?= $menu[1] ?>"><?= $lang->t($menu[0]) ?></a></li>
+								<?php if (isset($subMenuArray[$index])) : ?>
+									<?php foreach ($subMenuArray[$index] as $subMenu): ?>
+										<li class="about_menu_item_sub <?= ($sub_page == str_replace('-', '_', $subMenu[1])) ? 'active' : '' ?>"><a href="/course/<?= $subMenu[1] ?>"><?= $lang->t($subMenu[0]) ?></a></li>
+									<?php endforeach; ?>
+								<?php endif; ?>
+							<?php endforeach; ?>
                 		</ul>
             		</div>
 				</div>

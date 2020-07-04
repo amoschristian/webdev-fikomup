@@ -5,7 +5,8 @@ $menuArray = [
 	'organization' => ['Organizations', 'history'],
 	'vision_mission' => ['Vision & Mission', 'vision'],
 	'resources' => ['Resources', 'lecturer'],
-	'mobility' => ['Mobility', 'ukm']
+	'mobility' => ['Mobility', 'ukm'],
+	'student_counseling' => ['Student Counseling', 'counseling']
 ];
 
 $subMenuArray = [
@@ -22,12 +23,16 @@ $subMenuArray = [
 		['Facility', 'facility'],
 		['Alumni', 'alumni'],
 		['Laboratorium', 'laboratorium'],
-		['Journal Coverage', 'coverage']
+		['Journal Coverage', 'coverage'],
 	],
 	'mobility' => [
 		['UKM', 'ukm'],
 		['Activity', 'activity'],
 		['Student', 'student']
+	],
+	'student_counseling' => [
+		['Announcement', 'announcement-counseling'],
+		['Schedule', 'schedule-counseling']
 	]
 ];
 
@@ -73,7 +78,7 @@ $subMenuArray = [
 							<?php foreach ($menuArray as $index => $menu): ?>
 								<li class="about_menu_item"><a href="/about-us/<?= $menu[1] ?>"><?= $lang->t($menu[0]) ?></a></li>
 								<?php foreach ($subMenuArray[$index] as $subMenu): ?>
-									<li class="about_menu_item_sub <?= ($sub_page == $subMenu[1]) ? 'active' : '' ?>"><a href="/about-us/<?= $subMenu[1] ?>"><?= $lang->t($subMenu[0]) ?></a></li>
+									<li class="about_menu_item_sub <?= ($sub_page == str_replace('-', '_', $subMenu[1])) ? 'active' : '' ?>"><a href="/about-us/<?= $subMenu[1] ?>"><?= $lang->t($subMenu[0]) ?></a></li>
 								<?php endforeach; ?>
 							<?php endforeach; ?>
                 		</ul>

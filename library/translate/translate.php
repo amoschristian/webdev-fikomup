@@ -101,7 +101,11 @@ function buildTranslateAboutUs() {
         'Activity' => 'Aktifitas',
         'UKM' => 'UKM',
         'Mobility' => 'Mobilitas',
-        'Student' => 'Mahasiswa'
+        'Student' => 'Mahasiswa',
+		'Student Counseling' => 'Konseling Mahasiswa',
+		'Announcement' => 'Pengumuman',
+		'Schedule' => 'Jadwal',
+		'Attachment' => 'Lampiran'
     ];
 }
 
@@ -152,5 +156,3 @@ function buildTranslateArray() {
         buildTranslateCourses()
     );
 }
-
-?>
