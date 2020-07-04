@@ -7,7 +7,7 @@ use EspressoDev\InstagramBasicDisplay\InstagramBasicDisplay;
 
 class Instagram {
     const REDIRECT_URI_LOCAL = 'https://fikom.test/admin/';
-    const REDIRECT_URI_LIVE = 'https://hwsstore.com/admin/';
+    const REDIRECT_URI_LIVE = 'https://fikomup.com/admin/';
 
     public $instagram;
     public $token;
