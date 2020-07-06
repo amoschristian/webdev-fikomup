@@ -9,7 +9,7 @@ $menuArray = [
 $subMenuArray = [
 	'courses' => [
 		['Announcement', 'announcement'],
-		['Schedule', 'schedule']
+		['Courses List', 'list']
 	]
 ];
 ?>

@@ -70,7 +70,7 @@ $folder_template = web_info('url') . '/' . folder_template();
 								<li class="about_menu_item_sub"><a href="/course/elearning"><?= $lang->t('E-Learning') ?></a></li>
 								<li class="about_menu_item_sub"><a href="/course/announcement"><?= $lang->t('Courses') ?></a></li>
 									<li class="about_menu_item_sub_2"><a href="/course/announcement"><?= $lang->t('Announcement') ?></a></li>
-									<li class="about_menu_item_sub_2"><a href="/course/schedule"><?= $lang->t('Schedule') ?></a></li>
+									<li class="about_menu_item_sub_2"><a href="/course/list"><?= $lang->t('Courses List') ?></a></li>
 							<li class="about_menu_item"><a href="/event"><?= $lang->t('Events') ?></a></li>
 							<li class="about_menu_item"><a href="/news"><?= $lang->t('Publications') ?></a></li>
 							<li class="about_menu_item"><a href="/about_us"><?= $lang->t('About Us') ?></a></li>

@@ -135,7 +135,7 @@ function buildTranslateTables() {
 
 function buildTranslateCourses() {
     return [
-        'Courses List' => 'Mata Kuliah'
+        'Courses List' => 'Daftar Mata Kuliah'
     ];
 }
 
