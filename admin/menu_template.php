@@ -25,7 +25,7 @@ tutup_dropdown();
 
 buka_dropdown("th-list", "Informasi Akademik");
 	buat_submenu("announcement_course", "Pengumuman");
-	buat_submenu("schedule_course", "Jadwal");
+	buat_submenu("list_course", "Daftar Mata Kuliah");
 tutup_dropdown();
 
 buat_menu("berita", "list-alt", "Publikasi", $admin_author);

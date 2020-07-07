@@ -247,4 +247,48 @@ function buat_map($label, $nama, $nilai, $token, $lebar='6', $tipe="text"){
 		</div>';
 }
 
+function buat_input_table_course($label, $nama, $nilai, $lebar='10') {
+	$counter = 0;
+	$subjectList = [
+		['id' => '', 'name' => '', 'sks' => '']
+	];
+
+	if ($nilai) {
+		$subjectList = json_decode($nilai, true);
+	}
+
+	echo "<div class='form-group' id='$nama'>
+			<label class='col-sm-2 control-label'>$label</label>
+			<div class='col-sm-$lebar'>
+				<table id='$nama' class='table table-responsive-sm table-$nama' style='width:80%'>
+				<thead class='thead-dark'>
+					<tr>
+						<th class='text-center' scope='col'>Kode MK</th>
+						<th class='text-center' scope='col'>Mata Kuliah</th>
+						<th class='text-center' scope='col'>SKS</th>
+						<th class='text-center' scope='col'></th>
+					</tr>
+				</thead>
+				<tbody>
+	";	
+
+	foreach ($subjectList as $index => $subject) {
+		$rowHtml = "
+			<tr id=$index>
+				<td class='text-center'><input type='text' class='form-control' autocomplete='off' name='{$nama}[$index][id]' value='{$subject['id']}' size='20'></td>
+				<td class='text-center'><input type='text' class='form-control' autocomplete='off' name='{$nama}[$index][name]' value='{$subject['name']}' size='60'></td>
+				<td class='text-center'><input type='text' class='form-control' autocomplete='off' name='{$nama}[$index][sks]' value='{$subject['sks']}' size='10'></td>
+				<td class='text-center'><button type='button' class='btn btn-danger remove' id='$nama' data-index=$index>-</button></td>
+			</tr>
+		";
+		$counter = $index;
+		echo $rowHtml;
+	}
+
+	echo "		</tbody>
+			</table>
+			<button type='button' class='btn btn-success add-more' id=$nama data-counter=$counter>Tambah</button>
+			</div>
+		</div>";
+}
 ?>
