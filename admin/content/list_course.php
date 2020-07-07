@@ -69,13 +69,6 @@ switch ($show) {
         $user = $_SESSION['iduser'];
         
         if ($_POST['aksi'] == "tambah") {
-			die("INSERT INTO courses SET
-			semester		= $semester,
-			list		    = '$list',
-			list_minor		= '$list_minor',
-			list_peminatan	= '$list_peminatan',
-			created_at      = now()
-		");
             $mysqli->query("INSERT INTO courses SET
 				semester		= $semester,
 				list		    = $list,
