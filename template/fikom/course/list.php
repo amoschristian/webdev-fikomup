@@ -4,13 +4,7 @@ include('ListHelper.php');
 
 $counter = 1;
 
-$mataKuliah = [
-  'Semester 1' => initSemester1(),
-  'Semester 2' => initSemester2(),
-  'Semester 3' => initSemester3(),
-  'Semester 4' => initSemester4()
-];
-
+$mataKuliah = populateData($mysqli);
 ?>
 
 <div class="news_post">

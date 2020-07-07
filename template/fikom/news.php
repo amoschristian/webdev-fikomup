@@ -10,15 +10,14 @@ if (isset($_GET['tag'])) {
 }
 $query .= "ORDER BY tanggal DESC";
 
-$countResult = $mysqli->query($query);
-$countPage = mysqli_num_rows($countResult);
+$result = $mysqli->query($query);
+$countPage = mysqli_num_rows($result);
 $countPage = ceil($countPage / $limit);
 
 $startOffset = ($halaman - 1) * $limit;
 
 $query .= " LIMIT $startOffset,$limit";  //show 10 per page
 
-$result = $mysqli->query($query);
 $detail_berita = [];
 
 while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
