@@ -40,7 +40,8 @@ $page = [
 	'announcement_counseling',
 	'schedule_counseling',
 	'announcement_course',
-	'list_course'
+	'list_course',
+	'sjm'
 ];
 foreach($page as $pg){
 	if($content == $pg and $kosong){

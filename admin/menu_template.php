@@ -16,6 +16,7 @@ buka_dropdown("th-list", "Tentang");
 	buat_submenu("alumni", "Alumni");
 	buat_submenu("student", "Mahasiswa");
 	buat_submenu("ukm", "UKM");
+	buat_submenu("sjm", "Unit SJM");
 tutup_dropdown();
 
 buka_dropdown("th-list", "Konseling Mahasiswa");
