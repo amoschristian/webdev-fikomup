@@ -29,7 +29,7 @@ buka_dropdown("th-list", "Informasi Akademik");
 	buat_submenu("list_course", "Daftar Mata Kuliah");
 tutup_dropdown();
 
-buat_menu("berita", "list-alt", "Publikasi", $admin_author);
+buat_menu("berita", "list-alt", "Berita", $admin_author);
 buat_menu("event", "list-alt", "Acara", $admin_author);
 
 buat_menu("partner", "picture", "Mitra", $admin_author);

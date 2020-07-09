@@ -37,7 +37,7 @@ $folder_template = web_info('url') . '/' . folder_template();
 							</ul>
 						</li>
 						<li class="main_nav_item <?= ($module == 'event' ? "active" : "") ?>"><a href="/event"><?= $lang->t('Events') ?></a></li>
-						<li class="main_nav_item <?= ($module == 'news' ? "active" : "") ?>"><a href="/news"><?= $lang->t('Publications') ?></a></li>
+						<li class="main_nav_item <?= ($module == 'news' ? "active" : "") ?>"><a href="/news"><?= $lang->t('News') ?></a></li>
 						<li class="main_nav_item dropdown <?= ($module == 'about_us' ? "active" : "") ?>"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?= $lang->t('About Us') ?></a>
 							<ul class="dropdown-menu">
 								<li> <a href="/about-us/history"><?= $lang->t('Organizations') ?></a></li>
@@ -82,7 +82,7 @@ $folder_template = web_info('url') . '/' . folder_template();
 					</ul>
 				</li>
 				<li class="menu_item menu_mm"><a href="/event"><?= $lang->t('Events') ?></a></li>
-				<li class="menu_item menu_mm"><a href="/news"><?= $lang->t('Publications') ?></a></li>
+				<li class="menu_item menu_mm"><a href="/news"><?= $lang->t('News') ?></a></li>
 				<li class="menu_item menu_mm dropdown <?= ($module == 'about_us' ? "active" : "") ?>"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?= $lang->t('About Us') ?></a>
 					<ul class="dropdown-menu">
 						<li> <a href="/about-us/history"><?= $lang->t('Organizations') ?></a></li>

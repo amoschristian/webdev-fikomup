@@ -32,13 +32,13 @@ switch ($show) {
 
         //Menampilkan data
     default:
-        echo '<h3 class="page-header"><b>Daftar Publikasi</b>
+        echo '<h3 class="page-header"><b>Daftar Berita</b>
 				<a href="' . $link . '&show=form" class="btn btn-primary btn-sm pull-right top-button">
 					<i class="glyphicon glyphicon-plus-sign"></i> Tambah
 				</a>
 			</h3>';
 
-        buka_tabel(array("Judul Publikasi", "Kategori", "Headline", "Tanggal Posting", ));
+        buka_tabel(array("Judul Berita", "Kategori", "Headline", "Tanggal Posting", ));
         $no = 1;
         $id_user = $_SESSION['iduser'];
 
@@ -83,12 +83,12 @@ switch ($show) {
         if ($aksi == "Edit" and $_SESSION['leveluser'] != "admin" and $data['id_user'] != $_SESSION['iduser']) {
             header('location:' . $link);
         } else {
-            echo '<h3 class="page-header"><b>' . $aksi . ' Publikasi</b> </h3>';
+            echo '<h3 class="page-header"><b>' . $aksi . ' Berita</b> </h3>';
 			buka_form($link, $data['id_artikel'], strtolower($aksi));
-			buat_textbox("Judul Publikasi (Bahasa Indonesia)", "judul_terjemahan", $data['judul_terjemahan'], 10);
-			buat_textbox("Judul Publikasi (English)", "judul", $data['judul'], 10);
-			buat_textarea("Isi Publikasi (Bahasa Indonesia)", "isi_terjemahan", $data['isi_terjemahan'], "richtext");
-            buat_textarea("Isi Publikasi (English)", "isi", $data['isi'], "richtext");
+			buat_textbox("Judul Berita (Bahasa Indonesia)", "judul_terjemahan", $data['judul_terjemahan'], 10);
+			buat_textbox("Judul Berita (English)", "judul", $data['judul'], 10);
+			buat_textarea("Isi Berita (Bahasa Indonesia)", "isi_terjemahan", $data['isi_terjemahan'], "richtext");
+            buat_textarea("Isi Berita (English)", "isi", $data['isi'], "richtext");
             buat_radio("Tampilkan di Headline", "headline", $headline_list);
             buat_imagepicker("Gambar", "gambar", $data['gambar']);
 

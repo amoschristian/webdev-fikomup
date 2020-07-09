@@ -21,7 +21,7 @@ function buat_tombol($name, $icon, $link, $warna, $label){
 <div class="row">
 <?php
 	//Memanggil fungsi buat_tombol untuk membuat 4 tombol
-	buat_tombol("artikel", "list-alt", "?content=artikel", "danger", "publikasi");
+	buat_tombol("artikel", "list-alt", "?content=berita", "danger", "berita");
 	buat_tombol("event", "list-alt", "?content=event", "success", "acara");
 	buat_tombol("lecturer", "list-alt", "?content=lecturer", "info", "dosen");
 ?>
