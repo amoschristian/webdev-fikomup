@@ -91,7 +91,7 @@ function buat_imagepicker($label, $nama, $nilai, $lebar='4'){
 							<h4 class="modal-title" id="myModalLabel">File Manager</h4>
 						</div>
 						<div class="modal-body">
-							<iframe src="../plugin/filemanager/dialog.php?type=2&field_id='.$nama.'&relative_url=1" width="100%" height="400" style="border: 0"></iframe>
+							<iframe src="../plugin/filemanager/dialog.php?type=2&field_id='.$nama.'&relative_url=1&multiple=0" width="100%" height="400" style="border: 0"></iframe>
 						</div>
 					</div>
 				</div>
@@ -126,7 +126,7 @@ function buat_imagepicker_multiple($label, $nama, $nilai, $lebar='4'){
 							<h4 class="modal-title" id="myModalLabel">File Manager</h4>
 						</div>
 						<div class="modal-body">
-							<iframe src="../plugin/filemanager/dialog.php?type=2&field_id='.$nama.'&relative_url=1" width="100%" height="400" style="border: 0"></iframe>
+							<iframe src="../plugin/filemanager/dialog.php?type=2&field_id='.$nama.'&relative_url=1&multiple=1" width="100%" height="400" style="border: 0"></iframe>
 						</div>
 					</div>
 				</div>
