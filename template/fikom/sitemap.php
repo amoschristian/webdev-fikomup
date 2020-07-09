@@ -72,7 +72,7 @@ $folder_template = web_info('url') . '/' . folder_template();
 									<li class="about_menu_item_sub_2"><a href="/course/announcement"><?= $lang->t('Announcement') ?></a></li>
 									<li class="about_menu_item_sub_2"><a href="/course/list"><?= $lang->t('Courses List') ?></a></li>
 							<li class="about_menu_item"><a href="/event"><?= $lang->t('Events') ?></a></li>
-							<li class="about_menu_item"><a href="/news"><?= $lang->t('Publications') ?></a></li>
+							<li class="about_menu_item"><a href="/news"><?= $lang->t('News') ?></a></li>
 							<li class="about_menu_item"><a href="/about_us"><?= $lang->t('About Us') ?></a></li>
 								<li class="about_menu_item_sub"><a href="/about-us/history"><?= $lang->t('Organizations') ?></a></li>
 									<li class="about_menu_item_sub_2"><a href="/about-us/history"><?= $lang->t('History') ?></a></li>
@@ -86,6 +86,7 @@ $folder_template = web_info('url') . '/' . folder_template();
 									<li class="about_menu_item_sub_2"><a href="/about-us/alumni"><?= $lang->t('Alumni') ?></a></li>
 									<li class="about_menu_item_sub_2"><a href="/about-us/laboratorium"><?= $lang->t('Laboratorium') ?></a></li>
 									<li class="about_menu_item_sub_2"><a href="/about-us/coverage"><?= $lang->t('Journal Coverage') ?></a></li>
+									<li class="about_menu_item_sub_2"><a href="/about-us/sjm"><?= $lang->t('Unit SJM') ?></a></li>
 								<li class="about_menu_item_sub"><a href="/about-us/activity"><?= $lang->t('Mobility') ?></a></li>
 									<li class="about_menu_item_sub_2"><a href="/about-us/ukm"><?= $lang->t('UKM') ?></a></li>
 									<li class="about_menu_item_sub_2"><a href="/about-us/activity"><?= $lang->t('Activity') ?></a></li>

@@ -24,6 +24,7 @@ $subMenuArray = [
 		['Alumni', 'alumni'],
 		['Laboratorium', 'laboratorium'],
 		['Journal Coverage', 'coverage'],
+		['Unit SJM', 'sjm']
 	],
 	'mobility' => [
 		['UKM', 'ukm'],

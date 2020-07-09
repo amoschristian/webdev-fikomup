@@ -35,7 +35,7 @@ unset($detail_berita_headline[$berita_pertama['id_artikel']]);
         <div class="row">
             <div class="col">
                 <div class="section_title text-center" >
-                    <h1 style="color:white;"><?= $lang->t('Publications') ?></h1>
+                    <h1 style="color:white;"><?= $lang->t('News') ?></h1>
                 </div>
             </div>
         </div>

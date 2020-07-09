@@ -34,7 +34,7 @@ $folder_template = web_info('url') . '/' . folder_template();
                             <li class="footer_list_item"><a href="/admission"><?= $lang->t('Admissions') ?></a></li>
                             <li class="footer_list_item"><a href="/course"><?= $lang->t('Courses') ?></a></li>
                             <li class="footer_list_item"><a href="/event"><?= $lang->t('Events') ?></a></li>
-                            <li class="footer_list_item"><a href="/news"><?= $lang->t('Publications') ?></a></li>
+                            <li class="footer_list_item"><a href="/news"><?= $lang->t('News') ?></a></li>
                             <li class="footer_list_item"><a href="/about-us"><?= $lang->t('About Us') ?></a></li>
                             <li class="footer_list_item"><a href="/partners"><?= $lang->t('Partners') ?></a></li>
                             <li class="footer_list_item"><a href="/contact"><?= $lang->t('Contact') ?></a></li>

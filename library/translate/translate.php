@@ -6,7 +6,7 @@ function buildTranslateNavbar() {
         'Admissions' => 'Penerimaan',
         'Courses' => 'Mata Kuliah',
         'Events' => 'Acara',
-        'Publications' => 'Publikasi',
+        'News' => 'Berita',
         'About Us' => 'Tentang',
         'Partners' => 'Mitra',
         'Contact' => 'Kontak',
