@@ -42,7 +42,8 @@ $page = [
 	'announcement_course',
 	'list_course',
 	'sjm',
-	'achievement'
+	'achievement',
+	'activity'
 ];
 foreach($page as $pg){
 	if($content == $pg and $kosong){
