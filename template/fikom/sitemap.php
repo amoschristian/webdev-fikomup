@@ -87,6 +87,7 @@ $folder_template = web_info('url') . '/' . folder_template();
 									<li class="about_menu_item_sub_2"><a href="/about-us/laboratorium"><?= $lang->t('Laboratorium') ?></a></li>
 									<li class="about_menu_item_sub_2"><a href="/about-us/coverage"><?= $lang->t('Journal Coverage') ?></a></li>
 									<li class="about_menu_item_sub_2"><a href="/about-us/sjm"><?= $lang->t('Unit SJM') ?></a></li>
+									<li class="about_menu_item_sub_2"><a href="/about-us/achievement"><?= $lang->t('Achievement') ?></a></li>
 								<li class="about_menu_item_sub"><a href="/about-us/activity"><?= $lang->t('Mobility') ?></a></li>
 									<li class="about_menu_item_sub_2"><a href="/about-us/ukm"><?= $lang->t('UKM') ?></a></li>
 									<li class="about_menu_item_sub_2"><a href="/about-us/activity"><?= $lang->t('Activity') ?></a></li>

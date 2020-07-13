@@ -105,7 +105,8 @@ function buildTranslateAboutUs() {
 		'Student Counseling' => 'Konseling Mahasiswa',
 		'Announcement' => 'Pengumuman',
 		'Schedule' => 'Jadwal',
-		'Attachment' => 'Lampiran'
+		'Attachment' => 'Lampiran',
+		'Achievement' => 'Ruang Prestasi'
     ];
 }
 
