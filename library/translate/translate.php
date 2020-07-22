@@ -106,7 +106,8 @@ function buildTranslateAboutUs() {
 		'Announcement' => 'Pengumuman',
 		'Schedule' => 'Jadwal',
 		'Attachment' => 'Lampiran',
-		'Achievement' => 'Ruang Prestasi'
+		'Achievement' => 'Ruang Prestasi',
+		'Coverage and Lab TV' => 'Coverage dan Lab TV'
     ];
 }
 

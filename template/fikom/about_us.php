@@ -6,7 +6,8 @@ $menuArray = [
 	'vision_mission' => ['Vision & Mission', 'vision'],
 	'resources' => ['Resources', 'lecturer'],
 	'mobility' => ['Mobility', 'ukm'],
-	'student_counseling' => ['Student Counseling', 'counseling']
+	'student_counseling' => ['Student Counseling', 'counseling'],
+	'coverage_lab_tv' => ['Coverage and Lab TV', 'coverage'],
 ];
 
 $subMenuArray = [
@@ -23,7 +24,6 @@ $subMenuArray = [
 		['Facility', 'facility'],
 		['Alumni', 'alumni'],
 		['Laboratorium', 'laboratorium'],
-		['Journal Coverage', 'coverage'],
 		['Unit SJM', 'sjm'],
 		['Achievement', 'achievement']
 	],
@@ -35,6 +35,10 @@ $subMenuArray = [
 	'student_counseling' => [
 		['Announcement', 'announcement-counseling'],
 		['Schedule', 'schedule-counseling']
+	],
+	'coverage_lab_tv' => [
+		['Journal Coverage', 'coverage'],
+		['Lab TV', 'lab-tv']
 	]
 ];
 
