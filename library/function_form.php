@@ -61,7 +61,7 @@ function buat_radio($label, $nama, $list){
 		</div>';
 }
 
-function buat_imagepicker($label, $nama, $nilai, $lebar='4'){
+function buat_imagepicker($label, $nama, $nilai, $lebar='4', $preview = true){
 ?>
 	<script>
 		$(function(){
@@ -72,13 +72,15 @@ function buat_imagepicker($label, $nama, $nilai, $lebar='4'){
 		});
 	</script>
 <?php
-	echo'<div class="form-group imagepicker">
+	echo'<div class="form-group imagepicker" id="imagepicker-'.$nama.'">
 			<label for="'.$nama.'" class="col-sm-2 control-label">'.$label.'</label>
-			<div class="col-sm-'.$lebar.'">
-			<div class="tampil-'.$nama.'">';
+			<div class="col-sm-'.$lebar.'">';
+	if ($preview) {
+		echo '<div class="tampil-'.$nama.'">';
 		if($nilai != "") echo'<img src="../media/thumbs/'.$nilai.'" width="150" style="margin-bottom: 10px">';
-	echo'	</div>
-			<div class="input-group">
+		echo'	</div>';
+	}
+	echo'	<div class="input-group">
 			  <input type="text" class="form-control input-'.$nama.'" id="'.$nama.'" name="'.$nama.'" value="'.$nilai.'" readonly>
 			  <a data-toggle="modal" data-target="#modal-'.$nama.'" class="input-group-addon btn btn-primary pilih-'.$nama.'">...</a>
 			</div>
@@ -290,5 +292,14 @@ function buat_input_table_course($label, $nama, $nilai, $lebar='10') {
 			<button type='button' class='btn btn-success add-more' id=$nama data-counter=$counter>Tambah</button>
 			</div>
 		</div>";
+}
+
+function buat_notes($nama, $notes) {
+	echo "<div class='form-group' id='notes-$nama'>";
+		echo "
+			<div class='col-sm-2'></div>
+			<div class='col-sm-10'>$notes</div>
+		";
+	echo "</div>";
 }
 ?>

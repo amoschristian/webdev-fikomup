@@ -85,7 +85,6 @@ $folder_template = web_info('url') . '/' . folder_template();
 									<li class="about_menu_item_sub_2"><a href="/about-us/facility"><?= $lang->t('Facility') ?></a></li>
 									<li class="about_menu_item_sub_2"><a href="/about-us/alumni"><?= $lang->t('Alumni') ?></a></li>
 									<li class="about_menu_item_sub_2"><a href="/about-us/laboratorium"><?= $lang->t('Laboratorium') ?></a></li>
-									<li class="about_menu_item_sub_2"><a href="/about-us/coverage"><?= $lang->t('Journal Coverage') ?></a></li>
 									<li class="about_menu_item_sub_2"><a href="/about-us/sjm"><?= $lang->t('Unit SJM') ?></a></li>
 									<li class="about_menu_item_sub_2"><a href="/about-us/achievement"><?= $lang->t('Achievement') ?></a></li>
 								<li class="about_menu_item_sub"><a href="/about-us/activity"><?= $lang->t('Mobility') ?></a></li>
@@ -95,6 +94,9 @@ $folder_template = web_info('url') . '/' . folder_template();
 								<li class="about_menu_item_sub"><a href="/about-us/activity"><?= $lang->t('Student Counseling') ?></a></li>
 									<li class="about_menu_item_sub_2"><a href="/about-us/announcement-counseling"><?= $lang->t('Announcement') ?></a></li>
 									<li class="about_menu_item_sub_2"><a href="/about-us/schedule-counseling"><?= $lang->t('Schedule') ?></a></li>
+								<li class="about_menu_item_sub"><a href="/about-us/coverage"><?= $lang->t('Coverage and Lab TV') ?></a></li>
+									<li class="about_menu_item_sub_2"><a href="/about-us/coverage"><?= $lang->t('Journal Coverage') ?></a></li>
+									<li class="about_menu_item_sub_2"><a href="/about-us/lab-tv"><?= $lang->t('Lab TV') ?></a></li>
 							<li class="about_menu_item"><a href="/about_us"><?= $lang->t('Partners') ?></a></li>
 							<li class="about_menu_item"><a href="/contact"><?= $lang->t('Contact') ?></a></li>
                 		</ul>

@@ -19,6 +19,7 @@ buka_dropdown("th-list", "Tentang");
 	buat_submenu("sjm", "Unit SJM");
 	buat_submenu("achievement", "Ruang Prestasi");
 	buat_submenu("activity", "Aktifitas");
+	buat_submenu("lab_tv", "Lab TV");
 tutup_dropdown();
 
 buka_dropdown("th-list", "Konseling Mahasiswa");

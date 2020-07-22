@@ -45,6 +45,7 @@ $folder_template = web_info('url') . '/' . folder_template();
 								<li> <a href="/about-us/lecturer"><?= $lang->t('Resources') ?></a></li>
 								<li> <a href="/about-us/ukm"><?= $lang->t('Mobility') ?></a></li>
 								<li> <a href="/about-us/announcement-counseling"><?= $lang->t('Student Counseling') ?></a></li>
+								<li> <a href="/about-us/coverage"><?= $lang->t('Coverage and Lab TV') ?></a></li>
 							</ul>
 						</li>
 						<li class="main_nav_item <?= ($module == 'partners' ? "active" : "") ?>"><a href="/partners"><?= $lang->t('Partners') ?></a></li>
@@ -90,6 +91,7 @@ $folder_template = web_info('url') . '/' . folder_template();
 						<li> <a href="/about-us/lecturer"><?= $lang->t('Resources') ?></a></li>
 						<li> <a href="/about-us/ukm"><?= $lang->t('Mobility') ?></a></li>
 						<li> <a href="/about-us/announcement-counseling"><?= $lang->t('Student Counseling') ?></a></li>
+						<li> <a href="/about-us/coverage"><?= $lang->t('Coverage and Lab TV') ?></a></li>
 					</ul>
 				</li>
 				<li class="menu_item menu_mm"><a href="/partners"><?= $lang->t('Partners') ?></a></li>
