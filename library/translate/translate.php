@@ -29,6 +29,7 @@ function buildTranslateGlobal() {
         'Get in touch' => 'Hubungi Kami',
         'Faculty of Communication' => 'Fakultas Ilmu Komunikasi',
         'Universitas Pancasila' => 'Universitas Pancasila',
+        'not found' => 'tidak ditemukan'
     ];
 }
 
@@ -141,6 +142,13 @@ function buildTranslateCourses() {
     ];
 }
 
+function buildTranslatePPM() {
+    return [
+        'Devotion' => 'Pengabdian',
+        'Research' => 'Penelitian'
+    ];
+}
+
 function buildTranslateArray() {
     return array_merge(
         buildTranslateGlobal(),
@@ -155,6 +163,7 @@ function buildTranslateArray() {
         buildTranslateAboutUs(),
         buildTranslateLecturer(),
         buildTranslateTables(),
-        buildTranslateCourses()
+        buildTranslateCourses(),
+        buildTranslatePPM()
     );
 }
