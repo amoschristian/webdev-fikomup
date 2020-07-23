@@ -38,7 +38,7 @@ if ($new_language) {
 }
 
 $content = (isset($_GET['content'])) ? str_replace('-', '_', $_GET['content']) : "home";
-$page    = array('home', 'about_us', 'news', 'event', 'contact', 'event_detail', 'news_detail', 'admission', 'course', 'sitemap', 'partners');
+$page    = array('home', 'about_us', 'news', 'event', 'contact', 'event_detail', 'news_detail', 'admission', 'course', 'sitemap', 'partners', 'devotion', 'devotion_detail', 'research', 'research_detail');
 
 $module = $content;
 

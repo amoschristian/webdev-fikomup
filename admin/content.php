@@ -44,7 +44,9 @@ $page = [
 	'sjm',
 	'achievement',
 	'activity',
-	'lab_tv'
+	'lab_tv',
+	'devotion',
+	'research'
 ];
 foreach($page as $pg){
 	if($content == $pg and $kosong){

@@ -116,7 +116,7 @@ if ($lang->language == $default_language) {
 									</div>
 								</div>
 
-								<div class="news_post_text" style="text-indent: 30px; margin-top: 0px; margin-bottom:50px;">
+								<div class="news_post_text" style="margin-top: 0px; margin-bottom:50px;">
 									<?= $isi ?>
 								</div>						
 							</div>

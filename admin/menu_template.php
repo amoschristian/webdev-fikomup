@@ -35,6 +35,11 @@ tutup_dropdown();
 buat_menu("berita", "list-alt", "Berita", $admin_author);
 buat_menu("event", "list-alt", "Acara", $admin_author);
 
+buka_dropdown("th-list", "LPPM");
+	buat_submenu("devotion", "Pengabdian");
+	buat_submenu("research", "Penelitian");
+tutup_dropdown();
+
 buat_menu("partner", "picture", "Mitra", $admin_author);
 
 buat_menu("media", "picture", "Media", $admin);

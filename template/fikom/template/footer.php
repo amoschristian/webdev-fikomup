@@ -82,8 +82,8 @@ $folder_template = web_info('url') . '/' . folder_template();
                     <div class="footer_column_title"><?= $lang->t('Language') ?></div>
                     <div class="footer_column_content">
                         <ul>
-                            <li class="footer_list_item"><i class="fa fa-language" aria-hidden="true"></i> <a href="/lang/en">English</a></li>
                             <li class="footer_list_item"><i class="fa fa-language" aria-hidden="true"></i> <a href="/lang/id">Bahasa Indonesia</a></li>
+                            <li class="footer_list_item"><i class="fa fa-language" aria-hidden="true"></i> <a href="/lang/en">English</a></li>
                         </ul>
                     </div>
                 </div>
