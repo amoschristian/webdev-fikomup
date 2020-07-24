@@ -57,9 +57,9 @@ switch ($show) {
         } else {
             echo '<h3 class="page-header"><b>' . $aksi . ' Personel</b> </h3>';
             buka_form($link, $data['id'], strtolower($aksi));
-            buat_textbox("Nama *", "nama", $data['nama'], 10);
-            buat_textbox("Jabatan *", "jabatan", $data['jabatan'], 10);
-            buat_textbox("Posisi *", "posisi", $data['posisi'], 10, 'number', 'Mohon masukan angka. Angka ini digunakan sebagai urutan penampilan untuk di halaman muka dimulai dari yang terkecil.');
+            buat_textbox("Nama *", "nama", $data['nama'], 10, true);
+            buat_textbox("Jabatan *", "jabatan", $data['jabatan'], 10, true);
+            buat_textbox("Posisi *", "posisi", $data['posisi'], 10, true, 'number', 'Mohon masukan angka. Angka ini digunakan sebagai urutan penampilan untuk di halaman muka dimulai dari yang terkecil.');
             buat_imagepicker("Foto", "gambar", $data['gambar']);
 
             tutup_form($link);

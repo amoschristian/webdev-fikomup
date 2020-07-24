@@ -57,10 +57,10 @@ switch ($show) {
         } else {
             echo '<h3 class="page-header"><b>' . $aksi . ' Personel</b> </h3>';
             buka_form($link, $data['id'], strtolower($aksi));
-            buat_textbox("Nama *", "nama", $data['nama'], 10);
-            buat_textbox("NIM *", "nim", $data['nim'], 10);
-            buat_textbox("Jurusan *", "jurusan", $data['jurusan'], 10);
-            buat_textbox("Tahun Kelulusan *", "tahun_kelulusan", $data['tahun_kelulusan'], 10);
+            buat_textbox("Nama *", "nama", $data['nama'], 10, true);
+            buat_textbox("NIM *", "nim", $data['nim'], 10, true);
+            buat_textbox("Jurusan *", "jurusan", $data['jurusan'], 10, true);
+            buat_textbox("Tahun Kelulusan *", "tahun_kelulusan", intval($data['tahun_kelulusan']), 10, true, 'number');
             buat_imagepicker("Foto", "gambar", $data['gambar']);
 
             tutup_form($link);

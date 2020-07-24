@@ -57,9 +57,9 @@ switch ($show) {
         } else {
             echo '<h3 class="page-header"><b>' . $aksi . ' Personel</b> </h3>';
             buka_form($link, $data['id'], strtolower($aksi));
-            buat_textbox("Nama *", "nama", $data['nama'], 10);
-            buat_textbox("NIM *", "nim", $data['nim'], 10);
-            buat_textbox("Jurusan *", "jurusan", $data['jurusan'], 10);
+            buat_textbox("Nama *", "nama", $data['nama'], 10, true);
+            buat_textbox("NIM *", "nim", $data['nim'], 10, true);
+            buat_textbox("Jurusan *", "jurusan", $data['jurusan'], 10, true);
             buat_imagepicker("Foto", "gambar", $data['gambar']);
 
             tutup_form($link);

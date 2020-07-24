@@ -16,7 +16,7 @@ $headline_news['judul'] = $headline_judul;
 $headline_news['desc'] = $text_pendek;
 
 $sub_news = [];
-$sub_news_query = $mysqli->query("SELECT * FROM artikel WHERE headline = 2  ORDER BY tanggal DESC LIMIT 3");
+$sub_news_query = $mysqli->query("SELECT * FROM artikel WHERE headline = 2  ORDER BY created_at DESC LIMIT 3");
 
 while ($data = $sub_news_query->fetch_array(MYSQLI_ASSOC)) {
     $sentences = 1;

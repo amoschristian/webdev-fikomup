@@ -57,17 +57,17 @@ switch ($show) {
         } else {
             echo '<h3 class="page-header"><b>' . $aksi . ' Lecturer</b> </h3>';
             buka_form($link, $data['id_lecturer'], strtolower($aksi));
-            buat_textbox("Nomor Pokok Dosen *", "npd", $data['npd'], 10);
-            buat_textbox("N I D N *", "nidn", $data['nidn'], 10);
-            buat_textbox("Nama Dosen *", "nama_dosen", $data['nama_dosen'], 10);
-            buat_textbox("Gelar *", "gelar", $data['gelar'], 10);
-            buat_textbox("Jenis Kelamin *", "jenis_kelamin", $data['jenis_kelamin'], 10);
-            buat_textbox("Bidang Kajian *", "bidang_kajian", $data['bidang_kajian'], 10);
-            buat_textbox("Kepangkatan Akademik *", "kepangkatan", $data['kepangkatan'], 10);
-            buat_textbox("Pendidikan Terakhir *", "pendidikan", $data['pendidikan'], 10);
-            buat_textbox("Perguruan Tinggi Terakhir *", "peguruan_tinggi", $data['peguruan_tinggi'], 10);
-            buat_textbox("Jabatan *", "jabatan", $data['jabatan'], 10);
-            buat_textbox("Email *", "email", $data['email'], 10);
+            buat_textbox("Nomor Pokok Dosen *", "npd", $data['npd'], 10, true);
+            buat_textbox("N I D N *", "nidn", $data['nidn'], 10, true);
+            buat_textbox("Nama Dosen *", "nama_dosen", $data['nama_dosen'], 10, true);
+            buat_textbox("Gelar *", "gelar", $data['gelar'], 10, true);
+            buat_textbox("Jenis Kelamin *", "jenis_kelamin", $data['jenis_kelamin'], 10, true);
+            buat_textbox("Bidang Kajian *", "bidang_kajian", $data['bidang_kajian'], 10, true);
+            buat_textbox("Kepangkatan Akademik *", "kepangkatan", $data['kepangkatan'], 10, true);
+            buat_textbox("Pendidikan Terakhir *", "pendidikan", $data['pendidikan'], 10, true);
+            buat_textbox("Perguruan Tinggi Terakhir *", "peguruan_tinggi", $data['peguruan_tinggi'], 10, true);
+            buat_textbox("Jabatan *", "jabatan", $data['jabatan'], 10, true);
+            buat_textbox("Email *", "email", $data['email'], 10, true);
             buat_imagepicker("Foto", "gambar", $data['gambar']);
 
             

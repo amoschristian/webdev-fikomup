@@ -73,6 +73,9 @@ $folder_template = web_info('url') . '/' . folder_template();
 									<li class="about_menu_item_sub_2"><a href="/course/list"><?= $lang->t('Courses List') ?></a></li>
 							<li class="about_menu_item"><a href="/event"><?= $lang->t('Events') ?></a></li>
 							<li class="about_menu_item"><a href="/news"><?= $lang->t('News') ?></a></li>
+							<li class="about_menu_item"><a href="/devotion"><?= $lang->t('LPPM') ?></a></li>
+								<li class="about_menu_item_sub"><a href="/devotion"><?= $lang->t('Devotion') ?></a></li>
+								<li class="about_menu_item_sub"><a href="/research"><?= $lang->t('Research') ?></a></li>
 							<li class="about_menu_item"><a href="/about_us"><?= $lang->t('About Us') ?></a></li>
 								<li class="about_menu_item_sub"><a href="/about-us/history"><?= $lang->t('Organizations') ?></a></li>
 									<li class="about_menu_item_sub_2"><a href="/about-us/history"><?= $lang->t('History') ?></a></li>
@@ -84,7 +87,6 @@ $folder_template = web_info('url') . '/' . folder_template();
 									<li class="about_menu_item_sub_2"><a href="/about-us/lecturer"><?= $lang->t('Lecturer') ?></a></li>
 									<li class="about_menu_item_sub_2"><a href="/about-us/facility"><?= $lang->t('Facility') ?></a></li>
 									<li class="about_menu_item_sub_2"><a href="/about-us/alumni"><?= $lang->t('Alumni') ?></a></li>
-									<li class="about_menu_item_sub_2"><a href="/about-us/laboratorium"><?= $lang->t('Laboratorium') ?></a></li>
 									<li class="about_menu_item_sub_2"><a href="/about-us/sjm"><?= $lang->t('Unit SJM') ?></a></li>
 									<li class="about_menu_item_sub_2"><a href="/about-us/achievement"><?= $lang->t('Achievement') ?></a></li>
 								<li class="about_menu_item_sub"><a href="/about-us/activity"><?= $lang->t('Mobility') ?></a></li>

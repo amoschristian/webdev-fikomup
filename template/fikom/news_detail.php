@@ -8,7 +8,7 @@ $result = $mysqli->query($query);
 
 $detail_berita = $result->fetch_array(MYSQLI_ASSOC); //return array of data
 $gambar = $detail_berita['gambar'];
-$tanggal = $detail_berita['tanggal'];
+$tanggal = $detail_berita['created_at'];
 
 $judul = $detail_berita['judul'];
 $isi = $detail_berita['isi'];

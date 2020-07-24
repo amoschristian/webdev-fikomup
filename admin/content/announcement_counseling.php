@@ -25,12 +25,12 @@ switch ($show) {
         $no = 1;
         $id_user = $_SESSION['iduser'];
 
-        if ($_SESSION['leveluser'] == "admin") $query = $mysqli->query("SELECT * FROM announcement WHERE tipe = $tipeCounseling ORDER BY tanggal DESC");
-        else $query = $mysqli->query("SELECT * FROM announcement WHERE id_user='$id_user' AND tipe = $tipeCounseling ORDER BY tanggal DESC");
+        if ($_SESSION['leveluser'] == "admin") $query = $mysqli->query("SELECT * FROM announcement WHERE tipe = $tipeCounseling ORDER BY created_at DESC");
+        else $query = $mysqli->query("SELECT * FROM announcement WHERE id_user='$id_user' AND tipe = $tipeCounseling ORDER BY created_at DESC");
         while ($data = $query->fetch_array()) {
-            $tanggal = print_tanggal($data['tanggal']);
+            $tanggal = print_tanggal($data['created_at']);
 
-            isi_tabel($no, array($data['judul'], $tanggal), $link, $data['id']);
+            isi_tabel($no, array($data['judul_terjemahan'], $tanggal), $link, $data['id']);
             $no++;
         }
         tutup_tabel();
@@ -44,7 +44,7 @@ switch ($show) {
             $data = $query->fetch_array();
             $aksi = "Edit";
         } else {
-            $data = array("id" => "", "judul" => "", "judul_terjemahan" => "", "isi" => "", "isi_terjemahan" => "", "gambar" => "", "kategori" => "", "tag" => "");
+            $data = array("id" => "", "judul" => "", "judul_terjemahan" => "", "isi" => "", "isi_terjemahan" => "", "gambar" => "", "kategori" => "");
             $aksi = "Tambah";
         }
 
@@ -53,7 +53,7 @@ switch ($show) {
         } else {
             echo '<h3 class="page-header"><b>' . $aksi . ' Pengumuman</b> </h3>';
 			buka_form($link, $data['id'], strtolower($aksi));
-			buat_textbox("Judul Pengumuman (Bahasa Indonesia)", "judul_terjemahan", $data['judul_terjemahan'], 10);
+			buat_textbox("Judul Pengumuman (Bahasa Indonesia) *", "judul_terjemahan", $data['judul_terjemahan'], 10, true);
 			buat_textbox("Judul Pengumuman (English)", "judul", $data['judul'], 10);
 			buat_textarea("Isi Pengumuman (Bahasa Indonesia)", "isi_terjemahan", $data['isi_terjemahan'], "richtext");
             buat_textarea("Isi Pengumuman (English)", "isi", $data['isi'], "richtext");
@@ -70,7 +70,6 @@ switch ($show) {
         $judul_terjemahan = addslashes($_POST['judul_terjemahan']);
         $isi = addslashes($_POST['isi']);
         $isi_terjemahan = addslashes($_POST['isi_terjemahan']);
-        $tag = implode(",", $_POST['tag']);
         $user = $_SESSION['iduser'];
         
         if ($_POST['aksi'] == "tambah") {
@@ -85,7 +84,6 @@ switch ($show) {
 				tanggal		    = '$tanggal',
 				jam			    = '$jam',
 				id_user		    = '$user',
-				tag			    = '$tag',
 				kategori	    = '$_POST[kategori]',
 				gambar 		    = '$_POST[gambar]',
                 created_at      = now()
@@ -101,7 +99,6 @@ switch ($show) {
 					tanggal		    = '$tanggal',
 					jam			    = '$jam',
 					id_user		    = '$user',
-					tag			    = '$tag',
 					kategori	    = '$_POST[kategori]',
 					gambar 		    = '$_POST[gambar]',
                     updated_at      = now()

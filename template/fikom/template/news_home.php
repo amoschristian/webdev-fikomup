@@ -5,7 +5,7 @@ if (isset($_GET['tag'])) {
 	$tag = $_GET['tag'];
 	$query .= "WHERE tag LIKE '%$tag%' ";
 }
-$query .= "ORDER BY tanggal DESC LIMIT 3"; //show 10 per page
+$query .= "ORDER BY created_at DESC LIMIT 3"; //show 10 per page
 
 $result = $mysqli->query($query);
 $detail_berita = [];

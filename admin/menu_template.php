@@ -7,7 +7,7 @@ buat_menu("dashboard", "home", "Dashboard", $admin_author);
 
 buka_dropdown("list-alt", "Kategori & Tag");
 	buat_submenu("kategori", "Kategori");
-	buat_submenu("tag", "Tag");
+	// buat_submenu("tag", "Tag");
 tutup_dropdown();
 
 buka_dropdown("th-list", "Tentang");

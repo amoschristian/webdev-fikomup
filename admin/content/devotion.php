@@ -24,8 +24,8 @@ switch ($show) {
         $no = 1;
         $id_user = $_SESSION['iduser'];
 
-        if ($_SESSION['leveluser'] == "admin") $query = $mysqli->query("SELECT * FROM ppm WHERE tipe=$tipePengabdian ORDER BY tanggal DESC");
-        else $query = $mysqli->query("SELECT * FROM ppm WHERE id_user='$id_user' AND tipe=$tipePengabdian ORDER BY tanggal DESC");
+        if ($_SESSION['leveluser'] == "admin") $query = $mysqli->query("SELECT * FROM ppm WHERE tipe=$tipePengabdian ORDER BY created_at DESC");
+        else $query = $mysqli->query("SELECT * FROM ppm WHERE id_user='$id_user' AND tipe=$tipePengabdian ORDER BY created_at DESC");
         while ($data = $query->fetch_array()) {
             $kategori = $mysqli->query("SELECT * FROM kategori where id_kategori='$data[kategori]'");
             $kat = $kategori->fetch_array();
@@ -38,7 +38,7 @@ switch ($show) {
                 }
             }
 
-            $tanggal = print_tanggal($data['tanggal']);
+            $tanggal = print_tanggal($data['created_at']);
 
             isi_tabel($no, array($data['judul_terjemahan'], $kat['kategori'], $tanggal), $link, $data['id']);
             $no++;
@@ -54,7 +54,7 @@ switch ($show) {
             $data = $query->fetch_array();
             $aksi = "Edit";
         } else {
-            $data = array("id" => "", "judul" => "", "judul_terjemahan" => "", "isi" => "", "isi_terjemahan" => "", "gambar" => "", "kategori" => "", "tag" => "");
+            $data = array("id" => "", "judul" => "", "judul_terjemahan" => "", "isi" => "", "isi_terjemahan" => "", "gambar" => "", "kategori" => "");
             $aksi = "Tambah";
         }
 
@@ -63,7 +63,7 @@ switch ($show) {
         } else {
             echo '<h3 class="page-header"><b>' . $aksi . ' Pengabdian</b> </h3>';
 			buka_form($link, $data['id'], strtolower($aksi));
-			buat_textbox("Judul Pengabdian (Bahasa Indonesia)", "judul_terjemahan", $data['judul_terjemahan'], 10);
+			buat_textbox("Judul Pengabdian (Bahasa Indonesia) *", "judul_terjemahan", $data['judul_terjemahan'], 10, true);
 			buat_textbox("Judul Pengabdian (English)", "judul", $data['judul'], 10);
 			buat_textarea("Isi Pengabdian (Bahasa Indonesia)", "isi_terjemahan", $data['isi_terjemahan'], "richtext");
             buat_textarea("Isi Pengabdian (English)", "isi", $data['isi'], "richtext");
@@ -76,14 +76,6 @@ switch ($show) {
             }
             buat_combobox("Kategori", "kategori", $list, $data['kategori']);
 
-            $tag = $mysqli->query("SELECT * FROM tag");
-            $arr_tag = explode(",", $data['tag']);
-            $list = array();
-            while ($t = $tag->fetch_array()) {
-                $select = (array_search($t['tag_seo'], $arr_tag) === false) ? "" : "selected";
-                $list[] = array("val" => $t['tag_seo'], "cap" => $t['tag'], "selected" => $select);
-            }
-            buat_select2("Tag", "tag", $list);
             tutup_form($link);
         }
         break;
@@ -111,10 +103,10 @@ switch ($show) {
 				jam			    = '$jam',
                 tipe            = '$tipePengabdian',
 				id_user		    = '$user',
-				tag			    = '$tag',
 				headline        = '$headline',
 				kategori	    = '$_POST[kategori]',
-				gambar 		    = '$_POST[gambar]'				
+				gambar 		    = '$_POST[gambar]',
+                created_at      = now()				
 			");
         } elseif ($_POST['aksi'] == "edit") {
             $mysqli->query("UPDATE ppm SET
@@ -128,10 +120,10 @@ switch ($show) {
 					jam			    = '$jam',
                     tipe            = '$tipePengabdian',
 					id_user		    = '$user',
-					tag			    = '$tag',
                     headline        = '$headline',
 					kategori	    = '$_POST[kategori]',
-					gambar 		    = '$_POST[gambar]'
+					gambar 		    = '$_POST[gambar]',
+                    updated_at      = now()
 				WHERE id='$_POST[id]'");
         }
         header('location:' . $link);

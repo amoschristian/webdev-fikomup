@@ -42,8 +42,8 @@ switch ($show) {
         $no = 1;
         $id_user = $_SESSION['iduser'];
 
-        if ($_SESSION['leveluser'] == "admin") $query = $mysqli->query("SELECT * FROM artikel ORDER BY tanggal DESC");
-        else $query = $mysqli->query("SELECT * FROM artikel WHERE id_user='$id_user' ORDER BY tanggal DESC");
+        if ($_SESSION['leveluser'] == "admin") $query = $mysqli->query("SELECT * FROM artikel ORDER BY created_at DESC");
+        else $query = $mysqli->query("SELECT * FROM artikel WHERE id_user='$id_user' ORDER BY created_at DESC");
         while ($data = $query->fetch_array()) {
             $kategori = $mysqli->query("SELECT * FROM kategori where id_kategori='$data[kategori]'");
             $kat = $kategori->fetch_array();
@@ -56,9 +56,9 @@ switch ($show) {
                 }
             }
 
-            $tanggal = print_tanggal($data['tanggal']);
+            $tanggal = print_tanggal($data['created_at']);
 
-            isi_tabel($no, array($data['judul'], $kat['kategori'], $headline, $tanggal), $link, $data['id_artikel']);
+            isi_tabel($no, array($data['judul_terjemahan'], $kat['kategori'], $headline, $tanggal), $link, $data['id_artikel']);
             $no++;
         }
         tutup_tabel();
@@ -76,7 +76,7 @@ switch ($show) {
                 $headline_list[$data['headline']]['check'] = 'checked'; 
             }
         } else {
-            $data = array("id_artikel" => "", "judul" => "", "judul_terjemahan" => "", "isi" => "", "isi_terjemahan" => "", "gambar" => "", "kategori" => "", "tag" => "");
+            $data = array("id_artikel" => "", "judul" => "", "judul_terjemahan" => "", "isi" => "", "isi_terjemahan" => "", "gambar" => "", "kategori" => "");
             $aksi = "Tambah";
         }
 
@@ -85,7 +85,7 @@ switch ($show) {
         } else {
             echo '<h3 class="page-header"><b>' . $aksi . ' Berita</b> </h3>';
 			buka_form($link, $data['id_artikel'], strtolower($aksi));
-			buat_textbox("Judul Berita (Bahasa Indonesia)", "judul_terjemahan", $data['judul_terjemahan'], 10);
+			buat_textbox("Judul Berita (Bahasa Indonesia) *", "judul_terjemahan", $data['judul_terjemahan'], 10, true);
 			buat_textbox("Judul Berita (English)", "judul", $data['judul'], 10);
 			buat_textarea("Isi Berita (Bahasa Indonesia)", "isi_terjemahan", $data['isi_terjemahan'], "richtext");
             buat_textarea("Isi Berita (English)", "isi", $data['isi'], "richtext");
@@ -98,15 +98,6 @@ switch ($show) {
                 $list[] = array('val' => $k['id_kategori'], 'cap' => $k['kategori']);
             }
             buat_combobox("Kategori", "kategori", $list, $data['kategori']);
-
-            $tag = $mysqli->query("SELECT * FROM tag");
-            $arr_tag = explode(",", $data['tag']);
-            $list = array();
-            while ($t = $tag->fetch_array()) {
-                $select = (array_search($t['tag_seo'], $arr_tag) === false) ? "" : "selected";
-                $list[] = array("val" => $t['tag_seo'], "cap" => $t['tag'], "selected" => $select);
-            }
-            buat_select2("Tag", "tag", $list);
             tutup_form($link);
         }
         break;
@@ -119,7 +110,6 @@ switch ($show) {
         $isi = addslashes($_POST['isi']);
         $isi_terjemahan = addslashes($_POST['isi_terjemahan']);
         $headline = $_POST['headline'];
-        $tag = implode(",", $_POST['tag']);
         $user = $_SESSION['iduser'];
 
         if ($headline == 1) { //berita utama
@@ -127,7 +117,7 @@ switch ($show) {
             $remove_main_headline_query = 'UPDATE artikel SET headline = null WHERE headline = 1';
             $mysqli->query($remove_main_headline_query);
         } elseif ($headline == 2) { //berita penunjang
-            $checking_query = 'SELECT * FROM artikel WHERE headline = 2 ORDER BY tanggal ASC';
+            $checking_query = 'SELECT * FROM artikel WHERE headline = 2 ORDER BY created_at ASC';
             $result = $mysqli->query($checking_query);
 
             $countResult = mysqli_num_rows($result);
@@ -151,10 +141,10 @@ switch ($show) {
 				tanggal		    = '$tanggal',
 				jam			    = '$jam',
 				id_user		    = '$user',
-				tag			    = '$tag',
 				headline        = '$headline',
 				kategori	    = '$_POST[kategori]',
-				gambar 		    = '$_POST[gambar]'				
+				gambar 		    = '$_POST[gambar]',
+                created_at      = now()			
 			");
         } elseif ($_POST['aksi'] == "edit") {
             $mysqli->query("UPDATE artikel SET
@@ -167,10 +157,10 @@ switch ($show) {
 					tanggal		    = '$tanggal',
 					jam			    = '$jam',
 					id_user		    = '$user',
-					tag			    = '$tag',
                     headline        = '$headline',
 					kategori	    = '$_POST[kategori]',
-					gambar 		    = '$_POST[gambar]'
+					gambar 		    = '$_POST[gambar]',
+                    updated_at      = now()
 				WHERE id_artikel='$_POST[id]'");
         }
         header('location:' . $link);

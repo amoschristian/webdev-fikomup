@@ -42,7 +42,7 @@ switch ($show) {
         $id_user = $_SESSION['iduser'];
 
         if ($_SESSION['leveluser'] == "admin") $query = $mysqli->query("SELECT * FROM event ORDER BY tanggal DESC");
-        else $query = $mysqli->query("SELECT * FROM event WHERE id_user='$id_user' ORDER BY tanggal");
+        else $query = $mysqli->query("SELECT * FROM event WHERE id_user='$id_user' ORDER BY tanggal DESC");
         while ($data = $query->fetch_array()) {
             $user = $mysqli->query("SELECT nama_lengkap FROM user where id_user='$data[id_user]'");
             $us = $user->fetch_array();
@@ -52,7 +52,7 @@ switch ($show) {
 
             $tanggal = print_tanggal($data['created_at']);
 
-            isi_tabel($no, array($data['judul'], $kat['kategori'], $us['nama_lengkap'], $tanggal), $link, $data['id_event']);
+            isi_tabel($no, array($data['judul_terjemahan'], $kat['kategori'], $us['nama_lengkap'], $tanggal), $link, $data['id_event']);
             $no++;
         }
         tutup_tabel();
@@ -66,7 +66,7 @@ switch ($show) {
             $data    = $query->fetch_array();
             $aksi     = "Edit";
         } else {
-            $data = array("id_event" => "", "judul" => "", "judul_terjemahan" => "", "isi" => "", "isi_terjemahan" => "", "gambar" => "", "map" => "", "tanggal" => "", "lokasi" => "", "kategori" => "", "tag" => "");
+            $data = array("id_event" => "", "judul" => "", "judul_terjemahan" => "", "isi" => "", "isi_terjemahan" => "", "gambar" => "", "map" => "", "tanggal" => "", "lokasi" => "", "kategori" => "");
             $aksi     = "Tambah";
         }
 
@@ -75,8 +75,8 @@ switch ($show) {
         } else {
             echo '<h3 class="page-header"><b>' . $aksi . ' Acara</b> </h3>';
 			buka_form($link, $data['id_event'], strtolower($aksi));
-			buat_textbox("Judul Acara (Bahasa Indonesia) *", "judul_terjemahan", $data['judul_terjemahan'], 10);
-            buat_textbox("Judul Acara (English) *", "judul", $data['judul'], 10);
+			buat_textbox("Judul Acara (Bahasa Indonesia) *", "judul_terjemahan", $data['judul_terjemahan'], 10, true);
+            buat_textbox("Judul Acara (English)", "judul", $data['judul'], 10);
             buat_textbox("Tanggal Acara *", "tanggal", $data['tanggal'], 10);
             buat_textbox("Lokasi *", "lokasi", $data['lokasi'], 10);
 			buat_map("Peta", "peta", $data['map'], $mapBoxToken);
@@ -91,14 +91,6 @@ switch ($show) {
             }
             buat_combobox("Kategori", "kategori", $list, $data['kategori']);
 
-            $tag = $mysqli->query("SELECT * FROM tag");
-            $arr_tag = explode(",", $data['tag']);
-            $list = array();
-            while ($t = $tag->fetch_array()) {
-                $select = (array_search($t['tag_seo'], $arr_tag) === false) ? "" : "selected";
-                $list[] = array("val" => $t['tag_seo'], "cap" => $t['tag'], "selected" => $select);
-            }
-            buat_select2("Tag", "tag", $list);
             tutup_form($link);
         }
         break;

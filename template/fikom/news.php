@@ -8,7 +8,7 @@ if (isset($_GET['tag'])) {
 	$tag = $_GET['tag'];
 	$query .= "WHERE tag LIKE '%$tag%' ";
 }
-$query .= "ORDER BY tanggal DESC";
+$query .= "ORDER BY created_at DESC";
 
 $result = $mysqli->query($query);
 $countPage = mysqli_num_rows($result);
@@ -90,8 +90,8 @@ while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
 											<div class="news_post_date_container">
 												<div class="col-lg-2 order-lg-1 order-2" style="padding-left:0">
 													<div class="event_date d-flex flex-column align-items-center justify-content-center">
-														<div class="event_day" style="font-size: 28px"><?= date('d', strtotime($berita['tanggal'])) ?></div>
-														<div class="event_month" style="font-size: 14px"><?= print_tanggal($berita['tanggal'], "%b") ?></div>
+														<div class="event_day" style="font-size: 28px"><?= date('d', strtotime($berita['created_at'])) ?></div>
+														<div class="event_month" style="font-size: 14px"><?= print_tanggal($berita['created_at'], "%b") ?></div>
 													</div>
 												</div>
 											</div>
@@ -132,11 +132,6 @@ while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
 								
 					<div class="col-lg-4">
 						<div class="sidebar">
-
-							<!-- Tags -->
-
-							<?php include("template/tags.php"); ?>
-
 							<!-- Latest Posts -->
 
 							<?php include("template/news_latest.php"); ?>

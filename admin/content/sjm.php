@@ -25,12 +25,12 @@ switch ($show) {
         $no = 1;
         $id_user = $_SESSION['iduser'];
 
-        if ($_SESSION['leveluser'] == "admin") $query = $mysqli->query("SELECT * FROM announcement WHERE tipe = $tipeSjm ORDER BY tanggal DESC");
-        else $query = $mysqli->query("SELECT * FROM announcement WHERE id_user='$id_user' AND tipe = $tipeSjm ORDER BY tanggal DESC");
+        if ($_SESSION['leveluser'] == "admin") $query = $mysqli->query("SELECT * FROM announcement WHERE tipe = $tipeSjm ORDER BY created_at DESC");
+        else $query = $mysqli->query("SELECT * FROM announcement WHERE id_user='$id_user' AND tipe = $tipeSjm ORDER BY created_at DESC");
         while ($data = $query->fetch_array()) {
-            $tanggal = print_tanggal($data['tanggal']);
+            $tanggal = print_tanggal($data['created_at']);
 
-            isi_tabel($no, array($data['judul'], $tanggal), $link, $data['id']);
+            isi_tabel($no, array($data['judul_terjemahan'], $tanggal), $link, $data['id']);
             $no++;
         }
         tutup_tabel();
@@ -44,7 +44,7 @@ switch ($show) {
             $data = $query->fetch_array();
             $aksi = "Edit";
         } else {
-            $data = array("id" => "", "judul" => "", "judul_terjemahan" => "", "isi" => "", "isi_terjemahan" => "", "gambar" => "", "kategori" => "", "tag" => "");
+            $data = array("id" => "", "judul" => "", "judul_terjemahan" => "", "isi" => "", "isi_terjemahan" => "", "gambar" => "", "kategori" => "");
             $aksi = "Tambah";
         }
 
@@ -53,9 +53,9 @@ switch ($show) {
         } else {
             echo '<h3 class="page-header"><b>' . $aksi . ' Pengumuman</b> </h3>';
 			buka_form($link, $data['id'], strtolower($aksi));
-			buat_textbox("Nama Unit SJM (Bahasa Indonesia)", "judul_terjemahan", $data['judul_terjemahan'], 10);
+			buat_textbox("Nama Unit SJM (Bahasa Indonesia) *", "judul_terjemahan", $data['judul_terjemahan'], 10, true);
 			buat_textbox("Nama Unit SJM (English)", "judul", $data['judul'], 10);
-			buat_textarea("Deskripsi (Bahasa Indonesia)", "isi_terjemahan", $data['isi_terjemahan'], "richtext");
+			buat_textarea("Deskripsi (Bahasa Indonesia)", "isi_terjemahan", $data['isi_terjemahan'], "richtext", true);
             buat_textarea("Deskripsi (English)", "isi", $data['isi'], "richtext");
             buat_imagepicker("Gambar", "gambar", $data['gambar']);
 

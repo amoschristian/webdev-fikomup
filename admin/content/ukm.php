@@ -57,7 +57,7 @@ switch ($show) {
         } else {
             echo '<h3 class="page-header"><b>' . $aksi . ' UKM</b> </h3>';
             buka_form($link, $data['id'], strtolower($aksi));
-            buat_textbox("Nama *", "nama", $data['nama'], 10);
+            buat_textbox("Nama *", "nama", $data['nama'], 10, true);
             buat_textbox("Link", "link", $data['link'], 10);
             buat_imagepicker("Foto", "gambar", $data['gambar']);
 
