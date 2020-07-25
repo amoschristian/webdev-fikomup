@@ -121,7 +121,7 @@ switch ($show) {
             $result = $mysqli->query($checking_query);
 
             $countResult = mysqli_num_rows($result);
-            if ($countResult == 3) { //if got 3 then remove one to be replaced with current one
+            if ($countResult > 2) { //if got more than 2 then remove one to be replaced with current one
                 while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
                     $remove_last_headline_query = "UPDATE artikel SET headline = null WHERE id_artikel = {$data['id_artikel']}";
                     $mysqli->query($remove_last_headline_query);

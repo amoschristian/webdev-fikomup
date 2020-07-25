@@ -35,7 +35,12 @@ while ($data = $sub_news_query->fetch_array(MYSQLI_ASSOC)) {
 
 $instagram = new Instagram;
 
-$instagramImages = $instagram->getUserMedia(6);
+$instagramImages = (object) ['data' => null];
+try {
+    // $instagramImages = $instagram->getUserMedia(6);
+}  catch (Exception $e) {
+    $instagramImages = (object) ['data' => null];
+}
 ?>
 
 <style>
@@ -77,9 +82,11 @@ $instagramImages = $instagram->getUserMedia(6);
                 <div class="ig-feed">
                     <h1><img src="<?= $folder_template ?>/images/ig_logo.png"" width="30px"></img><a href="https://www.instagram.com/fikomup" target="_blank" class="ig-link"> fikomup</a></h1>
                     <div class="ig-feed-box" id="instafeed">
-                        <?php foreach($instagramImages->data as $media) : ?>
-                            <a href="<?= $media->permalink ?>" target="_blank"><img class="ig-items" src="<?= $media->media_url ?>"></a>
-                        <?php endforeach ?>
+                        <?php if ($instagramImages->data) : ?>
+                            <?php foreach($instagramImages->data as $media) : ?>
+                                <a href="<?= $media->permalink ?>" target="_blank"><img class="ig-items" src="<?= $media->media_url ?>"></a>
+                            <?php endforeach ?>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
