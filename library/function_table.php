@@ -9,7 +9,7 @@ function buka_tabel($judul){
 		echo '<th>'.$jdl.'</th>';
 	}
 				
-	echo'		<th style="width: 60px">Aksi</th>
+	echo'		<th style="width: 5%">Aksi</th>
 			</tr>
 		</thead>
 		<tbody>';

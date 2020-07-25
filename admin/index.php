@@ -30,6 +30,7 @@ if(empty($_SESSION['username']) or empty($_SESSION['password']) or $_SESSION['lo
 }else{
 ?>
 
+<!DOCTYPE html>
 <html>
 <head>
 	<title>Halaman Administrator</title>
@@ -42,6 +43,12 @@ if(empty($_SESSION['username']) or empty($_SESSION['password']) or $_SESSION['lo
 	
 	<script type="text/javascript" src="../plugin/jquery/jquery-2.0.2.min.js"></script>
 </head>
+
+<style>
+	.table>tbody>tr>td {
+		vertical-align: middle;
+	}
+</style>
 <body>
 
 <nav class="navbar navbar-inverse navbar-fixed-top"> 
