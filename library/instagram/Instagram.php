@@ -90,7 +90,7 @@ class Instagram {
     }
 
     function getLoginUrlIg() {
-        echo "<a href='{$this->instagram->getLoginUrl()}'>Login with Instagram</a>";
+        echo "<a class='btn btn-primary' style='margin-top:15px' href='{$this->instagram->getLoginUrl()}'>Login with Instagram to Renew Token</a>";
     }
 
     //MEDIA RELATED METHOD

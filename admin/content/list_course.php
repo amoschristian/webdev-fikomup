@@ -1,7 +1,6 @@
 <script type="text/javascript" src="../plugin/tinymce/tinymce.min.js"></script>
 <script type="text/javascript" src="js/tinymce_config.js"></script>
-<script type="text/javascript" src="js/select2.min.js"></script>
-<link href="css/select2.min.css" rel="stylesheet" />
+<script type="text/javascript" src="js/validate.js"></script>
 
 <?php
 if (!defined("INDEX")) header('location: ../index.php');
@@ -49,9 +48,9 @@ switch ($show) {
         if ($aksi == "Edit" and $_SESSION['leveluser'] != "admin" and $data['id_user'] != $_SESSION['iduser']) {
             header('location:' . $link);
         } else {
-            echo '<h3 class="page-header"><b>' . $aksi . ' Pengumuman</b> </h3>';
+            echo '<h3 class="page-header"><b>' . $aksi . ' Semester</b> </h3>';
             buka_form($link, $data['id'], strtolower($aksi));
-			buat_textbox("Semester", "semester", $data['semester'], 2, 'number', 'Mohon masukan angka bulat');
+			buat_textbox("Semester *", "semester", $data['semester'], 2, true, 'number', 'Mohon masukan angka bulat');
 			buat_input_table_course("Mata Kuliah Wajib", "list", $data['list'], 8);
 			buat_input_table_course("Mata Kuliah Minor", "list_minor", $data['list_minor'], 8);
 			buat_input_table_course("Mata Kuliah Peminatan", "list_peminatan", $data['list_peminatan'], 8);

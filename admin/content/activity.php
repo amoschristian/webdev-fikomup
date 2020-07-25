@@ -1,8 +1,6 @@
 <script type="text/javascript" src="../plugin/tinymce/tinymce.min.js"></script>
 <script type="text/javascript" src="js/tinymce_config.js"></script>
-<script type="text/javascript" src="js/select2.min.js"></script>
-<link href="css/select2.min.css" rel="stylesheet" />
-
+<script type="text/javascript" src="js/validate.js"></script>
 
 <?php
 if (!defined("INDEX")) header('location: ../index.php');
@@ -24,10 +22,10 @@ switch ($show) {
         $no = 1;
         $id_user = $_SESSION['iduser'];
 
-        if ($_SESSION['leveluser'] == "admin") $query = $mysqli->query("SELECT * FROM activity ORDER BY tanggal DESC");
-        else $query = $mysqli->query("SELECT * FROM activity WHERE id_user='$id_user' ORDER BY tanggal DESC");
+        if ($_SESSION['leveluser'] == "admin") $query = $mysqli->query("SELECT * FROM activity ORDER BY created_at DESC");
+        else $query = $mysqli->query("SELECT * FROM activity WHERE id_user='$id_user' ORDER BY created_at DESC");
         while ($data = $query->fetch_array()) {
-            $tanggal = print_tanggal($data['tanggal']);
+            $tanggal = print_tanggal($data['created_at']);
 
             isi_tabel($no, array($data['judul_terjemahan'], $tanggal), $link, $data['id']);
             $no++;
@@ -43,7 +41,7 @@ switch ($show) {
             $data = $query->fetch_array();
             $aksi = "Edit";
         } else {
-            $data = array("id" => "", "judul" => "", "judul_terjemahan" => "", "isi" => "", "isi_terjemahan" => "", "gambar" => "", "kategori" => "", "tag" => "", "lokasi" => "");
+            $data = array("id" => "", "judul" => "", "judul_terjemahan" => "", "isi" => "", "isi_terjemahan" => "", "gambar" => "", "kategori" => "", "lokasi" => "");
             $aksi = "Tambah";
         }
 
@@ -52,11 +50,11 @@ switch ($show) {
         } else {
             echo '<h3 class="page-header"><b>' . $aksi . ' Aktifitas</b> </h3>';
 			buka_form($link, $data['id'], strtolower($aksi));
-			buat_textbox("Judul Aktifitas (Bahasa Indonesia)", "judul_terjemahan", $data['judul_terjemahan'], 10);
+			buat_textbox("Judul Aktifitas (Bahasa Indonesia) *", "judul_terjemahan", $data['judul_terjemahan'], 10, true);
 			buat_textbox("Judul Aktifitas (English)", "judul", $data['judul'], 10);
-			buat_textarea("Isi Aktifitas (Bahasa Indonesia)", "isi_terjemahan", $data['isi_terjemahan'], "richtext");
+			buat_textarea("Isi Aktifitas (Bahasa Indonesia) *", "isi_terjemahan", $data['isi_terjemahan'], "richtext", true);
             buat_textarea("Isi Aktifitas (English)", "isi", $data['isi'], "richtext");
-            buat_textbox("Lokasi", "lokasi", $data['lokasi']);
+            buat_textbox("Lokasi *", "lokasi", $data['lokasi'], 6, true);
             buat_imagepicker_multiple("Gambar", "gambar", $data['gambar']);
 
             tutup_form($link);
@@ -70,7 +68,6 @@ switch ($show) {
         $judul_terjemahan = addslashes($_POST['judul_terjemahan']);
         $isi = addslashes($_POST['isi']);
         $isi_terjemahan = addslashes($_POST['isi_terjemahan']);
-        $tag = implode(",", $_POST['tag']);
 		$user = $_SESSION['iduser'];
 		$lokasi = addslashes($_POST['lokasi']);
 		$gambar = str_replace(['[' , ']' ,'"'], '', $_POST['gambar']);
@@ -87,7 +84,6 @@ switch ($show) {
 				tanggal		    = '$tanggal',
 				jam			    = '$jam',
 				id_user		    = '$user',
-				tag			    = '$tag',
 				kategori	    = '$_POST[kategori]',
 				gambar 		    = '$gambar',
                 created_at      = now()
@@ -104,7 +100,6 @@ switch ($show) {
 					tanggal		    = '$tanggal',
 					jam			    = '$jam',
 					id_user		    = '$user',
-					tag			    = '$tag',
 					kategori	    = '$_POST[kategori]',
 					gambar 		    = '$gambar',
                     updated_at      = now()
@@ -124,9 +119,3 @@ switch ($show) {
         break;
 }
 ?>
-
-<script>
-    $(document).ready(function() {
-        $('.js-example-basic-multiple').select2();
-    });
-</script>

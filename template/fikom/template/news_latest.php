@@ -2,7 +2,7 @@
 $folder_template = web_info('url') . '/' . folder_template();
 
 //prepare the data to be displayed
-$query = "SELECT * FROM artikel ORDER BY tanggal DESC LIMIT 4";
+$query = "SELECT * FROM artikel ORDER BY created_at DESC LIMIT 4";
 
 $result = $mysqli->query($query);
 $detail_berita = [];

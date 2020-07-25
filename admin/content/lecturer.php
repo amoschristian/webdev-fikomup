@@ -1,10 +1,6 @@
 <script type="text/javascript" src="../plugin/tinymce/tinymce.min.js"></script>
 <script type="text/javascript" src="js/tinymce_config.js"></script>
-<script type="text/javascript" src="js/select2.min.js"></script>
-<script type="text/javascript" src="js/jquery.datetimepicker.full.min.js"></script>
-<link href="css/select2.min.css" rel="stylesheet" />
-<link href="css/jquery.datetimepicker.min.css" rel="stylesheet" />
-
+<script type="text/javascript" src="js/validate.js"></script>
 
 <?php
 if (!defined("INDEX")) header('location: ../index.php');
@@ -55,19 +51,19 @@ switch ($show) {
         if ($aksi == "Edit" and $_SESSION['leveluser'] != "admin" and $data['id_user'] != $_SESSION['iduser']) {
             header('location:' . $link);
         } else {
-            echo '<h3 class="page-header"><b>' . $aksi . ' Lecturer</b> </h3>';
+            echo '<h3 class="page-header"><b>' . $aksi . ' Dosen</b> </h3>';
             buka_form($link, $data['id_lecturer'], strtolower($aksi));
-            buat_textbox("Nomor Pokok Dosen *", "npd", $data['npd'], 10);
-            buat_textbox("N I D N *", "nidn", $data['nidn'], 10);
-            buat_textbox("Nama Dosen *", "nama_dosen", $data['nama_dosen'], 10);
-            buat_textbox("Gelar *", "gelar", $data['gelar'], 10);
-            buat_textbox("Jenis Kelamin *", "jenis_kelamin", $data['jenis_kelamin'], 10);
-            buat_textbox("Bidang Kajian *", "bidang_kajian", $data['bidang_kajian'], 10);
-            buat_textbox("Kepangkatan Akademik *", "kepangkatan", $data['kepangkatan'], 10);
-            buat_textbox("Pendidikan Terakhir *", "pendidikan", $data['pendidikan'], 10);
-            buat_textbox("Perguruan Tinggi Terakhir *", "peguruan_tinggi", $data['peguruan_tinggi'], 10);
-            buat_textbox("Jabatan *", "jabatan", $data['jabatan'], 10);
-            buat_textbox("Email *", "email", $data['email'], 10);
+            buat_textbox("Nomor Pokok Dosen *", "npd", $data['npd'], 10, true);
+            buat_textbox("N I D N *", "nidn", $data['nidn'], 10, true);
+            buat_textbox("Nama Dosen *", "nama_dosen", $data['nama_dosen'], 10, true);
+            buat_textbox("Gelar *", "gelar", $data['gelar'], 10, true);
+            buat_textbox("Jenis Kelamin *", "jenis_kelamin", $data['jenis_kelamin'], 10, true);
+            buat_textbox("Bidang Kajian *", "bidang_kajian", $data['bidang_kajian'], 10, true);
+            buat_textbox("Kepangkatan Akademik *", "kepangkatan", $data['kepangkatan'], 10, true);
+            buat_textbox("Pendidikan Terakhir *", "pendidikan", $data['pendidikan'], 10, true);
+            buat_textbox("Perguruan Tinggi Terakhir *", "peguruan_tinggi", $data['peguruan_tinggi'], 10, true);
+            buat_textbox("Jabatan *", "jabatan", $data['jabatan'], 10, true);
+            buat_textbox("Email *", "email", $data['email'], 10, true);
             buat_imagepicker("Foto", "gambar", $data['gambar']);
 
             
@@ -141,14 +137,3 @@ switch ($show) {
         break;
 }
 ?>
-
-<script>
-    $(document).ready(function() {
-        $('.js-example-basic-multiple').select2();
-
-        $('[name="tanggal"]').datetimepicker({
-            inline: true,
-        });
-
-    });
-</script>

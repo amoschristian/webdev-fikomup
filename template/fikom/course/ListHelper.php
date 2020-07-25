@@ -26,7 +26,7 @@ function populateData($mysqli) {
 						$generalTotal += (int) $general['sks'];
 					} else {
 						$sks = strval($general['sks']);
-						$sks = substr($sks, (int) strpos($sks, "-") + 2);
+						$sks = substr($sks, (int) strpos($sks, "-") + 1, strlen($sks));
 						$generalTotal += (int) $sks;
 					}
 				}

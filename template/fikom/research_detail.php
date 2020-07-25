@@ -6,16 +6,16 @@ $query = "SELECT * FROM ppm WHERE id = $id";
 
 $result = $mysqli->query($query);
 
-$detail_berita = $result->fetch_array(MYSQLI_ASSOC); //return array of data
-$gambar = $detail_berita['gambar'];
-$tanggal = $detail_berita['tanggal'];
+$detail_penelitian = $result->fetch_array(MYSQLI_ASSOC); //return array of data
+$gambar = $detail_penelitian['gambar'];
+$tanggal = $detail_penelitian['created_at'];
 
-$judul = $detail_berita['judul'];
-$isi = $detail_berita['isi'];
+$judul = $detail_penelitian['judul'];
+$isi = $detail_penelitian['isi'];
 
 if ($lang->language == $default_language) {
-	$judul = ($detail_berita['judul_terjemahan'] ?: $judul);
-	$isi = ($detail_berita['isi_terjemahan'] ?: $isi);
+	$judul = ($detail_penelitian['judul_terjemahan'] ?: $judul);
+	$isi = ($detail_penelitian['isi_terjemahan'] ?: $isi);
 }
 ?>
 

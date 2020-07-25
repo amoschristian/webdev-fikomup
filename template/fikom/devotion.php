@@ -9,7 +9,7 @@ if (isset($_GET['tag'])) {
 	$tag = $_GET['tag'];
 	$query .= "AND tag LIKE '%$tag%' ";
 }
-$query .= "ORDER BY tanggal DESC";
+$query .= "ORDER BY created_at DESC";
 
 $result = $mysqli->query($query);
 $countPage = mysqli_num_rows($result);
@@ -73,31 +73,31 @@ while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
 					<div class="col-lg-12">
 						<div class="news_posts">
 							<?php if ($detail_pengabdian) : ?>
-								<?php foreach ($detail_pengabdian as $berita) : ?>
+								<?php foreach ($detail_pengabdian as $pengabdian) : ?>
 									<div class="news_post">
 										<div class="news_post_top d-flex flex-column flex-sm-row">
 											<div class="news_post_date_container">
 												<div class="col-lg-2 order-lg-1 order-2" style="padding-left:0">
 													<div class="event_date d-flex flex-column align-items-center justify-content-center">
-														<div class="event_day" style="font-size: 28px"><?= date('d', strtotime($berita['tanggal'])) ?></div>
-														<div class="event_month" style="font-size: 14px"><?= print_tanggal($berita['tanggal'], "%b") ?></div>
+														<div class="event_day" style="font-size: 28px"><?= date('d', strtotime($pengabdian['created_at'])) ?></div>
+														<div class="event_month" style="font-size: 14px"><?= print_tanggal($pengabdian['created_at'], "%b") ?></div>
 													</div>
 												</div>
 											</div>
 											<div class="news_post_title_container">
 												<div class="news_post_title">
-													<a href="<?= "/devotion/id/{$berita['id']}/{$berita['judul_seo']}"; ?>"><?= $berita['judul'] ?></a>
+													<a href="<?= "/devotion/id/{$pengabdian['id']}/{$pengabdian['judul_seo']}"; ?>"><?= $pengabdian['judul'] ?></a>
 												</div>
 
 											</div>
 										</div>
 										<div class="news_post_image">
-											<img src="<?= "/media/source/" . $berita['gambar'] ?>">
+											<img src="<?= "/media/source/" . $pengabdian['gambar'] ?>">
 										</div>
 										<div class="news_post_text">
-											<p><?= $berita['desc'] ?></p>
+											<p><?= $pengabdian['desc'] ?></p>
 										</div>
-										<div class="read-more-btn"><span><a href="<?= "/devotion/id/{$berita['id']}/{$berita['judul_seo']}"; ?>"><?= $lang->t('Read More') ?><i class="fas fa-arrow-right" style="margin-left:10px; color: transparent""></i></a></span></div>
+										<div class="read-more-btn"><span><a href="<?= "/devotion/id/{$pengabdian['id']}/{$pengabdian['judul_seo']}"; ?>"><?= $lang->t('Read More') ?><i class="fas fa-arrow-right" style="margin-left:10px; color: transparent""></i></a></span></div>
 									</div>
 								<?php endforeach; ?>
 

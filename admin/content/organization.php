@@ -1,8 +1,7 @@
 <script type="text/javascript" src="../plugin/tinymce/tinymce.min.js"></script>
 <script type="text/javascript" src="js/tinymce_config.js"></script>
-<script type="text/javascript" src="js/select2.min.js"></script>
+<script type="text/javascript" src="js/validate.js"></script>
 <script type="text/javascript" src="js/jquery.datetimepicker.full.min.js"></script>
-<link href="css/select2.min.css" rel="stylesheet" />
 <link href="css/jquery.datetimepicker.min.css" rel="stylesheet" />
 
 
@@ -57,9 +56,9 @@ switch ($show) {
         } else {
             echo '<h3 class="page-header"><b>' . $aksi . ' Personel</b> </h3>';
             buka_form($link, $data['id'], strtolower($aksi));
-            buat_textbox("Nama *", "nama", $data['nama'], 10);
-            buat_textbox("Jabatan *", "jabatan", $data['jabatan'], 10);
-            buat_textbox("Posisi *", "posisi", $data['posisi'], 10, 'number', 'Mohon masukan angka. Angka ini digunakan sebagai urutan penampilan untuk di halaman muka dimulai dari yang terkecil.');
+            buat_textbox("Nama *", "nama", $data['nama'], 10, true);
+            buat_textbox("Jabatan *", "jabatan", $data['jabatan'], 10, true);
+            buat_textbox("Posisi *", "posisi", $data['posisi'], 10, true, 'number', 'Mohon masukan angka. Angka ini digunakan sebagai urutan penampilan untuk di halaman muka dimulai dari yang terkecil.');
             buat_imagepicker("Foto", "gambar", $data['gambar']);
 
             tutup_form($link);

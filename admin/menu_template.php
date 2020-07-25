@@ -7,18 +7,19 @@ buat_menu("dashboard", "home", "Dashboard", $admin_author);
 
 buka_dropdown("list-alt", "Kategori & Tag");
 	buat_submenu("kategori", "Kategori");
-	buat_submenu("tag", "Tag");
+	// buat_submenu("tag", "Tag");
 tutup_dropdown();
 
 buka_dropdown("th-list", "Tentang");
 	buat_submenu("organization", "Struktur Organisasi");
 	buat_submenu("lecturer", "Dosen");
+	buat_submenu("facility", "Fasilitas");
 	buat_submenu("alumni", "Alumni");
-	buat_submenu("student", "Mahasiswa");
-	buat_submenu("ukm", "UKM");
 	buat_submenu("sjm", "Unit SJM");
 	buat_submenu("achievement", "Ruang Prestasi");
+	buat_submenu("ukm", "UKM");
 	buat_submenu("activity", "Aktifitas");
+	buat_submenu("student", "Mahasiswa");
 	buat_submenu("lab_tv", "Lab TV");
 tutup_dropdown();
 

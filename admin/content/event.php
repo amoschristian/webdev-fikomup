@@ -1,8 +1,7 @@
 <script type="text/javascript" src="../plugin/tinymce/tinymce.min.js"></script>
 <script type="text/javascript" src="js/tinymce_config.js"></script>
-<script type="text/javascript" src="js/select2.min.js"></script>
+<script type="text/javascript" src="js/validate.js"></script>
 <script type="text/javascript" src="js/jquery.datetimepicker.full.min.js"></script>
-<link href="css/select2.min.css" rel="stylesheet" />
 <link href="css/jquery.datetimepicker.min.css" rel="stylesheet" />
 <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.js'></script>
 <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.css' rel='stylesheet' />
@@ -19,6 +18,11 @@
     width: 100%;
     height: 50%;
     overflow: hidden;
+}
+
+.mapboxgl-canvas {
+    position: relative !important;
+    height: 400px;
 }
 </style>
 
@@ -42,7 +46,7 @@ switch ($show) {
         $id_user = $_SESSION['iduser'];
 
         if ($_SESSION['leveluser'] == "admin") $query = $mysqli->query("SELECT * FROM event ORDER BY tanggal DESC");
-        else $query = $mysqli->query("SELECT * FROM event WHERE id_user='$id_user' ORDER BY tanggal");
+        else $query = $mysqli->query("SELECT * FROM event WHERE id_user='$id_user' ORDER BY tanggal DESC");
         while ($data = $query->fetch_array()) {
             $user = $mysqli->query("SELECT nama_lengkap FROM user where id_user='$data[id_user]'");
             $us = $user->fetch_array();
@@ -52,7 +56,7 @@ switch ($show) {
 
             $tanggal = print_tanggal($data['created_at']);
 
-            isi_tabel($no, array($data['judul'], $kat['kategori'], $us['nama_lengkap'], $tanggal), $link, $data['id_event']);
+            isi_tabel($no, array($data['judul_terjemahan'], $kat['kategori'], $us['nama_lengkap'], $tanggal), $link, $data['id_event']);
             $no++;
         }
         tutup_tabel();
@@ -66,7 +70,7 @@ switch ($show) {
             $data    = $query->fetch_array();
             $aksi     = "Edit";
         } else {
-            $data = array("id_event" => "", "judul" => "", "judul_terjemahan" => "", "isi" => "", "isi_terjemahan" => "", "gambar" => "", "map" => "", "tanggal" => "", "lokasi" => "", "kategori" => "", "tag" => "");
+            $data = array("id_event" => "", "judul" => "", "judul_terjemahan" => "", "isi" => "", "isi_terjemahan" => "", "gambar" => "", "map" => "", "tanggal" => "", "lokasi" => "", "kategori" => "");
             $aksi     = "Tambah";
         }
 
@@ -75,13 +79,13 @@ switch ($show) {
         } else {
             echo '<h3 class="page-header"><b>' . $aksi . ' Acara</b> </h3>';
 			buka_form($link, $data['id_event'], strtolower($aksi));
-			buat_textbox("Judul Acara (Bahasa Indonesia) *", "judul_terjemahan", $data['judul_terjemahan'], 10);
-            buat_textbox("Judul Acara (English) *", "judul", $data['judul'], 10);
+			buat_textbox("Judul Acara (Bahasa Indonesia) *", "judul_terjemahan", $data['judul_terjemahan'], 10, true);
+            buat_textbox("Judul Acara (English)", "judul", $data['judul'], 10);
             buat_textbox("Tanggal Acara *", "tanggal", $data['tanggal'], 10);
-            buat_textbox("Lokasi *", "lokasi", $data['lokasi'], 10);
+            buat_textbox("Lokasi *", "lokasi", $data['lokasi'], 10, true);
 			buat_map("Peta", "peta", $data['map'], $mapBoxToken);
-			buat_textarea("Deskripsi Acara (Bahasa Indonesia) *", "isi_terjemahan", $data['isi_terjemahan'], "richtext");
-            buat_textarea("Deskripsi Acara (English)*", "isi", $data['isi'], "richtext");
+			buat_textarea("Deskripsi Acara (Bahasa Indonesia) *", "isi_terjemahan", $data['isi_terjemahan'], "richtext", true);
+            buat_textarea("Deskripsi Acara (English)", "isi", $data['isi'], "richtext");
             buat_imagepicker("Gambar", "gambar", $data['gambar']);
 
             $kategori = $mysqli->query("SELECT * FROM kategori");
@@ -91,14 +95,6 @@ switch ($show) {
             }
             buat_combobox("Kategori", "kategori", $list, $data['kategori']);
 
-            $tag = $mysqli->query("SELECT * FROM tag");
-            $arr_tag = explode(",", $data['tag']);
-            $list = array();
-            while ($t = $tag->fetch_array()) {
-                $select = (array_search($t['tag_seo'], $arr_tag) === false) ? "" : "selected";
-                $list[] = array("val" => $t['tag_seo'], "cap" => $t['tag'], "selected" => $select);
-            }
-            buat_select2("Tag", "tag", $list);
             tutup_form($link);
         }
         break;
@@ -168,9 +164,6 @@ switch ($show) {
 
 <script>
     $(document).ready(function() {
-        $('.js-example-basic-multiple').select2();
-
         $('[name="tanggal"]').datetimepicker({});
-
     });
 </script>

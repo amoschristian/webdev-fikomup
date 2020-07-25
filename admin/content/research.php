@@ -1,8 +1,6 @@
 <script type="text/javascript" src="../plugin/tinymce/tinymce.min.js"></script>
 <script type="text/javascript" src="js/tinymce_config.js"></script>
-<script type="text/javascript" src="js/select2.min.js"></script>
-<link href="css/select2.min.css" rel="stylesheet" />
-
+<script type="text/javascript" src="js/validate.js"></script>
 
 <?php
 if (!defined("INDEX")) header('location: ../index.php');
@@ -24,8 +22,8 @@ switch ($show) {
         $no = 1;
         $id_user = $_SESSION['iduser'];
 
-        if ($_SESSION['leveluser'] == "admin") $query = $mysqli->query("SELECT * FROM ppm WHERE tipe=$tipePenelitian ORDER BY tanggal DESC");
-        else $query = $mysqli->query("SELECT * FROM ppm WHERE id_user='$id_user' AND tipe=$tipePenelitian ORDER BY tanggal DESC");
+        if ($_SESSION['leveluser'] == "admin") $query = $mysqli->query("SELECT * FROM ppm WHERE tipe=$tipePenelitian ORDER BY created_at DESC");
+        else $query = $mysqli->query("SELECT * FROM ppm WHERE id_user='$id_user' AND tipe=$tipePenelitian ORDER BY created_at DESC");
         while ($data = $query->fetch_array()) {
             $kategori = $mysqli->query("SELECT * FROM kategori where id_kategori='$data[kategori]'");
             $kat = $kategori->fetch_array();
@@ -38,7 +36,7 @@ switch ($show) {
                 }
             }
 
-            $tanggal = print_tanggal($data['tanggal']);
+            $tanggal = print_tanggal($data['created_at']);
 
             isi_tabel($no, array($data['judul_terjemahan'], $kat['kategori'], $tanggal), $link, $data['id']);
             $no++;
@@ -54,7 +52,7 @@ switch ($show) {
             $data = $query->fetch_array();
             $aksi = "Edit";
         } else {
-            $data = array("id" => "", "judul" => "", "judul_terjemahan" => "", "isi" => "", "isi_terjemahan" => "", "gambar" => "", "kategori" => "", "tag" => "");
+            $data = array("id" => "", "judul" => "", "judul_terjemahan" => "", "isi" => "", "isi_terjemahan" => "", "gambar" => "", "kategori" => "");
             $aksi = "Tambah";
         }
 
@@ -63,9 +61,9 @@ switch ($show) {
         } else {
             echo '<h3 class="page-header"><b>' . $aksi . ' Penelitian</b> </h3>';
 			buka_form($link, $data['id'], strtolower($aksi));
-			buat_textbox("Judul Penelitian (Bahasa Indonesia)", "judul_terjemahan", $data['judul_terjemahan'], 10);
+			buat_textbox("Judul Penelitian (Bahasa Indonesia) *", "judul_terjemahan", $data['judul_terjemahan'], 10, true);
 			buat_textbox("Judul Penelitian (English)", "judul", $data['judul'], 10);
-			buat_textarea("Isi Penelitian (Bahasa Indonesia)", "isi_terjemahan", $data['isi_terjemahan'], "richtext");
+			buat_textarea("Isi Penelitian (Bahasa Indonesia) *", "isi_terjemahan", $data['isi_terjemahan'], "richtext", true);
             buat_textarea("Isi Penelitian (English)", "isi", $data['isi'], "richtext");
             buat_imagepicker("Gambar", "gambar", $data['gambar']);
 
@@ -76,14 +74,6 @@ switch ($show) {
             }
             buat_combobox("Kategori", "kategori", $list, $data['kategori']);
 
-            $tag = $mysqli->query("SELECT * FROM tag");
-            $arr_tag = explode(",", $data['tag']);
-            $list = array();
-            while ($t = $tag->fetch_array()) {
-                $select = (array_search($t['tag_seo'], $arr_tag) === false) ? "" : "selected";
-                $list[] = array("val" => $t['tag_seo'], "cap" => $t['tag'], "selected" => $select);
-            }
-            buat_select2("Tag", "tag", $list);
             tutup_form($link);
         }
         break;
@@ -111,7 +101,6 @@ switch ($show) {
 				jam			    = '$jam',
                 tipe            = '$tipePenelitian',
 				id_user		    = '$user',
-				tag			    = '$tag',
 				headline        = '$headline',
 				kategori	    = '$_POST[kategori]',
 				gambar 		    = '$_POST[gambar]'				
@@ -128,7 +117,6 @@ switch ($show) {
 					jam			    = '$jam',
                     tipe            = '$tipePenelitian',
 					id_user		    = '$user',
-					tag			    = '$tag',
                     headline        = '$headline',
 					kategori	    = '$_POST[kategori]',
 					gambar 		    = '$_POST[gambar]'

@@ -5,20 +5,23 @@ function buka_form($link, $id, $aksi){
 			<input type="hidden" name="aksi" value="'.$aksi.'">';
 }
 
-function buat_textbox($label, $nama, $nilai, $lebar='4', $tipe="text", $placeholder = '', $autocomplete = 'on'){
+function buat_textbox($label, $nama, $nilai, $lebar='4', $required = false, $tipe="text",  $placeholder = '', $autocomplete = 'on'){
+	if ($required && !$placeholder) {
+		$placeholder = "Mohon Field ini Diisi";
+	}
 	echo'<div class="form-group" id="'.$nama.'">
 			<label for="'.$nama.'" class="col-sm-2 control-label">'.$label.'</label>
 			<div class="col-sm-'.$lebar.'">
-			  <input autocomplete="'.$autocomplete.'" type="'.$tipe.'" class="form-control" name="'.$nama.'" value="'.$nilai.'" placeholder="'.$placeholder.'">
+			  <input autocomplete="'.$autocomplete.'" type="'.$tipe.'" class="form-control '.($required ? 'required' : '').'" name="'.$nama.'" value="'.$nilai.'" placeholder="'.$placeholder.'">
 			</div>
 		 </div>';
 }
 
-function buat_textarea($label, $nama, $nilai, $class=''){
+function buat_textarea($label, $nama, $nilai, $class='', $required = false){
 	echo'<div class="form-group" id="'.$nama.'">
 			<label for="'.$nama.'" class="col-sm-2 control-label">'.$label.'</label>
 			<div class="col-sm-10">
-			  <textarea class="form-control '.$class.'" rows="8" name="'.$nama.'">'.$nilai.'</textarea>
+			  <textarea id="'.$nama.'" class="form-control '.($required ? 'required' : '').' '.$class.'" rows="8" name="'.$nama.'">'.$nilai.'</textarea>
 			</div>
 		 </div>';
 }
