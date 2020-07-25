@@ -1,8 +1,7 @@
 <script type="text/javascript" src="../plugin/tinymce/tinymce.min.js"></script>
 <script type="text/javascript" src="js/tinymce_config.js"></script>
-<script type="text/javascript" src="js/select2.min.js"></script>
+<script type="text/javascript" src="js/validate.js"></script>
 <script type="text/javascript" src="js/jquery.datetimepicker.full.min.js"></script>
-<link href="css/select2.min.css" rel="stylesheet" />
 <link href="css/jquery.datetimepicker.min.css" rel="stylesheet" />
 
 <?php
@@ -55,7 +54,7 @@ switch ($show) {
             buka_form($link, $data['id'], strtolower($aksi));
 			buat_textbox("Judul (Bahasa Indonesia) *", "judul_terjemahan", $data['judul_terjemahan'], 10, true);
 			buat_textbox("Judul (English)", "judul", $data['judul'], 10);
-			buat_textarea("Isi (Bahasa Indonesia)", "isi_terjemahan", $data['isi_terjemahan'], "richtext", true);
+			buat_textarea("Isi (Bahasa Indonesia) *", "isi_terjemahan", $data['isi_terjemahan'], "richtext", true);
             buat_textarea("Isi (English)", "isi", $data['isi'], "richtext");
 			buat_textbox("Tanggal *", "tanggal", $data['tanggal'], 2, true, 'text', '', 'off');
 			buat_imagepicker("Gambar Jadwal *", "gambar", $data['gambar'], 6);
@@ -116,7 +115,7 @@ switch ($show) {
 <script>
     $(document).ready(function() {
         $('[name="tanggal"]').datetimepicker({
-            format:'d-M-Y',
+            format:'Y-m-d',
 			timepicker: false
         });
     });

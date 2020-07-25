@@ -1,10 +1,6 @@
 <script type="text/javascript" src="../plugin/tinymce/tinymce.min.js"></script>
 <script type="text/javascript" src="js/tinymce_config.js"></script>
-<script type="text/javascript" src="js/select2.min.js"></script>
-<script type="text/javascript" src="js/jquery.datetimepicker.full.min.js"></script>
-<link href="css/select2.min.css" rel="stylesheet" />
-<link href="css/jquery.datetimepicker.min.css" rel="stylesheet" />
-
+<script type="text/javascript" src="js/validate.js"></script>
 
 <?php
 if (!defined("INDEX")) header('location: ../index.php');

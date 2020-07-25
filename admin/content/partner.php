@@ -1,10 +1,6 @@
 <script type="text/javascript" src="../plugin/tinymce/tinymce.min.js"></script>
 <script type="text/javascript" src="js/tinymce_config.js"></script>
-<script type="text/javascript" src="js/select2.min.js"></script>
-<script type="text/javascript" src="js/jquery.datetimepicker.full.min.js"></script>
-<link href="css/select2.min.css" rel="stylesheet" />
-<link href="css/jquery.datetimepicker.min.css" rel="stylesheet" />
-
+<script type="text/javascript" src="js/validate.js"></script>
 
 <?php
 if (!defined("INDEX")) header('location: ../index.php');
@@ -59,7 +55,7 @@ switch ($show) {
             buka_form($link, $data['id_partner'], strtolower($aksi));
 			buat_textbox("Nama Mitra *", "nama_partner", $data['nama_partner'], 10, true);
 			buat_textarea("Deskripsi (Bahasa Indonesia) *", "deskripsi_terjemahan", $data['deskripsi_terjemahan'], "richtext", true);
-            buat_textarea("Deskripsi (English)*", "deskripsi", $data['deskripsi'], "richtext");
+            buat_textarea("Deskripsi (English)", "deskripsi", $data['deskripsi'], "richtext");
             buat_imagepicker("Logo Mitra *", "logo_partner", $data['logo_partner'], 10);
             buat_imagepicker_multiple("Gallery Mitra *", "gallery_partner", $data['gallery_partner'], 10);
             tutup_form($link);
@@ -114,14 +110,3 @@ switch ($show) {
         break;
 }
 ?>
-
-<script>
-    $(document).ready(function() {
-        $('.js-example-basic-multiple').select2();
-
-        $('[name="tanggal"]').datetimepicker({
-            inline: true,
-        });
-
-    });
-</script>

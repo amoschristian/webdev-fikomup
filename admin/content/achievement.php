@@ -1,8 +1,6 @@
 <script type="text/javascript" src="../plugin/tinymce/tinymce.min.js"></script>
 <script type="text/javascript" src="js/tinymce_config.js"></script>
-<script type="text/javascript" src="js/select2.min.js"></script>
-<link href="css/select2.min.css" rel="stylesheet" />
-
+<script type="text/javascript" src="js/validate.js"></script>
 
 <?php
 if (!defined("INDEX")) header('location: ../index.php');
@@ -54,7 +52,7 @@ switch ($show) {
 			buka_form($link, $data['id'], strtolower($aksi));
 			buat_textbox("Judul Prestasi (Bahasa Indonesia) *", "judul_terjemahan", $data['judul_terjemahan'], 10, true);
 			buat_textbox("Judul Prestasi (English)", "judul", $data['judul'], 10);
-			buat_textarea("Isi Prestasi (Bahasa Indonesia)", "isi_terjemahan", $data['isi_terjemahan'], "richtext");
+			buat_textarea("Isi Prestasi (Bahasa Indonesia) *", "isi_terjemahan", $data['isi_terjemahan'], "richtext", true);
             buat_textarea("Isi Prestasi (English)", "isi", $data['isi'], "richtext");
             buat_textbox("Lokasi", "lokasi", $data['lokasi']);
             buat_imagepicker_multiple("Gambar", "gambar", $data['gambar']);
@@ -121,9 +119,3 @@ switch ($show) {
         break;
 }
 ?>
-
-<script>
-    $(document).ready(function() {
-        $('.js-example-basic-multiple').select2();
-    });
-</script>

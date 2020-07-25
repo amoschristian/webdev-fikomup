@@ -1,8 +1,7 @@
 <script type="text/javascript" src="../plugin/tinymce/tinymce.min.js"></script>
 <script type="text/javascript" src="js/tinymce_config.js"></script>
-<script type="text/javascript" src="js/select2.min.js"></script>
+<script type="text/javascript" src="js/validate.js"></script>
 <script type="text/javascript" src="js/jquery.datetimepicker.full.min.js"></script>
-<link href="css/select2.min.css" rel="stylesheet" />
 <link href="css/jquery.datetimepicker.min.css" rel="stylesheet" />
 <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.js'></script>
 <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.css' rel='stylesheet' />
@@ -19,6 +18,11 @@
     width: 100%;
     height: 50%;
     overflow: hidden;
+}
+
+.mapboxgl-canvas {
+    position: relative !important;
+    height: 400px;
 }
 </style>
 
@@ -78,10 +82,10 @@ switch ($show) {
 			buat_textbox("Judul Acara (Bahasa Indonesia) *", "judul_terjemahan", $data['judul_terjemahan'], 10, true);
             buat_textbox("Judul Acara (English)", "judul", $data['judul'], 10);
             buat_textbox("Tanggal Acara *", "tanggal", $data['tanggal'], 10);
-            buat_textbox("Lokasi *", "lokasi", $data['lokasi'], 10);
+            buat_textbox("Lokasi *", "lokasi", $data['lokasi'], 10, true);
 			buat_map("Peta", "peta", $data['map'], $mapBoxToken);
-			buat_textarea("Deskripsi Acara (Bahasa Indonesia) *", "isi_terjemahan", $data['isi_terjemahan'], "richtext");
-            buat_textarea("Deskripsi Acara (English)*", "isi", $data['isi'], "richtext");
+			buat_textarea("Deskripsi Acara (Bahasa Indonesia) *", "isi_terjemahan", $data['isi_terjemahan'], "richtext", true);
+            buat_textarea("Deskripsi Acara (English)", "isi", $data['isi'], "richtext");
             buat_imagepicker("Gambar", "gambar", $data['gambar']);
 
             $kategori = $mysqli->query("SELECT * FROM kategori");
@@ -160,9 +164,6 @@ switch ($show) {
 
 <script>
     $(document).ready(function() {
-        $('.js-example-basic-multiple').select2();
-
         $('[name="tanggal"]').datetimepicker({});
-
     });
 </script>
