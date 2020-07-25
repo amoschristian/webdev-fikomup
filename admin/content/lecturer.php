@@ -55,7 +55,7 @@ switch ($show) {
         if ($aksi == "Edit" and $_SESSION['leveluser'] != "admin" and $data['id_user'] != $_SESSION['iduser']) {
             header('location:' . $link);
         } else {
-            echo '<h3 class="page-header"><b>' . $aksi . ' Lecturer</b> </h3>';
+            echo '<h3 class="page-header"><b>' . $aksi . ' Dosen</b> </h3>';
             buka_form($link, $data['id_lecturer'], strtolower($aksi));
             buat_textbox("Nomor Pokok Dosen *", "npd", $data['npd'], 10, true);
             buat_textbox("N I D N *", "nidn", $data['nidn'], 10, true);
