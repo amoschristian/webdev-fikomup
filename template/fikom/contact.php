@@ -1,3 +1,4 @@
+
 <?php
 $folder_template = web_info('url') . '/' . folder_template();
 ?>
@@ -141,7 +142,11 @@ $folder_template = web_info('url') . '/' . folder_template();
 
 </html>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
 <script>
+
 $('#contact_send_btn').off().on('click', function(e){
 	var form = $('#form').serializeArray();
 
@@ -154,8 +159,26 @@ $('#contact_send_btn').off().on('click', function(e){
 				url: "email.php",
 				data: form, 
 				success: function(data){
-					console.log(data); 
-				}
+					var bgColor = '#5cb85c';
+					var message = '<?= $lang->t('Message has been sent. Thank you for your inqury/feedback.') ?>';
+					if (data != 'sent') {
+						var bgColor = '#d9534f';
+						var message = '<?= $lang->t('Message failed to send.') ?>';
+					}	
+
+					flash(message,{
+						'bgColor' : bgColor,
+						'ftColor' : 'white',
+						'ftSize'  : '32px',
+						'vPosition' : 'top',
+						'hPosition' : 'right',
+						'fadeIn' : 400,
+						'fadeOut' : 400,
+						'clickable' : true,
+						'autohide' : true,
+						'duration' : 4000
+					});
+				}	
 			});
 		}
 	}

@@ -77,6 +77,8 @@ function buildTranslateContact() {
         'Feedback' => 'Feedback',
         'Name' => 'Nama',
         'Message' => 'Pesan',
+        'Message has been sent. Thank you for your inqury/feedback.' => 'Pesan berhasil dikirim. Terima kasih atas pertanyaan/feedback anda.',
+        'Message failed to send.' => 'Pesan tidak berhasil dikirim.'
     ];
 }
 

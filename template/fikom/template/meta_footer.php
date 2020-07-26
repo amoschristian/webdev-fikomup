@@ -26,6 +26,12 @@ switch ($module) {
             "plugins/parallax.js-2.0.0/jquery.parallax.min.js",
         ];
         break;
+    
+    case 'contact':
+        $extra_js = [
+            "js/flash.min.js",
+        ];
+        break;
 
     default:
         # code...
