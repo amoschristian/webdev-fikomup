@@ -33,22 +33,24 @@ function sanitize_my_email($field) {
 }
 
 function send_mail($subject, $message, $from_email, $from_name){
-    $sent = false;
     $mail = new PHPMailer(true);
+    $to_email = 'inquiry@fikomup.com';
+    $to_name = 'Inquiry';
+    
     try {
         //Server settings
         $mail->SMTPDebug    = SMTP::DEBUG_OFF;                // Enable verbose debug output
         $mail->isSMTP();                                      // Send using SMTP
-        $mail->Host         = 'smtp.gmail.com';               // Set the SMTP server to send through
+        $mail->Host         = 'smtp-relay.sendinblue.com';    // Set the SMTP server to send through
         $mail->Username     = 'fikomup.dev@gmail.com';        // SMTP username
-        $mail->Password     = 'bidang03';                     // SMTP password
+        $mail->Password     = 'VjaHZ4Yc3fEUrpqt';             // SMTP password
         $mail->SMTPSecure   = PHPMailer::ENCRYPTION_STARTTLS; // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
         $mail->Port         = 587;                            // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
         $mail->SMTPAuth     = true;                           // authentication enabled
 
         //Recipients
         $mail->setFrom($from_email, $from_name);
-        $mail->addAddress('inquiry@fikomup.com', 'Inquiry');       // Add a recipient
+        $mail->addAddress($to_email, $to_name);       // Add a recipient
         // $mail->addCC('cc@example.com');                          //Add CC
 
         // Content
@@ -58,7 +60,6 @@ function send_mail($subject, $message, $from_email, $from_name){
         $mail->AltBody = $message;
 
         $mail->send();
-        $sent = true;
         echo "sent";
     } catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
