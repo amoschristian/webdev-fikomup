@@ -20,11 +20,11 @@ while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
         $data['gambar'] = print_image($data['gambar']);
     }
 
-    $isi = $data['isi'];
-    $judul = $data['judul'];
-    if ($lang->language == $default_language) {
-        $isi = ($data['isi_terjemahan'] ?: $isi);
-        $judul = ($data['judul_terjemahan'] ?: $judul);
+    $isi = $data['isi_terjemahan'];
+    $judul = $data['judul_terjemahan'];
+    if ($lang->language != $default_language) {
+        $isi = ($data['isi'] ?: $isi);
+        $judul = ($data['judul'] ?: $judul);
     }
 
 	$detail_video[$data['id']] = $data;

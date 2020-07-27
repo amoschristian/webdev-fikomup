@@ -18,12 +18,12 @@ if ($result) {
 	$gambar = $data['gambar'];
 	$tanggal = $data['tanggal'];
 	
-	$judul = $data['judul'];
-	$isi = $data['isi'];
+	$judul = $data['judul_terjemahan'];
+	$isi = $data['isi_terjemahan'];
 	
-	if ($lang->language == $default_language) {
-		$judul = ($data['judul_terjemahan'] ?: $judul);
-		$isi = ($data['isi_terjemahan'] ?: $isi);
+	if ($lang->language != $default_language) {
+		$judul = ($data['judul'] ?: $judul);
+		$isi = ($data['isi'] ?: $isi);
 	}
 	
 	$id = $data['id'];

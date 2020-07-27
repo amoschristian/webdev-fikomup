@@ -6,11 +6,11 @@ $result = $mysqli->query($query);
 $detail_facility = [];
 
 while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
-    $isi = $data['isi'];
-    $nama = $data['nama'];
-    if ($lang->language == $default_language) {
-        $isi = ($data['isi_terjemahan'] ?: $isi);
-        $nama = ($data['nama_terjemahan'] ?: $nama);
+    $isi = $data['isi_terjemahan'];
+    $nama = $data['nama_terjemahan'];
+    if ($lang->language != $default_language) {
+        $isi = ($data['isi'] ?: $isi);
+        $nama = ($data['nama'] ?: $nama);
     }
 
     $detail_facility[$data['id']] = $data;

@@ -20,11 +20,11 @@ $sub_news_query = $mysqli->query("SELECT * FROM artikel WHERE headline = 2  ORDE
 
 while ($data = $sub_news_query->fetch_array(MYSQLI_ASSOC)) {
     $sentences = 1;
-    $isi = $data['isi'];
-    $judul = $data['judul'];
-    if ($lang->language == $default_language) {
-        $isi = ($data['isi_terjemahan'] ?: $isi);
-        $judul = ($data['judul_terjemahan'] ?: $judul);
+    $isi = $data['isi_terjemahan'];
+    $judul = $data['judul_terjemahan'];
+    if ($lang->language != $default_language) {
+        $isi = ($data['isi'] ?: $isi);
+        $judul = ($data['judul'] ?: $judul);
     }
 	$text_pendek =  implode('. ', array_slice(explode('.', strip_tags($isi)), 0, $sentences)) . '.';
 
