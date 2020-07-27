@@ -37,7 +37,7 @@ $instagram = new Instagram;
 
 $instagramImages = (object) ['data' => null];
 try {
-    // $instagramImages = $instagram->getUserMedia(6);
+    $instagramImages = $instagram->getUserMedia(6);
 }  catch (Exception $e) {
     $instagramImages = (object) ['data' => null];
 }
