@@ -5,11 +5,6 @@ $author = array("author");
 
 buat_menu("dashboard", "home", "Dashboard", $admin_author);
 
-buka_dropdown("list-alt", "Kategori & Tag");
-	buat_submenu("kategori", "Kategori");
-	// buat_submenu("tag", "Tag");
-tutup_dropdown();
-
 buka_dropdown("th-list", "Tentang");
 	buat_submenu("organization", "Struktur Organisasi");
 	buat_submenu("lecturer", "Dosen");
@@ -33,15 +28,17 @@ buka_dropdown("th-list", "Informasi Akademik");
 	buat_submenu("list_course", "Daftar Mata Kuliah");
 tutup_dropdown();
 
-buat_menu("berita", "list-alt", "Berita", $admin_author);
-buat_menu("event", "list-alt", "Acara", $admin_author);
-
 buka_dropdown("th-list", "LPPM");
 	buat_submenu("devotion", "Pengabdian");
 	buat_submenu("research", "Penelitian");
 tutup_dropdown();
 
-buat_menu("partner", "picture", "Mitra", $admin_author);
+buat_menu("berita", "list-alt", "Berita", $admin_author);
+buat_menu("event", "list-alt", "Acara", $admin_author);
+
+buat_menu("partner", "list-alt", "Mitra", $admin_author);
+
+buat_menu("kategori", "list-alt", "Kategori", $admin_author);
 
 buat_menu("media", "picture", "Media", $admin);
 
