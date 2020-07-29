@@ -49,7 +49,7 @@ switch ($show) {
         if ($aksi == "Edit" and $_SESSION['leveluser'] != "admin" and $data['id_user'] != $_SESSION['iduser']) {
             header('location:' . $link);
         } else {
-            echo '<h3 class="page-header"><b>' . $aksi . ' Pengumuman</b> </h3>';
+            echo '<h3 class="page-header"><b>' . $aksi . ' SJM</b> </h3>';
 			buka_form($link, $data['id'], strtolower($aksi));
 			buat_textbox("Nama Unit SJM (Bahasa Indonesia) *", "judul_terjemahan", $data['judul_terjemahan'], 10, true);
 			buat_textbox("Nama Unit SJM (English)", "judul", $data['judul'], 10);
