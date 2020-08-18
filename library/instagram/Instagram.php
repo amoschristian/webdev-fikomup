@@ -15,9 +15,9 @@ class Instagram {
 
     public function __construct() {
         $this->instagram = new InstagramBasicDisplay([
-            'appId' => '291060278548687',
-            'appSecret' => 'd6c0c2de66b281f811105743ff7d6854',
-            'redirectUri' => self::REDIRECT_URI_LIVE
+            'appId' => '593765884864339',
+            'appSecret' => 'c61aa22f3eb36f5049ffdc0f7de424ce',
+            'redirectUri' => self::REDIRECT_URI_LOCAL
         ]);
 
         $token = $this->getAccessToken();

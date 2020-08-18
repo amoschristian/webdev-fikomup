@@ -80,9 +80,9 @@ try {
             <!-- Social Media Feed -->
             <div class="col-sm-4 text-left" style="padding-left: 20px">
                 <div class="ig-feed">
-                    <h1><img src="<?= $folder_template ?>/images/ig_logo.png"" width="30px"></img><a href="https://www.instagram.com/fikomup" target="_blank" class="ig-link"> fikomup</a></h1>
+                    <h1><img src="<?= $folder_template ?>/images/ig_logo.png"" width="30px"></img><a href="https://www.instagram.com/fikom_up" target="_blank" class="ig-link"> fikom_up</a></h1>
                     <div class="ig-feed-box" id="instafeed">
-                        <?php if ($instagramImages->data) : ?>
+                        <?php if (!isset($instagramImages->error) || empty($instagramImages->error)) : ?>
                             <?php foreach($instagramImages->data as $media) : ?>
                                 <a href="<?= $media->permalink ?>" target="_blank"><img class="ig-items" src="<?= $media->media_url ?>"></a>
                             <?php endforeach ?>
