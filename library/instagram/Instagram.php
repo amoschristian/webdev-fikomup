@@ -17,7 +17,7 @@ class Instagram {
         $this->instagram = new InstagramBasicDisplay([
             'appId' => '593765884864339',
             'appSecret' => 'c61aa22f3eb36f5049ffdc0f7de424ce',
-            'redirectUri' => self::REDIRECT_URI_LOCAL
+            'redirectUri' => self::REDIRECT_URI_LIVE
         ]);
 
         $token = $this->getAccessToken();
