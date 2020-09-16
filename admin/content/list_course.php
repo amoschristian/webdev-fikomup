@@ -41,7 +41,7 @@ switch ($show) {
             $data = $query->fetch_array();
             $aksi = "Edit";
         } else {
-            $data = array("id" => "", "semester" => "", "list" => "", "list_minor" => "", "list_peminatan" => "");
+            $data = array("id" => "", "semester" => "", "list" => "", "list_minor" => "", "list_peminatan" => "", "list_pilihan" => "");
             $aksi = "Tambah";
         }
 
@@ -54,6 +54,7 @@ switch ($show) {
 			buat_input_table_course("Mata Kuliah Wajib", "list", $data['list'], 8);
 			buat_input_table_course("Mata Kuliah Minor", "list_minor", $data['list_minor'], 8);
 			buat_input_table_course("Mata Kuliah Peminatan", "list_peminatan", $data['list_peminatan'], 8);
+			buat_input_table_course("Mata Kuliah Pilihan", "list_pilihan", $data['list_pilihan'], 8);
 			echo '<br>';
             tutup_form($link);
         }
@@ -65,6 +66,7 @@ switch ($show) {
         $list = json_encode($_POST['list']);
         $list_minor = json_encode($_POST['list_minor']);
         $list_peminatan = json_encode($_POST['list_peminatan']);
+        $list_pilihan = json_encode($_POST['list_pilihan']);
         $user = $_SESSION['iduser'];
         
         if ($_POST['aksi'] == "tambah") {
@@ -73,6 +75,7 @@ switch ($show) {
 				list		    = '$list',
 				list_minor		= '$list_minor',
 				list_peminatan	= '$list_peminatan',
+				list_pilihan	= '$list_pilihan',
 				id_user		    = '$user',
                 created_at      = now()
 			");
@@ -82,6 +85,7 @@ switch ($show) {
 					list		    = '$list',
 					list_minor		= '$list_minor',
 					list_peminatan	= '$list_peminatan',
+					list_pilihan	= '$list_pilihan',
                     updated_at      = now()
 				WHERE id='$_POST[id]'");
         }

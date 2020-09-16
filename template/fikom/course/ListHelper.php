@@ -12,6 +12,7 @@ function populateData($mysqli) {
 			$generalArray = [];
 			$peminatanArray = [];
 			$minorArray = [];
+			$pilihanArray = [];
 
 			$generalRawData = json_decode($data['list'], true);
 			$generalTotal = 0;
@@ -58,10 +59,22 @@ function populateData($mysqli) {
 				}
 			}
 
+
+			$pilihanRawData = json_decode($data['list_pilihan'], true);
+			foreach ($pilihanRawData as $pilihan) {
+				if ($pilihan['id'] != "" && $pilihan['name'] != "" && $pilihan['sks'] != "") {
+					$pilihanArray[$pilihan['id']] = [
+						$pilihan['name'],
+						$pilihan['sks']
+					];
+				}
+			}
+			
 			$finalData['Semester ' . $data['semester']] = [
 				'general' => $generalArray,
 				'peminatan' => $peminatanArray,
-				'minor' => $minorArray
+				'minor' => $minorArray,
+				'pilihan' => $pilihanArray
 			];
 		}
 	}
