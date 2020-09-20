@@ -361,7 +361,7 @@ $config = array(
     'preview_text_files'                      => true, // eg.: txt, log etc.
     'edit_text_files'                         => true, // eg.: txt, log etc.
     'create_text_files'                       => true, // only create files with exts. defined in $config['editable_text_file_exts']
-    'download_files'			  => true, // allow download files or just preview
+    'download_files'			              => true, // allow download files or just preview
 
     // you can preview these type of files if $preview_text_files is true
     'previewable_text_file_exts'              => array( "bsh", "c","css", "cc", "cpp", "cs", "csh", "cyc", "cv", "htm", "html", "java", "js", "m", "mxml", "perl", "pl", "pm", "py", "rb", "sh", "xhtml", "xml","xsl",'txt', 'log','' ),
@@ -509,7 +509,7 @@ $config = array(
     /*******************
     * URL upload
     *******************/
-    'url_upload'                             => true,
+    'url_upload'                             => false,
 
 
     //************************************

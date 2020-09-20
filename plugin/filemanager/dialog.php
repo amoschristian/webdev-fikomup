@@ -477,7 +477,8 @@ $get_params = http_build_query($get_params);
                                     <!-- The extended global progress state -->
                                     <div class="progress-extended"></div>
                                 </div>
-                                <div class="text-center">
+                                <div class="text-center" style="margin-top: 5px">Max upload file size: 10 MB</div>
+                                <div class="text-center" style="margin-top: 5px">
                                     <!-- The fileinput-button span is used to style the file input field as button -->
                                     <span class="btn btn-success fileinput-button">
                                         <i class="glyphicon glyphicon-plus"></i>
