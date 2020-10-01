@@ -47,7 +47,11 @@ $page = [
 	'lab_tv',
 	'devotion',
 	'research',
-	'facility'
+	'facility',
+	'vision_mission',
+	'history',
+	'admission_info',
+	'pmb_online'
 ];
 foreach($page as $pg){
 	if($content == $pg and $kosong){

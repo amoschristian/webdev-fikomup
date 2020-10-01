@@ -1,13 +1,28 @@
+<?php
+
+$id = isset($_GET['id']) ? $_GET['id'] : 'latest';
+
+$data = $judul = $isi = null;
+$tipeMisi = 0;
+$query = "SELECT * FROM vision_mission WHERE tipe = $tipeMisi LIMIT 1;";
+
+$result = $mysqli->query($query);
+
+if ($result) {
+	$data = $result->fetch_array(MYSQLI_ASSOC);
+
+	$isi = $data['isi_terjemahan'];
+	
+	if ($lang->language != $default_language) {
+		$isi = ($data['isi'] ?: $isi);
+    }
+}
+?>
+
 <div class="news_post">
     <div class="news_post_text">
         <p>
-            <ul>
-                <li>Menyelenggarakan pendidikan dan pembelajaran komunikasi dalam jurnalistik multimedia, komunikasi strategis, dan kajian media berdasarkan rumusan sikap, pengetahuan, dan keterampilan umum sesuai dengan rumusan dalam Standar Nasional Pendidikan Tinggi (SNPT). </li>
-                <li>Melakukan penelitian terkait keilmuan komunikasi dalam jurnalistik multimedia, komunikasi strategis, dan kajian media. </li>
-                <li>Melakukan pengabdian kepada masyarakat terkait dengan bidang kajian komunikasi terapan dalam jurnalistik multimedia, komunikasi strategis, dan kajian media.</li>
-                <li>Menciptakan suasana akademik yang kondusif, sehingga penyelenggaraan pengajaran dan pembelajaran, penelitian, dan pengabdian kepada masyarakat dalam bidang ilmu komunikasi berjalan dengan baik. </li>
-                <li>Melakukan kerjasama dalam bidang ilmu komunikasi dengan lembaga, dalam dan luar negeri.</li>
-            </ul>
+            <?= $isi ?>
         </p>
     </div>
 </div>

@@ -5,7 +5,14 @@ $author = array("author");
 
 buat_menu("dashboard", "home", "Dashboard", $admin_author);
 
+buka_dropdown("th-list", "Penerimaan");
+	buat_submenu("admission_info", "Informasi");
+	buat_submenu("pmb_online", "PMB Online");
+tutup_dropdown();
+
 buka_dropdown("th-list", "Tentang");
+	buat_submenu("history", "Sejarah");
+	buat_submenu("vision_mission", "Visi dan Misi");
 	buat_submenu("organization", "Struktur Organisasi");
 	buat_submenu("lecturer", "Dosen");
 	buat_submenu("facility", "Fasilitas");
