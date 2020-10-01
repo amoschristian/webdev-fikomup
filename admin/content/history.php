@@ -21,7 +21,7 @@ switch ($show) {
         if ($_SESSION['leveluser'] == "admin") $query = $mysqli->query("SELECT * FROM history ORDER BY created_at DESC");
         else $query = $mysqli->query("SELECT * FROM history WHERE id_user='$id_user' ORDER BY created_at DESC");
         while ($data = $query->fetch_array()) {			
-            isi_tabel($no, array($data['judul']), $link, $data['id']);
+            isi_tabel($no, array($data['judul']), $link, $data['id'], true, false);
             $no++;
         }
         tutup_tabel();
