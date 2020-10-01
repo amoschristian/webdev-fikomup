@@ -12,23 +12,17 @@ switch ($show) {
 
         //Menampilkan data
     default:
-        echo '<h3 class="page-header"><b>Visi dan Misi</b>
-				<a href="' . $link . '&show=form" class="btn btn-primary btn-sm pull-right top-button">
-					<i class="glyphicon glyphicon-plus-sign"></i> Tambah
-				</a>
-			</h3>';
+        echo '<h3 class="page-header"><b>Visi dan Misi</b></h3>';
 
-        buka_tabel(array("Jenis Data", "Tanggal Posting"));
+        buka_tabel(array("Jenis Data"));
         $no = 1;
         $id_user = $_SESSION['iduser'];
 
         if ($_SESSION['leveluser'] == "admin") $query = $mysqli->query("SELECT * FROM vision_mission ORDER BY created_at DESC");
         else $query = $mysqli->query("SELECT * FROM vision_mission WHERE id_user='$id_user' ORDER BY created_at DESC");
         while ($data = $query->fetch_array()) {
-            $tanggal = print_tanggal($data['created_at']);
-
             $dataType = ($data['tipe'] == 1 ? 'Visi' : 'Misi');
-            isi_tabel($no, array($dataType, $tanggal), $link, $data['id'], true, false);
+            isi_tabel($no, array($dataType), $link, $data['id'], true, false);
             $no++;
         }
         tutup_tabel();
