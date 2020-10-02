@@ -130,8 +130,8 @@ $folder_template = web_info('url') . '/' . folder_template();
 
 	function myScroll() {
 		if (
-			document.body.scrollTop > 100 ||
-			document.documentElement.scrollTop > 100
+			document.body.scrollTop > 200 ||
+			document.documentElement.scrollTop > 200
 		) {
 			document.getElementById('header').className =
 				'menus__scroll ';
@@ -142,8 +142,8 @@ $folder_template = web_info('url') . '/' . folder_template();
 
 	function myMenu() {
 		if (
-			document.body.scrollTop > 100 ||
-			document.documentElement.scrollTop > 100
+			document.body.scrollTop > 00 ||
+			document.documentElement.scrollTop > 00
 		) {
 			document.getElementById('menu_name').className =
 				'des_container_scroll ';
