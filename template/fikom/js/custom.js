@@ -54,13 +54,13 @@ $(document).ready(function () {
 
   function setHeader() {
     if (window.innerWidth < 992) {
-      if ($(window).scrollTop() > 200) {
+      if ($(window).scrollTop() > 250) {
         header.addClass("scrolled");
       } else {
         header.removeClass("scrolled");
       }
     } else {
-      if ($(window).scrollTop() > 200) {
+      if ($(window).scrollTop() > 250) {
         header.addClass("scrolled");
       } else {
         header.removeClass("scrolled");

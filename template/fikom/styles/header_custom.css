@@ -23,6 +23,7 @@
   font-family: "Libre Franklin", sans-serif;
   padding-left: 10px;
   padding-top: 0px;
+  transition: all 500ms ease-in-out;
 }
 
 /* RESPONSIVE */

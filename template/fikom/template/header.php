@@ -5,7 +5,7 @@ $folder_template = web_info('url') . '/' . folder_template();
 <link rel='stylesheet' type='text/css' href='<?= $folder_template . '/styles/header_custom.css' ?>'>
 <link rel='stylesheet' type='text/css' href='<?= $folder_template . '/styles/responsive.css' ?>'>
 
-<header class="header d-flex flex-row">
+<header class="header d-flex flex-row" id='trans' >
 	<div class="header_content d-flex flex-row align-items-center">
 		<!-- Logo -->
 		<div class="logo_container">
@@ -126,12 +126,13 @@ $folder_template = web_info('url') . '/' . folder_template();
 	window.onscroll = function() {
 		myScroll();
 		myMenu();
+		myTT();
 	};
 
 	function myScroll() {
 		if (
-			document.body.scrollTop > 200 ||
-			document.documentElement.scrollTop > 200
+			document.body.scrollTop > 250 ||
+			document.documentElement.scrollTop > 250
 		) {
 			document.getElementById('header').className =
 				'menus__scroll ';
@@ -140,10 +141,25 @@ $folder_template = web_info('url') . '/' . folder_template();
 		}
 	}
 
+	function myTT() {
+		if (
+			document.body.scrollTop > 250 ||
+			document.documentElement.scrollTop > 250
+		) {
+			document.getElementById('trans').className =
+				'header_scrolled';
+			
+		} else {
+			document.getElementById('trans').className =
+				'header ';
+		}
+	}
+	
+	
 	function myMenu() {
 		if (
-			document.body.scrollTop > 00 ||
-			document.documentElement.scrollTop > 00
+			document.body.scrollTop > 250 ||
+			document.documentElement.scrollTop > 250
 		) {
 			document.getElementById('menu_name').className =
 				'des_container_scroll ';
