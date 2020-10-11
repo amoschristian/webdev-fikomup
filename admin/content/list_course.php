@@ -69,26 +69,35 @@ switch ($show) {
         $list_pilihan = json_encode($_POST['list_pilihan']);
         $user = $_SESSION['iduser'];
         
-        if ($_POST['aksi'] == "tambah") {
-            $mysqli->query("INSERT INTO courses SET
-				semester		= $semester,
-				list		    = '$list',
-				list_minor		= '$list_minor',
-				list_peminatan	= '$list_peminatan',
-				list_pilihan	= '$list_pilihan',
-				id_user		    = '$user',
-                created_at      = now()
-			");
-        } elseif ($_POST['aksi'] == "edit") {
-            $mysqli->query("UPDATE courses SET
-					semester		= $semester,
-					list		    = '$list',
-					list_minor		= '$list_minor',
-					list_peminatan	= '$list_peminatan',
-					list_pilihan	= '$list_pilihan',
-                    updated_at      = now()
-				WHERE id='$_POST[id]'");
-        }
+        try {
+            mysqli_report(MYSQLI_REPORT_ALL);
+
+            if ($_POST['aksi'] == "tambah") {
+                $mysqli->query("INSERT INTO courses SET
+                    semester		= $semester,
+                    list		    = '$list',
+                    list_minor		= '$list_minor',
+                    list_peminatan	= '$list_peminatan',
+                    list_pilihan	= '$list_pilihan',
+                    id_user		    = '$user',
+                    created_at      = now()
+                ");
+            } elseif ($_POST['aksi'] == "edit") {
+                $mysqli->query("UPDATE courses SET
+                        semester		= $semester,
+                        list		    = '$list',
+                        list_minor		= '$list_minor',
+                        list_peminatan	= '$list_peminatan',
+                        list_pilihan	= '$list_pilihan',
+                        updated_at      = now()
+                    WHERE id='$_POST[id]'");
+            }
+        } catch(Exception $e) {
+            include_once "../plugin/logger/Logger.php";
+            Logger::error('SQL Error', [$e->getMessage()]);
+            Logger::error($e->getTraceAsString());
+        } 
+        mysqli_report(MYSQLI_REPORT_OFF);
         header('location:' . $link);
         break;
 

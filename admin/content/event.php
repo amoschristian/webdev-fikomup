@@ -110,43 +110,53 @@ switch ($show) {
         $tanggal            = date('Y-m-d H:i:s', strtotime($_POST['tanggal']));
         $tag                = (isset($_POST['tag']) && $_POST['tag']) ? implode(",", $_POST['tag']) : '';
         $user               = $_SESSION['iduser'];
-        if ($_POST['aksi'] == "tambah") {
-            $mysqli->query("INSERT INTO event SET
-				judul 		     = '$judul',
-				judul_terjemahan = '$judul_terjemahan',
-				judul_seo 	     = '$judul_seo',
-				isi			     = '$isi',
-				isi_terjemahan	 = '$isi_terjemahan',
-                tanggal          = '$tanggal',
-                lokasi           = '$lokasi',
-				id_user		     = '$user',
-				tag			     = '$tag',
-                map              = '$_POST[peta]',
-				kategori	     = '$_POST[kategori]',
-				gambar 		     = '$_POST[gambar]',
-                created_at       = now()				
-			");
-        } elseif ($_POST['aksi'] == "edit") {
-            $query = "
-                UPDATE event SET
-					judul 		     = '$judul',
-				    judul_terjemahan = '$judul_terjemahan',
-				    judul_seo 	     = '$judul_seo',
-				    isi			     = '$isi',
-				    isi_terjemahan	 = '$isi_terjemahan',
+
+        try {
+            mysqli_report(MYSQLI_REPORT_ALL);
+
+            if ($_POST['aksi'] == "tambah") {
+                $mysqli->query("INSERT INTO event SET
+                    judul 		     = '$judul',
+                    judul_terjemahan = '$judul_terjemahan',
+                    judul_seo 	     = '$judul_seo',
+                    isi			     = '$isi',
+                    isi_terjemahan	 = '$isi_terjemahan',
                     tanggal          = '$tanggal',
                     lokasi           = '$lokasi',
-					id_user		     = '$user',
+                    id_user		     = '$user',
                     tag			     = '$tag',
                     map              = '$_POST[peta]',
-					kategori	     = '$_POST[kategori]',
-					gambar 		     = '$_POST[gambar]',
-                    updated_at       = now()		
-                WHERE id_event='$_POST[id]'
-            ";
+                    kategori	     = '$_POST[kategori]',
+                    gambar 		     = '$_POST[gambar]',
+                    created_at       = now()				
+                ");
+            } elseif ($_POST['aksi'] == "edit") {
+                $query = "
+                    UPDATE event SET
+                        judul 		     = '$judul',
+                        judul_terjemahan = '$judul_terjemahan',
+                        judul_seo 	     = '$judul_seo',
+                        isi			     = '$isi',
+                        isi_terjemahan	 = '$isi_terjemahan',
+                        tanggal          = '$tanggal',
+                        lokasi           = '$lokasi',
+                        id_user		     = '$user',
+                        tag			     = '$tag',
+                        map              = '$_POST[peta]',
+                        kategori	     = '$_POST[kategori]',
+                        gambar 		     = '$_POST[gambar]',
+                        updated_at       = now()		
+                    WHERE id_event='$_POST[id]'
+                ";
 
-            $mysqli->query($query);
-        }
+                $mysqli->query($query);
+            }
+        } catch(Exception $e) {
+            include_once "../plugin/logger/Logger.php";
+            Logger::error('SQL Error', [$e->getMessage()]);
+            Logger::error($e->getTraceAsString());
+        } 
+        mysqli_report(MYSQLI_REPORT_OFF);
         header('location:' . $link);
         break;
 

@@ -110,57 +110,66 @@ switch ($show) {
         $headline = $_POST['headline'];
         $user = $_SESSION['iduser'];
 
-        if ($headline == 1) { //berita utama
-            //remove other headline
-            $remove_main_headline_query = 'UPDATE artikel SET headline = null WHERE headline = 1';
-            $mysqli->query($remove_main_headline_query);
-        } elseif ($headline == 2) { //berita penunjang
-            $checking_query = 'SELECT * FROM artikel WHERE headline = 2 ORDER BY created_at ASC';
-            $result = $mysqli->query($checking_query);
+        try {
+            if ($headline == 1) { //berita utama
+                //remove other headline
+                $remove_main_headline_query = 'UPDATE artikel SET headline = null WHERE headline = 1';
+                $mysqli->query($remove_main_headline_query);
+            } elseif ($headline == 2) { //berita penunjang
+                $checking_query = 'SELECT * FROM artikel WHERE headline = 2 ORDER BY created_at ASC';
+                $result = $mysqli->query($checking_query);
 
-            $countResult = mysqli_num_rows($result);
-            if ($countResult > 2) { //if got more than 2 then remove one to be replaced with current one
-                while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
-                    $remove_last_headline_query = "UPDATE artikel SET headline = null WHERE id_artikel = {$data['id_artikel']}";
-                    $mysqli->query($remove_last_headline_query);
-                    break;
+                $countResult = mysqli_num_rows($result);
+                if ($countResult > 3) { //if got more than 2 then remove one to be replaced with current one
+                    while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
+                        $remove_last_headline_query = "UPDATE artikel SET headline = null WHERE id_artikel = {$data['id_artikel']}";
+                        $mysqli->query($remove_last_headline_query);
+                        break;
+                    }
                 }
             }
-        }
-        
-        if ($_POST['aksi'] == "tambah") {
-            $mysqli->query("INSERT INTO artikel SET
-				judul 		    = '$judul',
-				judul_seo 	    = '$judul_seo',
-				judul_terjemahan= '$judul_terjemahan',
-				isi			    = '$isi',
-				isi_terjemahan  = '$isi_terjemahan',
-				hari		    = '$hari_ini',
-				tanggal		    = '$tanggal',
-				jam			    = '$jam',
-				id_user		    = '$user',
-				headline        = '$headline',
-				kategori	    = '$_POST[kategori]',
-				gambar 		    = '$_POST[gambar]',
-                created_at      = now()			
-			");
-        } elseif ($_POST['aksi'] == "edit") {
-            $mysqli->query("UPDATE artikel SET
-					judul 		    = '$judul',
-					judul_seo 	    = '$judul_seo',
+
+            mysqli_report(MYSQLI_REPORT_ALL);
+
+            if ($_POST['aksi'] == "tambah") {
+                $mysqli->query("INSERT INTO artikel SET
+                    judul 		    = '$judul',
+                    judul_seo 	    = '$judul_seo',
                     judul_terjemahan= '$judul_terjemahan',
-					isi			    = '$isi',
+                    isi			    = '$isi',
                     isi_terjemahan  = '$isi_terjemahan',
-					hari		    = '$hari_ini',
-					tanggal		    = '$tanggal',
-					jam			    = '$jam',
-					id_user		    = '$user',
+                    hari		    = '$hari_ini',
+                    tanggal		    = '$tanggal',
+                    jam			    = '$jam',
+                    id_user		    = '$user',
                     headline        = '$headline',
-					kategori	    = '$_POST[kategori]',
-					gambar 		    = '$_POST[gambar]',
-                    updated_at      = now()
-				WHERE id_artikel='$_POST[id]'");
-        }
+                    kategori	    = '$_POST[kategori]',
+                    gambar 		    = '$_POST[gambar]',
+                    created_at      = now()			
+                ");
+            } elseif ($_POST['aksi'] == "edit") {
+                $mysqli->query("UPDATE artikel SET
+                        judul 		    = '$judul',
+                        judul_seo 	    = '$judul_seo',
+                        judul_terjemahan= '$judul_terjemahan',
+                        isi			    = '$isi',
+                        isi_terjemahan  = '$isi_terjemahan',
+                        hari		    = '$hari_ini',
+                        tanggal		    = '$tanggal',
+                        jam			    = '$jam',
+                        id_user		    = '$user',
+                        headline        = '$headline',
+                        kategori	    = '$_POST[kategori]',
+                        gambar 		    = '$_POST[gambar]',
+                        updated_at      = now()
+                    WHERE id_artikel='$_POST[id]'");
+            }
+        } catch(Exception $e) {
+            include_once "../plugin/logger/Logger.php";
+            Logger::error('SQL Error', [$e->getMessage()]);
+            Logger::error($e->getTraceAsString());
+        } 
+        mysqli_report(MYSQLI_REPORT_OFF);
         header('location:' . $link);
         break;
 

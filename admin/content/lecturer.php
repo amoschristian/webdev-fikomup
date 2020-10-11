@@ -78,52 +78,61 @@ switch ($show) {
         $nama_dosen             = addslashes($_POST['nama_dosen']);
         $gelar                  = addslashes($_POST['gelar']);
         $jenis_kelamin          = addslashes($_POST['jenis_kelamin']);
-        $bidang_kajian                  = addslashes($_POST['bidang_kajian']);
+        $bidang_kajian          = addslashes($_POST['bidang_kajian']);
         $kepangkatan            = addslashes($_POST['kepangkatan']);
         $pendidikan             = addslashes($_POST['pendidikan']);
         $peguruan_tinggi        = addslashes($_POST['peguruan_tinggi']);
         $jabatan                = addslashes($_POST['jabatan']);
         $email                  = addslashes($_POST['email']);
         $user                   = $_SESSION['iduser'];
-        if ($_POST['aksi'] == "tambah") {
-            $mysqli->query("INSERT INTO lecturer SET
-				npd 		    = '$npd',
-				nidn 	        = '$nidn',
-				nama_dosen      = '$nama_dosen',
-                gelar           = '$gelar',
-                jenis_kelamin   = '$jenis_kelamin',
-				bidang_kajian   		= '$bidang_kajian',
-				kepangkatan		= '$kepangkatan',
-				pendidikan  	= '$pendidikan',
-                peguruan_tinggi = '$peguruan_tinggi',
-                jabatan         = '$jabatan',
-                email           = '$email',
-				gambar		    = '$_POST[gambar]',
-                created_at  = now()				
-			");
-        } elseif ($_POST['aksi'] == "edit") {
-            $query = "
-                UPDATE lecturer SET
-                npd 		    = '$npd',
-				nidn 	        = '$nidn',
-				nama_dosen      = '$nama_dosen',
-                gelar           = '$gelar',
-                jenis_kelamin   = '$jenis_kelamin',
-				bidang_kajian   		= '$bidang_kajian',
-				kepangkatan		= '$kepangkatan',
-				pendidikan  	= '$pendidikan',
-                peguruan_tinggi = '$peguruan_tinggi',
-                jabatan         = '$jabatan',
-                email           = '$email',
-				gambar		    = '$_POST[gambar]',
-                updated_at       = now()	
-                WHERE id_lecturer='$_POST[id]'
-            ";
-            
-            $mysqli->query($query);
-        }
+
+        try {
+            mysqli_report(MYSQLI_REPORT_ALL);
+
+            if ($_POST['aksi'] == "tambah") {
+                $mysqli->query("INSERT INTO lecturer SET
+                    npd 		    = '$npd',
+                    nidn 	        = '$nidn',
+                    nama_dosen      = '$nama_dosen',
+                    gelar           = '$gelar',
+                    jenis_kelamin   = '$jenis_kelamin',
+                    bidang_kajian   = '$bidang_kajian',
+                    kepangkatan		= '$kepangkatan',
+                    pendidikan  	= '$pendidikan',
+                    peguruan_tinggi = '$peguruan_tinggi',
+                    jabatan         = '$jabatan',
+                    email           = '$email',
+                    gambar		    = '$_POST[gambar]',
+                    created_at  = now()				
+                ");
+            } elseif ($_POST['aksi'] == "edit") {
+                $query = "
+                    UPDATE lecturer SET
+                    npd 		    = '$npd',
+                    nidn 	        = '$nidn',
+                    nama_dosen      = '$nama_dosen',
+                    gelar           = '$gelar',
+                    jenis_kelamin   = '$jenis_kelamin',
+                    bidang_kajian   = '$bidang_kajian',
+                    kepangkatan		= '$kepangkatan',
+                    pendidikan  	= '$pendidikan',
+                    peguruan_tinggi = '$peguruan_tinggi',
+                    jabatan         = '$jabatan',
+                    email           = '$email',
+                    gambar		    = '$_POST[gambar]',
+                    updated_at       = now()	
+                    WHERE id_lecturer='$_POST[id]'
+                ";
+
+                $mysqli->query($query);
+            }
+        } catch(Exception $e) {
+            include_once "../plugin/logger/Logger.php";
+            Logger::error('SQL Error', [$e->getMessage()]);
+            Logger::error($e->getTraceAsString());
+        } 
+        mysqli_report(MYSQLI_REPORT_OFF); 
         header('location:' . $link);
-       
         break;
 
         // Menghapus data di database

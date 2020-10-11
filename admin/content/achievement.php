@@ -72,39 +72,46 @@ switch ($show) {
 		$lokasi = addslashes($_POST['lokasi']);
 		$gambar = str_replace(['[' , ']' ,'"'], '', $_POST['gambar']);
 
-        if ($_POST['aksi'] == "tambah") {
-            $mysqli->query("INSERT INTO achievement SET
-				judul 		    = '$judul',
-				judul_seo 	    = '$judul_seo',
-				judul_terjemahan= '$judul_terjemahan',
-				isi			    = '$isi',
-				isi_terjemahan  = '$isi_terjemahan',
-				lokasi			= '$lokasi',
-				hari		    = '$hari_ini',
-				tanggal		    = '$tanggal',
-				jam			    = '$jam',
-				id_user		    = '$user',
-				kategori	    = '$_POST[kategori]',
-				gambar 		    = '$gambar',
-                created_at      = now()
-			");
-        } elseif ($_POST['aksi'] == "edit") {
-            $mysqli->query("UPDATE achievement SET
-					judul 		    = '$judul',
-					judul_seo 	    = '$judul_seo',
+        try {
+            mysqli_report(MYSQLI_REPORT_ALL);
+
+            if ($_POST['aksi'] == "tambah") {
+                $mysqli->query("INSERT INTO achievement SET
+                    judul 		    = '$judul',
+                    judul_seo 	    = '$judul_seo',
                     judul_terjemahan= '$judul_terjemahan',
-					isi			    = '$isi',
+                    isi			    = '$isi',
                     isi_terjemahan  = '$isi_terjemahan',
-					lokasi			= '$lokasi',
-					hari		    = '$hari_ini',
-					tanggal		    = '$tanggal',
-					jam			    = '$jam',
-					id_user		    = '$user',
-					kategori	    = '$_POST[kategori]',
-					gambar 		    = '$gambar',
-                    updated_at      = now()
-				WHERE id='$_POST[id]'");
-        }
+                    lokasi			= '$lokasi',
+                    hari		    = '$hari_ini',
+                    tanggal		    = '$tanggal',
+                    jam			    = '$jam',
+                    id_user		    = '$user',
+                    gambar 		    = '$gambar',
+                    created_at      = now()
+                ");
+            } elseif ($_POST['aksi'] == "edit") {
+                $mysqli->query("UPDATE achievement SET
+                        judul		    = '$judul',
+                        judul_seo 	    = '$judul_seo',
+                        judul_terjemahan= '$judul_terjemahan',
+                        isi			    = '$isi',
+                        isi_terjemahan  = '$isi_terjemahan',
+                        lokasi			= '$lokasi',
+                        hari		    = '$hari_ini',
+                        tanggal		    = '$tanggal',
+                        jam			    = '$jam',
+                        id_user		    = '$user',
+                        gambar 		    = '$gambar',
+                        updated_at      = now()
+                    WHERE id='$_POST[id]'");
+            }
+        } catch(Exception $e) {
+            include_once "../plugin/logger/Logger.php";
+            Logger::error('SQL Error', [$e->getMessage()]);
+            Logger::error($e->getTraceAsString());
+        }  
+        mysqli_report(MYSQLI_REPORT_OFF);
         header('location:' . $link);
         break;
 

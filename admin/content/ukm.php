@@ -66,27 +66,36 @@ switch ($show) {
         $nama                   = addslashes($_POST['nama']);
         $linkPost               = $_POST['link'];
         $user                   = $_SESSION['iduser'];
-        if ($_POST['aksi'] == "tambah") {
-            $mysqli->query("INSERT INTO ukm SET
-				nama        = '$nama',
-                link        = '$linkPost',
-				gambar	    = '$_POST[gambar]',
-                created_at  = now()				
-			");
-        } elseif ($_POST['aksi'] == "edit") {
-            $query = "
-                UPDATE ukm SET
-                nama            = '$nama',
-                link            = '$linkPost',
-				gambar		    = '$_POST[gambar]',
-                updated_at      = now()	
-                WHERE id='$_POST[id]'
-            ";
+        
+        try {
+            mysqli_report(MYSQLI_REPORT_ALL);
             
-            $mysqli->query($query);
-        }
+            if ($_POST['aksi'] == "tambah") {
+                $mysqli->query("INSERT INTO ukm SET
+                    nama        = '$nama',
+                    link        = '$linkPost',
+                    gambar	    = '$_POST[gambar]',
+                    created_at  = now()				
+                ");
+            } elseif ($_POST['aksi'] == "edit") {
+                $query = "
+                    UPDATE ukm SET
+                    nama            = '$nama',
+                    link            = '$linkPost',
+                    gambar		    = '$_POST[gambar]',
+                    updated_at      = now()	
+                    WHERE id='$_POST[id]'
+                ";
+
+                $mysqli->query($query);
+            }
+        } catch(Exception $e) {
+            include_once "../plugin/logger/Logger.php";
+            Logger::error('SQL Error', [$e->getMessage()]);
+            Logger::error($e->getTraceAsString());
+        } 
+        mysqli_report(MYSQLI_REPORT_OFF);
         header('location:' . $link);
-       
         break;
 
         // Menghapus data di database

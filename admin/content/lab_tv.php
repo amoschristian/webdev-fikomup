@@ -56,7 +56,7 @@ switch($show){
 		} 
 		tutup_tabel();
 		
-	break;
+		break;
 	
 	//Menampilkan form input dan edit data
 	case "form":
@@ -90,7 +90,7 @@ switch($show){
             buat_textarea("Isi Video (English)", "isi", $data['isi'], "richtext");
             tutup_form($link);
 		}
-	break;	
+		break;	
 	
 	//Menyisipkan atau mengedit data di database
 	case "action":
@@ -102,38 +102,48 @@ switch($show){
 		$youtube_link = $_POST['youtube_link'];
 		$video = $_POST['video'];
 		$video_type = $_POST['video_type'];
-        $user = $_SESSION['iduser'];
-		if ($_POST['aksi'] == "tambah") {
-            $mysqli->query("INSERT INTO lab_tv SET
-				judul 		    = '$judul',
-				judul_seo 	    = '$judul_seo',
-				judul_terjemahan= '$judul_terjemahan',
-				isi			    = '$isi',
-				isi_terjemahan  = '$isi_terjemahan',
-				id_user		    = '$user',
-				youtube_link	= '$youtube_link',
-				video			= '$video',
-				video_type		= '$video_type',
-				gambar 		    = '$_POST[gambar]',
-				created_at		= now()		
-			");
-        } elseif ($_POST['aksi'] == "edit") {
-            $mysqli->query("UPDATE lab_tv SET
+		$user = $_SESSION['iduser'];
+		
+		try {
+			mysqli_report(MYSQLI_REPORT_ALL);
+
+			if ($_POST['aksi'] == "tambah") {
+				$mysqli->query("INSERT INTO lab_tv SET
 					judul 		    = '$judul',
 					judul_seo 	    = '$judul_seo',
-                    judul_terjemahan= '$judul_terjemahan',
+					judul_terjemahan= '$judul_terjemahan',
 					isi			    = '$isi',
-                    isi_terjemahan  = '$isi_terjemahan',
+					isi_terjemahan  = '$isi_terjemahan',
 					id_user		    = '$user',
 					youtube_link	= '$youtube_link',
 					video			= '$video',
 					video_type		= '$video_type',
 					gambar 		    = '$_POST[gambar]',
-					updated_at		= now()
-				WHERE id ='$_POST[id]'");
-        }
+					created_at		= now()		
+				");
+			} elseif ($_POST['aksi'] == "edit") {
+				$mysqli->query("UPDATE lab_tv SET
+						judul 		    = '$judul',
+						judul_seo 	    = '$judul_seo',
+						judul_terjemahan= '$judul_terjemahan',
+						isi			    = '$isi',
+						isi_terjemahan  = '$isi_terjemahan',
+						id_user		    = '$user',
+						youtube_link	= '$youtube_link',
+						video			= '$video',
+						video_type		= '$video_type',
+						gambar 		    = '$_POST[gambar]',
+						updated_at		= now()
+					WHERE id ='$_POST[id]'");
+			}
+		} catch(Exception $e) {
+			include_once "../plugin/logger/Logger.php";
+			Logger::error('SQL Error', [$e->getMessage()]);
+			Logger::error($e->getTraceAsString());
+		} 
+		mysqli_report(MYSQLI_REPORT_OFF);
 		header('location:'.$link);
-	break;
+		break;
 	
 	//Menghapus data di database
 	case "delete":
@@ -143,7 +153,7 @@ switch($show){
 			$mysqli->query("DELETE FROM artikel WHERE id_artikel='$_GET[id]'");
 		}
 		header('location:'.$link);
-	break;
+		break;
 }
 ?>
 

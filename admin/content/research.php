@@ -89,39 +89,47 @@ switch ($show) {
         $tag = implode(",", $_POST['tag']);
         $user = $_SESSION['iduser'];
         
-        if ($_POST['aksi'] == "tambah") {
-            $mysqli->query("INSERT INTO ppm SET
-				judul 		    = '$judul',
-				judul_seo 	    = '$judul_seo',
-				judul_terjemahan= '$judul_terjemahan',
-				isi			    = '$isi',
-				isi_terjemahan  = '$isi_terjemahan',
-				hari		    = '$hari_ini',
-				tanggal		    = '$tanggal',
-				jam			    = '$jam',
-                tipe            = '$tipePenelitian',
-				id_user		    = '$user',
-				headline        = '$headline',
-				kategori	    = '$_POST[kategori]',
-				gambar 		    = '$_POST[gambar]'				
-			");
-        } elseif ($_POST['aksi'] == "edit") {
-            $mysqli->query("UPDATE ppm SET
-					judul 		    = '$judul',
-					judul_seo 	    = '$judul_seo',
+        try {
+            mysqli_report(MYSQLI_REPORT_ALL);
+            if ($_POST['aksi'] == "tambah") {
+                $mysqli->query("INSERT INTO ppm SET
+                    judul 		    = '$judul',
+                    judul_seo 	    = '$judul_seo',
                     judul_terjemahan= '$judul_terjemahan',
-					isi			    = '$isi',
+                    isi			    = '$isi',
                     isi_terjemahan  = '$isi_terjemahan',
-					hari		    = '$hari_ini',
-					tanggal		    = '$tanggal',
-					jam			    = '$jam',
+                    hari		    = '$hari_ini',
+                    tanggal		    = '$tanggal',
+                    jam			    = '$jam',
                     tipe            = '$tipePenelitian',
-					id_user		    = '$user',
+                    id_user		    = '$user',
                     headline        = '$headline',
-					kategori	    = '$_POST[kategori]',
-					gambar 		    = '$_POST[gambar]'
-				WHERE id='$_POST[id]'");
-        }
+                    kategori	    = '$_POST[kategori]',
+                    gambar 		    = '$_POST[gambar]'				
+                ");
+            } elseif ($_POST['aksi'] == "edit") {
+                $mysqli->query("UPDATE ppm SET
+                        judul 		    = '$judul',
+                        judul_seo 	    = '$judul_seo',
+                        judul_terjemahan= '$judul_terjemahan',
+                        isi			    = '$isi',
+                        isi_terjemahan  = '$isi_terjemahan',
+                        hari		    = '$hari_ini',
+                        tanggal		    = '$tanggal',
+                        jam			    = '$jam',
+                        tipe            = '$tipePenelitian',
+                        id_user		    = '$user',
+                        headline        = '$headline',
+                        kategori	    = '$_POST[kategori]',
+                        gambar 		    = '$_POST[gambar]'
+                    WHERE id='$_POST[id]'");
+            }
+        } catch(Exception $e) {
+            include_once "../plugin/logger/Logger.php";
+            Logger::error('SQL Error', [$e->getMessage()]);
+            Logger::error($e->getTraceAsString());
+        } 
+        mysqli_report(MYSQLI_REPORT_OFF);
         header('location:' . $link);
         break;
 

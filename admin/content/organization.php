@@ -71,29 +71,38 @@ switch ($show) {
         $jabatan                = addslashes($_POST['jabatan']);
         $posisi                 = $_POST['posisi'];
         $user                   = $_SESSION['iduser'];
-        if ($_POST['aksi'] == "tambah") {
-            $mysqli->query("INSERT INTO organization SET
-				nama        = '$nama',
-                jabatan     = '$jabatan',
-                posisi      = '$posisi',
-				gambar	    = '$_POST[gambar]',
-                created_at  = now()				
-			");
-        } elseif ($_POST['aksi'] == "edit") {
-            $query = "
-                UPDATE organization SET
-                nama            = '$nama',
-                jabatan         = '$jabatan',
-                posisi          = '$posisi',
-				gambar		    = '$_POST[gambar]',
-                updated_at      = now()	
-                WHERE id='$_POST[id]'
-            ";
-            
-            $mysqli->query($query);
-        }
+
+        try {
+            mysqli_report(MYSQLI_REPORT_ALL);
+
+            if ($_POST['aksi'] == "tambah") {
+                $mysqli->query("INSERT INTO organization SET
+                    nama        = '$nama',
+                    jabatan     = '$jabatan',
+                    posisi      = '$posisi',
+                    gambar	    = '$_POST[gambar]',
+                    created_at  = now()				
+                ");
+            } elseif ($_POST['aksi'] == "edit") {
+                $query = "
+                    UPDATE organization SET
+                    nama            = '$nama',
+                    jabatan         = '$jabatan',
+                    posisi          = '$posisi',
+                    gambar		    = '$_POST[gambar]',
+                    updated_at      = now()	
+                    WHERE id='$_POST[id]'
+                ";
+
+                $mysqli->query($query);
+            }
+        } catch(Exception $e) {
+            include_once "../plugin/logger/Logger.php";
+            Logger::error('SQL Error', [$e->getMessage()]);
+            Logger::error($e->getTraceAsString());
+        } 
+        mysqli_report(MYSQLI_REPORT_OFF);
         header('location:' . $link);
-       
         break;
 
         // Menghapus data di database

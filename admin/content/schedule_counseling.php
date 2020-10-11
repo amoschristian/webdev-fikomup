@@ -74,29 +74,38 @@ switch ($show) {
 		$attachment  = str_replace(['[' , ']' ,'"'], '', $_POST['attachment']);
 		$user = $_SESSION['iduser'];
         
-        if ($_POST['aksi'] == "tambah") {
-            $mysqli->query("INSERT INTO schedule SET
-				judul 		    = '$judul',
-				judul_terjemahan= '$judul_terjemahan',
-				isi			    = '$isi',
-				isi_terjemahan  = '$isi_terjemahan',
-				tanggal 		= '$tanggal',
-				gambar 			= '$_POST[gambar]',
-				attachment      = '$attachment',
-				created_at      = now()
-			");
-        } elseif ($_POST['aksi'] == "edit") {
-            $mysqli->query("UPDATE schedule SET
+        try {
+            mysqli_report(MYSQLI_REPORT_ALL);
+
+            if ($_POST['aksi'] == "tambah") {
+                $mysqli->query("INSERT INTO schedule SET
                     judul 		    = '$judul',
-					judul_terjemahan= '$judul_terjemahan',
-					isi			    = '$isi',
-					isi_terjemahan  = '$isi_terjemahan',
-					tanggal 		= '$tanggal',
-					gambar 			= '$_POST[gambar]',
-					attachment      = '$attachment',
-					updated_at      = now()
-				WHERE id='$_POST[id]'");
-        }
+                    judul_terjemahan= '$judul_terjemahan',
+                    isi			    = '$isi',
+                    isi_terjemahan  = '$isi_terjemahan',
+                    tanggal 		= '$tanggal',
+                    gambar 			= '$_POST[gambar]',
+                    attachment      = '$attachment',
+                    created_at      = now()
+                ");
+            } elseif ($_POST['aksi'] == "edit") {
+                $mysqli->query("UPDATE schedule SET
+                        judul 		    = '$judul',
+                        judul_terjemahan= '$judul_terjemahan',
+                        isi			    = '$isi',
+                        isi_terjemahan  = '$isi_terjemahan',
+                        tanggal 		= '$tanggal',
+                        gambar 			= '$_POST[gambar]',
+                        attachment      = '$attachment',
+                        updated_at      = now()
+                    WHERE id='$_POST[id]'");
+            }
+        } catch(Exception $e) {
+            include_once "../plugin/logger/Logger.php";
+            Logger::error('SQL Error', [$e->getMessage()]);
+            Logger::error($e->getTraceAsString());
+        } 
+        mysqli_report(MYSQLI_REPORT_OFF);
         header('location:' . $link);
         break;
 

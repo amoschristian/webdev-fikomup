@@ -70,33 +70,42 @@ switch ($show) {
         $deskripsi_terjemahan   = addslashes($_POST['deskripsi_terjemahan']);
         $user                   = $_SESSION['iduser'];
         $isi                    = str_replace(['[' , ']' ,'"'], '', $gallery_partner);
-        if ($_POST['aksi'] == "tambah") {
-            $query="INSERT INTO partner SET
-				nama_partner            = '$nama_partner',
-                deskripsi               = '$deskripsi',
-                deskripsi_terjemahan    = '$deskripsi_terjemahan',
-				logo_partner            = '$_POST[logo_partner]',
-                gallery_partner         = '$isi',
-                id_user		            = '$user',
-                created_at              = now()			
-            ";
-            $mysqli->query($query);
-        } elseif ($_POST['aksi'] == "edit") {
-            $query = "
-                UPDATE partner SET
-                nama_partner            = '$nama_partner',
-                deskripsi               = '$deskripsi',
-                deskripsi_terjemahan    = '$deskripsi_terjemahan',
-                logo_partner 	        = '$_POST[logo_partner]',
-                gallery_partner         = '$isi',
-                id_user		            = '$user',
-                updated_at              = now()	
-                WHERE id_partner='$_POST[id]'
-            ";
-            $mysqli->query($query);
-        }
+
+        try {
+            mysqli_report(MYSQLI_REPORT_ALL);
+
+            if ($_POST['aksi'] == "tambah") {
+                $query="INSERT INTO partner SET
+                    nama_partner            = '$nama_partner',
+                    deskripsi               = '$deskripsi',
+                    deskripsi_terjemahan    = '$deskripsi_terjemahan',
+                    logo_partner            = '$_POST[logo_partner]',
+                    gallery_partner         = '$isi',
+                    id_user		            = '$user',
+                    created_at              = now()			
+                ";
+                $mysqli->query($query);
+            } elseif ($_POST['aksi'] == "edit") {
+                $query = "
+                    UPDATE partner SET
+                    nama_partner            = '$nama_partner',
+                    deskripsi               = '$deskripsi',
+                    deskripsi_terjemahan    = '$deskripsi_terjemahan',
+                    logo_partner 	        = '$_POST[logo_partner]',
+                    gallery_partner         = '$isi',
+                    id_user		            = '$user',
+                    updated_at              = now()	
+                    WHERE id_partner='$_POST[id]'
+                ";
+                $mysqli->query($query);
+            }
+        } catch(Exception $e) {
+            include_once "../plugin/logger/Logger.php";
+            Logger::error('SQL Error', [$e->getMessage()]);
+            Logger::error($e->getTraceAsString());
+        } 
+        mysqli_report(MYSQLI_REPORT_OFF);
         header('location:' . $link);
-       
         break;
 
         // Menghapus data di database

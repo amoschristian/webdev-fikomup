@@ -59,27 +59,36 @@ switch ($show) {
         $isi_terjemahan = addslashes($_POST['isi_terjemahan']);
         $user = $_SESSION['iduser'];
         
-        if ($_POST['aksi'] == "tambah") {
-            $mysqli->query("INSERT INTO vision_mission SET
-				isi			    = '$isi',
-				isi_terjemahan  = '$isi_terjemahan',
-				hari		    = '$hari_ini',
-				tanggal		    = '$tanggal',
-				jam			    = '$jam',
-				id_user		    = '$user',
-                created_at      = now()
-			");
-        } elseif ($_POST['aksi'] == "edit") {
-            $mysqli->query("UPDATE vision_mission SET
-					isi			    = '$isi',
-                    isi_terjemahan  = '$isi_terjemahan',
-					hari		    = '$hari_ini',
-					tanggal		    = '$tanggal',
-					jam			    = '$jam',
-					id_user		    = '$user',
-                    updated_at      = now()
-				WHERE id='$_POST[id]'");
-        }
+        try {
+            mysqli_report(MYSQLI_REPORT_ALL);
+
+            if ($_POST['aksi'] == "tambah") {
+                // $mysqli->query("INSERT INTO vision_mission SET
+                //     isi			    = '$isi',
+                //     isi_terjemahan  = '$isi_terjemahan',
+                //     hari		    = '$hari_ini',
+                //     tanggal		    = '$tanggal',
+                //     jam			    = '$jam',
+                //     id_user		    = '$user',
+                //     created_at      = now()
+                // ");
+            } elseif ($_POST['aksi'] == "edit") {
+                $mysqli->query("UPDATE vision_mission SET
+                        isi			    = '$isi',
+                        isi_terjemahan  = '$isi_terjemahan',
+                        hari		    = '$hari_ini',
+                        tanggal		    = '$tanggal',
+                        jam			    = '$jam',
+                        id_user		    = '$user',
+                        updated_at      = now()
+                    WHERE id='$_POST[id]'");
+            }
+        } catch(Exception $e) {
+            include_once "../plugin/logger/Logger.php";
+            Logger::error('SQL Error', [$e->getMessage()]);
+            Logger::error($e->getTraceAsString());
+        } 
+        mysqli_report(MYSQLI_REPORT_OFF);
         header('location:' . $link);
         break;
 
