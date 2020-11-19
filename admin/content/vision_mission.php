@@ -62,17 +62,7 @@ switch ($show) {
         try {
             mysqli_report(MYSQLI_REPORT_ALL);
 
-            if ($_POST['aksi'] == "tambah") {
-                // $mysqli->query("INSERT INTO vision_mission SET
-                //     isi			    = '$isi',
-                //     isi_terjemahan  = '$isi_terjemahan',
-                //     hari		    = '$hari_ini',
-                //     tanggal		    = '$tanggal',
-                //     jam			    = '$jam',
-                //     id_user		    = '$user',
-                //     created_at      = now()
-                // ");
-            } elseif ($_POST['aksi'] == "edit") {
+            if ($_POST['aksi'] == "edit") {
                 $mysqli->query("UPDATE vision_mission SET
                         isi			    = '$isi',
                         isi_terjemahan  = '$isi_terjemahan',

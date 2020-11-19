@@ -75,9 +75,10 @@ switch ($show) {
             if ($_POST['aksi'] == "tambah") {
                 $mysqli->query("INSERT INTO student SET
                     nama        = '$nama',
-                    nim     = '$nim',
-                    jurusan      = '$jurusan',
+                    nim         = '$nim',
+                    jurusan     = '$jurusan',
                     gambar	    = '$_POST[gambar]',
+                    id_user		= '$user',
                     created_at  = now()				
                 ");
             } elseif ($_POST['aksi'] == "edit") {
@@ -87,6 +88,7 @@ switch ($show) {
                     nim             = '$nim',
                     jurusan         = '$jurusan',
                     gambar		    = '$_POST[gambar]',
+                    id_user		    = '$user',
                     updated_at      = now()	
                     WHERE id='$_POST[id]'
                 ";

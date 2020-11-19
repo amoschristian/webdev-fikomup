@@ -108,7 +108,6 @@ switch ($show) {
         $isi_terjemahan     = addslashes($_POST['isi_terjemahan']);
         $lokasi             = addslashes($_POST['lokasi']);
         $tanggal            = date('Y-m-d H:i:s', strtotime($_POST['tanggal']));
-        $tag                = (isset($_POST['tag']) && $_POST['tag']) ? implode(",", $_POST['tag']) : '';
         $user               = $_SESSION['iduser'];
 
         try {
@@ -124,7 +123,6 @@ switch ($show) {
                     tanggal          = '$tanggal',
                     lokasi           = '$lokasi',
                     id_user		     = '$user',
-                    tag			     = '$tag',
                     map              = '$_POST[peta]',
                     kategori	     = '$_POST[kategori]',
                     gambar 		     = '$_POST[gambar]',
@@ -141,7 +139,6 @@ switch ($show) {
                         tanggal          = '$tanggal',
                         lokasi           = '$lokasi',
                         id_user		     = '$user',
-                        tag			     = '$tag',
                         map              = '$_POST[peta]',
                         kategori	     = '$_POST[kategori]',
                         gambar 		     = '$_POST[gambar]',

@@ -102,6 +102,7 @@ switch ($show) {
                     peguruan_tinggi = '$peguruan_tinggi',
                     jabatan         = '$jabatan',
                     email           = '$email',
+                    id_user		    = '$user',
                     gambar		    = '$_POST[gambar]',
                     created_at  = now()				
                 ");
@@ -120,6 +121,7 @@ switch ($show) {
                     jabatan         = '$jabatan',
                     email           = '$email',
                     gambar		    = '$_POST[gambar]',
+                    id_user		    = '$user',
                     updated_at       = now()	
                     WHERE id_lecturer='$_POST[id]'
                 ";

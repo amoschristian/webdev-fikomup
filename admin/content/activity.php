@@ -41,7 +41,7 @@ switch ($show) {
             $data = $query->fetch_array();
             $aksi = "Edit";
         } else {
-            $data = array("id" => "", "judul" => "", "judul_terjemahan" => "", "isi" => "", "isi_terjemahan" => "", "gambar" => "", "kategori" => "", "lokasi" => "");
+            $data = array("id" => "", "judul" => "", "judul_terjemahan" => "", "isi" => "", "isi_terjemahan" => "", "gambar" => "", "lokasi" => "");
             $aksi = "Tambah";
         }
 
@@ -87,7 +87,6 @@ switch ($show) {
                     tanggal		    = '$tanggal',
                     jam			    = '$jam',
                     id_user		    = '$user',
-                    kategori	    = '$_POST[kategori]',
                     gambar 		    = '$gambar',
                     created_at      = now()
                 ");
@@ -103,7 +102,6 @@ switch ($show) {
                         tanggal		    = '$tanggal',
                         jam			    = '$jam',
                         id_user		    = '$user',
-                        kategori	    = '$_POST[kategori]',
                         gambar 		    = '$gambar',
                         updated_at      = now()
                     WHERE id='$_POST[id]'");

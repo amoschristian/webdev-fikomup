@@ -24,7 +24,7 @@ $detail_event = [];
 while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
 	$sentences = 2;
 	$isi = $data['isi_terjemahan'];
-	$judul = $data['isi_terjemahan'];
+	$judul = $data['judul_terjemahan'];
 	if ($lang->language != $default_language) {
 		$isi = ($data['isi'] ?: $isi);
 		$judul = ($data['judul'] ?: $judul);
@@ -50,6 +50,13 @@ while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
 		background-repeat: no-repeat;
 		background-position: right;
 	}
+
+	/* .event_name > a > p {
+		font-size: 36px;
+		font-weight: 500;
+		line-height: 1.2;
+		color: #1a1a1a;
+	} */
 </style>
 <body>
 

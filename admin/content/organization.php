@@ -81,6 +81,7 @@ switch ($show) {
                     jabatan     = '$jabatan',
                     posisi      = '$posisi',
                     gambar	    = '$_POST[gambar]',
+                    id_user		    = '$user',
                     created_at  = now()				
                 ");
             } elseif ($_POST['aksi'] == "edit") {
@@ -90,6 +91,7 @@ switch ($show) {
                     jabatan         = '$jabatan',
                     posisi          = '$posisi',
                     gambar		    = '$_POST[gambar]',
+                    id_user		    = '$user',
                     updated_at      = now()	
                     WHERE id='$_POST[id]'
                 ";

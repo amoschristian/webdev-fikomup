@@ -85,6 +85,7 @@ switch ($show) {
                     isi_terjemahan  = '$isi_terjemahan',
                     tanggal 		= '$tanggal',
                     gambar 			= '$_POST[gambar]',
+                    id_user		    = '$user',
                     attachment      = '$attachment',
                     created_at      = now()
                 ");
@@ -96,6 +97,7 @@ switch ($show) {
                         isi_terjemahan  = '$isi_terjemahan',
                         tanggal 		= '$tanggal',
                         gambar 			= '$_POST[gambar]',
+                        id_user		    = '$user',
                         attachment      = '$attachment',
                         updated_at      = now()
                     WHERE id='$_POST[id]'");

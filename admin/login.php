@@ -38,10 +38,8 @@ include "../library/function_antiinjection.php";
 			$data = $cekuser->fetch_array();
 
 			if ($jmluser > 0) {
-
 				$_SESSION['iduser']       = $data['id_user'];
 				$_SESSION['namalengkap']  = $data['nama_lengkap'];
-				$_SESSION['persnumber']   = $data['pers_number'];
 				$_SESSION['leveluser']    = $data['level'];
 				$_SESSION['username']     = $data['username'];
 				$_SESSION['password']     = $data['password'];

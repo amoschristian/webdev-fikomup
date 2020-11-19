@@ -28,14 +28,6 @@ switch ($show) {
             $kategori = $mysqli->query("SELECT * FROM kategori where id_kategori='$data[kategori]'");
             $kat = $kategori->fetch_array();
 
-            $headline = '';
-            if ($data['headline']) {
-                $headline = $headline_list_const[$data['headline']]['cap'];
-                if ($data['headline'] == 1) { //main headline
-                    $headline = '<b>' . $headline . '</b>';
-                }
-            }
-
             $tanggal = print_tanggal($data['created_at']);
 
             isi_tabel($no, array($data['judul_terjemahan'], $kat['kategori'], $tanggal), $link, $data['id']);
@@ -85,8 +77,6 @@ switch ($show) {
         $judul_terjemahan = addslashes($_POST['judul_terjemahan']);
         $isi = addslashes($_POST['isi']);
         $isi_terjemahan = addslashes($_POST['isi_terjemahan']);
-        $headline = $_POST['headline'];
-        $tag = implode(",", $_POST['tag']);
         $user = $_SESSION['iduser'];
         
         try {
@@ -104,10 +94,9 @@ switch ($show) {
                     jam			    = '$jam',
                     tipe            = '$tipePengabdian',
                     id_user		    = '$user',
-                    headline        = '$headline',
                     kategori	    = '$_POST[kategori]',
                     gambar 		    = '$_POST[gambar]',
-                    created_at      = now()				
+                    created_at      = now()	
                 ");
             } elseif ($_POST['aksi'] == "edit") {
                 $mysqli->query("UPDATE ppm SET
@@ -121,7 +110,6 @@ switch ($show) {
                         jam			    = '$jam',
                         tipe            = '$tipePengabdian',
                         id_user		    = '$user',
-                        headline        = '$headline',
                         kategori	    = '$_POST[kategori]',
                         gambar 		    = '$_POST[gambar]',
                         updated_at      = now()

@@ -84,7 +84,6 @@ switch ($show) {
                     tanggal		    = '$tanggal',
                     jam			    = '$jam',
                     id_user		    = '$user',
-                    kategori	    = '$_POST[kategori]',
                     gambar 		    = '$_POST[gambar]',
                     created_at      = now()
                 ");
@@ -99,7 +98,6 @@ switch ($show) {
                         tanggal		    = '$tanggal',
                         jam			    = '$jam',
                         id_user		    = '$user',
-                        kategori	    = '$_POST[kategori]',
                         gambar 		    = '$_POST[gambar]',
                         updated_at      = now()
                     WHERE id='$_POST[id]'");

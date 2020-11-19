@@ -69,7 +69,7 @@ switch ($show) {
         $lokasi             = addslashes($_POST['lokasi']);
         $isi                = addslashes($_POST['isi']);
         $isi_terjemahan     = addslashes($_POST['isi_terjemahan']);
-        $user       = $_SESSION['iduser'];
+        $user               = $_SESSION['iduser'];
 
         try {
             mysqli_report(MYSQLI_REPORT_ALL);
@@ -82,6 +82,7 @@ switch ($show) {
                     isi             = '$isi',
                     isi_terjemahan  = '$isi_terjemahan',
                     gambar		    = '$_POST[gambar]',
+                    id_user		     = '$user',
                     created_at  = now()				
                 ");
             } elseif ($_POST['aksi'] == "edit") {
@@ -93,6 +94,7 @@ switch ($show) {
                     isi             = '$isi',
                     isi_terjemahan  = '$isi_terjemahan',
                     gambar		    = '$_POST[gambar]',
+                    id_user		     = '$user',
                     updated_at       = now()	
                     WHERE id='$_POST[id]'
                 ";
