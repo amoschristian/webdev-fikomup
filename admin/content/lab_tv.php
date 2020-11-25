@@ -147,10 +147,10 @@ switch($show){
 	
 	//Menghapus data di database
 	case "delete":
-		$query 	= $mysqli->query("SELECT * FROM artikel WHERE id_artikel='$_GET[id]'");
+		$query 	= $mysqli->query("SELECT * FROM lab_tv WHERE id ='$_GET[id]'");
 		$data	= $query->fetch_array();
 		if($_SESSION['leveluser']=="admin" or $data['id_user']==$_SESSION['iduser']){
-			$mysqli->query("DELETE FROM artikel WHERE id_artikel='$_GET[id]'");
+			$mysqli->query("DELETE FROM lab_tv WHERE id ='$_GET[id]'");
 		}
 		header('location:'.$link);
 		break;
