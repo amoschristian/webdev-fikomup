@@ -51,6 +51,12 @@ switch ($module) {
         ];
         break;
     
+    case 'home':
+        $extra_css = [
+            "plugins/jarallax/jarallax.css"
+        ];
+        break;
+    
     default:
         # code...
         break;

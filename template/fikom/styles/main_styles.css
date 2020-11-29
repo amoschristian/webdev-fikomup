@@ -1046,7 +1046,7 @@ section {
 
 .register_section {
   width: 100%;
-  background: #ff4f00;
+  background: transparent;
   padding-top: 156px;
   padding-bottom: 161px;
   height: 100px;

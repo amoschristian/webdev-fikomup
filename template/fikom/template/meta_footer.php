@@ -23,7 +23,7 @@ switch ($module) {
 
     case 'home':
         $extra_js = [
-            "plugins/parallax.js-2.0.0/jquery.parallax.min.js",
+            "plugins/jarallax/jarallax.min.js",
         ];
         break;
     
