@@ -6,8 +6,9 @@ include $_SERVER['DOCUMENT_ROOT'] . "/library/instagram/InstagramBasicDisplayExc
 use EspressoDev\InstagramBasicDisplay\InstagramBasicDisplay;
 
 class Instagram {
-    const REDIRECT_URI_LOCAL = 'https://fikom.test/admin/';
-    const REDIRECT_URI_LIVE = 'https://fikomup.com/admin/';
+    const FIKOMUP_REDIRECT_URI_LOCAL = 'https://fikom.test/admin/';
+    const FIKOMUP_REDIRECT_URI_LIVE = 'https://fikomup.com/admin/';
+    const KOMUNIKASI_REDIRECT_URI_LIVE = 'https://komunikasi.univpancasila.ac.id/admin/';
 
     public $instagram;
     public $token;
@@ -17,7 +18,7 @@ class Instagram {
         $this->instagram = new InstagramBasicDisplay([
             'appId' => '593765884864339',
             'appSecret' => 'c61aa22f3eb36f5049ffdc0f7de424ce',
-            'redirectUri' => self::REDIRECT_URI_LIVE
+            'redirectUri' => self::FIKOMUP_REDIRECT_URI_LIVE
         ]);
 
         $token = $this->getAccessToken();
@@ -100,6 +101,21 @@ class Instagram {
 
     function getUserMedia($limit){
         return $this->instagram->getUserMedia('me', $limit);
+    }
+
+    function saveTokenManual($token, $expired) {
+        global $mysqli;
+
+        $query = "INSERT INTO access_token SET
+            token = '$token',
+            expired = '$expired'
+        ";
+
+        if ($mysqli->query($query)) {
+            return true;
+        }
+
+        return false;
     }
 }
 ?>
