@@ -1,36 +1,28 @@
-<?php 
+<?php
 include "library/instagram/Instagram.php";
+include "library/helper/StringHelper.php";
 
+$stringHelper = new StringHelper($lang->language);
 //prepare the data to be display news
-$sentences = 1;
-
 $headline_query = $mysqli->query("SELECT * FROM artikel WHERE headline = 1 LIMIT 1");
 $headline_news = $headline_query->fetch_array();
 
-$headline_isi = $headline_news['isi'];
-$headline_judul = $headline_news['judul'];
-
-$text_pendek =  implode('. ', array_slice(explode('.', strip_tags($headline_isi)), 0, $sentences)) . '.';
+$headline_isi = $stringHelper->printContent($headline_news, StringHelper::TYPE_ISI);
+$headline_judul = $stringHelper->printContent($headline_news, StringHelper::TYPE_JUDUL);
 
 $headline_news['judul'] = $headline_judul;
-$headline_news['desc'] = $text_pendek;
+$headline_news['desc'] = $stringHelper->hightlightContent($headline_isi);
 
 $sub_news = [];
 $sub_news_query = $mysqli->query("SELECT * FROM artikel WHERE headline = 2  ORDER BY created_at DESC LIMIT 3");
 
 while ($data = $sub_news_query->fetch_array(MYSQLI_ASSOC)) {
-    $sentences = 1;
-    $isi = $data['isi_terjemahan'];
-    $judul = $data['judul_terjemahan'];
-    if ($lang->language != $default_language) {
-        $isi = ($data['isi'] ?: $isi);
-        $judul = ($data['judul'] ?: $judul);
-    }
-	$text_pendek =  implode('. ', array_slice(explode('.', strip_tags($isi)), 0, $sentences)) . '.';
+    $isi = $stringHelper->printContent($data, StringHelper::TYPE_ISI);
+    $judul =  $stringHelper->printContent($data, StringHelper::TYPE_JUDUL);
 
     $sub_news[$data['id_artikel']] = $data;
     $sub_news[$data['id_artikel']]['judul'] = $judul;
-	$sub_news[$data['id_artikel']]['desc'] = $text_pendek;
+	$sub_news[$data['id_artikel']]['desc'] = $stringHelper->hightlightContent($isi);
 }
 
 $instagram = new Instagram;
