@@ -78,17 +78,33 @@
     background: rgba(0, 0, 0, 0.625);
 }
 
+.headline .card-body-hd {
+    padding-top: 10%;
+    padding-bottom: 5%;
+    height: 100%;
+}
+
 .headline .card-title {
-    margin-bottom: 50px;
+    margin-top: 0px !important;
+    height: 60%;
 }
 
 .headline .card-title a {
-    font-size: 40px;
+    font-size: xx-large;
     font-weight: 500;
     color: white !important;
 }
 
+.headline .card-text {
+    height: 30%;
+}
+
+.headline .read-more-btn {
+    height: 10%;
+}
+
 .headline .read-more-btn a {
+    height: 10%;
     color: white;
 }
 
